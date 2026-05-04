@@ -1,0 +1,28 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: #dddddd; /* Juste pour visualiser */
+}
+
+#map-timeline {
+  display: flex;
+  flex-direction: row;
+  resize: both;
+  min-height: 100px;
+  height: 100%;
+}
+
+.resizer {
+  cursor: ew-resize;
+  background-color: gray;
+}
+
+#timeline {
+  width: 70%;
+  height: 600px;
+}
+
+#map {
+  width: 30%;
+  min-height: 100px;
+}

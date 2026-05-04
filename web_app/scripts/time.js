@@ -1,0 +1,298 @@
+/// Gestion des temps dans timeline.js
+
+function getValidTimeForLandmarkLabel(appTime, disTime){
+  var label = "";
+  var appTimeLabel = "<b>Date de création :</b> "
+  var disTimeLabel = "<b>Date de disparition :</b> "
+  var betweenLabel = "entre" ;
+  var beforeLabel = "avant" ;
+  var afterLabel = "après" ;
+  var andLabel = "et" ;
+
+  if (appTime.precise){
+    label += `<div>${appTimeLabel}${appTime.precise.label}</div>` ;
+  } else if (appTime.before && appTime.after){
+    label += `<div>${appTimeLabel} ${betweenLabel} ${appTime.before.label} ${andLabel} ${appTime.after.label}</div>` ;
+  } else if (appTime.before){
+    label += `<div>${appTimeLabel} ${beforeLabel} ${appTime.before.label}</div>` ;
+  } else if (appTime.after){
+    label += `<div>${appTimeLabel} ${afterLabel} ${appTime.after.label}</div>` ;
+  }
+
+  var spacing = "50px" ;
+  label += `<div style="margin-left: ${spacing} 0;">-</div>`;
+
+  if (disTime.precise){
+    label += `<div>${disTimeLabel}${disTime.precise.label}</div>` ;
+  } else if (disTime.before && disTime.after){
+    label += `<div>${disTimeLabel} ${betweenLabel} ${disTime.before.label} ${andLabel} ${disTime.after.label}</div>` ;
+  } else if (disTime.before){
+    label += `<div>${disTimeLabel} ${beforeLabel} ${disTime.before.label}</div>` ;
+  } else if (disTime.after){
+    label += `<div>${disTimeLabel} ${afterLabel} ${disTime.after.label}</div>` ;
+  }
+
+  return label
+
+}
+
+function getTimeWithFrenchLabel(timeStamp, timePrecision) {
+  var timeElems = extractElementsFromTimeStamp(timeStamp);
+  var precision = extractElementsFromTimePrecision(timePrecision);
+
+  var months = { 1: "janvier", 2: "février", 3: "mars", 4: "avril", 5: "mai", 6: "juin", 7: "juillet", 8: "août", 9: "septembre", 10: "octobre", 11: "novembre", 12: "décembre"};
+
+  var year = parseInt(timeElems.year);
+  var month = months[parseInt(timeElems.month)];
+  let label = "";
+
+  switch (precision) {
+
+    case "millenium": {
+      var millenium = Math.ceil(year / 1000);
+      var suffix = millenium === 1 ? "re" : "e";
+      label = `${millenium}${suffix} millénaire`;
+      break;
+    }
+
+    case "century": {
+      var century = Math.ceil(year / 100);
+      var suffix = century === 1 ? "er" : "e";
+      label = `${century}${suffix} siècle`;
+      break;
+    }
+
+    case "decade": {
+      var decade = Math.trunc(year / 10) * 10;
+      label = `années ${decade}`;
+      break;
+    }
+
+    case "year":
+      label = `${year}`;
+      break;
+
+    case "month":
+      label = `${month} ${year}`;
+      break;
+
+    case "day":
+    case "hours":
+    case "minutes":
+    case "seconds":
+    case "milliseconds": {
+      let day = timeElems.day;
+      if (day === "1") day = "1er";
+      label = `${day} ${month} ${year}`;
+      break;
+    }
+  }
+
+  return {
+    ...timeElems,
+    label,
+    precision
+  };
+}
+
+function createTimelineTime(year=null, month=null, day=null, hour=null, minute=null, second=null, millisecond=null, format=null){
+  year = (!year) ? '' : year ;
+  month = (!month) ? '' : month ;
+  day = (!day) ? '' : day ;
+  hour = (!hour) ? '' : hour ;
+  minute = (!minute) ? '' : minute ;
+  second = (!second) ? '' : second ;
+  millisecond = (!millisecond) ? '' : millisecond ;
+  format = (!format) ? '' : format ;
+  return {year, month, day, hour, minute, second, millisecond, format}
+}
+
+function createTime(timeStamp, timePrecision){
+  var timeElems = extractElementsFromTimeStamp(timeStamp) ;
+  var precision = extractElementsFromTimePrecision(timePrecision) ;
+  timeElems = correctTimeAccordingPrecision(timeElems, precision) ;
+
+  var time = createTimelineTime(timeElems.year, timeElems.month, timeElems.day, timeElems.hour, timeElems.minute, timeElems.second, timeElems.millisecond, timeElems.format) ;
+  return time
+}
+
+function createTimeFromTwoTimes(timeStamp1, timePrecision1, timeStamp2, timePrecision2){
+  var time1 = getDateObjectFromTimeStamp(timeStamp1) ;
+  var time2 = getDateObjectFromTimeStamp(timeStamp2) ;
+  var meanTimes = getMeanOfTwoTimes(time1, time2);
+  var meanTimesElems = extractElementsFromTime(meanTimes);
+  var precision = "day" ;
+  meanTimesElems = correctTimeAccordingPrecision(meanTimesElems, precision) ;
+  var time = createTimelineTime(meanTimesElems.year, meanTimesElems.month, meanTimesElems.day,
+    meanTimesElems.hour, meanTimesElems.minute, meanTimesElems.second, meanTimesElems.millisecond,
+    meanTimesElems.format) ;
+  return time
+}
+
+function correctTimeAccordingPrecision(time, precision){
+  time.format = null ;
+
+  if (precision == "year"){
+    time.month, time.day, time.hour, time.minute, time.second, time.millisecond = null, null, null, null, null, null ;
+  }else if (precision == "month"){
+    time.day, time.hour, time.minute, time.second, time.millisecond = null, null, null, null, null ;
+  }else if (precision == "day"){
+    time.hour, time.minute, time.second, time.millisecond = null, null, null, null ;
+  }
+
+  return time
+}
+
+function getMeanOfTwoTimes(time1, time2){
+  var intTime1 = time1.getTime() ;
+  var intTime2 = time2.getTime() ;
+  var meanIntTimes = (intTime1 + intTime2) / 2 ;
+  var meanTimes = new Date(meanIntTimes) ;
+  return meanTimes ;
+}
+
+function getMeanOfTwoTimesFromStamps(timeStamp1, timeStamp2){
+  var formattedTimeStamp1 = timeStamp1.replace("+",""); // Retirer le +
+  var formattedTimeStamp2 = timeStamp2.replace("+",""); // Retirer le +
+  var time1 = new Date(formattedTimeStamp1); // Créer un objet Date
+  var time2 = new Date(formattedTimeStamp2); // Créer un objet Date
+  return getMeanOfTwoTimes(time1, time2);
+}
+
+function extractElementsFromTimePrecision(timePrecision) {
+  var map = {
+    "http://www.w3.org/2006/time#unitDay": "day",
+    "http://www.w3.org/2006/time#unitMonth": "month",
+    "http://www.w3.org/2006/time#unitYear": "year",
+    "http://www.w3.org/2006/time#unitDecade": "decade",
+    "http://www.w3.org/2006/time#unitCentury": "century",
+    "http://www.w3.org/2006/time#unitMillenium": "millenium"
+  };
+
+  return map[timePrecision] || null;
+}
+
+function getDateObjectFromTimeStamp(timeStamp){
+  // Convertir la chaîne en un objet datetime
+  // Note : le "Z" indique UTC (temps universel coordonné), donc on l'enlève avec replace
+  // var formattedTimeStamp = timeStamp.replace("Z", "").replace("+",""); // Retirer le "Z" et le +
+  var formattedTimeStamp = timeStamp.replace("+",""); // Retirer le +
+  var date = new Date(formattedTimeStamp); // Créer un objet Date
+  return date;
+}
+
+function extractElementsFromTimeStamp(timeStamp){
+  var time = getDateObjectFromTimeStamp(timeStamp);
+  return extractElementsFromTime(time);
+}
+
+function extractElementsFromTime(time){
+  // Récupérer les différentes parties
+  var year = String(time.getUTCFullYear());      // Année
+  var month = String(time.getUTCMonth() + 1);   // Mois (commence à 0, donc ajouter 1)
+  var day = String(time.getUTCDate());          // Jour
+  var hours = String(time.getUTCHours());       // Heures
+  var minutes = String(time.getUTCMinutes());   // Minutes
+  var seconds = String(time.getUTCSeconds());   // Secondes
+  var milliseconds = String(time.getUTCMilliseconds()); // Millisecondes
+  return { year, month, day, hours, minutes, seconds, milliseconds }
+}
+
+function getValidTimeForLandmark(timeApp={}, timeDis={}, timeBeforeApp={}, timeAfterApp={}, timeBeforeDis={}, timeAfterDis={}){
+  var startTime = {} ;
+  var startTimePrec = undefined ;
+  var startTimeBefore = undefined ;
+  var startTimeAfter = undefined ;
+  if(timeApp.stamp && timeApp.precision){
+    var startTimePrec = getTimeWithFrenchLabel(timeApp.stamp.value, timeApp.precision.value) ;
+    startTime.precise = startTimePrec ;
+  }else if(timeBeforeApp.stamp && timeBeforeApp.precision && timeAfterApp.stamp && timeAfterApp.precision){
+    var startTimeBefore = getTimeWithFrenchLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value) ;
+    var startTimeAfter = getTimeWithFrenchLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value) ;
+    startTime.before = startTimeBefore ;
+    startTime.after = startTimeAfter ;
+  }else if (timeBeforeApp.stamp && timeBeforeApp.precision){
+    var startTimeBefore = getTimeWithFrenchLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value) ;
+    startTime.before = startTimeBefore ;
+  }else if (timeAfterApp.stamp && timeAfterApp.precision){
+    var startTimeAfter = getTimeWithFrenchLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value) ;
+    startTime.after = startTimeAfter ;
+  }
+
+  var endTime = {} ;
+  if(timeDis.stamp && timeDis.precision){
+    var endTimePrec = getTimeWithFrenchLabel(timeDis.stamp.value, timeDis.precision.value) ;
+    endTime.precise = endTimePrec ;
+  }else if(timeBeforeDis.stamp && timeBeforeDis.precision && timeAfterDis.stamp && timeAfterDis.precision){
+    var endTimeBefore = getTimeWithFrenchLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value) ;
+    var endTimeAfter = getTimeWithFrenchLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value) ;
+    endTime.before = endTimeBefore ;
+    endTime.after = endTimeAfter ;
+  }else if (timeBeforeDis.stamp && timeBeforeDis.precision){
+    var endTimeBefore = getTimeWithFrenchLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value) ;
+    endTime.before = endTimeBefore ;
+  }else if (timeAfterDis.stamp && timeAfterDis.precision){
+    var endTimeAfter = getTimeWithFrenchLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value) ;
+    endTime.after = endTimeAfter ;
+  }
+
+  return {"appTime":startTime, "disTime":endTime}
+}
+
+
+function createTimelineFeature(uiConfig, attrVersion, attrType, attrVersionValues, timeME = {}, timeO = {}) {
+  var groupName = uiConfig.types.attributes.get(attrType.value).label || attrType.value;
+  var text = createTimelineText(attrVersion, attrVersionValues);
+
+  var feature = {
+    "group": groupName,
+    "background": { "color": "#1c244b" },
+    "unique_id": attrVersion.value
+  };
+
+  // --- Calcul de startTime (makesEffective) ---
+  var startTime = undefined;
+  if (timeME.crisp && timeME.crisp.stamp && timeME.crisp.precision) {
+    // Cas Crisp : Temps net
+    startTime = createTime(timeME.crisp.stamp.value, timeME.crisp.precision.value);
+  } else if (timeME.fuzzy) {
+    var beg = timeME.fuzzy.beginning;
+    var end = timeME.fuzzy.end;
+
+    if (beg && beg.stamp && end && end.stamp) {
+      // Cas Fuzzy complet : On utilise les deux bornes
+      startTime = createTimeFromTwoTimes(beg.stamp.value, beg.precision.value, end.stamp.value, end.precision.value);
+    } else if (beg && beg.stamp) {
+      // Cas Fuzzy partiel : Uniquement le début
+      startTime = createTime(beg.stamp.value, beg.precision.value);
+    } else if (end && end.stamp) {
+      // Cas Fuzzy partiel : Uniquement la fin
+      startTime = createTime(end.stamp.value, end.precision.value);
+    }
+  }
+
+  // --- Calcul de endTime (outdates) ---
+  var endTime = undefined;
+  if (timeO.crisp && timeO.crisp.stamp && timeO.crisp.precision) {
+    // Cas Crisp : Temps net
+    endTime = createTime(timeO.crisp.stamp.value, timeO.crisp.precision.value);
+  } else if (timeO.fuzzy) {
+    var beg = timeO.fuzzy.beginning;
+    var end = timeO.fuzzy.end;
+
+    if (beg && beg.stamp && end && end.stamp) {
+      // Cas Fuzzy complet
+      endTime = createTimeFromTwoTimes(beg.stamp.value, beg.precision.value, end.stamp.value, end.precision.value);
+    } else if (beg && beg.stamp) {
+      endTime = createTime(beg.stamp.value, beg.precision.value);
+    } else if (end && end.stamp) {
+      endTime = createTime(end.stamp.value, end.precision.value);
+    }
+  }
+
+  feature["start_date"] = startTime;
+  feature["end_date"] = endTime;
+  feature["text"] = text;
+
+  return feature;
+}

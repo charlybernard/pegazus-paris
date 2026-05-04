@@ -1,0 +1,231 @@
+@base <http://rdf.geohistoricaldata.org/def/address#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix peg: <http://rdf.geohistoricaldata.org/def/address#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix wb: <http://wikiba.se/ontology#> .
+@prefix : <http://www.example.org/test#> .
+
+# A resource of Landmark class must have at least one LandmarkType
+:LandmarkShape1 a sh:NodeShape;
+   sh:targetClass peg:Landmark ;
+   sh:property [
+        sh:path     peg:isLandmarkType ;
+        sh:nodeKind sh:IRI ;
+        sh:class    peg:LandmarkType ;
+        sh:minCount 1 ;
+  ] .
+
+# If a landmark is the subject of a triple whose predicate is peg:hasAttribute, the object must be an Attribute.
+:LandmarkShape2 a sh:NodeShape;
+   sh:targetClass peg:Landmark ;
+   sh:property [
+        sh:path     peg:hasAttribute ;
+        sh:nodeKind sh:IRI ;
+        sh:class    peg:Attribute ;
+  ] .
+
+# An address targets one and only one Landmark
+:AddressShape1 a sh:NodeShape;
+      sh:targetClass peg:Address ;
+      sh:property [
+            sh:path     peg:targets ;
+            sh:nodeKind sh:IRI ;
+            sh:class    peg:Landmark ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+] .
+
+# The first step of an address is either a AddressSegment or a FinalAddressSegment.
+:AddressShape2 a sh:NodeShape;
+   sh:targetClass peg:Address ;
+   sh:property [
+        sh:path     peg:firstStep ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+          [sh:class peg:AddressSegment]
+          [sh:class peg:FinalAddressSegment]
+) ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+  ] .
+
+# A LandmarkRelation (of its subclasses) has one and only one LandmarkRelationType.
+:LandmarkRelationShape1 a sh:NodeShape;
+      sh:targetClass peg:LandmarkRelation, peg:AddressSegment, peg:FinalAddressSegment ;
+      sh:property [
+      sh:path peg:isLandmarkRelationType;
+      sh:nodeKind sh:IRI ;
+      sh:class peg:LandmarkRelationType ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      ] .
+
+# A LandmarkRelation (of its subclasses) has one and only one LandmarkRelationType.
+# Besides, it has has one and only one locatum which is a Landmark and at least one relatum (which is a Landmark)
+:LandmarkRelationShape2 a sh:NodeShape;
+sh:targetClass peg:LandmarkRelation, peg:AddressSegment, peg:FinalAddressSegment ;
+sh:property [
+      sh:path peg:locatum;
+      sh:nodeKind sh:IRI ;
+      sh:class peg:Landmark ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+] ;
+sh:property [
+      sh:path peg:relatum;
+      sh:nodeKind sh:IRI ;
+      sh:class peg:Landmark ;
+      sh:minCount 1 ;
+] .
+
+# The object of a triple whose predicate is peg:nextStep must be an AddressSegment (one at maximum)
+:AddressSegmentShape1 a sh:NodeShape;
+sh:targetClass peg:AddressSegment ;
+sh:property [
+      sh:path peg:nextStep;
+      sh:nodeKind sh:IRI ;
+      sh:or (
+            [sh:class peg:AddressSegment]
+            [sh:class peg:FinalAddressSegment]
+) ;
+      sh:minCount 0 ;
+      sh:maxCount 1 ;
+] .
+
+# A FinalAddressSegment can't be the subject of a triple whose predicate is peg:nextStep
+:FinalAddressSegmentShape1 a sh:NodeShape;
+sh:targetClass peg:FinalAddressSegment ;
+sh:property [
+      sh:path peg:nextStep;
+      sh:nodeKind sh:IRI ;
+      sh:maxCount 0 ;
+] .
+
+# A resource of Attribute class has one and only one AttributeType
+:AttributeShape1 a sh:NodeShape;
+      sh:targetClass peg:Attribute ;
+      sh:property [
+        sh:path peg:isAttributeType;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:AttributeType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+      ] .
+
+# A triple whose subject is an Attribute and predicate is peg:hasAttributeVersion must have an object of AttributeVersion class
+:AttributeShape2 a sh:NodeShape;
+      sh:targetClass peg:Attribute ;
+      sh:property [
+            sh:path peg:hasAttributeVersion;
+            sh:nodeKind sh:IRI ;
+            sh:class peg:AttributeVersion ;
+      ] .
+
+# A change has one and only one type
+:ChangeShape1 a sh:NodeShape;
+      sh:targetClass peg:Change, peg:LandmarkChange, peg:LandmarkRelationChange, peg:AttributeChange ;
+      sh:property [
+            sh:path peg:isChangeType;
+            sh:nodeKind sh:IRI ;
+            sh:class peg:ChangeType ;
+            sh:minCount 1 ;
+            sh:maxCount 1 ;
+      ] .
+
+# A change depends on one and only one event
+:ChangeShape2 a sh:NodeShape;
+  sh:targetClass peg:Change, peg:LandmarkChange, peg:LandmarkRelationChange, peg:AttributeChange ;
+  sh:property [
+    sh:path peg:dependsOn;
+    sh:nodeKind sh:IRI ;
+    sh:class peg:Event ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
+
+# An AttributeChange is applied to one and only one Attribute
+:AttributeChangeShape1 a sh:NodeShape;
+      sh:targetClass peg:AttributeChange ;
+      sh:property [
+        sh:path peg:appliedTo ;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:Attribute ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+      ] .
+
+# An AttributeChange outdates and makesEffective AttributeVersion
+:AttributeChangeShape2 a sh:NodeShape;
+      sh:targetClass peg:AttributeChange ;
+      sh:property [
+        sh:path peg:outdates ;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:AttributeVersion ;
+      ] ;
+      sh:property [
+        sh:path peg:makesEffective ;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:AttributeVersion ;
+      ] .
+
+# An LandmarkChange is applied to one and only one Landmark
+:LandmarkChangeShape1 a sh:NodeShape;
+      sh:targetClass peg:LandmarkChange ;
+      sh:property [
+        sh:path peg:appliedTo ;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:Landmark ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+      ] .
+
+# An LandmarkRelationChange is applied to one and only one LandmarkRelation
+:LandmarkRelationChangeShape1 a sh:NodeShape;
+      sh:targetClass peg:LandmarkRelationChange ;
+      sh:property [
+        sh:path peg:appliedTo ;
+        sh:nodeKind sh:IRI ;
+        sh:class peg:LandmarkRelation ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+      ] .
+
+:EventShape1 a sh:NodeShape;
+  sh:targetClass peg:Event ;
+  sh:property [
+    sh:path peg:hasTime ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [sh:class peg:TimeInstant]
+      [sh:class peg:CrispTimeInstant]
+      [sh:class peg:FuzzyTimeInstant]
+    ) ;
+  ] .
+
+
+:CrispTimeInstantShape1 a sh:NodeShape;
+  sh:targetClass peg:CrispTimeInstant ;
+  sh:property [
+    sh:path peg:timePrecision ;
+    sh:nodeKind sh:IRI ;
+    sh:class time:TemporalUnit ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path peg:timeStamp ;
+    sh:nodeKind sh:Literal ;
+    sh:datatype xsd:dateTimeStamp ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:path peg:timeCalendar ;
+    sh:nodeKind sh:IRI ;
+    sh:class time:TRS ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] .
