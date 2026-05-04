@@ -14,8 +14,8 @@ class NameSpaces():
         self.LRTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/landmarkRelationType/")
         self.CTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/changeType/")
 
-        self.FACTS = Namespace("https://w3id.org/PeGazUs/id/facts/")
-        self.FACTOIDS = Namespace("https://w3id.org/PeGazUs/id/factoids/")
+        self.FACTS = Namespace("https://w3id.org/PeGazUs/id/")
+        self.FACTOIDS = Namespace("https://w3id.org/PeGazUs/id/")
 
         self.TIME = Namespace("http://www.w3.org/2006/time#")
         self.PROV = Namespace("http://www.w3.org/ns/prov#")

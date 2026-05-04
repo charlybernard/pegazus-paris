@@ -689,6 +689,29 @@ def get_time_precision_from_integer(precision_int:int):
     precision = precisions.get(precision_int)    
     return precision
 
+def more_precise(target_precision:URIRef, t_precision:URIRef):
+    precisions = {
+        np.TIME["unitBillionYears"]: 0,
+        np.TIME["unitHundredMillionYears"]: 1,
+        np.TIME["unitMillionYears"]: 3,
+        np.TIME["unitHundredThousandYears"]: 4,
+        np.TIME["unitTenThousandYears"]: 5,
+        np.TIME["unitMillenium"]: 6,
+        np.TIME["unitCentury"]: 7,
+        np.TIME["unitDecade"]: 8,
+        np.TIME["unitYear"]: 9,
+        np.TIME["unitMonth"]: 10,
+        np.TIME["unitDay"]: 11,
+        np.TIME["unitHour"]: 12,
+        np.TIME["unitMinute"]: 13,
+        np.TIME["unitSecond"]: 14
+    }
+
+    target_val = precisions.get(target_precision, -1)
+    t_val = precisions.get(t_precision, -1)
+
+    return t_val > target_val
+
 def get_time_calendar_from_wikidata_uri(calendar_uri:URIRef):
     calendars = {
         np.WD["Q1985727"]: "gregorian",

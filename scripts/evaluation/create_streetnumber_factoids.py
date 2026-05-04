@@ -13,13 +13,13 @@ def create_streetnumber_fragmentary_descriptions(
     facts_named_graph_name:str,
     data_folder:str,
     data_sources_folder:str,
-    geometry_settings:dict,
+    comparison_settings:dict,
     version_sample_ratio=0.6,
     change_sample_ratio=0.6
 ):
 
-    epsg_code = geometry_settings.get("epsg_code", "EPSG:2154")
-    max_distance = geometry_settings.get("max_distance", 10)
+    epsg_code = comparison_settings.get("epsg_code", "EPSG:2154")
+    max_distance = comparison_settings.get("geom_buffer_radius", 10)
 
     # Get file paths
     sn_labels_file = os.path.join(data_folder, "streetnumber_labels_final_graph.csv")

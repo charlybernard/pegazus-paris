@@ -116,8 +116,8 @@ def make_rooting_for_landmarks_according_to_label_and_relation(
     factoids, facts = select_landmarks_to_root_according_to_label_and_relation(
         graphdb_url, repository_name, facts_named_graph_uri, label_property, lm_and_lr_type_uris,
         landmark_var, landmark_type_var, landmark_label_var, landmark_relation_var, landmark_relation_type_var, root_relatum_var)
-    gf, gi, gl = reconcile_landmarks_with_label_and_relation(factoids, facts, label_property, landmark_var, landmark_type_var, landmark_label_var)
 
+    gf, gi, gl = reconcile_landmarks_with_label_and_relation(factoids, facts, label_property, landmark_var, landmark_type_var, landmark_label_var)
     for (g, named_graph_uri) in [(gf, facts_named_graph_uri), (gi, inter_sources_named_graph_uri), (gl, labels_named_graph_uri)]:
         g.serialize(destination=ttl_file, format="turtle")
         gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, ttl_file, named_graph_uri=named_graph_uri)
@@ -367,7 +367,7 @@ def reconcile_landmarks_with_label_and_relation(
             ri.create_trace_and_root_links(g_i, lr_uri_fact, lr)
             
             # 4. Mise à jour de l'index
-            index_facts[key] = {landmark_var: lm_uri_fact, landmark_relation_var: lr, landmark_relation_type_var: lr_type}
+            index_facts[key] = {landmark_var: lm_uri_fact, landmark_relation_var: lr_uri_fact, landmark_relation_type_var: lr_type}
     return g_f, g_i, g_l
 
 

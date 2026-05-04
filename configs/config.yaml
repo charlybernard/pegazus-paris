@@ -29,3 +29,4 @@ comparison_settings:
   geom_similarity_coef: 0.85
   geom_buffer_radius: 10
   geom_crs_uri: "http://www.opengis.net/def/crs/EPSG/0/2154"
+  epsg_code: "EPSG:2154"

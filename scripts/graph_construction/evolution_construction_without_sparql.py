@@ -5,6 +5,7 @@ from scripts.graph_construction import graphrdf as gr
 from scripts.graph_construction import multi_sources_processing as msp
 from scripts.graph_construction import resource_transfert as rt
 from scripts.resource_management import resource_initialisation as ri
+from scripts.utils import time_processing as tp
 
 np = NameSpaces()
 
@@ -177,7 +178,6 @@ def get_elementary_versions_and_changes(graphdb_url:URIRef, repository_name:str,
     #     f.write(json_evolutions)
 
     gd.remove_named_graph_from_uri(tmp_named_graph_uri)
-
     loop_limit = 50000
     loop_nb = 0
     g = Graph()
@@ -194,8 +194,8 @@ def get_elementary_versions_and_changes(graphdb_url:URIRef, repository_name:str,
             g = Graph()
             loop_nb = 0
 
-        data = consolidate_temporal_changes(data)
-        data = add_infinite_boundaries_for_temporal_changes(data)
+        data = generate_temporary_changes(data)
+        data = add_infinite_boundaries_for_temporary_changes(data)
         data["temporary_versions"] = generate_temporary_versions(data["temporary_changes"])
 
         mapping = map_version_indices(data.get("temporary_changes", []), data.get("versions", []))
@@ -233,6 +233,7 @@ def construct_evolutions(types, changes, versions):
                 "change_uri": c.get('change'),
                 "time": c.get('time'),
                 "timestamp": c.get('timeStamp'),
+                "time_precision": c.get('timePrecision'),
                 "makes_effective": [c.get('madeEffectiveVersion')] if c.get('madeEffectiveVersion') else [],
                 "outdates": [c.get('outdatedVersion')] if c.get('outdatedVersion') else []
             }
@@ -259,6 +260,7 @@ def construct_evolutions(types, changes, versions):
                 "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
                 "time": v.get('startTime'),
                 "timestamp": v.get('startTimeStamp'),
+                "time_precision": v.get('startTimePrecision'),
                 "makes_effective": [version_uri],
                 "outdates": []
             })
@@ -269,6 +271,7 @@ def construct_evolutions(types, changes, versions):
                 "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
                 "time": v.get('endTime'),
                 "timestamp": v.get('endTimeStamp'),
+                "time_precision": v.get('endTimePrecision'),
                 "makes_effective": [],
                 "outdates": [version_uri]
             })
@@ -283,28 +286,34 @@ def construct_evolutions(types, changes, versions):
 
     return evolutions
 
-def consolidate_temporal_changes(attr_evolutions):
+def generate_temporary_changes(attr_evolutions):
     """
-    Consolidate the temporal changes for each attribute by grouping them based on their time and timestamp. This function handles both real changes and inferred changes from version intervals, ensuring that all changes are properly merged and that the traces are preserved."""
+    Generate temporary changes for each attribute by grouping them based on their time and timestamp. This function handles both real changes and inferred changes from version intervals, ensuring that all changes are properly merged and that the traces are preserved."""
     # Clé : (time_uri, timestamp) -> Valeur : dictionnaire consolidé
     grouped = {}
 
     for ch in attr_evolutions["changes"]:
         t_uri = ch["time"]
         t_stamp = ch["timestamp"]
-        group_key = (t_uri, t_stamp)
+        t_prec = ch["time_precision"]
+        group_key = (t_stamp)
 
         if group_key not in grouped:
             grouped[group_key] = {
                 "time": t_uri,
                 "timestamp": t_stamp,
+                "time_precision": t_prec,
                 "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"), # URI générique pour le changement consolidé
                 "makes_effective": [],
                 "outdates": [],
-                "traces": []  # Liste de dicts désormais
+                "traces": []
             }
 
         target = grouped[group_key]
+
+        if tp.more_precise(target["time_precision"], t_prec):
+            target["time"] = t_uri
+            target["time_precision"] = t_prec
         
         # 1. Gestion des versions (entrées/sorties)
         # On vérifie si c'est une liste ou un URI seul pour être robuste
@@ -343,7 +352,7 @@ def consolidate_temporal_changes(attr_evolutions):
 
     return attr_evolutions
 
-def add_infinite_boundaries_for_temporal_changes(attr_evolutions):
+def add_infinite_boundaries_for_temporary_changes(attr_evolutions):
     temp_changes = attr_evolutions.get("temporary_changes", [])
     
     # 1. Création du changement "Infini Négatif" (Début des temps)
@@ -527,19 +536,19 @@ def select_attribute_types(graphdb_url:URIRef, repository_name:str, facts_named_
 def select_attribute_versions(
         graphdb_url:URIRef, repository_name:str, facts_named_graph_uri:URIRef,
         attr_var:str = "attr", attr_version_var:str = "version",
-        start_time_var:str = "startTime", start_time_stamp_var:str = "startTimeStamp",
-        end_time_var:str = "endTime", end_time_stamp_var:str = "endTimeStamp"):
+        start_time_var:str = "startTime", start_time_stamp_var:str = "startTimeStamp", start_time_precision_var:str = "startTimePrecision",
+        end_time_var:str = "endTime", end_time_stamp_var:str = "endTimeStamp", end_time_precision_var:str = "endTimePrecision"):
     
-    variables = [attr_var, attr_version_var, start_time_var, start_time_stamp_var, end_time_var, end_time_stamp_var]
+    variables = [attr_var, attr_version_var, start_time_var, start_time_stamp_var, start_time_precision_var, end_time_var, end_time_stamp_var, end_time_precision_var]
 
     query = np.query_prefixes + f"""
-    SELECT ?{attr_var} ?{attr_version_var} ?{start_time_var} ?{start_time_stamp_var} ?{end_time_var} ?{end_time_stamp_var} WHERE {{
+    SELECT ?{attr_var} ?{attr_version_var} ?{start_time_var} ?{start_time_stamp_var} ?{start_time_precision_var} ?{end_time_var} ?{end_time_stamp_var} ?{end_time_precision_var} WHERE {{
         GRAPH {facts_named_graph_uri.n3()} {{ ?{attr_var} a peg:Attribute . }}
         ?{attr_var} peg:hasTrace ?attrTrace .
         ?attrTrace peg:hasAttributeVersion ?{attr_version_var} .
         ?elemTrace peg:hasAttribute ?attrTrace  ; peg:hasTime [ peg:hasBeginning ?{start_time_var}Trace ; peg:hasEnd ?{end_time_var}Trace ].
-        ?{start_time_var} peg:timeStamp ?{start_time_stamp_var} ; peg:hasTrace ?{start_time_var}Trace .
-        ?endTime peg:timeStamp ?endTimeStamp ; peg:hasTrace ?endTimeTrace .
+        ?{start_time_var} peg:timeStamp ?{start_time_stamp_var} ; peg:timePrecision ?{start_time_precision_var} ; peg:hasTrace ?{start_time_var}Trace .
+        ?endTime peg:timeStamp ?endTimeStamp ; peg:timePrecision ?{end_time_precision_var} ; peg:hasTrace ?endTimeTrace .
     }}
     """
 
@@ -548,17 +557,18 @@ def select_attribute_versions(
 
 def select_attribute_changes(
         graphdb_url:URIRef, repository_name:str, facts_named_graph_uri:URIRef,
-        attr_var:str = "attr", change_var:str = "change", time_var:str = "time", time_stamp_var:str = "timeStamp",
+        attr_var:str = "attr", change_var:str = "change",
+        time_var:str = "time", time_stamp_var:str = "timeStamp", time_precision_var:str = "timePrecision",
         made_effective_var:str = "madeEffectiveVersion", outdated_var:str = "outdatedVersion"):
     
-    variables = [attr_var, change_var, time_var, time_stamp_var, made_effective_var, outdated_var]
+    variables = [attr_var, change_var, time_var, time_stamp_var, time_precision_var, made_effective_var, outdated_var]
 
     query = np.query_prefixes + f"""
-    SELECT ?{attr_var} ?{change_var} ?{time_var} ?{time_stamp_var} ?{made_effective_var} ?{outdated_var} WHERE {{
+    SELECT ?{attr_var} ?{change_var} ?{time_var} ?{time_stamp_var} ?{time_precision_var} ?{made_effective_var} ?{outdated_var} WHERE {{
         GRAPH {facts_named_graph_uri.n3()} {{ ?{attr_var} a peg:Attribute . }}
         ?{attr_var} peg:hasTrace ?attrTrace .
         ?{change_var} peg:appliedTo ?attrTrace ; peg:dependsOn [peg:hasTime ?timeTrace].
-        ?{time_var} peg:timeStamp ?{time_stamp_var} ; peg:hasTrace ?timeTrace .
+        ?{time_var} peg:timeStamp ?{time_stamp_var} ; peg:timePrecision ?{time_precision_var} ; peg:hasTrace ?timeTrace .
         OPTIONAL {{ ?{change_var} peg:makesEffective ?{made_effective_var} }}
         OPTIONAL {{ ?{change_var} peg:outdates ?{outdated_var} }}
     }}

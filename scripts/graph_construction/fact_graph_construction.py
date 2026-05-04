@@ -186,13 +186,13 @@ def build_fact_graph_from_sources(
         print(f"Step {step}/{nb_steps}: Splitting overlapping versions into elementary versions and changes...")
         gd.remove_named_graph_from_uri(tmp_named_graph_uri)  # Clean temp graph before use
 
-    ec.get_elementary_versions_and_changes(
-        graphdb_url,
-        repository_name,
-        facts_named_graph_uri,
-        tmp_named_graph_uri,
-        ttl_file
-    )
+        ec.get_elementary_versions_and_changes(
+            graphdb_url,
+            repository_name,
+            facts_named_graph_uri,
+            tmp_named_graph_uri,
+            ttl_file
+        )
 
     # ------------------------------------------------------------------
     # 6. Reconstruct coherent attribute version evolutions
@@ -206,7 +206,7 @@ def build_fact_graph_from_sources(
             facts_named_graph_uri,
             inter_sources_named_graph_uri,
             tmp_named_graph_uri
-    )
+        )
 
     # ------------------------------------------------------------------
     # 7. Transform event bounds to fuzzy times for better temporal reasoning and querying
