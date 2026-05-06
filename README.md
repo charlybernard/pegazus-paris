@@ -22,11 +22,9 @@ This repository contains the documentation of the PeGazUs (PErpetual GAZeteer of
 
 ### `data` folder
 
-This folder stores files used to build knowledge graph. It contains csv and geojson files which describe addresses and streets from different sources at different times (RDF resources are built during process.
+This folder stores files used to build knowledge graph. It contains csv and geojson files which describe addresses and streets from different sources at different times (RDF resources are built during process).
 
-⚠️ To get more information about their content, please read their [readme](data/README.md).
-
-## `evaluation` folder
+### `evaluation` folder
 
 This folder contains Jupyter notebook to populate knowledge graph from data in `data` folder and gets a evaluation a the population method:
 * `create_graph_evaluation.ipynb` – creates a knowledge graph and runs evaluation procedures.
@@ -47,7 +45,7 @@ Each modelet documentation has 3 or 4 files:
 * `{modelet_name}_competency_questions.md`: set of informal competence questions (in natural language) which represent the questions to be answered by the knowledge base ;
 * `{modelet_name}_sparql_queries.md`: it translates informal competence questions into SPARQL queries.
 
-## `population` folder
+### `population` folder
 
 This folder contains Jupyter notebook to populate knowledge graph from data in `data` folder :
 * `create_graph.ipynb` – creates the knowledge graph from data sources.
@@ -59,7 +57,7 @@ This folder contains code to build knowledge graphs.
 
 ⚠️ To get more information about their content, please read their [readme](scripts/README.md).
 
-## `statistics` folder
+### `statistics` folder
 
 This folder contains Jupyter notebook to get statistics about the graph built after population
 * `stats_about_graph.ipynb` – create statistics files about the graph.
