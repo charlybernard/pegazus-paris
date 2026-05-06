@@ -22,7 +22,6 @@ function initLeafletMap(
   lon,
   zoom,
   tileLayersSettings = [],
-  messages = {},
   maxZoom = 18,
   minZoom = 1,
   enableDraw = false,
@@ -44,8 +43,7 @@ function initLeafletMap(
   mapSettings.selectedTileLayer = null;
   mapSettings.layersToRemove = [];
   mapSettings.selectedFeature = null;
-  mapSettings.messages = messages;
-
+  
   // Tuiles
   initLeafletTileLayers(
     tileLayersSettings,
@@ -219,9 +217,9 @@ function getGeojsonObj(id, geomWkt, properties={}){
 
 }
 
-function addGeometriesOfVersion(version, mapSettings, styleSettings){
+function addGeometriesOfVersion(version, uiConfig, mapSettings, styleSettings){
   removeLayersFromList(mapSettings.layersToRemove, mapSettings.map) ;
-  displayGeometriesOnMapFromList(version.values, mapSettings, styleSettings) ;
+  displayGeometriesOnMapFromList(version.values, uiConfig, mapSettings, styleSettings) ;
 }
 
 function removeLayersFromList(layersToRemove, map){
@@ -231,7 +229,7 @@ function removeLayersFromList(layersToRemove, map){
   });
 }
 
-function displayGeometriesOnMapFromList(geomsToDisplay, mapSettings, styleSettings){
+function displayGeometriesOnMapFromList(geomsToDisplay, uiConfig, mapSettings, styleSettings){
   var map = mapSettings.map ;
   var layersToRemove = mapSettings.layersToRemove ;
   var featuresList = [];
@@ -241,7 +239,7 @@ function displayGeometriesOnMapFromList(geomsToDisplay, mapSettings, styleSettin
     if (geojsonFeature.geometry != null){ featuresList.push(geojsonFeature); }
   });
 
-  var layerGroup = getLandmarkLayerGroup(featuresList, mapSettings, styleSettings, hasPopup=false);
+  var layerGroup = getLandmarkLayerGroup(featuresList, uiConfig, mapSettings, styleSettings, hasPopup=false);
   layerGroup.getLayers().forEach(layer => {layersToRemove.push(layer)});
   layerGroup.addTo(map);
   fitBoundsToLayerGroups(map, [layerGroup]);
@@ -359,12 +357,12 @@ function removeOverlayLayers(overlayLayers, map, layerControl){
 
 //////////////////////////////////////// Functions around popup management ////////////////////////////////////////////////////
 
-function initInfoControl(mapSettings){
+function initInfoControl(mapSettings, uiConfig){
   var infoControl = L.control({ position: 'topleft' });
   infoControl.onAdd = function(map) {
     this._div = L.DomUtil.create('div', 'info-control');
     // this.update(); // Initialise avec un contenu
-    this._div.innerHTML = mapSettings.messages.flyOverLandmark;
+    this._div.innerHTML = uiConfig.labels.flyOverLandmark[uiConfig.systemLang];
 
     // Styles appliqués directement en JavaScript
     Object.assign(this._div.style, {
@@ -413,17 +411,17 @@ function initGeoJsonFeatureCollection(featuresList){
   return ftCol;
 }
 
-function getLandmarkLayerGroup(featuresList, mapSettings, styleSettings, selectedStyleSettings=null, hasPopup=true){
+function getLandmarkLayerGroup(featuresList, uiConfig, mapSettings, styleSettings, selectedStyleSettings=null, hasPopup=true){
   var featureCollection = initGeoJsonFeatureCollection(featuresList);
   var leafletGeom = L.geoJSON(featureCollection) ;
   var layers = [];
-  leafletGeom.eachLayer(function (layer) { setLayer(layer, layers, mapSettings, styleSettings, selectedStyleSettings, hasPopup) ; });
+  leafletGeom.eachLayer(function (layer) { setLayer(layer, layers, uiConfig, mapSettings, styleSettings, selectedStyleSettings, hasPopup) ; });
 
   var layerGroup = L.layerGroup(layers);
   return layerGroup ;
 }
 
-function setLayer(layer, layers, mapSettings, styleSettings, selectedStyleSettings=null, hasPopup=false){
+function setLayer(layer, layers, uiConfig, mapSettings, styleSettings, selectedStyleSettings=null, hasPopup=false){
   // Style initialisation
   var multiStylesSettings = {default:styleSettings} ;
 
@@ -438,7 +436,7 @@ function setLayer(layer, layers, mapSettings, styleSettings, selectedStyleSettin
   // if (hasPopup){setPopup(layer);}
   if (selectedStyleSettings){
     // actionsOnLayerSelection(layer, mapSettings);
-    actionsOnLayerHovered(layer, mapSettings);
+    actionsOnLayerHovered(layer, mapSettings, uiConfig);
   }
   layers.push(layer);
 }
@@ -472,17 +470,17 @@ function actionsOnLayerSelection(layer, mapSettings){
   });
 }
 
-function actionsOnLayerHovered(layer, mapSettings){
+function actionsOnLayerHovered(layer, mapSettings, uiConfig){
   
   layer.on('mouseover', function(e){
-    updateInfoControlContent(mapSettings.infoControl, layer, mapSettings.messages.nameTitle);
+    updateInfoControlContent(mapSettings.infoControl, layer, uiConfig.labels.nameTitle[uiConfig.systemLang]);
     if (mapSettings.selectedFeature != layer){
       setLayerStyle(layer, "hovered"); 
     }
   });
 
   layer.on('mouseout', function(e){
-    reinitInfoControlContent(mapSettings.infoControl, mapSettings.messages.flyOverLandmark);
+    reinitInfoControlContent(mapSettings.infoControl, uiConfig.labels.flyOverLandmark[uiConfig.systemLang]);
     if (mapSettings.selectedFeature != layer){
       setLayerStyle(layer, "default"); 
     }
@@ -495,12 +493,12 @@ function setPopup(layer){
   layer.bindPopup(popupContent) ;
 }
 
-function displayLandmarkLayerGroup(landmarkLayerName, featuresList, mapSettings, styleSettings){
+function displayLandmarkLayerGroup(landmarkLayerName, featuresList, uiConfig, mapSettings, styleSettings){
   var map = mapSettings.map ;
   var layerControl = mapSettings.layerControl;
   var defaultStyleSettings = styleSettings.default;
   var selectedStyleSettings = styleSettings.selected;
-  var landmarkLayerGroup = getLandmarkLayerGroup(featuresList, mapSettings, defaultStyleSettings, selectedStyleSettings, hasPopup=true);
+  var landmarkLayerGroup = getLandmarkLayerGroup(featuresList, uiConfig, mapSettings, defaultStyleSettings, selectedStyleSettings, hasPopup=true);
   landmarkLayerGroup.addTo(map);
   layerControl.addOverlay(landmarkLayerGroup, landmarkLayerName);
   return landmarkLayerGroup;

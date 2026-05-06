@@ -69,7 +69,7 @@ This is the HTML file that loads the web application, containing the structure a
 Before launching the web app, please ensure `settings.js` is correctly filled out :
 * `graphDBURL`: URL of the GraphDB ;
 * `graphName`  name of the repository ;
-* `lmLabelLang`: selected language of the labels of landmarks ;
+* `lang`: selected language of the labels of landmarks ;
 * `namedGraphName`: name of the named graph in which the final construction is made.
 
 Then, to allow the interaction with the repository, you have to avoid CORS errors. To do so, click on `Settings...` in GraphDB Desktop window.

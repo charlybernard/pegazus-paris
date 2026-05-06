@@ -152,7 +152,6 @@ function getQueryValidTimeForLandmark(landmarkURI, namedGraphURI){
     ?changeApp peg:isChangeType ctype:LandmarkAppearance ; peg:appliedTo ?lm ; peg:dependsOn ?evApp .
     ?changeDis peg:isChangeType ctype:LandmarkDisappearance ; peg:appliedTo ?lm ; peg:dependsOn ?evDis .
 
-    # --- Gestion de l'Apparition ---
     ?evApp peg:hasTime ?timeApp .
     OPTIONAL { 
       ?timeApp a peg:CrispTimeInstant ; peg:timeStamp ?tStampApp ; peg:timePrecision ?tPrecApp .
@@ -163,7 +162,6 @@ function getQueryValidTimeForLandmark(landmarkURI, namedGraphURI){
       OPTIONAL { ?timeApp peg:hasFuzzyEnd [peg:timeStamp ?tStampAppFuzzyEnd ; peg:timePrecision ?tPrecAppFuzzyEnd] }
     }
 
-    # --- Gestion de la Disparition ---
     ?evDis peg:hasTime ?timeDis .
     OPTIONAL { 
       ?timeDis a peg:CrispTimeInstant ; peg:timeStamp ?tStampDis ; peg:timePrecision ?tPrecDis .
@@ -201,7 +199,6 @@ function getQueryToInitTimeline(landmarkURI, namedGraphURI){
       ?cgME peg:makesEffective ?attrVers ; peg:dependsOn ?evME .
       ?cgO peg:outdates ?attrVers ; peg:dependsOn ?evO .
 
-      # --- Temps pour l'entrée en vigueur (makesEffective) ---
       ?evME peg:hasTime ?timeME .
       OPTIONAL { 
         ?timeME a peg:CrispTimeInstant ; peg:timeStamp ?tStampME ; peg:timePrecision ?tPrecME .
@@ -212,7 +209,6 @@ function getQueryToInitTimeline(landmarkURI, namedGraphURI){
         OPTIONAL { ?timeME peg:hasFuzzyEnd [peg:timeStamp ?tStampMEFuzzyEnd ; peg:timePrecision ?tPrecMEFuzzyEnd] }
       }
 
-      # --- Temps pour l'obsolescence (outdates) ---
       ?evO peg:hasTime ?timeO .
       OPTIONAL { 
         ?timeO a peg:CrispTimeInstant ; peg:timeStamp ?tStampO ; peg:timePrecision ?tPrecO .
@@ -319,7 +315,7 @@ function getValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphURI, lo
   
 function getValidAttributeVersionsFromTime(timeStamp, timeCalendarURI, namedGraphURI, wktGeom=null){
     var query = getPrefixesForQuery(prefixes) + `
-SELECT DISTINCT ?vers ?versValue ?existsForSure ?attrType ?lm WHERE {
+SELECT DISTINCT ?lm ?vers ?versValue ?existsForSure ?attrType ?lm WHERE {
     BIND(<${namedGraphURI}> AS ?g)
     BIND("${timeStamp}"^^xsd:dateTimeStamp AS ?timeStamp)
     BIND(<${timeCalendarURI}> AS ?timeCalendar)
@@ -386,6 +382,7 @@ SELECT DISTINCT ?vers ?versValue ?existsForSure ?attrType ?lm WHERE {
     )
 }  
     `
+    console.log(query) ;
     return query ;
 }
 

@@ -4,6 +4,8 @@ const graphDBRepositoryURI = getGraphDBRepositoryURI(graphDBURI, graphName) ;
 // Object of LeafletObjects class which contains all markers and dots*
 const lo = new LeafletObjects(L);
 
+setSystemLang(uiConfig, systemLang); // set the system language in the UI configuration, which will be used to display labels in the right language
+setGraphLang(uiConfig, graphLang); // set the graph language in the UI configuration, which will be used to retrieve labels in the right language from the graphgetQueryToInitTimeline
 createMainHTML(L, graphDBRepositoryURI, uiConfig);
 const contentDiv = document.getElementById(uiConfig.divIds.content);
 const selectDiv = document.getElementById(uiConfig.divIds.selection);

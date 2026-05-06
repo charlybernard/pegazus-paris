@@ -2,6 +2,8 @@
 
 const uiConfig = {
 
+  avalaibleLanguages: ["fr", "en"],
+
   dateSlider: {
     min : 0,
     max : 100,
@@ -47,19 +49,74 @@ const uiConfig = {
     resizer: "resizer"
   },
 
-  labels: {
-    radioInput: "Type de visualisation",
-    validationButton: "Valider",
-    landmarkSelection: "Entité à sélectionner : ",
-    dateSelection: "Sélectionnez une date : ",
-    graphSelection: "Graphe à sélectionner : ",
-    searchLandmarksPlaceholder: "Rechercher un landmark...",
+  labels : {
+    snapshot: {
+      fr: "Snapshot",
+      en: "Snapshot"
+    },
+    validationButton: {
+      fr: "Valider",
+      en: "Validate"
+    },
+    dateSelection: {
+      fr: "Sélectionnez une date : ",
+      en: "Select a date:"
+    },
+    nameTitle: {
+      fr: "Nom",
+      en: "Name"
+    },
 
-    snapshot: "Snapshot",
-    landmarkEvolution: "Évolution des repères"
+    landmarkSelection: {
+      fr: "Entité à sélectionner : ",
+      en: "Entity to select:"
+    },
+    landmarkSelectValue: {
+      fr: "Sélectionnez une entité",
+      en: "Select an entity"
+    },
+    landmarkTypeSelectValue: {
+      fr: "Sélectionnez un type d'entité",
+      en: "Select an entity type"
+    },
+    searchLandmarksPlaceholder: {
+      fr: "Rechercher un landmark...",
+      en: "Search for a landmark..."
+    },
+    flyOverLandmark: {
+      fr: "Survolez un lieu",
+      en: "Hover over a location"
+    },
+
+    radioInput: {
+      fr: "Type de visualisation",
+      en: "Visualization type"
+    },
+    landmarkEvolution: {
+      fr: "Évolution des repères",
+      en: "Landmark evolution"
+    },
+    graphSelection: {
+      fr: "Graphe à sélectionner : ",
+      en: "Graph to select:"
+    },
+    graphSelectValue: {
+      fr: "Sélectionnez un graphe",
+      en: "Select a graph"
+    },
+
+    graphSelectionAlert: {
+      fr: "Impossible de récupérer les graphes.",
+      en: "Unable to retrieve graphs."
+    },
+    noLandmarkToDisplayAlert: {
+      fr: "Aucun repère à afficher à cette date.",
+      en: "No landmark to display at this date."
+    }
+
   },
 
-  lang : "fr",
+  systemLang : "en",
 
   dropDownMenu : {
     limit: 20,
@@ -73,15 +130,6 @@ const uiConfig = {
     style: {
         height:"90%",
         width:"100%",
-    },
-
-    messages: {
-      noLandmarkToDisplay: "Aucun repère à afficher à cette date.",
-      nameTitle: "Nom",
-      flyOverLandmark: "Survolez un lieu",
-      landmarkSelectValue: "Sélectionnez une entité",
-      landmarkTypeSelectValue: "Sélectionnez un type d'entité",
-      graphSelectValue: "Sélectionnez un graphe"
     },
 
     tileLayers: [
@@ -98,11 +146,17 @@ const uiConfig = {
   radioInputs :{
     values : {
       snapshot: {
-        label: "Snapshot",
+        label: {
+          fr: "Snapshot",
+          en: "Snapshot"
+        },
         id: "snapshot-selection"
       },
       timeline: {
-        label: "Évolution des repères",
+        label: {
+          fr: "Évolution des repères",
+          en: "Landmark evolution"
+        },
         id: "timeline-selection"
       }
     },
@@ -117,7 +171,10 @@ const uiConfig = {
     startTimestamp: "1790-01-01",
     endTimestamp: "2027-01-01",
     timeDelay: 20, // years (null = no delay),
-    headlineLabel: "Attributs de l'entité géographique"
+    headlineLabel: {
+      fr: "Attributs de l'entité géographique",
+      en: "Attributes of the geographic entity"
+    }
   },
 
   calendar: {
@@ -125,8 +182,14 @@ const uiConfig = {
   },
 
   layers: {
-    certain: "Certains",
-    uncertain: "Incertains",
+    certain: {
+      fr: "Certains",
+      en: "Certain"
+    },
+    uncertain: {
+      fr: "Incertains",
+      en: "Uncertain"
+    }
   },
 
   types: {
@@ -134,3 +197,19 @@ const uiConfig = {
     landmarks: null, // to be filled with the result of the query getQueryForLandmarkTypes
   }
 };
+
+function setSystemLang(uiConfig, lang) {
+  if (!uiConfig.avalaibleLanguages.includes(lang)){
+    console.warn(`Language ${lang} not available in the UI configuration. Falling back to default language ${uiConfig.avalaibleLanguages[0]}.`);
+    lang = uiConfig.avalaibleLanguages[0];
+  }
+  uiConfig.lang = lang;
+}
+
+function setGraphLang(uiConfig, lang) {
+  if (!uiConfig.avalaibleLanguages.includes(lang)){
+    console.warn(`Language ${lang} not available in the UI configuration. Falling back to default language ${uiConfig.avalaibleLanguages[0]}.`);
+    lang = uiConfig.avalaibleLanguages[0];
+  }
+  uiConfig.graphLang = lang;
+}

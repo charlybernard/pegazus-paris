@@ -64,12 +64,11 @@ function createDiv(L, divType, attributes = {}, innerHTML = "", divClass = ""){
     return emptyDiv;
   }
   
-  function createInputRadioDiv(L, input){
+  function createInputRadioDiv(L, input, lang){
     `
     example of input: {"name":"visu_selection", "label":"Type de visualisation", "id":"visu-selection", 
-                        "values":{"snapshot":{"label":"Snapshot"}, "timeline":{"label":"Timeline"}}}
+                        "values":{"snapshot":{"label":{"en":"Snapshot"}}, "timeline":{"label":{"en":"Timeline"}}}}}
     `
-
     emptyDivAttributes = {};
     if (input.id){
       emptyDivAttributes["id"] = input.id;
@@ -80,8 +79,8 @@ function createDiv(L, divType, attributes = {}, innerHTML = "", divClass = ""){
   
     for (key in input.values){
         var emptyRadioDiv = createDiv(L, "div", {}, null, null);
-        var optionDiv = createInputRadio(L, input.name, input.values[key].label, input.values[key].id, null, isChecked=false);
-        var labelRadioDiv = createLabel(L, input.values[key].id, input.values[key].label, null, labelContentIsBold = true);
+        var optionDiv = createInputRadio(L, input.name, input.values[key].id, input.values[key].id, null, isChecked=false);
+        var labelRadioDiv = createLabel(L, input.values[key].id, input.values[key].label[systemLang], null, labelContentIsBold = true);
         emptyRadioDiv.appendChild(optionDiv);
         emptyRadioDiv.appendChild(labelRadioDiv);
         radioInputDiv.appendChild(emptyRadioDiv);

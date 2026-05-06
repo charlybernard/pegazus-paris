@@ -1,6 +1,7 @@
 # Created folders
 tmp_files/
 tmp/
+results/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

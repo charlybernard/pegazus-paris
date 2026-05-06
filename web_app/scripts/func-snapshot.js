@@ -1,10 +1,10 @@
-function getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, mapSettings){
+function getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
   var [lowTimeStamp, highTimeStamp] = getLowAndHighTimeStampFromDurationDelay(timeStamp, timeDelay) ;
-  var queryValidLandmarksFromTime = getValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphURI, lowTimeStamp, highTimeStamp) ;
+  var queryValidLandmarksFromTime = getValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphURI, lowTimeStamp, highTimeStamp, uiConfig.graphLang) ;
   
   runSparqlQuery(graphDBRepositoryURI, queryValidLandmarksFromTime).then(bindings => {
       var landmarksDesc = getInitLandmarksDescriptions(bindings);
-      displayLandmarksFromGivenTime(graphDBRepositoryURI,  timeStamp, timeCalendarURI, namedGraphURI, landmarksDesc, mapSettings);
+      displayLandmarksFromGivenTime(graphDBRepositoryURI,  timeStamp, timeCalendarURI, namedGraphURI, landmarksDesc, uiConfig, mapSettings);
     })
     .catch(err => {
       console.error("SPARQL timeline config error:", err);
@@ -26,13 +26,13 @@ function getLowAndHighTimeStampFromDurationDelay(timeStamp, timeDelay){
   return [lowTimeStamp, highTimeStamp] ;
 }
 
-function displayLandmarksFromGivenTime(graphDBRepositoryURI, timeStamp, timeCalendarURI, namedGraphURI, landmarksDescriptions, mapSettings){
+function displayLandmarksFromGivenTime(graphDBRepositoryURI, timeStamp, timeCalendarURI, namedGraphURI, landmarksDescriptions, uiConfig, mapSettings){
 
   var searchArea = geomWktToGeomWktLiteral(mapSettings.selectedDrawnWKT) ;
   var queryValidAttrVersFromTime = getValidAttributeVersionsFromTime(timeStamp, timeCalendarURI, namedGraphURI, searchArea) ;
   runSparqlQuery(graphDBRepositoryURI, queryValidAttrVersFromTime).then(bindings => {
-      displayLandmarksFromDescriptions(bindings, landmarksDescriptions, mapSettings);
-      updateMapViewForSnapshotSelection(landmarksDescriptions, mapSettings, mapSettings.messages.noLandmarkToDisplay);
+      displayLandmarksFromDescriptions(bindings, landmarksDescriptions, uiConfig, mapSettings);
+      updateMapViewForSnapshotSelection(landmarksDescriptions, mapSettings, uiConfig.labels.noLandmarkToDisplayAlert[uiConfig.systemLang]);
     })
     .catch(err => {
       console.error("SPARQL timeline config error:", err);
@@ -54,21 +54,20 @@ function updateMapViewForSnapshotSelection(landmarksDescriptions, mapSettings, a
     }
   }
 }
-function displayLandmarksFromDescriptions(bindings, landmarksDescriptions, mapSettings){
+function displayLandmarksFromDescriptions(bindings, landmarksDescriptions, uiConfig, mapSettings){
   var overlayLayers = mapSettings.overlayLayers ;
-  var landmarkLayers = {sure:[], unsure:[]};
+  var landmarkLayers = {certain:[], uncertain:[]};
   var landmarkLayersStyles = {
-    sure: {
+    certain: {
       default: {marker:lo.greenDot, polyline:lo.greenDefaultLineStringStyle, polygon:lo.greenDefaultPolygonStyle},
       selected: {marker:lo.greenMarker, polyline:lo.greenSelectedLineStringStyle, polygon:lo.greenSelectedPolygonStyle}
     },
-    unsure: {
+    uncertain: {
       default: {marker:lo.redDot, polyline:lo.redDefaultLineStringStyle, polygon:lo.redDefaultPolygonStyle},
       selected: {marker:lo.redMarker, polyline:lo.redSelectedLineStringStyle, polygon:lo.redSelectedPolygonStyle}
     }
   } ;
 
-  console.log(landmarksDescriptions) ;
 
   bindings.forEach(binding => {
     updateLandmarksDescriptionsWithAttributeVersions(landmarksDescriptions, binding);
@@ -81,8 +80,9 @@ function displayLandmarksFromDescriptions(bindings, landmarksDescriptions, mapSe
 
   for (var key in landmarkLayers){
     var landmarkFeatures = landmarkLayers[key] ;
+    var layerName = uiConfig.layers[key][uiConfig.systemLang] ;
     var style = landmarkLayersStyles[key];
-    var landmarkLayerGroup = displayLandmarkLayerGroup(key, landmarkFeatures, mapSettings, style);
+    var landmarkLayerGroup = displayLandmarkLayerGroup(layerName, landmarkFeatures, uiConfig, mapSettings, style);
     overlayLayers[key] = landmarkLayerGroup;
   }
 }
@@ -138,11 +138,11 @@ function updateLandmarksDescriptionsWithAttributeVersions(landmarks, binding){
 }
 
 function initGeoJsonForLandmark(landmark, landmarkLayers){
-  //  landmarkLayers = {sure: [...], unsure: [...]}
+  //  landmarkLayers = {certain: [...], uncertain: [...]}
   if (landmark.existsForSure){
-    var layer = landmarkLayers.sure;
+    var layer = landmarkLayers.certain ;
   } else {
-    var layer = landmarkLayers.unsure ;
+    var layer = landmarkLayers.uncertain ;
   }
 
   var lmName = "" ;
@@ -159,8 +159,8 @@ function initGeoJsonForLandmark(landmark, landmarkLayers){
   });
 }
 
-function displaySnapshotFromSelectedTime(graphDBRepositoryURI, timeStampDivId, timeCalendarURI, timeDelay, namedGraphURI, mapSettings){
+function displaySnapshotFromSelectedTime(graphDBRepositoryURI, timeStampDivId, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
     var timeStamp = document.getElementById(timeStampDivId).value;
     removeOverlayLayers(mapSettings.overlayLayers, mapSettings.map, mapSettings.layerControl);
-    getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, mapSettings) ;
+    getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings) ;
 }

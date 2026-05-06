@@ -505,13 +505,20 @@ def execute_sparql_query(query, graphdb_url, repository_name, mode="select", acc
         print(f"Connection or unexpected error: {e}")
         return None
 
-def run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file, stop_on_memory_error=False):
+def run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file, stop_on_memory_error=False) -> requests.Response | None:
+    """
+    Execute a SPARQL SELECT query and save the results to a text file.
+    """
     r = execute_sparql_query(query, graphdb_url, repository_name, stop_on_memory_error=stop_on_memory_error)
     if r:
         fm.write_file(r.text, res_query_file)
 
+    return r
 
-def run_select_query_to_json(query, graphdb_url, repository_name, stop_on_memory_error=False):
+
+def run_select_query_to_json(query, graphdb_url, repository_name, stop_on_memory_error=False)-> dict | None:
+    """
+    Execute a SPARQL SELECT query and return the results as a JSON object."""
     r = execute_sparql_query(query, graphdb_url, repository_name, accept_header="application/json", stop_on_memory_error=stop_on_memory_error)
     if r:
         try:

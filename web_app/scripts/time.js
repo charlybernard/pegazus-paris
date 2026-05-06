@@ -1,13 +1,21 @@
 /// Gestion des temps dans timeline.js
 
-function getValidTimeForLandmarkLabel(appTime, disTime){
-  var label = "";
-  var appTimeLabel = "<b>Date de création :</b> "
-  var disTimeLabel = "<b>Date de disparition :</b> "
-  var betweenLabel = "entre" ;
-  var beforeLabel = "avant" ;
-  var afterLabel = "après" ;
-  var andLabel = "et" ;
+function getValidTimeForLandmarkLabel(appTime, disTime, lang){
+
+  var appTimeLabels = {"en": "Creation time", "fr": "Date de création"} ;
+  var disTimeLabels = {"en": "Disappearance time", "fr": "Date de disparition"} ;
+  var betweenLabels = {"en": "between", "fr": "entre"} ;
+  var beforeLabels = {"en": "before", "fr": "avant"} ;
+  var afterLabels = {"en": "after", "fr": "après"} ;
+  var andLabels = {"en": "and", "fr": "et"} ;
+
+  var appTimeLabel = "<b>" + (appTimeLabels[lang] || appTimeLabels["en"]) + ":</b>" ;
+  var disTimeLabel = "<b>" + (disTimeLabels[lang] || disTimeLabels["en"]) + ":</b>" ;
+  var betweenLabel = betweenLabels[lang] || betweenLabels["en"] ;
+  var beforeLabel = beforeLabels[lang] || beforeLabels["en"] ;
+  var afterLabel = afterLabels[lang] || afterLabels["en"] ;
+  var andLabel = andLabels[lang] || andLabels["en"] ;
+  var label = "" ;
 
   if (appTime.precise){
     label += `<div>${appTimeLabel}${appTime.precise.label}</div>` ;
@@ -36,63 +44,133 @@ function getValidTimeForLandmarkLabel(appTime, disTime){
 
 }
 
-function getTimeWithFrenchLabel(timeStamp, timePrecision) {
-  var timeElems = extractElementsFromTimeStamp(timeStamp);
-  var precision = extractElementsFromTimePrecision(timePrecision);
+function getLabelContext(timeStamp, timePrecision) {
+  const timeElems = extractElementsFromTimeStamp(timeStamp);
+  const precision = extractElementsFromTimePrecision(timePrecision);
+  const year = parseInt(timeElems.year);
 
-  var months = { 1: "janvier", 2: "février", 3: "mars", 4: "avril", 5: "mai", 6: "juin", 7: "juillet", 8: "août", 9: "septembre", 10: "octobre", 11: "novembre", 12: "décembre"};
+  return {
+    ...timeElems,
+    year,
+    precision,
+    // Calculs universels
+    century: Math.ceil(year / 100),
+    millennium: Math.ceil(year / 1000),
+    decade: Math.trunc(year / 10) * 10,
+    dayInt: parseInt(timeElems.day),
+    monthInt: parseInt(timeElems.month)
+  };
+}
 
-  var year = parseInt(timeElems.year);
-  var month = months[parseInt(timeElems.month)];
-  let label = "";
+function formatFrenchTimeLabel(ctx) {
+  const months = { 
+    1: "janvier", 2: "février", 3: "mars", 4: "avril", 5: "mai", 6: "juin", 
+    7: "juillet", 8: "août", 9: "septembre", 10: "octobre", 11: "novembre", 12: "décembre" 
+  };
+  
+  const monthName = months[ctx.monthInt];
 
-  switch (precision) {
-
+  switch (ctx.precision) {
     case "millenium": {
-      var millenium = Math.ceil(year / 1000);
-      var suffix = millenium === 1 ? "re" : "e";
-      label = `${millenium}${suffix} millénaire`;
-      break;
+      const suffix = ctx.millennium === 1 ? "re" : "e";
+      return `${ctx.millennium}${suffix} millénaire`;
     }
 
     case "century": {
-      var century = Math.ceil(year / 100);
-      var suffix = century === 1 ? "er" : "e";
-      label = `${century}${suffix} siècle`;
-      break;
+      const suffix = ctx.century === 1 ? "er" : "e";
+      return `${ctx.century}${suffix} siècle`;
     }
 
-    case "decade": {
-      var decade = Math.trunc(year / 10) * 10;
-      label = `années ${decade}`;
-      break;
-    }
+    case "decade":
+      return `années ${ctx.decade}`;
 
     case "year":
-      label = `${year}`;
-      break;
+      return `${ctx.year}`;
 
     case "month":
-      label = `${month} ${year}`;
-      break;
+      return `${monthName} ${ctx.year}`;
 
     case "day":
     case "hours":
     case "minutes":
     case "seconds":
     case "milliseconds": {
-      let day = timeElems.day;
-      if (day === "1") day = "1er";
-      label = `${day} ${month} ${year}`;
-      break;
+      const dayLabel = ctx.dayInt === 1 ? "1er" : ctx.day;
+      return `${dayLabel} ${monthName} ${ctx.year}`;
     }
-  }
 
-  return {
-    ...timeElems,
-    label,
-    precision
+    default:
+      return `${ctx.year}`;
+  }
+}
+
+function formatEnglishLabel(ctx) {
+  const months = { 
+    1: "January", 2: "February", 3: "March", 4: "April", 5: "May", 6: "June", 
+    7: "July", 8: "August", 9: "September", 10: "October", 11: "November", 12: "December" 
   };
+
+  // Fonction interne pour gérer les suffixes (1st, 2nd, 3rd, 4th...)
+  const getOrdinal = (n) => {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  };
+
+  const monthName = months[ctx.monthInt];
+
+  switch (ctx.precision) {
+    case "millenium":
+      return `${getOrdinal(ctx.millennium)} millennium`;
+
+    case "century":
+      return `${getOrdinal(ctx.century)} century`;
+
+    case "decade":
+      return `${ctx.decade}s`; // ex: 1990s
+
+    case "year":
+      return `${ctx.year}`;
+
+    case "month":
+      return `${monthName} ${ctx.year}`;
+
+    case "day":
+    case "hours":
+    case "minutes":
+    case "seconds":
+    case "milliseconds":
+      // Format standard "Month Day, Year"
+      return `${monthName} ${ctx.day}, ${ctx.year}`;
+
+    default:
+      return `${ctx.year}`;
+  }
+}
+
+function getTimeWithLabel(timeStamp, timePrecision, formatterFn) {
+  // On récupère les informations calculées
+  var context = getLabelContext(timeStamp, timePrecision);
+
+  // On génère le label en utilisant la fonction de langue passée en paramètre
+  var label = formatterFn(context);
+
+  // On retourne l'objet enrichi
+  return {
+    ...context,
+    label
+  };
+}
+
+function getTimeWithLangLabel(timeStamp, timePrecision, lang){
+  if (lang === "fr"){
+    return getTimeWithLabel(timeStamp, timePrecision, formatFrenchTimeLabel);
+  }else if (lang === "en"){
+    return getTimeWithLabel(timeStamp, timePrecision, formatEnglishLabel);
+  }else {
+    // Par défaut, on retourne le label en anglais
+    return getTimeWithLabel(timeStamp, timePrecision, formatEnglishLabel);
+  }
 }
 
 function createTimelineTime(year=null, month=null, day=null, hour=null, minute=null, second=null, millisecond=null, format=null){
@@ -198,41 +276,41 @@ function extractElementsFromTime(time){
   return { year, month, day, hours, minutes, seconds, milliseconds }
 }
 
-function getValidTimeForLandmark(timeApp={}, timeDis={}, timeBeforeApp={}, timeAfterApp={}, timeBeforeDis={}, timeAfterDis={}){
+function getValidTimeForLandmark(timeApp={}, timeDis={}, timeBeforeApp={}, timeAfterApp={}, timeBeforeDis={}, timeAfterDis={}, lang="en"){
   var startTime = {} ;
   var startTimePrec = undefined ;
   var startTimeBefore = undefined ;
   var startTimeAfter = undefined ;
   if(timeApp.stamp && timeApp.precision){
-    var startTimePrec = getTimeWithFrenchLabel(timeApp.stamp.value, timeApp.precision.value) ;
+    var startTimePrec = getTimeWithLangLabel(timeApp.stamp.value, timeApp.precision.value, lang) ;
     startTime.precise = startTimePrec ;
   }else if(timeBeforeApp.stamp && timeBeforeApp.precision && timeAfterApp.stamp && timeAfterApp.precision){
-    var startTimeBefore = getTimeWithFrenchLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value) ;
-    var startTimeAfter = getTimeWithFrenchLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value) ;
+    var startTimeBefore = getTimeWithLangLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value, lang) ;
+    var startTimeAfter = getTimeWithLangLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value, lang) ;
     startTime.before = startTimeBefore ;
     startTime.after = startTimeAfter ;
   }else if (timeBeforeApp.stamp && timeBeforeApp.precision){
-    var startTimeBefore = getTimeWithFrenchLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value) ;
+    var startTimeBefore = getTimeWithLangLabel(timeBeforeApp.stamp.value, timeBeforeApp.precision.value, lang) ;
     startTime.before = startTimeBefore ;
   }else if (timeAfterApp.stamp && timeAfterApp.precision){
-    var startTimeAfter = getTimeWithFrenchLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value) ;
+    var startTimeAfter = getTimeWithLangLabel(timeAfterApp.stamp.value, timeAfterApp.precision.value, lang) ;
     startTime.after = startTimeAfter ;
   }
 
   var endTime = {} ;
   if(timeDis.stamp && timeDis.precision){
-    var endTimePrec = getTimeWithFrenchLabel(timeDis.stamp.value, timeDis.precision.value) ;
+    var endTimePrec = getTimeWithLangLabel(timeDis.stamp.value, timeDis.precision.value, lang) ;
     endTime.precise = endTimePrec ;
   }else if(timeBeforeDis.stamp && timeBeforeDis.precision && timeAfterDis.stamp && timeAfterDis.precision){
-    var endTimeBefore = getTimeWithFrenchLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value) ;
-    var endTimeAfter = getTimeWithFrenchLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value) ;
+    var endTimeBefore = getTimeWithLangLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value, lang) ;
+    var endTimeAfter = getTimeWithLangLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value, lang) ;
     endTime.before = endTimeBefore ;
     endTime.after = endTimeAfter ;
   }else if (timeBeforeDis.stamp && timeBeforeDis.precision){
-    var endTimeBefore = getTimeWithFrenchLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value) ;
+    var endTimeBefore = getTimeWithLangLabel(timeBeforeDis.stamp.value, timeBeforeDis.precision.value, lang) ;
     endTime.before = endTimeBefore ;
   }else if (timeAfterDis.stamp && timeAfterDis.precision){
-    var endTimeAfter = getTimeWithFrenchLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value) ;
+    var endTimeAfter = getTimeWithLangLabel(timeAfterDis.stamp.value, timeAfterDis.precision.value, lang) ;
     endTime.after = endTimeAfter ;
   }
 
@@ -242,7 +320,7 @@ function getValidTimeForLandmark(timeApp={}, timeDis={}, timeBeforeApp={}, timeA
 
 function createTimelineFeature(uiConfig, attrVersion, attrType, attrVersionValues, timeME = {}, timeO = {}) {
   var groupName = uiConfig.types.attributes.get(attrType.value).label || attrType.value;
-  var text = createTimelineText(attrVersion, attrVersionValues);
+  var text = createTimelineText(attrVersion, attrVersionValues, uiConfig);
 
   var feature = {
     "group": groupName,

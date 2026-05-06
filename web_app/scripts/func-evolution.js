@@ -47,7 +47,7 @@ function configureTimeline(uiConfig, versions, bindings, mapSettings){
     initial_zoom: 0
     } ;
 
-  var timelineHeadline = uiConfig.timeline.headlineLabel ;
+  var timelineHeadline = uiConfig.timeline.headlineLabel[uiConfig.systemLang] ;
   var timelineJson = getTimelineJson(uiConfig, versions, timelineHeadline)
   var timeline = new TL.Timeline(uiConfig.divIds.timeline, timelineJson, timelineOptions) ;
   timeline.on('change', function () { actionsOnTimelineChange(timeline, versions, mapSettings) });
@@ -58,7 +58,7 @@ function actionsOnTimelineChange(timeline, versions, mapSettings){
   var version = versions[uri];
   if (version){
     var geomStyle = {marker:lo.blueMarker, polyline:lo.blueDefaultLineStringStyle, polygon:lo.blueDefaultPolygonStyle}
-    addGeometriesOfVersion(version, mapSettings, geomStyle);
+    addGeometriesOfVersion(version, uiConfig, mapSettings, geomStyle);
   }
 }
 
@@ -91,60 +91,61 @@ function getTimelineJson(uiConfig, versions, headline){
   return timelineJson;
 }
 
-function displayLandmarkValidTime(endpoint, namedGraphURI, landmarkURI, landmarkValidTimeDivId){
+function displayLandmarkValidTime(endpoint, namedGraphURI, landmarkURI, landmarkValidTimeDivId, uiConfig){
   var queryValidTimeForLandmark = getQueryValidTimeForLandmark(landmarkURI, namedGraphURI) ;
 
   runSparqlQuery(endpoint, queryValidTimeForLandmark).then(bindings => {
-      insertLandmarkValidTime(landmarkValidTimeDivId, bindings) ;
+      insertLandmarkValidTime(landmarkValidTimeDivId, bindings, uiConfig) ;
     })
     .catch(err => {
       console.error("SPARQL timeline config error:", err);
     });
 }
   
-  function insertLandmarkValidTime(landmarkValidTimeDivId, bindings){
-    /**
-     * Displays the valid time for a landmark based on the timestamp data in the provided bindings.
-     *
-     * This function iterates over each binding in the given array of bindings, calculates the valid time for the landmark 
-     * using the provided timestamps and precision values, and updates the inner HTML of a specific div element with the 
-     * calculated valid time label.
-     *
-     * @param {Array} bindings - An array of objects, where each object contains timestamp data and associated precision values. 
-     * Each object should have (or not) the following properties:
-     *   - tStampApp: Timestamp for the application (crisp)
-     *   - tPrecApp: Precision of the tStampApp
-     *   - tStampAppFuzzyBeg: Timestamp for the application fuzzy beginning
-     *   - tPrecAppFuzzyBeg: Precision of the tStampAppFuzzyBeg
-     *   - tStampAppFuzzyEnd: Timestamp for the application fuzzy end
-     *   - tPrecAppFuzzyEnd: Precision of the tStampAppFuzzyEnd
-     *   - tStampDis: Timestamp for the disapplication (crisp)
-     *   - tPrecDis: Precision of the tStampDis
-     *   - tStampDisFuzzyBeg: Timestamp for the disapplication fuzzy beginning
-     *   - tPrecDisFuzzyBeg: Precision of the tStampDisFuzzyBeg
-     *   - tStampDisFuzzyEnd: Timestamp for the disapplication fuzzy end
-     *   - tPrecDisFuzzyEnd: Precision of the tStampDisFuzzyEnd
-     * 
-     * @returns {void} - The function does not return any value. It updates the inner HTML of a div element with the 
-     *                   calculated valid time label for each binding in the provided list.
-     */
+function insertLandmarkValidTime(landmarkValidTimeDivId, bindings, uiConfig){
+  /**
+   * Displays the valid time for a landmark based on the timestamp data in the provided bindings.
+   *
+   * This function iterates over each binding in the given array of bindings, calculates the valid time for the landmark 
+   * using the provided timestamps and precision values, and updates the inner HTML of a specific div element with the 
+   * calculated valid time label.
+   *
+   * @param {Array} bindings - An array of objects, where each object contains timestamp data and associated precision values. 
+   * Each object should have (or not) the following properties:
+   *   - tStampApp: Timestamp for the application (crisp)
+   *   - tPrecApp: Precision of the tStampApp
+   *   - tStampAppFuzzyBeg: Timestamp for the application fuzzy beginning
+   *   - tPrecAppFuzzyBeg: Precision of the tStampAppFuzzyBeg
+   *   - tStampAppFuzzyEnd: Timestamp for the application fuzzy end
+   *   - tPrecAppFuzzyEnd: Precision of the tStampAppFuzzyEnd
+   *   - tStampDis: Timestamp for the disapplication (crisp)
+   *   - tPrecDis: Precision of the tStampDis
+   *   - tStampDisFuzzyBeg: Timestamp for the disapplication fuzzy beginning
+   *   - tPrecDisFuzzyBeg: Precision of the tStampDisFuzzyBeg
+   *   - tStampDisFuzzyEnd: Timestamp for the disapplication fuzzy end
+   *   - tPrecDisFuzzyEnd: Precision of the tStampDisFuzzyEnd
+   * 
+   * @returns {void} - The function does not return any value. It updates the inner HTML of a div element with the 
+   *                   calculated valid time label for each binding in the provided list.
+   */
 
-    bindings.forEach(binding => {
-      var times = getValidTimeForLandmark(
-        {stamp:binding.tStampApp, precision:binding.tPrecApp}, 
-        {stamp:binding.tStampDis, precision:binding.tPrecDis},
-        {stamp:binding.tStampAppFuzzyEnd, precision:binding.tPrecAppFuzzyEnd}, 
-        {stamp:binding.tStampAppFuzzyBeg, precision:binding.tPrecAppFuzzyBeg},
-        {stamp:binding.tStampDisFuzzyEnd, precision:binding.tPrecDisFuzzyEnd}, 
-        {stamp:binding.tStampDisFuzzyBeg, precision:binding.tPrecDisFuzzyBeg}
-      );
-      var validTimeForLandmarkLabel = getValidTimeForLandmarkLabel(times.appTime, times.disTime) ;
-      var landmarkValidTimeDiv = document.getElementById(landmarkValidTimeDivId) ;
-      landmarkValidTimeDiv.innerHTML = validTimeForLandmarkLabel ;
-    });
-  }
+  bindings.forEach(binding => {
+    var times = getValidTimeForLandmark(
+      {stamp:binding.tStampApp, precision:binding.tPrecApp}, 
+      {stamp:binding.tStampDis, precision:binding.tPrecDis},
+      {stamp:binding.tStampAppFuzzyEnd, precision:binding.tPrecAppFuzzyEnd}, 
+      {stamp:binding.tStampAppFuzzyBeg, precision:binding.tPrecAppFuzzyBeg},
+      {stamp:binding.tStampDisFuzzyEnd, precision:binding.tPrecDisFuzzyEnd}, 
+      {stamp:binding.tStampDisFuzzyBeg, precision:binding.tPrecDisFuzzyBeg},
+      uiConfig.systemLang
+    );
+    var validTimeForLandmarkLabel = getValidTimeForLandmarkLabel(times.appTime, times.disTime, uiConfig.systemLang) ;
+    var landmarkValidTimeDiv = document.getElementById(landmarkValidTimeDivId) ;
+    landmarkValidTimeDiv.innerHTML = validTimeForLandmarkLabel ;
+  });
+}
   
-function createTimelineText(attrVersion, attrVersionValues){
+function createTimelineText(attrVersion, attrVersionValues, uiConfig){
   var values = [] ;
   attrVersionValues.forEach(element => {
     values.push(element.value);
@@ -159,7 +160,7 @@ function createTimelineText(attrVersion, attrVersionValues){
 function changeSelectedLandmark(graphDBRepositoryURI, namedGraphURI, uiConfig, mapSettings){
   var dropDownMenu = document.getElementById(uiConfig.divIds.landmarkSelectionSuggestions);
   var landmarkURI = dropDownMenu.value;
-  displayLandmarkValidTime(graphDBRepositoryURI, namedGraphURI, landmarkURI, uiConfig.divIds.landmarkValidTime);
+  displayLandmarkValidTime(graphDBRepositoryURI, namedGraphURI, landmarkURI, uiConfig.divIds.landmarkValidTime, uiConfig);
   initTimelineFromLandmark(graphDBRepositoryURI, namedGraphURI, uiConfig, mapSettings, landmarkURI);
 }
 
@@ -277,7 +278,6 @@ function getDefaultLandmarks(dataMap, selectedType, limit){
 }
 
 function searchLandmarks(dataMap, selectedType, query, limit = 20){
-  console.log(dataMap);
   if (!dataMap.has(selectedType)) return [];
 
   var lmMap = dataMap.get(selectedType).landmarks;
@@ -372,9 +372,9 @@ function displayLandmarksToSelectForEvolution(
   lmTypeDropDown, lmDropDown, lmSuggestionsDropDown,
   selectTypeMessage, selectLmMessage
 ){
-  var queryLandmarkTypes = getQueryForLandmarkTypes(namedGraphURI);
-  var queryAttrTypes = getQueryForAttributeTypes(namedGraphURI);
-  var queryLandmarks = getQueryForLandmarks(namedGraphURI);
+  var queryLandmarkTypes = getQueryForLandmarkTypes(namedGraphURI, uiConfig.graphLang) ;
+  var queryAttrTypes = getQueryForAttributeTypes(namedGraphURI, uiConfig.graphLang);
+  var queryLandmarks = getQueryForLandmarks(namedGraphURI, uiConfig.graphLang);
 
   Promise.all([
     runSparqlQuery(endpoint, queryLandmarkTypes),
