@@ -46,7 +46,7 @@ def initialize_missing_changes_and_events_for_landmarks(graphdb_url, repository_
     finalize_event_times(graphdb_url, repository_name, facts_named_graph_uri, tmp_named_graph_uri)
 
     # Nettoyage et finalisation
-    gd.remove_named_graph_from_uri(tmp_named_graph_uri)
+    gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
     rt.transfer_elements_to_roots(graphdb_url, repository_name, facts_named_graph_uri)
 
 def create_missing_changes(graphdb_url, repository_name, facts_named_graph_uri, data_configs:list[dict] = []):
@@ -177,7 +177,7 @@ def get_elementary_versions_and_changes(graphdb_url:URIRef, repository_name:str,
     # with open("/Users/charlybernard/Downloads/evolutions.json", "w") as f:
     #     f.write(json_evolutions)
 
-    gd.remove_named_graph_from_uri(tmp_named_graph_uri)
+    gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
     loop_limit = 50000
     loop_nb = 0
     g = Graph()

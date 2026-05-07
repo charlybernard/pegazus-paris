@@ -514,7 +514,7 @@ def create_landmark_version_from_description(g:Graph, lm_state_description:dict,
     ```
     """
 
-    lm_uri = gr.generate_uri(np.RES, "LM") # Generate a unique URI for the landmark
+    lm_uri = gr.generate_uri(np.RES, "Landmark", separator="/") # Generate a unique URI for the landmark
     lm_id = lm_state_description.get("id") # Extract the landmark ID from the version description
     lm_label = lm_state_description.get("label") # Extract the landmark label from the version description
     lm_lang = lm_state_description.get("lang") # Extract the language from the version description
@@ -527,7 +527,7 @@ def create_landmark_version_from_description(g:Graph, lm_state_description:dict,
     # If it does not exist, use the valid time URI if it is provided
     if lm_valid_time is not None:
         time_description = tp.get_valid_time_description(lm_valid_time) # Create a time description for the landmark
-        lm_valid_time_uri = gr.generate_uri(np.RES, "TI")
+        lm_valid_time_uri = gr.generate_uri(np.RES, "TimeInterval", separator="/") # Generate a unique URI for the valid time
         create_time_interval(g, lm_valid_time_uri, time_description) # Create the time interval for the landmark
         ri.add_time_to_resource(g, lm_uri, lm_valid_time_uri)
     elif isinstance(valid_time_uri, URIRef):
@@ -568,7 +568,7 @@ def create_landmark_relation_version_from_description(g:Graph, lr_state_descript
     }
     ```
     """
-    lr_uri = gr.generate_uri(np.RES, "LR") # Generate a unique URI for the landmark relation
+    lr_uri = gr.generate_uri(np.RES, "LandmarkRelation", separator="/") # Generate a unique URI for the landmark relation
     lr_id = lr_state_description.get("id") # Extract the landmark relation ID from the version description
     lr_type = lr_state_description.get("type") # Extract the landmark relation type from the version description
     lr_provenance = lr_state_description.get("provenance") or {} # Extract the provenance from the version description

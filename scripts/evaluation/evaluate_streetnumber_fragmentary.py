@@ -12,9 +12,9 @@ def run_fragmentary_evaluation(
     data_folder: str,
     graphdb_url: URIRef,
     repository: str,
-    facts_named_graph_name: str,
-    facts_states_named_graph_name: str,
-    facts_states_events_named_graph_name: str,
+    facts_named_graph_uri: URIRef,
+    facts_states_named_graph_uri: URIRef,
+    facts_states_events_named_graph_uri: URIRef,
     fragmentary_source_label: str
 ) -> dict:
     """
@@ -36,7 +36,7 @@ def run_fragmentary_evaluation(
     df_ref_versions, df_ref_changes = extract_versions_and_changes(
         graphdb_url,
         repository,
-        facts_named_graph_name,
+        facts_named_graph_uri,
         os.path.join(data_folder, "versions_and_sources_from_unmodified_graph.csv"),
         os.path.join(data_folder, "changes_and_times_from_unmodified_graph.csv")
     )
@@ -44,7 +44,7 @@ def run_fragmentary_evaluation(
     df_states_versions, df_states_changes = extract_versions_and_changes(
         graphdb_url,
         repository,
-        facts_states_named_graph_name,
+        facts_states_named_graph_uri,
         os.path.join(data_folder, "versions_and_sources_from_states_graph.csv"),
         os.path.join(data_folder, "changes_and_times_from_states_graph.csv")
     )
@@ -52,7 +52,7 @@ def run_fragmentary_evaluation(
     df_states_events_versions, df_states_events_changes = extract_versions_and_changes(
         graphdb_url,
         repository,
-        facts_states_events_named_graph_name,
+        facts_states_events_named_graph_uri,
         os.path.join(data_folder, "versions_and_sources_from_states_and_events_graph.csv"),
         os.path.join(data_folder, "changes_and_times_from_states_and_events_graph.csv")
     )
@@ -203,7 +203,7 @@ def print_evaluation_tables(results: dict) -> None:
 def extract_versions_and_changes(
     graphdb_url: URIRef,
     repository_name: str,
-    named_graph_name: str,
+    named_graph_uri: URIRef,
     versions_file: str,
     changes_file: str
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -217,8 +217,8 @@ def extract_versions_and_changes(
         URL of the GraphDB endpoint.
     repository_name : str
         Name of the GraphDB repository.
-    named_graph_name : str
-        Name of the named graph to query.
+    named_graph_uri : URIRef
+        URI of the named graph to query.
     versions_file : str
         Path to the CSV file where attribute versions and sources are stored.
     changes_file : str
@@ -233,14 +233,14 @@ def extract_versions_and_changes(
     dfsq.select_streetnumbers_attr_geom_version_and_sources(
         graphdb_url,
         repository_name,
-        named_graph_name,
+        named_graph_uri,
         versions_file
     )
 
     dfsq.select_streetnumbers_attr_geom_change_times(
         graphdb_url,
         repository_name,
-        named_graph_name,
+        named_graph_uri,
         changes_file
     )
 

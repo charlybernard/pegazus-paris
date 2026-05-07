@@ -10,7 +10,7 @@ from scripts.evaluation import evaluation_aux as ea
 def create_streetnumber_fragmentary_descriptions(
     graphdb_url:URIRef,
     repository_name:str,
-    facts_named_graph_name:str,
+    facts_named_graph_uri:URIRef,
     data_folder:str,
     data_sources_folder:str,
     comparison_settings:dict,
@@ -30,10 +30,10 @@ def create_streetnumber_fragmentary_descriptions(
     sn_change_descriptions_file = os.path.join(data_sources_folder, "fragmentary_events_streetnumbers.json")
 
     # Create the CSV files from the SPARQL queries
-    dfsq.select_streetnumbers_labels(graphdb_url, repository_name, facts_named_graph_name, sn_labels_file)
-    dfsq.select_streetnumbers_attr_geom_version_valid_times(graphdb_url, repository_name, facts_named_graph_name, sn_attr_version_valid_times_file)
-    dfsq.select_streetnumbers_attr_geom_version_values(graphdb_url, repository_name, facts_named_graph_name, sn_attr_version_values_file)
-    dfsq.select_streetnumbers_attr_geom_change_valid_times(graphdb_url, repository_name, facts_named_graph_name, sn_attr_change_valid_times_file)
+    dfsq.select_streetnumbers_labels(graphdb_url, repository_name, facts_named_graph_uri, sn_labels_file)
+    dfsq.select_streetnumbers_attr_geom_version_valid_times(graphdb_url, repository_name, facts_named_graph_uri, sn_attr_version_valid_times_file)
+    dfsq.select_streetnumbers_attr_geom_version_values(graphdb_url, repository_name, facts_named_graph_uri, sn_attr_version_values_file)
+    dfsq.select_streetnumbers_attr_geom_change_valid_times(graphdb_url, repository_name, facts_named_graph_uri, sn_attr_change_valid_times_file)
 
     # Read the CSV files
     labels = pd.read_csv(sn_labels_file)

@@ -72,7 +72,8 @@ def create_landmark_with_attributes(
 
     for attr in attr_types_and_values:
         attr_type_uri, attr_value_lit = attr
-        attr_uri, attr_version_uri = gr.generate_uri(lm_namespace, "ATTR"), gr.generate_uri(lm_namespace, "AV")
+        attr_uri = gr.generate_uri(lm_namespace, "Attribute", separator="/")
+        attr_version_uri = gr.generate_uri(lm_namespace, "AttributeVersion", separator="/")
         create_landmark_attribute_and_version(g, lm_uri, attr_uri, attr_type_uri, attr_version_uri, attr_value_lit)
 
         # Add provenance (if supplied)

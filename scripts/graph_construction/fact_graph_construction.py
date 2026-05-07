@@ -11,14 +11,14 @@ from scripts.graph_construction import evolution_construction_without_sparql as 
 def build_fact_graph_from_sources(
     graphdb_url: URIRef,
     repository_name: str,
-    facts_named_graph_name: str,
+    facts_named_graph_uri: URIRef,
     facts_named_graph_name_label: str,
-    meta_named_graph_name: str,
-    inter_sources_named_graph_name: str,
-    labels_named_graph_name: str,
+    meta_named_graph_uri: URIRef,
+    inter_sources_named_graph_uri: URIRef,
+    labels_named_graph_uri: URIRef,
     ttl_file: str,
-    tmp_named_graph_name: str,
-    comp_named_graph_name: str,
+    tmp_named_graph_uri: URIRef,
+    comp_named_graph_uri: URIRef,
     comp_tmp_file: str,
     comparison_settings: dict,
     lang: str = None,
@@ -47,22 +47,22 @@ def build_fact_graph_from_sources(
         URL of the GraphDB instance.
     repository_name : str
         Name of the GraphDB repository.
-    facts_named_graph_name : str
-        Name of the named graph containing facts and factoids.
+    facts_named_graph_uri : URIRef
+        URI of the named graph containing facts and factoids.
     facts_named_graph_name_label : str
         Human-readable label for the facts named graph.
-    meta_named_graph_name : str
-        Name of the named graph storing meta information.
-    inter_sources_named_graph_name : str
-        Name of the named graph used to store inter-source links.
-    labels_named_graph_name : str
-        Name of the named graph containing preferred and hidden labels.
+    meta_named_graph_uri : URIRef
+        URI of the named graph storing meta information.
+    inter_sources_named_graph_uri : URIRef
+        URI of the named graph used to store inter-source links.
+    labels_named_graph_uri : URIRef
+        URI of the named graph containing preferred and hidden labels.
     ttl_file : str
         Path to a temporary TTL file 
-    tmp_named_graph_name : str
-        Name of a temporary named graph used during processing steps.
-    comp_named_graph_name : str
-        Name of the named graph storing comparison results.
+    tmp_named_graph_uri : URIRef
+        URI of a temporary named graph used during processing steps.
+    comp_named_graph_uri : URIRef
+        URI of the named graph storing comparison results.
     comp_tmp_file : str
         Temporary file used during attribute version comparison.
     comparison_settings : dict
@@ -83,27 +83,16 @@ def build_fact_graph_from_sources(
     step = 0
 
     # ------------------------------------------------------------------
-    # Construct URIs for all named graphs
-    # ------------------------------------------------------------------
-    facts_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
-    meta_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
-    inter_sources_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, inter_sources_named_graph_name)
-    labels_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, labels_named_graph_name)
-    tmp_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, tmp_named_graph_name)
-    comp_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, comp_named_graph_name)
-
-
-    # ------------------------------------------------------------------
     # Add the facts named graph to the repository and associate meta info
     # ------------------------------------------------------------------
     if step >= start_step:
-        msp.remove_named_graph_from_repository(graphdb_url, repository_name, meta_named_graph_name, facts_named_graph_name)
-        print(f"Step {step}/{nb_steps}: Adding facts named graph '{facts_named_graph_name}' to repository '{repository_name}' with meta information...")
+        msp.remove_named_graph_from_repository(graphdb_url, repository_name, meta_named_graph_uri, facts_named_graph_uri)
+        print(f"Step {step}/{nb_steps}: Adding facts named graph '{facts_named_graph_uri}' to repository '{repository_name}' with meta information...")
         msp.add_final_named_graph_to_repository(
             graphdb_url,
             repository_name,
-            meta_named_graph_name,
-            facts_named_graph_name,
+            meta_named_graph_uri,
+            facts_named_graph_uri,
             facts_named_graph_name_label,
             lang=lang
         )
@@ -184,7 +173,7 @@ def build_fact_graph_from_sources(
     step += 1
     if step >= start_step:
         print(f"Step {step}/{nb_steps}: Splitting overlapping versions into elementary versions and changes...")
-        gd.remove_named_graph_from_uri(tmp_named_graph_uri)  # Clean temp graph before use
+        gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)  # Clean temp graph before use
 
         ec.get_elementary_versions_and_changes(
             graphdb_url,
@@ -222,13 +211,14 @@ def build_fact_graph_from_sources(
     step += 1
     if step >= start_step:
         print(f"Step {step}/{nb_steps}: Cleaning up temporary named graph...")
-        gd.remove_named_graph_from_uri(tmp_named_graph_uri)
+        gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
+
 
 
 def build_fact_graph_excluding_named_graph_sources(
-        graphdb_url, repository_name, facts_named_graph_name, facts_named_graph_name_label, named_graph_sources_to_exclude,
-        inter_sources_named_graph_name, labels_named_graph_name, pref_hidden_labels_ttl_file,
-        meta_named_graph_name, tmp_named_graph_name, comp_named_graph_name, comp_tmp_file, comparison_settings, lang="fr"):
+        graphdb_url, repository_name, facts_named_graph_uri, facts_named_graph_name_label, named_graph_sources_to_exclude,
+        inter_sources_named_graph_uri, labels_named_graph_uri, pref_hidden_labels_ttl_file,
+        meta_named_graph_uri, tmp_named_graph_uri, comp_named_graph_uri, comp_tmp_file, comparison_settings, lang="fr"):
     """
     Build a facts graph excluding the given sources.
     
@@ -237,7 +227,7 @@ def build_fact_graph_excluding_named_graph_sources(
 
     # 1. Activate all sources in the meta named graph
     msp.set_all_named_graphs_active(
-        graphdb_url, repository_name, meta_named_graph_name,
+        graphdb_url, repository_name, meta_named_graph_uri,
         active=True, graph_type="source"
     )
     
@@ -245,15 +235,15 @@ def build_fact_graph_excluding_named_graph_sources(
     for source in named_graph_sources_to_exclude:
         msp.set_named_graph_active(
             graphdb_url, repository_name, source,
-            meta_named_graph_name, active=False
+            meta_named_graph_uri, active=False
         )
     
     # 3. Build the facts graph
     build_fact_graph_from_sources(
-        graphdb_url, repository_name, facts_named_graph_name, facts_named_graph_name_label,
-        meta_named_graph_name, inter_sources_named_graph_name,
-        labels_named_graph_name, pref_hidden_labels_ttl_file,
-        tmp_named_graph_name,
-        comp_named_graph_name, comp_tmp_file, comparison_settings, lang=lang
+        graphdb_url, repository_name, facts_named_graph_uri, facts_named_graph_name_label,
+        meta_named_graph_uri, inter_sources_named_graph_uri,
+        labels_named_graph_uri, pref_hidden_labels_ttl_file,
+        tmp_named_graph_uri,
+        comp_named_graph_uri, comp_tmp_file, comparison_settings, lang=lang
     )
     

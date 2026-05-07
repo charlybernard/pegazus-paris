@@ -17,7 +17,7 @@ def initialize_missing_changes_and_events_for_landmarks(graphdb_url, repository_
     finalize_event_times(graphdb_url, repository_name, facts_named_graph_uri, tmp_named_graph_uri, gregorian_calendar_uri)
 
     # Nettoyage et finalisation
-    gd.remove_named_graph_from_uri(tmp_named_graph_uri)
+    gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
     rt.transfer_elements_to_roots(graphdb_url, repository_name, facts_named_graph_uri)
 
 
@@ -135,7 +135,7 @@ def finalize_event_times(graphdb_url, repository_name, facts_named_graph_uri, tm
 #     step_finalize_links(graphdb_url, repository_name, facts_named_graph_uri, inter_sources_name_graph_uri, tmp_named_graph_uri, gregorian_calendar_uri)
 
 #     # Nettoyage
-#     gd.remove_named_graph_from_uri(tmp_named_graph_uri)
+#     gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
 #     rt.transfer_elements_to_roots(graphdb_url, repository_name, facts_named_graph_uri)
 
 # def step_create_base_structures(graphdb_url, repository_name, facts_named_graph_uri, inter_sources_name_graph_uri, tmp_named_graph_uri, calendar_uri):

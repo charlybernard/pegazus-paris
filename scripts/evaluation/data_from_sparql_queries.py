@@ -3,8 +3,7 @@ from scripts.graph_construction.namespaces import NameSpaces
 
 np = NameSpaces()
 
-def select_streetnumbers_attr_geom_change_times(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
+def select_streetnumbers_attr_geom_change_times(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     query = np.query_prefixes  + f"""
     SELECT DISTINCT 
     ?lm ?label ?change 
@@ -12,7 +11,7 @@ def select_streetnumbers_attr_geom_change_times(graphdb_url, repository_name, fa
     (ofn:asDays(?timeBefore - "0001-01-01"^^xsd:dateTimeStamp) AS ?timeBeforeDay)
     (ofn:asDays(?timeAfter - "0001-01-01"^^xsd:dateTimeStamp) AS ?timeAfterDay)
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{ ?lm a peg:Landmark }}
         ?lm peg:isLandmarkType ltype:StreetNumber ; peg:hasAttribute ?attr ; skos:hiddenLabel ?snLabel .
         ?lr a peg:LandmarkRelation ; peg:isLandmarkRelationType lrtype:Belongs ; peg:locatum ?lm ; peg:relatum [skos:hiddenLabel ?thLabel] .
@@ -27,14 +26,12 @@ def select_streetnumbers_attr_geom_change_times(graphdb_url, repository_name, fa
 
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
-def select_streetnumbers_attr_geom_version_and_sources(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
-
+def select_streetnumbers_attr_geom_version_and_sources(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     query = np.query_prefixes  + f"""
     SELECT DISTINCT 
     ?sn ?label ?attrVersion ?sourceLabel
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{ ?sn a peg:Landmark ; peg:isLandmarkType ltype:StreetNumber ; skos:hiddenLabel ?snLabel .}}
         ?sn peg:hasAttribute [peg:isAttributeType atype:Geometry ; peg:hasAttributeVersion ?attrVersion] .
         [] a peg:LandmarkRelation ; peg:locatum ?sn ; peg:relatum ?th ; peg:isLandmarkRelationType lrtype:Belongs .
@@ -49,12 +46,11 @@ def select_streetnumbers_attr_geom_version_and_sources(graphdb_url, repository_n
 
 ##################################
 
-def select_streetnumbers_labels(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
+def select_streetnumbers_labels(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     query = np.query_prefixes  + f"""
     SELECT DISTINCT ?sn ?snLabel ?thLabel
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{
             ?sn a peg:Landmark ;peg:isLandmarkType ltype:StreetNumber ; rdfs:label|skos:altLabel ?snLabel .
             [] a peg:LandmarkRelation ; peg:locatum ?sn ; peg:relatum ?th ; peg:isLandmarkRelationType lrtype:Belongs .
@@ -66,14 +62,13 @@ def select_streetnumbers_labels(graphdb_url, repository_name, facts_named_graph_
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
 
-def select_streetnumbers_attr_geom_version_valid_times(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
+def select_streetnumbers_attr_geom_version_valid_times(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     
     query = np.query_prefixes  + f"""
 
     SELECT DISTINCT ?sn ?attrVersion ?startTime ?endTime
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{
             ?sn a peg:Landmark ; peg:isLandmarkType ltype:StreetNumber ; peg:hasAttribute [peg:isAttributeType atype:Geometry; peg:hasAttributeVersion ?attrVersion].
         }}
@@ -92,14 +87,13 @@ def select_streetnumbers_attr_geom_version_valid_times(graphdb_url, repository_n
 
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
-def select_streetnumbers_attr_geom_version_values(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
+def select_streetnumbers_attr_geom_version_values(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     
     query = np.query_prefixes  + f"""
 
     SELECT DISTINCT ?attrVersion ?versionValue
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{
             ?sn a peg:Landmark ;peg:isLandmarkType ltype:StreetNumber ; peg:hasAttribute [peg:isAttributeType atype:Geometry; peg:hasAttributeVersion ?attrVersion].
         }}
@@ -109,13 +103,12 @@ def select_streetnumbers_attr_geom_version_values(graphdb_url, repository_name, 
 
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
-def select_streetnumbers_attr_geom_change_valid_times(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
+def select_streetnumbers_attr_geom_change_valid_times(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     
     query = np.query_prefixes  + f"""
     SELECT DISTINCT ?sn ?attr ?change ?time ?timeAfter ?timeBefore 
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{ ?change a peg:AttributeChange ; peg:appliedTo ?attr ; peg:dependsOn ?ev . }}
         ?attr peg:isAttributeType atype:Geometry .
         ?sn a peg:Landmark ; peg:isLandmarkType ltype:StreetNumber ; peg:hasAttribute ?attr .
@@ -127,10 +120,9 @@ def select_streetnumbers_attr_geom_change_valid_times(graphdb_url, repository_na
 
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
-def select_streetnumber_modified_attr_geom_versions(graphdb_url, repository_name,
-                                                    facts_named_graph_name, named_graph_names:list, res_query_file):
-    facts_named_graph = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
-    named_graph_uris = [gd.get_named_graph_uri_from_name(graphdb_url, repository_name, name) for name in named_graph_names]
+def select_streetnumber_modified_attr_geom_versions(
+        graphdb_url, repository_name,
+        facts_named_graph_uri, named_graph_uris:list, res_query_file):
     named_graph_filter = ",".join([uri.n3() for uri in named_graph_uris])
     
     query = np.query_prefixes  + f"""
@@ -143,7 +135,7 @@ def select_streetnumber_modified_attr_geom_versions(graphdb_url, repository_name
     (ofn:asDays(?tStampDisBefore - "0001-01-01"^^xsd:dateTimeStamp) AS ?tStampDisBeforeDay)
     (ofn:asDays(?tStampDisAfter - "0001-01-01"^^xsd:dateTimeStamp) AS ?tStampDisAfterDay)
     WHERE {{
-        BIND({facts_named_graph.n3()} AS ?gf)
+        BIND({facts_named_graph_uri.n3()} AS ?gf)
         GRAPH ?gf {{ ?lm a peg:Landmark ; peg:isLandmarkType ltype:StreetNumber .}}
         ?lm peg:hasAttribute [peg:isAttributeType atype:Geometry ; peg:hasAttributeVersion ?newAttrVersion] .
         ?cgME peg:makesEffective ?newAttrVersion ; peg:dependsOn ?evME.
@@ -164,7 +156,7 @@ def select_streetnumber_modified_attr_geom_versions(graphdb_url, repository_name
 
     gd.run_select_query_to_txt_file(query, graphdb_url, repository_name, res_query_file)
 
-def select_streetnumber_unmodified_attr_geom_versions(graphdb_url, repository_name, facts_named_graph_name, res_query_file):
+def select_streetnumber_unmodified_attr_geom_versions(graphdb_url, repository_name, facts_named_graph_uri, res_query_file):
     query = np.query_prefixes  + f"""
     SELECT DISTINCT 
     ?attrVersion

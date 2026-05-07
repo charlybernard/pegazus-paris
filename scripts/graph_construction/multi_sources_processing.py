@@ -461,7 +461,7 @@ def set_all_named_graphs_active(
 def set_named_graph_active(
     graphdb_url: URIRef,
     repository_name: str,
-    graph_name: str,
+    named_graph_uri: URIRef,
     meta_named_graph_uri: URIRef,
     active: bool=True,
 ):
@@ -471,13 +471,10 @@ def set_named_graph_active(
     Args:
         graphdb_url: URI of the GraphDB instance
         repository_name: repository name
-        graph_name: the source graph name to update
+        named_graph_uri: URI of the named graph to update
         meta_named_graph_uri: URI of the meta graph containing the sources
         active: True to activate (set as active), False to deactivate
     """
-
-    # Récupère l'URI du graphe source
-    gs_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, graph_name)
 
     # Booléen RDF
     new_value = gr.get_boolean_literal(active)
@@ -485,19 +482,19 @@ def set_named_graph_active(
     query = np.query_prefixes + f"""
     DELETE {{
         GRAPH ?g {{
-            {gs_uri.n3()} peg:isActiveGraph ?oldValue .
+            {named_graph_uri.n3()} peg:isActiveGraph ?oldValue .
         }}
     }}
     INSERT {{
         GRAPH ?g {{
-            {gs_uri.n3()} peg:isActiveGraph {new_value.n3()} .
+            {named_graph_uri.n3()} peg:isActiveGraph {new_value.n3()} .
         }}
     }}
     WHERE {{
         BIND({meta_named_graph_uri.n3()} AS ?g)
         GRAPH ?g {{
-            {gs_uri.n3()} a ?gsClass .
-            OPTIONAL {{ {gs_uri.n3()} peg:isActiveGraph ?oldValue . }}
+            {named_graph_uri.n3()} a ?gsClass .
+            OPTIONAL {{ {named_graph_uri.n3()} peg:isActiveGraph ?oldValue . }}
         }}
         ?gsClass rdfs:subClassOf* peg:Graph .
     }}
