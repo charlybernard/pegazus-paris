@@ -565,7 +565,39 @@ def remove_construction_named_graphs(graphdb_url, repository_name):
     """
 
     queries = [query1, query2]
+    gd.run_multiple_update_queries(queries, graphdb_url, repository_name)
 
-    for query in queries:
-        # Execute the SPARQL UPDATE query on the target repository
-        gd.run_update_query(query, graphdb_url, repository_name)
+def generate_addresses_from_landmark_relations(
+        graphdb_url: URIRef,
+        repository_name: str,
+        facts_named_graph_uri: URIRef):
+    """Generate address resources from landmark relations in the facts graph.
+    This function identifies landmark relations of type 'Belongs' that connect a locatum (street number) to a relatum (thoroughfare). For each such relation, it creates a new address resource with appropriate properties and labels, and inserts it into the facts graph.
+    """
+    
+    query = np.query_prefixes + f"""
+        INSERT {{
+            GRAPH ?g {{ ?addr a peg:Address ; peg:firstStep ?lr ; peg:targets ?loc ; rdfs:label ?addrLabel . }}
+        }}
+        WHERE {{
+            {{
+                SELECT * WHERE {{
+                    BIND({facts_named_graph_uri.n3()} AS ?g)
+                    GRAPH ?g {{
+                        ?lr a peg:LandmarkRelation ; peg:isLandmarkRelationType lrtype:Belongs ; peg:locatum ?loc ; peg:relatum ?rel .
+                        ?loc a peg:Landmark ; peg:isLandmarkType ltype:StreetNumber .
+                        ?rel a peg:Landmark ; peg:isLandmarkType ltype:Thoroughfare .
+                    }}
+                }}
+            }}
+            BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Address/", STRUUID())) AS ?addr)
+            
+            OPTIONAL {{
+                ?loc rdfs:label ?locLabel .
+                ?rel rdfs:label ?relLabel .
+                BIND(STRLANG(CONCAT(STR(?locLabel), ", ", STR(?relLabel)), LANG(?relLabel)) AS ?addrLabel)
+            }}
+        }}
+    """
+
+    gd.run_update_query(query, graphdb_url, repository_name)

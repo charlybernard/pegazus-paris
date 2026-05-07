@@ -79,7 +79,7 @@ def build_fact_graph_from_sources(
         The function creates and modifies RDF named graphs in the GraphDB repository.
     """
 
-    nb_steps = 8
+    nb_steps = 9
     step = 0
 
     # ------------------------------------------------------------------
@@ -213,6 +213,13 @@ def build_fact_graph_from_sources(
         print(f"Step {step}/{nb_steps}: Cleaning up temporary named graph...")
         gd.remove_named_graph_with_query(graphdb_url, repository_name, tmp_named_graph_uri)
 
+    # ------------------------------------------------------------------
+    # 9. Generate address resources from landmark relations in the facts graph
+    # ------------------------------------------------------------------
+    step += 1
+    if step >= start_step:
+        print(f"Step {step}/{nb_steps}: Generating address resources from landmark relations...")
+        msp.generate_addresses_from_landmark_relations(graphdb_url, repository_name, facts_named_graph_uri)
 
 
 def build_fact_graph_excluding_named_graph_sources(

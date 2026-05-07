@@ -446,8 +446,7 @@ def get_earliest_and_latest_time_instants_for_events(graphdb_url:URIRef, reposit
         """
 
     queries = [query1, query2]
-    for query in queries:
-        gd.run_update_query(query, graphdb_url, repository_name)
+    gd.run_multiple_update_queries(queries, graphdb_url, repository_name)
 
 def remove_earliest_and_latest_time_instants(graphdb_url:URIRef, repository_name:str, time_named_graph_uri:URIRef):
     query = np.query_prefixes + f"""
@@ -665,8 +664,7 @@ def get_events_before(graphdb_url:URIRef, repository_name:str, time_named_graph_
         """
     
     queries = [query1, query2, query3, query4, query5, query6]
-    for query in queries :
-        gd.run_update_query(query, graphdb_url, repository_name)
+    gd.run_multiple_update_queries(queries, graphdb_url, repository_name)
 
 def get_time_precision_from_integer(precision_int:int):
     """
