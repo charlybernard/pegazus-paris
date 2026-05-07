@@ -8,29 +8,7 @@ from scripts.graph_construction import resource_transfert as rt
 from scripts.resource_management import states_events_json as sej
 from scripts.graph_construction import create_factoids_descriptions as cfd
 
-
 np = NameSpaces()
-
-##################################################### Generic ##########################################################
-
-
-def clean_imported_repository(graphdb_url:URIRef, repository_name:str, factoids_named_graph_name:str, permanent_named_graph_name:str):
-    factoids_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, factoids_named_graph_name)
-    permanent_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, permanent_named_graph_name)
-
-    # Transferring non-modifiable triples to the permanent named graph
-    rt.transfert_immutable_triples(graphdb_url, repository_name, factoids_named_graph_uri, permanent_named_graph_uri)
-
-
-def create_factoids_repository(graphdb_url:URIRef, repository_name:str, tmp_folder:str,
-                               ont_file:str, ontology_named_graph_name:str, kg_file:str,
-                               factoids_named_graph_name:str, permanent_named_graph_name:str,
-                               g:Graph):
-    # Export the graph and import it into the repository
-    msp.transfert_rdflib_graph_to_factoids_repository(graphdb_url, repository_name, factoids_named_graph_name, g, kg_file, tmp_folder, ont_file, ontology_named_graph_name)
-
-    # # Adapting data with the ontology, merging duplicates, etc.
-    # clean_imported_repository(graphdb_url, repository_name, factoids_named_graph_name, permanent_named_graph_name)
 
 ################################################################################################################
 

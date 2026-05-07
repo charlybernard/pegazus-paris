@@ -30,3 +30,25 @@ comparison_settings:
   geom_buffer_radius: 10
   geom_crs_uri: "http://www.opengis.net/def/crs/EPSG/0/2154"
   epsg_code: "EPSG:2154"
+
+namespaces:
+    # Namespaces for RDF construction
+    PEG: "https://w3id.org/PeGazUs/id/"
+    ATYPE: "https://w3id.org/PeGazUs/id/codes/AttributeType/"
+    CTYPE: "https://w3id.org/PeGazUs/id/codes/ChangeType/"
+    LTYPE: "https://w3id.org/PeGazUs/id/codes/LandmarkType/"
+    LRTYPE: "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/"
+    RES: "https://w3id.org/PeGazUs/id/"
+    GRAPH: "https://w3id.org/PeGazUs/id/Graph/"
+    TIME: "http://www.w3.org/2006/time#"
+    PROV: "http://www.w3.org/ns/prov#"
+    RICO: "https://www.ica.org/standards/RiC/ontology#"
+    GEO: "http://www.opengis.net/ont/geosparql#"
+    GEOFLA: "http://data.ign.fr/def/geofla#"
+    WD: "http://www.wikidata.org/entity/"
+    SKOS: "http://www.w3.org/2004/02/skos/core#"
+    RDF: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    RDFS: "http://www.w3.org/2000/01/rdf-schema#"
+    XSD: "http://www.w3.org/2001/XMLSchema#"
+    OWL: "http://www.w3.org/2002/07/owl#"
+    OFN: "http://www.ontotext.com/sparql/functions/"

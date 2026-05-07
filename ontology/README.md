@@ -27,4 +27,23 @@ PeGazUs reuses common RDF vocabularies, including:
 - License: `CC BY-NC-SA 4.0`
 
 ## Detailed documentation
-For full documentation (detailed definitions, examples, and modeling rules), see the [`documentation`](./documentation) folder.
+
+The project documentation is divided into two complementary folders `documentation` and `samod`:
+
+### [`documentation`](./documentation)
+It contains the ontology documentation. This documentation provides a complete description of the ontology.
+
+### [`samod`](./samod)
+It contains the conceptual and methodological documentation produced following the [SAMOD methodology](https://essepuntato.it/papers/samod-owled2016.html) (*Simplified Agile Methodology for Ontology Development*).  
+
+This folder documents the ontology engineering process and explains how the ontology was designed.
+Ontology documentation in the `samod` folder is divided into several parts corresponding to the main modelets:
+* addresses ;
+* sources ;
+* temporal_evolution.
+
+Each modelet documentation contains 3 or 4 files:
+* `{modelet_name}_scenario.md`: a natural-language argument describing the sub-problem to address ;
+* `{modelet_name}_glossary.md`: a glossary defining the main concepts involved ;
+* `{modelet_name}_competency_questions.md`: a set of informal competency questions representing the expected queries the knowledge base should answer ;
+* `{modelet_name}_sparql_queries.md`: a SPARQL translation of the competency questions.

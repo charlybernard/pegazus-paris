@@ -3,6 +3,7 @@ from scripts.graph_construction import graphrdf as gr
 from rdflib import Graph, Namespace, Literal, BNode, URIRef
 from rdflib.namespace import RDF
 import requests
+from urllib.parse import quote
 
 ## Build uris from `graphdb_url` and `repository_name`
 
@@ -83,6 +84,23 @@ def get_rest_respositories_uri(graphdb_url:URIRef) -> URIRef:
         URIRef: The URI for all repositories.
     """
     return URIRef(f"{graphdb_url}/rest/repositories")
+
+def get_repository_statements_uri_with_context(graphdb_url:URIRef, repository_name:str, named_graph_uri:URIRef) -> URIRef:
+    """
+    Get the URI for statements of a repository with a specific named graph context.
+    Args:
+        graphdb_url (URIRef): The base URL of the GraphDB instance.
+        repository_name (str): The name of the repository.
+        named_graph_uri (URIRef): The URI of the named graph.
+    
+    Returns:
+        URIRef: The URI for the statements with the specified named graph context.
+    
+    """
+    
+    enccoded_named_graph_uri = quote(named_graph_uri, safe="")
+    urlref = f"{graphdb_url}/repositories/{repository_name}/statements?context=%3C{enccoded_named_graph_uri}%3E" # This encoding is necessary to avoid issues with special characters in the named graph URI
+    return URIRef(urlref)
 
 ## Create repository
 
@@ -179,21 +197,7 @@ def create_config_local_repository_file(config_repository_file:str, repository_n
     
     # Export created graph with the configuration file
     g.serialize(destination=config_repository_file)
-    
-def load_ontologies(graphdb_url:URIRef, repository_name:str, ont_files:list[str]=[], ontology_named_graph_name:str="ontology"):
-    """
-    Load a list of ontology files into the given repository.
-    
-    Args:
-        graphdb_url (URIRef): The base URL of the GraphDB instance.
-        repository_name (str): The name of the repository to load ontologies into.
-        ont_files (list of str): List of file paths to the ontology files.
-        ontology_named_graph_name (str, optional): The name of the named graph for ontologies (default is "ontology").
-    """
-    
-    for ont_file in ont_files:
-        import_ttl_file_in_graphdb(graphdb_url, repository_name, ont_file, ontology_named_graph_name)
-
+            
 ## Delete and/or clean repository
 
 def clear_repository(graphdb_url:URIRef, repository_name:str):
@@ -343,48 +347,47 @@ def remove_named_graphs_from_uris(named_graph_uris_list:list[URIRef]):
     for g in named_graph_uris_list:
         remove_named_graph_from_uri(g)
 
-def remove_named_graph_from_query(graphdb_url:URIRef, repository_name:str, named_graph_name:str):
+def remove_named_graph_with_query(graphdb_url:URIRef, repository_name:str, named_graph_uri:URIRef):
     """
     Remove a named graph from a repository using a SPARQL DELETE query.
 
     Parameters:
     - graphdb_url (URIRef): The base URL of the GraphDB instance.
     - repository_name (str): The name of the repository from which the named graph will be removed.
-    - named_graph_name (str): The name of the named graph to be removed.
+    - named_graph_uri (URIRef): The URI of the named graph to be removed.
 
     Returns:
     - None: The function constructs a SPARQL DELETE query to remove the named graph and calls `update_query` to execute it.
     """
-    graph_uri = get_named_graph_uri_from_name(graphdb_url, repository_name, named_graph_name)
 
     query = f"""
     DELETE {{
         GRAPH ?g {{ ?s ?p ?o }}
     }}
     WHERE {{
-        BIND ({graph_uri.n3()} AS ?g)
+        BIND ({named_graph_uri.n3()} AS ?g)
         GRAPH ?g {{ ?s ?p ?o }}
     }}
     """
     
     run_update_query(query, graphdb_url, repository_name)
 
-def remove_named_graphs_from_query(graphdb_url:URIRef, repository_name:str, named_graph_names_list:list[str]):
+def remove_named_graphs_with_query(graphdb_url:URIRef, repository_name:str, named_graph_uris_list:list[URIRef]):
     """
     Remove multiple named graphs from a repository using a SPARQL DELETE query.
 
     Parameters:
     - graphdb_url (URIRef): The base URL of the GraphDB instance.
     - repository_name (str): The name of the repository from which the named graphs will be removed.
-    - named_graph_names_list (list[str]): A list of names of the named graphs to be removed.
+    - named_graph_uris_list (list[URIRef]): A list of URIs of the named graphs to be removed.
 
     Returns:
     - None: The function constructs a SPARQL DELETE query to remove multiple named graphs and calls `update_query` to execute it.
     """
 
     named_graph_uris_list, selected_named_graphs = [], ""
-    for named_graph_name in named_graph_names_list:
-        named_graph_uris_list.append(get_named_graph_uri_from_name(graphdb_url, repository_name, named_graph_name).n3())
+    for named_graph_uri in named_graph_uris_list:
+        named_graph_uris_list.append(named_graph_uri.n3())
 
     selected_named_graphs = ",".join(named_graph_uris_list)
 
@@ -616,7 +619,7 @@ def format_sparql_values(configs, keys_to_include):
     
     return " ".join(rows)
 
-def import_ttl_file_in_graphdb(graphdb_url:URIRef, repository_name:str, ttl_file:str, named_graph_name:str=None, named_graph_uri:URIRef=None):
+def import_ttl_file_in_graphdb(graphdb_url:URIRef, repository_name:str, ttl_file:str, named_graph_uri:URIRef=None, named_graph_name:str=None) -> requests.Response:
     """
     Import data from a Turtle file into a repository.
 
@@ -636,13 +639,15 @@ def import_ttl_file_in_graphdb(graphdb_url:URIRef, repository_name:str, ttl_file
     """
 
     if named_graph_uri is not None:
-        urlref = named_graph_uri
+        urlref = get_repository_statements_uri_with_context(graphdb_url, repository_name, named_graph_uri)
+        url = urlref.strip().replace("%3C", "<").replace("%3E", ">")
     elif named_graph_name is not None:
         urlref = get_named_graph_uri_from_name(graphdb_url, repository_name, named_graph_name)
+        url = urlref.strip()
     else:
         urlref = get_repository_uri_statements_from_name(graphdb_url, repository_name)
-    
-    url = urlref.strip()
+        url = urlref.strip()
+
     headers = get_http_headers_dictionary(content_type="application/x-turtle")
         
     with open(ttl_file, 'rb') as f:
@@ -857,3 +862,35 @@ def get_http_headers_dictionary(content_type:str=None, accept:str=None):
         headers["Accept"] = accept
 
     return headers
+
+
+def import_ttl_file_in_graphdb_bis(graphdb_url:URIRef, repository_name:str, ttl_file:str, named_graph_uri:URIRef=None):
+    """
+    Import data from a Turtle file into a repository.
+
+    Parameters:
+    - graphdb_url (URIRef): The base URL of the GraphDB instance.
+    - repository_name (str): The name of the repository to import data into.
+    - ttl_file (str): The path to the Turtle file to be imported.
+    - named_graph_name (str, optional): The name of the named graph to import data into. Defaults to None, which imports data into the default graph.
+    - named_graph_uri (URIRef, optional): The URI of the named graph to import data into. Defaults to None.
+
+    Returns:
+    - Response object: The response object returned by the requests.post call, which contains the status code and content of the request.
+
+    Notes:
+    - If neither `named_graph_name` nor `named_graph_uri` is provided, the data will be imported into the default named graph.
+    - The function reads the Turtle file and sends the data to the specified repository.
+    """
+
+    urlref = get_repository_statements_uri_with_context(graphdb_url, repository_name, named_graph_uri)
+    url = urlref.strip().replace("%3C", "<").replace("%3E", ">")
+
+    headers = get_http_headers_dictionary(content_type="application/x-turtle")
+
+    
+    with open(ttl_file, 'rb') as f:
+        data = f.read()
+
+    r = requests.post(url, data=data, headers=headers)
+    return r

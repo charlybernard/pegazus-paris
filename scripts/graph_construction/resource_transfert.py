@@ -15,8 +15,8 @@ def transfert_factoids_to_facts_repository(graphdb_url, facts_repository_name, f
 
     gd.export_data_from_repository(graphdb_url, factoids_repository_name, factoids_ttl_file, factoids_repo_factoids_named_graph_name)
     gd.export_data_from_repository(graphdb_url, factoids_repository_name, permanent_ttl_file, factoids_repo_permanent_named_graph_name)
-    gd.import_ttl_file_in_graphdb(graphdb_url, facts_repository_name, factoids_ttl_file, facts_repo_factoids_named_graph_name)
-    gd.import_ttl_file_in_graphdb(graphdb_url, facts_repository_name, permanent_ttl_file, facts_repo_facts_named_graph_name)
+    gd.import_ttl_file_in_graphdb(graphdb_url, facts_repository_name, factoids_ttl_file, named_graph_name=facts_repo_factoids_named_graph_name)
+    gd.import_ttl_file_in_graphdb(graphdb_url, facts_repository_name, permanent_ttl_file, named_graph_name=facts_repo_facts_named_graph_name)
 
 def transfert_immutable_triples(graphdb_url, repository_name, factoids_named_graph_uri, permanent_named_graph_uri):
     """

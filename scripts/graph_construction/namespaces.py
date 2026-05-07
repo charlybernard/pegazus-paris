@@ -15,6 +15,7 @@ class NameSpaces():
         self.CTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/ChangeType/")
 
         self.RES = Namespace("https://w3id.org/PeGazUs/id/")
+        self.GRAPH = Namespace("https://w3id.org/PeGazUs/id/Graph/")
 
         self.TIME = Namespace("http://www.w3.org/2006/time#")
         self.PROV = Namespace("http://www.w3.org/ns/prov#")

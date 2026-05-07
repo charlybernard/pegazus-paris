@@ -97,7 +97,7 @@ def build_fact_graph_from_sources(
     # Add the facts named graph to the repository and associate meta info
     # ------------------------------------------------------------------
     if step >= start_step:
-        msp.remove_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, facts_named_graph_name)
+        msp.remove_named_graph_from_repository(graphdb_url, repository_name, meta_named_graph_name, facts_named_graph_name)
         print(f"Step {step}/{nb_steps}: Adding facts named graph '{facts_named_graph_name}' to repository '{repository_name}' with meta information...")
         msp.add_final_named_graph_to_repository(
             graphdb_url,

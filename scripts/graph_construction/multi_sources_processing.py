@@ -244,128 +244,44 @@ def remove_all_triples_for_resources_to_remove(graphdb_url:URIRef, repository_na
 
     gd.run_update_query(query, graphdb_url, repository_name)
 
-
-def create_factoid_repository(graphdb_url:URIRef, repository_name:str, tmp_folder:str,
-                              ont_file:str, ontology_named_graph_name:str,
-                              ruleset_name:str=None, disable_same_as:bool=False, clear_if_exists:bool=False):
-    """
-    Initializes a repository to create a factoids graph in a GraphDB instance.
-
-    Parameters:
-    - graphdb_url (URIRef): The URL of the GraphDB instance where the repository will be created.
-    - repository_name (str): The name of the repository to be created.
-    - tmp_folder (str): The temporary folder where the repository configuration file will be stored.
-    - ont_file (str): The file path to the ontology file (TTL format) to import into the repository.
-    - ontology_named_graph_name (str): The name of the graph in which the ontology will be stored.
-    - ruleset_name (str, optional): The name of the ruleset to apply to the repository (default is None).
-    - disable_same_as (bool, optional): Whether to disable the `sameAs` property during repository creation (default is False).
-    - clear_if_exists (bool, optional): Whether to clear all existing data in the repository if it already exists (default is False).
-
-    Returns:
-    - None: The function does not return any value. It creates the repository and imports the ontology file.
-
-    Description:
-    This function initializes a new repository for storing factoids and imports an ontology into the repository.
-    If the `clear_if_exists` parameter is set to `True`, it clears the repository if it already exists. The function also adds necessary prefixes
-    to the repository and imports the provided ontology file into the specified graph.
-
-    Example usage:
-    ```python
-    create_factoid_repository(graphdb_url, 'factoidRepo', '/tmp', 'ontology.ttl', 'http://example.org/named_graph')
-    ```
-    """
-
-    local_config_file_name = f"config_for_{repository_name}.ttl"
-    local_config_file = os.path.join(tmp_folder, local_config_file_name)
-
-    # Repository creation
-    gd.create_repository(graphdb_url, repository_name, local_config_file, ruleset_file=None, ruleset_name=ruleset_name, disable_same_as=disable_same_as)
-
-    if clear_if_exists:
-        gd.clear_repository(graphdb_url, repository_name)
-
-    gd.add_prefixes_to_repository(graphdb_url, repository_name, np.namespaces_with_prefixes)
-    gd.add_named_graph_prefix_to_repository(graphdb_url, repository_name, "graph")
-    gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, ont_file, ontology_named_graph_name)
-
-def transfert_rdflib_graph_to_factoids_repository(graphdb_url: URIRef, repository_name: str, factoids_named_graph_name: str,
-                                                  g: Graph, kg_file: str, tmp_folder: str,
-                                                  ont_file: str, ontology_named_graph_name: str):
-    """
-    Transfers an RDFLib graph to a factoids repository in a GraphDB instance.
-
-    Parameters:
-    - graphdb_url (URIRef): The URL of the GraphDB instance where the repository is located.
-    - repository_name (str): The name of the repository to which the RDFLib graph will be transferred.
-    - factoids_named_graph_name (str): The name of the factoids graph in the repository.
-    - g (Graph): The RDFLib graph containing the data to be transferred.
-    - kg_file (str): The file path where the serialized RDFLib graph will be saved temporarily.
-    - tmp_folder (str): The temporary folder where configuration files will be stored.
-    - ont_file (str): The file path to the ontology file (TTL format) to be imported into the repository.
-    - ontology_named_graph_name (str): The name of the graph where the ontology will be stored.
-
-    Returns:
-    - None: The function does not return any value. It transfers the RDFLib graph to the repository and imports the ontology.
-
-    Description:
-    This function serializes an RDFLib graph to a file and creates a factoids repository in the specified GraphDB instance.
-    It then imports the RDFLib graph into the factoids repository and associates it with the specified named graph.
-    The ontology file is also imported into the repository during the process.
-
-    Example usage:
-    ```python
-    transfert_rdflib_graph_to_factoids_repository(graphdb_url, 'factoidRepo', 'factoidsGraph', g, 'graph.ttl', '/tmp', 'ontology.ttl', 'http://example.org/named_graph')
-    ```
-    """
-    
-    g.serialize(kg_file)
-
-    # Creating repository
-    create_factoid_repository(graphdb_url, repository_name, tmp_folder,
-                                ont_file, ontology_named_graph_name, ruleset_name="rdfsplus-optimized",
-                                disable_same_as=False, clear_if_exists=True)
-
-    # Import the `kg_file` file into the directory
-    gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, kg_file, factoids_named_graph_name)
-
-
 def transfert_rdflib_graph_to_named_graph_repository(
         g: Graph, graphdb_url: URIRef,
-        repository_name: str, named_graph_name: str,
+        repository_name: str, named_graph_uri: URIRef,
         kg_file: str, named_graph_type:str=None,
-        meta_named_graph_name:str=None, is_active: bool=True):
+        meta_named_graph_uri:URIRef=None, is_active: bool=True):
     
     g.serialize(kg_file)
 
     # Import the `kg_file` file into the directory
-    gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, kg_file, named_graph_name)
+    r = gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, kg_file, named_graph_uri=named_graph_uri)
 
-    if meta_named_graph_name is not None:
+    if meta_named_graph_uri is not None:
         # Get the URI of the meta graph
         if named_graph_type == "source":
-            add_source_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, named_graph_name, is_active=is_active)
+            add_source_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, named_graph_uri, is_active=is_active)
         elif named_graph_type == "construction":
-            add_construction_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, named_graph_name, is_active=is_active)
+            add_construction_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, named_graph_uri, is_active=is_active)
         elif named_graph_type == "facts":
-            add_final_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, named_graph_name, is_active=is_active)
+            add_final_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, named_graph_uri, is_active=is_active)
         else:
-            add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, named_graph_name, is_active=is_active)
+            add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, named_graph_uri, is_active=is_active)
 
 ####################################################################
 
 
-def import_factoids_in_facts(graphdb_url:URIRef, repository_name:str,
-                             factoids_named_graph_name:str, facts_named_graph_name:str, inter_sources_name_graph_name:str,
-                             pref_hidden_labels_ttl_file:str):
+def import_factoids_in_facts(
+        graphdb_url:URIRef, repository_name:str,
+        factoids_named_graph_uri:URIRef, facts_named_graph_uri:URIRef, inter_sources_name_graph_uri:URIRef,
+        pref_hidden_labels_ttl_file:str):
     """
     Imports factoids into the facts graph and links them with inter-sources in a GraphDB repository.
 
     Parameters:
     - graphdb_url (URIRef): The URL of the GraphDB instance where the repository is located.
     - repository_name (str): The name of the repository containing the factoids and facts graphs.
-    - factoids_named_graph_name (str): The name of the graph containing the factoids to be imported.
-    - facts_named_graph_name (str): The name of the graph containing the facts to be linked with the factoids.
-    - inter_sources_name_graph_name (str): The name of the graph containing the inter-sources to link with factoids.
+    - factoids_named_graph_uri (URIRef): The URI of the graph containing the factoids to be imported.
+    - facts_named_graph_uri (URIRef): The URI of the graph containing the facts to be linked with the factoids.
+    - inter_sources_name_graph_uri (URIRef): The URI of the graph containing the inter-sources to link with factoids.
 
     Returns:
     - None: The function does not return any value. It performs the import and linking of factoids with facts.
@@ -374,39 +290,50 @@ def import_factoids_in_facts(graphdb_url:URIRef, repository_name:str,
     This function imports factoids into the facts graph in the specified repository and links the factoids with the facts using inter-source data.
     It first adds standardized and simplified labels for landmarks in the factoid graph to facilitate linking with fact landmarks.
     Then, it links the factoids with the facts in the specified graphs.
-
-    Example usage:
-    ```python
-    import_factoids_in_facts(graphdb_url, 'factoidRepo', 'factoidsGraph', 'FinalGraph', 'interSourcesGraph')
-    ```
     """
-    
-    facts_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
-    factoids_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, factoids_named_graph_name)
-    inter_sources_name_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, inter_sources_name_graph_name)
 
     # Addition of standardised and simplified labels for landmarks (on the factoid graph) in order to make links with fact landmarks
     add_pref_and_hidden_labels_for_elements(graphdb_url, repository_name, pref_hidden_labels_ttl_file)
 
     rr.link_factoids_with_facts(graphdb_url, repository_name, factoids_named_graph_uri, facts_named_graph_uri, inter_sources_name_graph_uri)
 
+def load_ontologies(
+        graphdb_url:URIRef, repository_name:str, ont_files:list[str],
+        ontology_named_graph_uri:URIRef, metadata_named_graph_uri:URIRef=None
+    ):
+    """
+    Load a list of ontology files into the given repository.
+    
+    Args:
+        graphdb_url (URIRef): The base URL of the GraphDB instance.
+        repository_name (str): The name of the repository to load ontologies into.
+        ont_files (list of str): List of file paths to the ontology files.
+        ontology_named_graph_uri (URIRef): The URI of the named graph for ontologies.
+        metadata_named_graph_uri (URIRef, optional): The URI of the named graph for metadata (default is None).
+    """
+    
+    for ont_file in ont_files:
+        gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, ont_file, named_graph_uri=ontology_named_graph_uri)
+
+    if metadata_named_graph_uri is not None:
+        # Add the metadata named graph to the repository if it does not exist yet
+        add_named_graph_to_repository(graphdb_url, repository_name, metadata_named_graph_uri, ontology_named_graph_uri)
+
 
 ######################################################### Named graph management ######################################################
 
 def add_named_graph_to_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str, named_graph_name:str,
+        meta_named_graph_uri:URIRef, named_graph_uri:URIRef,
         graph_class:URIRef=None, is_active:bool=True):
-    
-    named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, named_graph_name)
-    meta_name_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
+    """Add a named graph to the meta graph and set it as active or not in the repository."""
 
     if graph_class is None:
         graph_class = np.PEG["Graph"]
 
     query = np.query_prefixes + f"""
         INSERT DATA {{
-            GRAPH {meta_name_graph_uri.n3()} {{
+            GRAPH {meta_named_graph_uri.n3()} {{
                 {named_graph_uri.n3()} a {graph_class.n3()} .
             }}
         }}
@@ -416,64 +343,61 @@ def add_named_graph_to_repository(
 
     if is_active is not None:
         # Set the named graph as active or not
-        set_named_graph_active(graphdb_url, repository_name, named_graph_name, meta_named_graph_name, active=is_active)
+        set_named_graph_active(graphdb_url, repository_name, named_graph_uri, meta_named_graph_uri, active=is_active)
 
 def add_source_named_graph_to_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str, source_named_graph_name:str, is_active:bool=True):
+        meta_named_graph_uri:URIRef, source_named_graph_uri:URIRef, is_active:bool=True):
     
     graph_class = np.PEG["SourceGraph"]
-    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, source_named_graph_name, graph_class=graph_class, is_active=is_active)
+    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, source_named_graph_uri, graph_class=graph_class, is_active=is_active)
 
 
 def add_construction_named_graph_to_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str,
-        construction_named_graph_name:str, is_active:bool=True):
+        meta_named_graph_uri:URIRef,
+        construction_named_graph_uri:URIRef, is_active:bool=True):
     
     graph_class = np.PEG["ConstructionGraph"]
-    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, construction_named_graph_name, graph_class=graph_class, is_active=is_active)
+    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, construction_named_graph_uri, graph_class=graph_class, is_active=is_active)
 
 def add_final_named_graph_to_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str,
-        facts_named_graph_name:str, facts_named_graph_name_label:str=None, lang:str=None,
+        meta_named_graph_uri:URIRef,
+        facts_named_graph_uri:URIRef, facts_named_graph_name_label:str=None, lang:str=None,
         is_active:bool=None):
     
     graph_class = np.PEG["FinalGraph"]
-    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_name, facts_named_graph_name, graph_class=graph_class, is_active=is_active)
+    add_named_graph_to_repository(graphdb_url, repository_name, meta_named_graph_uri, facts_named_graph_uri, graph_class=graph_class, is_active=is_active)
 
     if facts_named_graph_name_label is not None:
-        add_final_named_graph_label_to_repository(graphdb_url, repository_name, meta_named_graph_name, facts_named_graph_name, facts_named_graph_name_label, lang=lang)
+        add_final_named_graph_label_to_repository(graphdb_url, repository_name, meta_named_graph_uri, facts_named_graph_uri, facts_named_graph_name_label, lang=lang)
 
 def add_final_named_graph_label_to_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str,
-        facts_named_graph_name:str, facts_named_graph_name_label:str, lang:str=None):
+        meta_named_graph_uri:URIRef,
+        facts_named_graph_uri:URIRef, facts_named_graph_name_label:str, lang:str=None):
     
     # Add label for the final graph in the meta graph
-    meta_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
-    named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, facts_named_graph_name)
 
     label = gr.get_literal_with_lang(facts_named_graph_name_label, lang=lang)
 
     query = np.query_prefixes + f"""
         INSERT DATA {{
             GRAPH {meta_named_graph_uri.n3()} {{
-                {named_graph_uri.n3()} rdfs:label {label.n3()} .
+                {facts_named_graph_uri.n3()} rdfs:label {label.n3()} .
             }}
         }}
     """
 
     gd.run_update_query(query, graphdb_url, repository_name)
 
-def remove_named_graph_to_repository(
+def remove_named_graph_from_repository(
         graphdb_url:URIRef, repository_name:str,
-        meta_named_graph_name:str, named_graph_name:str):
-    meta_named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
-    named_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, named_graph_name)
+        meta_named_graph_uri:URIRef, named_graph_uri:URIRef):
+    """Remove a named graph from the meta graph and delete all its triples from the repository."""
     
-    gd.remove_named_graph(graphdb_url, repository_name, named_graph_name)
+    gd.remove_named_graph_with_query(graphdb_url, repository_name, named_graph_uri)
 
     query = np.query_prefixes + f"""
         DELETE {{
@@ -492,13 +416,11 @@ def remove_named_graph_to_repository(
 def set_all_named_graphs_active(
     graphdb_url: URIRef,
     repository_name: str,
-    meta_named_graph_name: str,
+    meta_named_graph_uri: URIRef,
     active: bool,
     graph_type: str=None
 ):
     
-    meta_name_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
-
     # Booléen RDF
     new_value = gr.get_boolean_literal(active)
 
@@ -522,7 +444,7 @@ def set_all_named_graphs_active(
         }}
     }}
     WHERE {{
-        BIND ({meta_name_graph_uri.n3()} AS ?g)
+        BIND ({meta_named_graph_uri.n3()} AS ?g)
 
         GRAPH ?g {{
             ?gs a ?gsClass .
@@ -540,7 +462,7 @@ def set_named_graph_active(
     graphdb_url: URIRef,
     repository_name: str,
     graph_name: str,
-    meta_named_graph_name: str,
+    meta_named_graph_uri: URIRef,
     active: bool=True,
 ):
     """
@@ -550,13 +472,12 @@ def set_named_graph_active(
         graphdb_url: URI of the GraphDB instance
         repository_name: repository name
         graph_name: the source graph name to update
-        meta_named_graph_name: name of the meta graph containing the sources
+        meta_named_graph_uri: URI of the meta graph containing the sources
         active: True to activate (set as active), False to deactivate
     """
 
     # Récupère l'URI du graphe source
     gs_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, graph_name)
-    meta_name_graph_uri = gd.get_named_graph_uri_from_name(graphdb_url, repository_name, meta_named_graph_name)
 
     # Booléen RDF
     new_value = gr.get_boolean_literal(active)
@@ -573,7 +494,7 @@ def set_named_graph_active(
         }}
     }}
     WHERE {{
-        BIND({meta_name_graph_uri.n3()} AS ?g)
+        BIND({meta_named_graph_uri.n3()} AS ?g)
         GRAPH ?g {{
             {gs_uri.n3()} a ?gsClass .
             OPTIONAL {{ {gs_uri.n3()} peg:isActiveGraph ?oldValue . }}
@@ -608,18 +529,18 @@ def remove_construction_named_graphs(graphdb_url, repository_name):
     """
 
     # ---------------------------------------------------------------
-    # Supprimer tous les graphes de construction et leurs références
-    # 
-    # Cette opération fait deux choses :
-    # 1) Supprime tous les triples contenus dans chaque graphe nommé ?g
-    #    typé peg:ConstructionGraph (le type est stocké hors du graphe).
-    # 2) Supprime tous les triples où ?g est utilisé comme sujet ou objet
-    #    dans n’importe quel graphe ?h.
+    # Delete all construction graphs and their references
     #
-    # La requête SPARQL utilise :
-    # - DELETE { ... } WHERE { ... } pour vider les graphes et les références
-    # - GRAPH ?g et GRAPH ?h pour distinguer les graphes ciblés
-    # - UNION pour capturer ?g comme sujet ou objet dans n’importe quel graphe
+    # This operation performs two actions:
+    # 1) Deletes all triples contained in each named graph ?g
+    #    typed as peg:ConstructionGraph (the type is stored outside the graph).
+    # 2) Deletes all triples where ?g is used either as a subject or an object
+    #    in any graph ?h.
+    #
+    # The SPARQL query uses:
+    # - DELETE { ... } WHERE { ... } to clear graphs and references
+    # - GRAPH ?g and GRAPH ?h to distinguish targeted graphs
+    # - UNION to capture ?g as either subject or object in any graph
     # ---------------------------------------------------------------
 
     query1 = np.query_prefixes + f"""
@@ -651,123 +572,3 @@ def remove_construction_named_graphs(graphdb_url, repository_name):
     for query in queries:
         # Execute the SPARQL UPDATE query on the target repository
         gd.run_update_query(query, graphdb_url, repository_name)
-
-
-######################################################### Test functions ######################################################
-
-def get_landmark_labels(graphdb_url:URIRef, repository_name:str, facts_named_graph_uri:URIRef):
-    """
-    Retrieves landmark labels and their types from a specified named graph in a GraphDB repository."
-    """
-
-    query = np.query_prefixes + f"""
-        SELECT ?landmark ?landmarkType ?landmarkLabel ?relatedLandmarkType ?relatedLandmarkLabel WHERE {{
-            GRAPH ?g {{ ?landmark a peg:Landmark . }}
-            ?landmark rdfs:label ?landmarkLabel ; peg:isLandmarkType ?landmarkType .
-            OPTIONAL {{
-                ?lr a peg:LandmarkRelation ; peg:isLandmarkRelationType lrtype:Belongs ; peg:locatum ?landmark ; peg:relatum ?relatedLandmark .
-                ?relatedLandmark rdfs:label ?relatedLandmarkLabel ; peg:isLandmarkType ?relatedLandmarkType .
-            }}
-            FILTER(?g != {facts_named_graph_uri.n3()})
-        }}
-    """
-    
-    results = gd.run_select_query_to_json(query, graphdb_url, repository_name)
-    return results.get("results").get("bindings")
-
-def add_pref_and_hidden_labels_for_landmarks(graphdb_url:URIRef, repository_name:str,
-                                             facts_named_graph_uri:URIRef, inter_sources_name_graph_uri:URIRef,
-                                             pref_hidden_labels_ttl_file:str):
-    t1 = time.time()
-    elements = get_landmark_labels(graphdb_url, repository_name, facts_named_graph_uri)
-    t2 = time.time()
-    print("Time to get elements with labels: ", t2 - t1)
-    landmarks = get_pref_and_hidden_label_triples_for_landmarks(elements)
-    t3 = time.time()
-    print("Time to get triples: ", t3 - t2)
-    print(landmarks)
-    json.dump(landmarks, open("/home/CBernard2/Téléchargements/landmarks.json", "w"), indent=4)
-    # graph_with_triples_to_add.serialize(pref_hidden_labels_ttl_file)
-
-    # # Import the `kg_file` file into the directory
-    # gd.import_ttl_file_in_graphdb(graphdb_url, repository_name, pref_hidden_labels_ttl_file, named_graph_uri=facts_named_graph_uri)
-
-def get_pref_and_hidden_label_triples_for_landmarks(elements: list):
-    landmarks = {}
-
-    for element in elements:
-        # Retrieval of URIs (attribute and attribute version) and geometry
-        lm = gr.convert_result_elem_to_rdflib_elem(element.get('landmark'))
-        lm_type = gr.convert_result_elem_to_rdflib_elem(element.get('landmarkType'))
-        lm_label = gr.convert_result_elem_to_rdflib_elem(element.get('landmarkLabel'))
-        related_lm_type = gr.convert_result_elem_to_rdflib_elem(element.get('relatedLandmarkType'))
-        related_lm_label = gr.convert_result_elem_to_rdflib_elem(element.get('relatedLandmarkLabel'))
-
-        normalized_label, simplified_label = get_pref_and_hidden_label_for_landmark(lm_type, lm_label)
-        related_normalized_label, related_simplified_label = get_pref_and_hidden_label_for_landmark(related_lm_type, related_lm_label)
-        if isinstance(normalized_label, str) and isinstance(related_normalized_label, str):
-            normalized_label += ", " + related_normalized_label
-        if isinstance(simplified_label, str) and isinstance(related_simplified_label, str):
-            simplified_label += " || " + related_simplified_label
-
-        if lm_type not in landmarks.keys():
-            landmarks[lm_type] = {}
-        if simplified_label not in landmarks[lm_type].keys():
-            landmarks[lm_type][simplified_label] = {
-                "id":gr.generate_uuid(),
-                "normalized_label":normalized_label,
-                "simplified_label":simplified_label,
-                "landmarks": [lm]
-                }
-        else:
-            landmarks[lm_type][simplified_label]["landmarks"].append(lm)
-        
-    return landmarks
-
-def get_pref_and_hidden_label_for_landmark(type: URIRef, label: Literal):
-    if type == np.LTYPE["Thoroughfare"]:
-        lm_label_type = "thoroughfare"
-    elif type in [np.LTYPE["Municipality"], np.LTYPE["District"]]:
-        lm_label_type = "area"
-    elif type in [np.LTYPE["HouseNumber"],np.LTYPE["StreetNumber"],np.LTYPE["DistrictNumber"],np.LTYPE["PostalCodeArea"]]:
-        lm_label_type = "number"
-    else:
-        lm_label_type = None
-
-    label_value, label_lang = None, None
-    if isinstance(label, Literal):
-        label_value = label.strip()
-        label_lang = label.language
-    normalized_name, simplified_name = sp.normalize_and_simplify_name_version(label_value, lm_label_type, label_lang)
-
-    return normalized_name, simplified_name
-
-def create_facts_landmarks_graph(landmarks):
-    g = Graph()
-
-    for lm_type, lm_labels in landmarks.items():
-        for lm_label, lm_data in lm_labels.items():
-            lm_id = lm_data["id"]
-            normalized_label = lm_data["normalized_label"]
-            simplified_label = lm_data["simplified_label"]
-            for landmark in lm_data["landmarks"]:
-                g.add((landmark, SKOS.prefLabel, Literal(normalized_label)))
-                g.add((landmark, SKOS.hiddenLabel, Literal(simplified_label)))
-                g.add((landmark, np.PEG["hasLandmarkID"], Literal(lm_id)))
-
-    return g
-
-
-########################################################## Main ######################################################
-
-if __name__ == "__main__":
-    # Example usage
-    graphdb_url = URIRef('http://localhost:7200')
-    repository_name = 'addresses_from_factoids'
-    facts_named_graph_uri = URIRef('http://localhost:7200/repositories/addresses_from_factoids/rdf-graphs/facts')
-    inter_sources_name_graph_uri = URIRef('http://localhost:7200/repositories/addresses_from_factoids/rdf-graphs/inter_sources')
-    pref_hidden_labels_ttl_file = 'pref_hidden_labels.ttl'
-
-    add_pref_and_hidden_labels_for_landmarks(graphdb_url, repository_name,
-                                             facts_named_graph_uri, inter_sources_name_graph_uri,
-                                             pref_hidden_labels_ttl_file)

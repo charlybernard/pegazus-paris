@@ -1,0 +1,1697 @@
+<https://w3id.org/PeGazUs#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/PeGazUs#> <http://creativecommons.org/ns#license> <https://creativecommons.org/licenses/by-nc-sa/4.0/> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/contributor> <https://crh.ehess.fr/index.php?5206> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/contributor> <https://www.umr-lastig.fr/julien-perret/> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/contributor> <https://www.umr-lastig.fr/nathalie-abadie/> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/creator> _:genid1 .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://xmlns.com/foaf/0.1/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid1 <http://www.w3.org/ns/org#hasMembership> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/org#Membership> .
+<http://www.w3.org/ns/org#Membership> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid2 <http://www.w3.org/ns/org#memberDuring> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#Interval> .
+<http://www.w3.org/2006/time#Interval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid3 <http://www.w3.org/2006/time#hasBeginning> _:genid4 .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#Instant> .
+<http://www.w3.org/2006/time#Instant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid4 <http://www.w3.org/2006/time#inXSDDateTimeStamp> "2019-10-15"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+_:genid2 <http://www.w3.org/ns/org#organization> <http://www.ign.fr/> .
+_:genid2 <http://www.w3.org/ns/org#organization> <http://www.umr-lastig.fr/> .
+_:genid2 <http://www.w3.org/ns/org#role> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/org#Role> .
+<http://www.w3.org/ns/org#Role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid5 <http://www.w3.org/2000/01/rdf-schema#label> "Doctorant"@fr .
+_:genid5 <http://www.w3.org/2000/01/rdf-schema#label> "PhD Student"@en .
+_:genid1 <http://xmlns.com/foaf/0.1/family_name> "Bernard" .
+_:genid1 <http://xmlns.com/foaf/0.1/firstName> "Charly" .
+_:genid1 <http://xmlns.com/foaf/0.1/mbox> <mailto:charly.bernard@ign.fr> .
+_:genid1 <http://xmlns.com/foaf/0.1/name> "Charly Bernard" .
+_:genid1 <http://xmlns.com/foaf/0.1/workInfoHomepage> <https://www.umr-lastig.fr/charly-bernard/> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/description> "Ontologie PeGazUs pour représenter l'évolution des entités géographiques"@fr .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/description> "PeGazUs ontology to represent the evolution of geographical entities"@en .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/issued> "2023-10-30"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/modified> "2024-09-13"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/publisher> <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/rights> "Copyright 2025, IGN" .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/title> "Ontologie PeGazUs"@fr .
+<https://w3id.org/PeGazUs#> <http://purl.org/dc/terms/title> "PeGazUs ontology"@en .
+<https://w3id.org/PeGazUs#> <http://purl.org/vocab/vann/preferredNamespacePrefix> "peg" .
+<https://w3id.org/PeGazUs#> <http://purl.org/vocab/vann/preferredNamespaceUri> <https://w3id.org/PeGazUs#> .
+<https://w3id.org/PeGazUs#> <http://www.w3.org/2002/07/owl#versionInfo> "Version 0.1 - 2025-03-04" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://creativecommons.org/ns#license
+<http://creativecommons.org/ns#license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2002/07/owl#maxQualifiedCardinality
+<http://www.w3.org/2002/07/owl#maxQualifiedCardinality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2006/time#hasBeginning
+<http://www.w3.org/2006/time#hasBeginning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/2006/time#inXSDDateTimeStamp
+<http://www.w3.org/2006/time#inXSDDateTimeStamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/org#hasMembership
+<http://www.w3.org/ns/org#hasMembership> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/org#memberDuring
+<http://www.w3.org/ns/org#memberDuring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/org#organization
+<http://www.w3.org/ns/org#organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://www.w3.org/ns/org#role
+<http://www.w3.org/ns/org#role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/family_name
+<http://xmlns.com/foaf/0.1/family_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/firstName
+<http://xmlns.com/foaf/0.1/firstName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/mbox
+<http://xmlns.com/foaf/0.1/mbox> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/name
+<http://xmlns.com/foaf/0.1/name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://xmlns.com/foaf/0.1/workInfoHomepage
+<http://xmlns.com/foaf/0.1/workInfoHomepage> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2006/time#after
+<http://www.w3.org/2006/time#after> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#before> .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#TemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2000/01/rdf-schema#comment> "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2000/01/rdf-schema#label> "after"@en .
+<http://www.w3.org/2006/time#after> <http://www.w3.org/2004/02/skos/core#definition> "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#before
+<http://www.w3.org/2006/time#before> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#TemporalEntity> .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/2000/01/rdf-schema#comment> "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/2000/01/rdf-schema#label> "before"@en .
+<http://www.w3.org/2006/time#before> <http://www.w3.org/2004/02/skos/core#definition> "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en .
+# 
+# http://www.w3.org/2006/time#intervalAfter
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#after> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#intervalDisjoint> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalBefore> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#ProperInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2000/01/rdf-schema#label> "interval after"@en .
+<http://www.w3.org/2006/time#intervalAfter> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalBefore
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#before> .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#intervalDisjoint> .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2000/01/rdf-schema#label> "interval before"@en .
+<http://www.w3.org/2006/time#intervalBefore> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalContains
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en .
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/2000/01/rdf-schema#label> "interval contains"@en .
+<http://www.w3.org/2006/time#intervalContains> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalDisjoint
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2000/01/rdf-schema#label> "interval disjoint"@en .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en .
+<http://www.w3.org/2006/time#intervalDisjoint> <http://www.w3.org/2004/02/skos/core#note> "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of time:intervalBefore v time:intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalBefore , time:intervalAfter as sub-properties"@en .
+# 
+# http://www.w3.org/2006/time#intervalDuring
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#intervalIn> .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalContains> .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2000/01/rdf-schema#label> "interval during"@en .
+<http://www.w3.org/2006/time#intervalDuring> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalEquals
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2002/07/owl#propertyDisjointWith> <http://www.w3.org/2006/time#intervalIn> .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2000/01/rdf-schema#label> "interval equals"@en .
+<http://www.w3.org/2006/time#intervalEquals> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalFinishedBy
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalFinishes> .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2000/01/rdf-schema#label> "interval finished by"@en .
+<http://www.w3.org/2006/time#intervalFinishedBy> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalFinishes
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#intervalIn> .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2000/01/rdf-schema#label> "interval finishes"@en .
+<http://www.w3.org/2006/time#intervalFinishes> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalIn
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2000/01/rdf-schema#label> "interval in"@en .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en .
+<http://www.w3.org/2006/time#intervalIn> <http://www.w3.org/2004/02/skos/core#note> "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as 'an important relationship' in Allen and Ferguson (1997). It is the disjoint union of time:intervalStarts v time:intervalDuring v time:intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalStarts , time:intervalDuring , time:intervalFinishes as sub-properties"@en .
+# 
+# http://www.w3.org/2006/time#intervalMeets
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalMetBy> .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2000/01/rdf-schema#label> "interval meets"@en .
+<http://www.w3.org/2006/time#intervalMeets> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalMetBy
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en .
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/2000/01/rdf-schema#label> "interval met by"@en .
+<http://www.w3.org/2006/time#intervalMetBy> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalOverlappedBy
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en .
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/2000/01/rdf-schema#label> "interval overlapped by"@en .
+<http://www.w3.org/2006/time#intervalOverlappedBy> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalOverlaps
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalOverlappedBy> .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2000/01/rdf-schema#label> "interval overlaps"@en .
+<http://www.w3.org/2006/time#intervalOverlaps> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalStartedBy
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.w3.org/2006/time#intervalStarts> .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2000/01/rdf-schema#label> "interval started by"@en .
+<http://www.w3.org/2006/time#intervalStartedBy> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en .
+# 
+# http://www.w3.org/2006/time#intervalStarts
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2006/time#intervalIn> .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#ProperInterval> .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2000/01/rdf-schema#comment> "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2000/01/rdf-schema#label> "interval starts"@en .
+<http://www.w3.org/2006/time#intervalStarts> <http://www.w3.org/2004/02/skos/core#definition> "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en .
+# 
+# http://www.w3.org/ns/prov#wasDerivedFrom
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/prov#Entity> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "est dérivé de"@fr .
+<http://www.w3.org/ns/prov#wasDerivedFrom> <http://www.w3.org/2000/01/rdf-schema#label> "was derived from"@en .
+# 
+# https://w3id.org/PeGazUs#appliedTo
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#changedBy> .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#range> _:genid6 .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid6 <http://www.w3.org/2002/07/owl#unionOf> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Attribute> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid8 .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Landmark> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#LandmarkRelation> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines what the change applies to"@en .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit sur quoi s'applique le changement"@fr .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#label> "is applied to"@en .
+<https://w3id.org/PeGazUs#appliedTo> <http://www.w3.org/2000/01/rdf-schema#label> "s'applique"@fr .
+# 
+# https://w3id.org/PeGazUs#changedBy
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid10 .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid10 <http://www.w3.org/2002/07/owl#unionOf> _:genid13 .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Attribute> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Landmark> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#LandmarkRelation> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the change applied to the element"@en .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit le changement qui est appliqué à l'élément"@fr .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#label> "changé par"@fr .
+<https://w3id.org/PeGazUs#changedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is changed by"@en .
+# 
+# https://w3id.org/PeGazUs#dependsOn
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasChange> .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes whether a change belongs to an event"@en .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit l'appartenance d'un changement à un événement"@fr .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#label> "depends on the event"@en .
+<https://w3id.org/PeGazUs#dependsOn> <http://www.w3.org/2000/01/rdf-schema#label> "dépend de l'événement"@fr .
+# 
+# https://w3id.org/PeGazUs#differentVersionValueFrom
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that two versions of attributes have different values"@en .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#comment> "Indique que deux versions d'attributs ont des valeurs différents"@fr .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#label> "a une valeur différente de"@fr .
+<https://w3id.org/PeGazUs#differentVersionValueFrom> <http://www.w3.org/2000/01/rdf-schema#label> "has different version value from"@en .
+# 
+# https://w3id.org/PeGazUs#eventAfter
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#eventBefore> .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of posteriority between two events"@en .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle de postériorité entre deux événements"@fr .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#label> "est après"@fr .
+<https://w3id.org/PeGazUs#eventAfter> <http://www.w3.org/2000/01/rdf-schema#label> "is after"@en .
+# 
+# https://w3id.org/PeGazUs#eventBefore
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of anteriority between two events"@en .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle d'antériorité entre deux événéments"@fr .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#label> "est avant"@fr .
+<https://w3id.org/PeGazUs#eventBefore> <http://www.w3.org/2000/01/rdf-schema#label> "is before"@en .
+# 
+# https://w3id.org/PeGazUs#eventSameTime
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of simultaneity between two events"@en .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle de simultanéité entre deux événements"@fr .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#label> "est en même temps que"@fr .
+<https://w3id.org/PeGazUs#eventSameTime> <http://www.w3.org/2000/01/rdf-schema#label> "is at the same time"@en .
+# 
+# https://w3id.org/PeGazUs#firstStep
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/PeGazUs#hasStep> .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Address> .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#comment> "First step of an Address"@en .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Première étape de l'adresse."@fr .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#label> "a pour première étape"@fr .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2000/01/rdf-schema#label> "has first step"@en .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2004/02/skos/core#altLabel> "a pour premier segment d'adresse"@fr .
+<https://w3id.org/PeGazUs#firstStep> <http://www.w3.org/2004/02/skos/core#altLabel> "has as its first Address segment"@en .
+# 
+# https://w3id.org/PeGazUs#hasAttribute
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Attribute> .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the attribute for an element"@en .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit l'attribut pour un élement"@fr .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#label> "a pour attribut"@fr .
+<https://w3id.org/PeGazUs#hasAttribute> <http://www.w3.org/2000/01/rdf-schema#label> "has attribute"@en .
+# 
+# https://w3id.org/PeGazUs#hasAttributeVersion
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#isAttributeVersionOf> .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Attribute> .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Version d'une valeur associée à l'attribut"@fr .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Version of a value associated with the attribute"@en .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#label> "a pour version"@fr .
+<https://w3id.org/PeGazUs#hasAttributeVersion> <http://www.w3.org/2000/01/rdf-schema#label> "has version"@en .
+# 
+# https://w3id.org/PeGazUs#hasBeginning
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#TimeInterval> .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TimeInstant> .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#comment> "Début de l'intervalle temporel"@fr .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#comment> "Start of time interval"@en .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#label> "commence par"@fr .
+<https://w3id.org/PeGazUs#hasBeginning> <http://www.w3.org/2000/01/rdf-schema#label> "has beginning"@en .
+# 
+# https://w3id.org/PeGazUs#hasChange
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Event> .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the changes linked to the event"@en .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit les changements qui sont liés à l'événement"@fr .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#label> "comporte le changement"@fr .
+<https://w3id.org/PeGazUs#hasChange> <http://www.w3.org/2000/01/rdf-schema#label> "has change"@en .
+# 
+# https://w3id.org/PeGazUs#hasEarliestTimeInstant
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/PeGazUs#hasTimeAfter> .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TemporalInstant> .
+<https://w3id.org/PeGazUs#TemporalInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Earliest time linked to the resource"@en .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Instant au plus tôt lié à la ressource"@fr .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "has earliest time instant"@en .
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "instant au plus tôt"@fr .
+# 
+# https://w3id.org/PeGazUs#hasEnd
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#TimeInterval> .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TimeInstant> .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "End of time interval"@en .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "Fin de l'intervalle temporel"@fr .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#label> "finit par"@fr .
+<https://w3id.org/PeGazUs#hasEnd> <http://www.w3.org/2000/01/rdf-schema#label> "has end"@en .
+# 
+# https://w3id.org/PeGazUs#hasFuzzyBeginning
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#FuzzyTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the start of validity for a fuzzy instant"@en .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit le début de validité pour un instant flou"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#label> "a pour début flou"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyBeginning> <http://www.w3.org/2000/01/rdf-schema#label> "has fuzzy beginning"@en .
+# 
+# https://w3id.org/PeGazUs#hasFuzzyEnd
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#FuzzyTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the end of validity for a fuzzy instant"@en .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit la fin de validité pour un instant flou"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#label> "a pour fin floue"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyEnd> <http://www.w3.org/2000/01/rdf-schema#label> "has fuzzy end"@en .
+# 
+# https://w3id.org/PeGazUs#hasFuzzyPeak
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#FuzzyTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the validity peak for a fuzzy instant"@en .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit le pic de validité pour un instant flou"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#label> "a pour pic flou"@fr .
+<https://w3id.org/PeGazUs#hasFuzzyPeak> <http://www.w3.org/2000/01/rdf-schema#label> "has fuzzy peak"@en .
+# 
+# https://w3id.org/PeGazUs#hasLatestTimeInstant
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/PeGazUs#hasTimeBefore> .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TemporalInstant> .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Instant au plus tard lié à la ressource"@fr .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Latest time linked to the resource"@en .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "has latest time instant"@en .
+<https://w3id.org/PeGazUs#hasLatestTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "instant au plus tard"@fr .
+# 
+# https://w3id.org/PeGazUs#hasNextVersion
+<https://w3id.org/PeGazUs#hasNextVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that one landmark version precedes another"@en .
+<https://w3id.org/PeGazUs#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'une version de repère en précède une autre"@fr .
+<https://w3id.org/PeGazUs#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#label> "a pour version suivante"@fr .
+<https://w3id.org/PeGazUs#hasNextVersion> <http://www.w3.org/2000/01/rdf-schema#label> "has next version"@en .
+# 
+# https://w3id.org/PeGazUs#hasOverlappingVersion
+<https://w3id.org/PeGazUs#hasOverlappingVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasOverlappingVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that one landmark version overlaps another"@en .
+<https://w3id.org/PeGazUs#hasOverlappingVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'une version de repère en chevauche une autre"@fr .
+<https://w3id.org/PeGazUs#hasOverlappingVersion> <http://www.w3.org/2000/01/rdf-schema#label> "chevauche la version"@fr .
+<https://w3id.org/PeGazUs#hasOverlappingVersion> <http://www.w3.org/2000/01/rdf-schema#label> "overlaps version"@en .
+# 
+# https://w3id.org/PeGazUs#hasPreviousVersion
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasNextVersion> .
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that one landmark version follows another"@en .
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'une version de repère en succède à une autre"@fr .
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#label> "a pour version précédente"@fr .
+<https://w3id.org/PeGazUs#hasPreviousVersion> <http://www.w3.org/2000/01/rdf-schema#label> "has previous version"@en .
+# 
+# https://w3id.org/PeGazUs#hasRoot
+<https://w3id.org/PeGazUs#hasRoot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasRoot> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an element has another element of reference as its root"@en .
+<https://w3id.org/PeGazUs#hasRoot> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un élément a pour racine un autre élement"@fr .
+<https://w3id.org/PeGazUs#hasRoot> <http://www.w3.org/2000/01/rdf-schema#label> "a pour racine"@fr .
+<https://w3id.org/PeGazUs#hasRoot> <http://www.w3.org/2000/01/rdf-schema#label> "has root"@en .
+# 
+# https://w3id.org/PeGazUs#hasRootLandmark
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/PeGazUs#hasRoot> .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#isRootLandmarkOf> .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an landmark has another landmark as its root"@en .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un repère a pour racine un autre repère"@fr .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2000/01/rdf-schema#label> "a pour racine"@fr .
+<https://w3id.org/PeGazUs#hasRootLandmark> <http://www.w3.org/2000/01/rdf-schema#label> "has root"@en .
+# 
+# https://w3id.org/PeGazUs#hasStep
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#isStepOf> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Address> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid15 .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#firstStep> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#nextStep> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2002/07/owl#propertyChainAxiom> _:genid17 .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#hasStep> .
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid16 .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#nextStep> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an address has an address segment as its step"@en .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'une adresse à pour étape un segment d'adresse"@fr .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#label> "a pour étape"@fr .
+<https://w3id.org/PeGazUs#hasStep> <http://www.w3.org/2000/01/rdf-schema#label> "has step"@en .
+# 
+# https://w3id.org/PeGazUs#hasTime
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TemporalEntity> .
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Time value linked to a resource"@en .
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Valeur temporelle liée à une ressource"@fr .
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/2000/01/rdf-schema#label> "a pour valeur temporelle"@fr .
+<https://w3id.org/PeGazUs#hasTime> <http://www.w3.org/2000/01/rdf-schema#label> "has time"@en .
+# 
+# https://w3id.org/PeGazUs#hasTimeAfter
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TemporalInstant> .
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that the resource is linked to an instant prior to the associated instant"@en .
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Indique que la ressource est liée à un instant situé avant l'instant associé"@fr .
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/2000/01/rdf-schema#label> "occurs after"@en .
+<https://w3id.org/PeGazUs#hasTimeAfter> <http://www.w3.org/2000/01/rdf-schema#label> "se passe après"@fr .
+# 
+# https://w3id.org/PeGazUs#hasTimeBefore
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#TemporalInstant> .
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that the resource is linked to a time after the associated time"@en .
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Indique que la ressource est liée à un instant situé après l'instant associé"@fr .
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/2000/01/rdf-schema#label> "occurs before"@en .
+<https://w3id.org/PeGazUs#hasTimeBefore> <http://www.w3.org/2000/01/rdf-schema#label> "se passe avant"@fr .
+# 
+# https://w3id.org/PeGazUs#hasTrace
+<https://w3id.org/PeGazUs#hasTrace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#hasTrace> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an element has another element as its trace"@en .
+<https://w3id.org/PeGazUs#hasTrace> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un élément a pour trace un autre élément"@fr .
+<https://w3id.org/PeGazUs#hasTrace> <http://www.w3.org/2000/01/rdf-schema#label> "a pour trace"@fr .
+<https://w3id.org/PeGazUs#hasTrace> <http://www.w3.org/2000/01/rdf-schema#label> "has trace"@en .
+# 
+# https://w3id.org/PeGazUs#instantAfter
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#instantBefore> .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of posteriority between two instants"@en .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle de postériorité entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#label> "est après"@fr .
+<https://w3id.org/PeGazUs#instantAfter> <http://www.w3.org/2000/01/rdf-schema#label> "is after"@en .
+# 
+# https://w3id.org/PeGazUs#instantAsPreciseAs
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Compare les précisions temporelles entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Compares time accuracies between two instants"@en .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#label> "est aussi précis que"@fr .
+<https://w3id.org/PeGazUs#instantAsPreciseAs> <http://www.w3.org/2000/01/rdf-schema#label> "is as precise as"@en .
+# 
+# https://w3id.org/PeGazUs#instantBefore
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of anteriority between two instants"@en .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle d'antériorité entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#label> "est avant"@fr .
+<https://w3id.org/PeGazUs#instantBefore> <http://www.w3.org/2000/01/rdf-schema#label> "is before"@en .
+# 
+# https://w3id.org/PeGazUs#instantLessPreciseThan
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#instantMorePreciseThan> .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#comment> "Compare les précisions temporelles entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#comment> "Compares time accuracies between two instants"@en .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#label> "est moins précis que"@fr .
+<https://w3id.org/PeGazUs#instantLessPreciseThan> <http://www.w3.org/2000/01/rdf-schema#label> "is less precise than"@en .
+# 
+# https://w3id.org/PeGazUs#instantMorePreciseThan
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#comment> "Compare les précisions temporelles entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#comment> "Compares time accuracies between two instants"@en .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#label> "est plus précis que"@fr .
+<https://w3id.org/PeGazUs#instantMorePreciseThan> <http://www.w3.org/2000/01/rdf-schema#label> "is more precise than"@en .
+# 
+# https://w3id.org/PeGazUs#instantSameTime
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the temporal relationship of simultaneity between two instants"@en .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit la relation temporelle de simultanéité entre deux instants"@fr .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#label> "est en même temps que"@fr .
+<https://w3id.org/PeGazUs#instantSameTime> <http://www.w3.org/2000/01/rdf-schema#label> "is at the same time"@en .
+# 
+# https://w3id.org/PeGazUs#isAttributeOf
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasAttribute> .
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines the frame of reference for which the attribute exists"@en .
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit le repère pour lequel l'attribut existe"@fr .
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/2000/01/rdf-schema#label> "est un attribut de"@fr .
+<https://w3id.org/PeGazUs#isAttributeOf> <http://www.w3.org/2000/01/rdf-schema#label> "is attribute of"@en .
+# 
+# https://w3id.org/PeGazUs#isAttributeType
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Attribute> .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeType> .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the type of attribute."@en .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le type d'attribut."@fr .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#label> "est un attribut de type"@fr .
+<https://w3id.org/PeGazUs#isAttributeType> <http://www.w3.org/2000/01/rdf-schema#label> "is attribute type"@en .
+# 
+# https://w3id.org/PeGazUs#isAttributeVersionOf
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Attribute> .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribut associée à la version d'attribut"@fr .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Attribute associated with the attribute version"@en .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#label> "est une version de l'attribut"@fr .
+<https://w3id.org/PeGazUs#isAttributeVersionOf> <http://www.w3.org/2000/01/rdf-schema#label> "is attribute version of"@en .
+# 
+# https://w3id.org/PeGazUs#isChangeType
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the type of change."@en .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le type de changement."@fr .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "est une changement de type"@fr .
+<https://w3id.org/PeGazUs#isChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "is change type"@en .
+# 
+# https://w3id.org/PeGazUs#isLandmarkRelationType
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#LandmarkRelation> .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the type of landmark relation."@en .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le type de relation entre repères définie par la ressource."@fr .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#label> "est une relation entre repères de type"@fr .
+<https://w3id.org/PeGazUs#isLandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#label> "is landmark relation type"@en .
+# 
+# https://w3id.org/PeGazUs#isLandmarkType
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the type of landmark."@en .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le type de repère définie par la ressource."@fr .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#label> "est un repère de type"@fr .
+<https://w3id.org/PeGazUs#isLandmarkType> <http://www.w3.org/2000/01/rdf-schema#label> "is landmark type"@en .
+# 
+# https://w3id.org/PeGazUs#isMadeEffectiveBy
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeChange> .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the fact that a version of an attribute is made effective by a change"@en .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le fait qu'une version d'un attribut est rendue effectif par un changement"@fr .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#label> "est rendu effectif par"@fr .
+<https://w3id.org/PeGazUs#isMadeEffectiveBy> <http://www.w3.org/2000/01/rdf-schema#label> "is made effective by"@en .
+# 
+# https://w3id.org/PeGazUs#isOutdatedBy
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeChange> .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the fact that a version of an attribute is rendered obsolete by a change"@en .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le fait qu'une version d'un attribut est rendue caduc par un changement"@fr .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "est rendu caduc par"@fr .
+<https://w3id.org/PeGazUs#isOutdatedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is outdated by"@en .
+# 
+# https://w3id.org/PeGazUs#isOverlappedByVersion
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasOverlappingVersion> .
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that one landmark version is overlapped by another"@en .
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'une version de repère est chevauchée par une autre"@fr .
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/2000/01/rdf-schema#label> "est chevauché par"@fr .
+<https://w3id.org/PeGazUs#isOverlappedByVersion> <http://www.w3.org/2000/01/rdf-schema#label> "is overlapped by version"@en .
+# 
+# https://w3id.org/PeGazUs#isRootLandmarkOf
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/PeGazUs#isRootOf> .
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an landmark is the root of another"@en .
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un repère est la racine d'un autre"@fr .
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/2000/01/rdf-schema#label> "est racine de"@fr .
+<https://w3id.org/PeGazUs#isRootLandmarkOf> <http://www.w3.org/2000/01/rdf-schema#label> "is root of"@en .
+# 
+# https://w3id.org/PeGazUs#isRootOf
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasRoot> .
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an element is the root of another"@en .
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un élément est la racine d'un autre"@fr .
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/2000/01/rdf-schema#label> "est racine de"@fr .
+<https://w3id.org/PeGazUs#isRootOf> <http://www.w3.org/2000/01/rdf-schema#label> "is root of"@en .
+# 
+# https://w3id.org/PeGazUs#isStepOf
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Address> .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an address segment is a step of an address"@en .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un segment d'adresse est une étape d'une adresse"@fr .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#label> "est une étape de"@fr .
+<https://w3id.org/PeGazUs#isStepOf> <http://www.w3.org/2000/01/rdf-schema#label> "is a step of"@en .
+# 
+# https://w3id.org/PeGazUs#isTraceOf
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#hasTrace> .
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an element is the trace of another element"@en .
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un élément est la trace d'un autre élément"@fr .
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/2000/01/rdf-schema#label> "est une trace de"@fr .
+<https://w3id.org/PeGazUs#isTraceOf> <http://www.w3.org/2000/01/rdf-schema#label> "is trace of"@en .
+# 
+# https://w3id.org/PeGazUs#locatum
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#LandmarkRelation> .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Donne le repère qui est le locatum pour la relation entre repères"@fr .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Gives the landmark which is the locatum for the landmark relation"@en .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#label> "a pour locatum"@fr .
+<https://w3id.org/PeGazUs#locatum> <http://www.w3.org/2000/01/rdf-schema#label> "has locatum"@en .
+# 
+# https://w3id.org/PeGazUs#makesEffective
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#isMadeEffectiveBy> .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeChange> .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the fact that a change makes a version of an attribute effective"@en .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le fait qu'un changement rend effectif une version d'un attribut"@fr .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#label> "makes effective"@en .
+<https://w3id.org/PeGazUs#makesEffective> <http://www.w3.org/2000/01/rdf-schema#label> "rend effectif"@fr .
+# 
+# https://w3id.org/PeGazUs#nextStep
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes that an address segment is followed by another address segment"@en .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit qu'un segment d'adresse est suivi par un autre segment d'adresse"@fr .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#label> "a pour prochaine étape"@fr .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2000/01/rdf-schema#label> "has next step"@en .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2004/02/skos/core#altLabel> "est suivi par"@fr .
+<https://w3id.org/PeGazUs#nextStep> <http://www.w3.org/2004/02/skos/core#altLabel> "is followed by"@en .
+# 
+# https://w3id.org/PeGazUs#outdates
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/PeGazUs#isOutdatedBy> .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeChange> .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#comment> "Describes the fact that a change invalidates a version of an attribute"@en .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#comment> "Décrit le fait qu'un changement rend caduc une version d'un attribut"@fr .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#label> "outdates"@en .
+<https://w3id.org/PeGazUs#outdates> <http://www.w3.org/2000/01/rdf-schema#label> "rend caduc"@fr .
+# 
+# https://w3id.org/PeGazUs#relatum
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#LandmarkRelation> .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Donne l'entité géographique qui est un des relatums pour la relation entre repères"@fr .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#comment> "Gives the landmark which is one of the relatums for the landmark relation"@en .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#label> "a pour relatum"@fr .
+<https://w3id.org/PeGazUs#relatum> <http://www.w3.org/2000/01/rdf-schema#label> "has relatum"@en .
+# 
+# https://w3id.org/PeGazUs#sameVersionValueAs
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that two versions of attributes have similar values"@en .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#comment> "Indique que deux versions d'attributs ont des valeurs similaires"@fr .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#label> "a une valeur similaire à"@fr .
+<https://w3id.org/PeGazUs#sameVersionValueAs> <http://www.w3.org/2000/01/rdf-schema#label> "has same version value as"@en .
+# 
+# https://w3id.org/PeGazUs#targets
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#Address> .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#comment> "Cible le repère décrivant l'adresse."@fr .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#comment> "Target the marker describing the Address"@en .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#label> "cible"@fr .
+<https://w3id.org/PeGazUs#targets> <http://www.w3.org/2000/01/rdf-schema#label> "targets"@en .
+# 
+# https://w3id.org/PeGazUs#timeCalendar
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#TRS> .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#comment> "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"@fr .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#comment> "Time-based calendar (Gregorian, Julian, Revolutionary)"@en .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#label> "a pour calendrier"@fr .
+<https://w3id.org/PeGazUs#timeCalendar> <http://www.w3.org/2000/01/rdf-schema#label> "has calendar"@en .
+# 
+# https://w3id.org/PeGazUs#timePrecision
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2006/time#TemporalUnit> .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#comment> "Précision de l'instant (au jour, au mois, à l'année...)"@fr .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#comment> "Time accuracy (to the day, month, year, etc.)"@en .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#label> "a pour précision temporelle"@fr .
+<https://w3id.org/PeGazUs#timePrecision> <http://www.w3.org/2000/01/rdf-schema#label> "has time precision"@en .
+# 
+# https://w3id.org/PeGazUs#versionOf
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#LandmarkVersion> .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Defines which landmark a version depends on"@en .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Définit pour une version de quel repère elle dépend"@fr .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#label> "est une version de repère de"@fr .
+<https://w3id.org/PeGazUs#versionOf> <http://www.w3.org/2000/01/rdf-schema#label> "is a version of"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/PeGazUs#timeStamp
+<https://w3id.org/PeGazUs#timeStamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/PeGazUs#timeStamp> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#CrispTimeInstant> .
+<https://w3id.org/PeGazUs#timeStamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/PeGazUs#timeStamp> <http://www.w3.org/2000/01/rdf-schema#comment> "Timestamp lié à l'instant"@fr .
+<https://w3id.org/PeGazUs#timeStamp> <http://www.w3.org/2000/01/rdf-schema#label> "a pour timestamp"@fr .
+# 
+# https://w3id.org/PeGazUs#versionValue
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/PeGazUs#AttributeVersion> .
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/2000/01/rdf-schema#comment> "Valeur de liée à une version d'attribut"@fr .
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/2000/01/rdf-schema#comment> "Value linked to an attribute version"@en .
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/2000/01/rdf-schema#label> "a pour valeur"@fr .
+<https://w3id.org/PeGazUs#versionValue> <http://www.w3.org/2000/01/rdf-schema#label> "has version value"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/vocommons/voaf#Vocabulary
+<http://purl.org/vocommons/voaf#Vocabulary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2006/time#Instant
+# 
+# http://www.w3.org/2006/time#Interval
+# 
+# http://www.w3.org/2006/time#ProperInterval
+# 
+# http://www.w3.org/2006/time#TRS
+<http://www.w3.org/2006/time#TRS> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/2006/time#TemporalEntity
+# 
+# http://www.w3.org/2006/time#TemporalUnit
+<http://www.w3.org/2006/time#TemporalUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/org#Membership
+# 
+# http://www.w3.org/ns/org#Role
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "An entity is a physical, digital, conceptual or other element, which has certain fixed aspects; it can be real or imaginary."@en .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#comment> "Une entité est un élément physique, numérique, conceptuel ou autre, possédant certains aspects fixes ; les entités peuvent être réelles ou imaginaires."@fr .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://www.w3.org/ns/prov-o#> .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "Entity"@en .
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/2000/01/rdf-schema#label> "entité"@fr .
+# 
+# http://www.w3.org/ns/sparql-service-description#NamedGraph
+<http://www.w3.org/ns/sparql-service-description#NamedGraph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://xmlns.com/foaf/0.1/Person
+# 
+# https://w3id.org/PeGazUs#Address
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid18 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#firstStep> .
+_:genid18 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid18 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid19 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#targets> .
+_:genid19 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid19 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#comment> "An address defines an indirect spatial reference to a location that is the target of the address. This location is described as a sequence of address segments, each of which describes the relationships between entities."@en .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#comment> "Une adresse définit une référence spatiale indirecte d'un lieu qui est la cible de l'adresse. La manière dont ce lieu est décrit se fait comme étant une séquence de segments d'adresse étant chacun une description de relations entre entités."@fr .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#label> "Address"@en .
+<https://w3id.org/PeGazUs#Address> <http://www.w3.org/2000/01/rdf-schema#label> "adresse"@fr .
+# 
+# https://w3id.org/PeGazUs#AddressSegment
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#LandmarkRelation> .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid20 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#relatum> .
+_:genid20 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid20 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid21 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#locatum> .
+_:genid21 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid21 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/PeGazUs#Landmark> .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid22 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#nextStep> .
+_:genid22 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid22 <http://www.w3.org/2002/07/owl#onClass> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#comment> "An address segment describes a relationship between a landmark (the locatum) and one or more other landmarks (the relatums). An address segment may be followed by another address segment that describes a relationship between the locatum of the previous address segment and other landmarks."@en .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#comment> "Un segment d'adresse décrit une relation entre un repère (le locatum) et un ou plusieurs autres repères (les relatums). Un segment d'adresse peut être suivi par un autre segment d'adresse qui décrit une relation entre le locatum du segment d'adresse précédent et d'autres repères."@fr .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#label> "Address segment"@en .
+<https://w3id.org/PeGazUs#AddressSegment> <http://www.w3.org/2000/01/rdf-schema#label> "segment d'adresse"@fr .
+# 
+# https://w3id.org/PeGazUs#Attribute
+<https://w3id.org/PeGazUs#Attribute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Attribute> <http://www.w3.org/2000/01/rdf-schema#comment> "An attribute is a property of a geographic entity."@en .
+<https://w3id.org/PeGazUs#Attribute> <http://www.w3.org/2000/01/rdf-schema#comment> "Un attribut est une propriété d'une entité géographique."@fr .
+<https://w3id.org/PeGazUs#Attribute> <http://www.w3.org/2000/01/rdf-schema#label> "Attribut"@fr .
+<https://w3id.org/PeGazUs#Attribute> <http://www.w3.org/2000/01/rdf-schema#label> "Attribute"@en .
+# 
+# https://w3id.org/PeGazUs#AttributeChange
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/2000/01/rdf-schema#comment> "A change on an attribute is a modification applied to an attribute, it defines one or more of its versions that are created or outdated when the change is applied."@en .
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Un changement sur un attribut est une modification appliquée à un attribut, elle définit une ou plusieurs de ses versions qui sont créées ou périmées lors de l'application du changement."@fr .
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/2000/01/rdf-schema#label> "Change on an attribute"@en .
+<https://w3id.org/PeGazUs#AttributeChange> <http://www.w3.org/2000/01/rdf-schema#label> "Changement sur l'attribut"@fr .
+# 
+# https://w3id.org/PeGazUs#AttributeType
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/2000/01/rdf-schema#comment> "An attribute type is a category of attributes defined by common characteristics."@en .
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Un type d'attribut est une catégorie d'attributs définie par des caractéristiques communes."@fr .
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/2000/01/rdf-schema#label> "Type d'attribut"@fr .
+<https://w3id.org/PeGazUs#AttributeType> <http://www.w3.org/2000/01/rdf-schema#label> "attribute type"@en .
+# 
+# https://w3id.org/PeGazUs#AttributeVersion
+<https://w3id.org/PeGazUs#AttributeVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#AttributeVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "An attribute version is a version of an attribute which has a specific value."@en .
+<https://w3id.org/PeGazUs#AttributeVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Une version d'attribut est une version reliée à un attribut qui possède est définie par une valeur."@fr .
+<https://w3id.org/PeGazUs#AttributeVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Attribute version"@en .
+<https://w3id.org/PeGazUs#AttributeVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Version de l'attribut"@fr .
+# 
+# https://w3id.org/PeGazUs#Change
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid23 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#appliedTo> .
+_:genid23 <http://www.w3.org/2002/07/owl#allValuesFrom> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid24 <http://www.w3.org/2002/07/owl#unionOf> _:genid27 .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Attribute> .
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#Landmark> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/PeGazUs#LandmarkRelation> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/2000/01/rdf-schema#comment> "A change is any modification made to a geographic feature or its attributes, or to a relationship between features."@en .
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/2000/01/rdf-schema#comment> "Un changement est toute modification appliquée à une entité géographique ou à ses attributs ou bien à une relation entre entités."@fr .
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/2000/01/rdf-schema#label> "Change"@en .
+<https://w3id.org/PeGazUs#Change> <http://www.w3.org/2000/01/rdf-schema#label> "Changement"@fr .
+# 
+# https://w3id.org/PeGazUs#ChangeType
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/2000/01/rdf-schema#comment> "A change type is a category of changes defined by common characteristics."@en .
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/2000/01/rdf-schema#comment> "Un type de changement est une catégorie de changements définie par des caractéristiques communes."@fr .
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "Change Type"@en .
+<https://w3id.org/PeGazUs#ChangeType> <http://www.w3.org/2000/01/rdf-schema#label> "Type de changement"@fr .
+# 
+# https://w3id.org/PeGazUs#ConstructionGraph
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Graph> .
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "A named graph containing intermediate results produced during the knowledge graph construction process."@en .
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "Graphe nommé contenant des résultats intermédiaires produits au cours du processus de construction du graphe de connaissances."@fr .
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Construction graph"@en .
+<https://w3id.org/PeGazUs#ConstructionGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Graphe de construction"@fr .
+# 
+# https://w3id.org/PeGazUs#CrispTemporalEntity
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TemporalEntity> .
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A crisp temporal entity is an entity that has a precise moment in time, which is either an instant or an interval."@en .
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "Une entité temporelle non floue est une entité qui a un moment précis de temps, que ce soit un instant ou un intervalle."@fr .
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Crisp temporal entity"@en .
+<https://w3id.org/PeGazUs#CrispTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Entité temporelle non floue"@fr .
+# 
+# https://w3id.org/PeGazUs#CrispTimeInstant
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#CrispTemporalEntity> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TimeInstant> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid28 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#timeCalendar> .
+_:genid28 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid28 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2006/time#TRS> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid29 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#timePrecision> .
+_:genid29 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid29 <http://www.w3.org/2002/07/owl#onClass> <http://www.w3.org/2006/time#TemporalUnit> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid30 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#timeStamp> .
+_:genid30 <http://www.w3.org/2002/07/owl#maxQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid30 <http://www.w3.org/2002/07/owl#onDataRange> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "A crisp time instant is a precise moment in time, defined by a timestamp, a calendar, and a temporal precision."@en .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Un instant temporel précis est un moment précis de temps, défini par un stamp, un calendrier et une précision temporelle."@fr .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Crisp time instant"@en .
+<https://w3id.org/PeGazUs#CrispTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Instant temporel précis"@fr .
+# 
+# https://w3id.org/PeGazUs#CrispTimeInterval
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#CrispTemporalEntity> .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TimeInterval> .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "A crisp time interval is a precise time interval, whose bounds are defined by crisp time instants."@en .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "Un intervalle temporel précis est un intervalle de temps précis, dont les bornes sont définies par des instants temporels précis."@fr .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Crisp time interval"@en .
+<https://w3id.org/PeGazUs#CrispTimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Intervalle temporel précis"@fr .
+# 
+# https://w3id.org/PeGazUs#Event
+<https://w3id.org/PeGazUs#Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Event> <http://www.w3.org/2000/01/rdf-schema#comment> "Event describing a development involving one or more resources at a given time."@en .
+<https://w3id.org/PeGazUs#Event> <http://www.w3.org/2000/01/rdf-schema#comment> "Un événément décrit une évolution impliquant une ou plusieurs ressources à un instant donné."@fr .
+<https://w3id.org/PeGazUs#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event"@en .
+<https://w3id.org/PeGazUs#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Événément"@fr .
+# 
+# https://w3id.org/PeGazUs#FinalAddressSegment
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#AddressSegment> .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid31 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#nextStep> .
+_:genid31 <http://www.w3.org/2002/07/owl#cardinality> "0"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#comment> "A final address segment is the last segment of an address, it is not followed by any other segment."@en .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#comment> "Un segment d'adresse final est le dernier segment d'une adresses, elle n'est suivie d'aucun autre segment."@fr .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#label> "final Address segment"@en .
+<https://w3id.org/PeGazUs#FinalAddressSegment> <http://www.w3.org/2000/01/rdf-schema#label> "segment d'adresse final"@fr .
+# 
+# https://w3id.org/PeGazUs#FinalGraph
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Graph> .
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "A named graph representing the final, consolidated knowledge graph."@en .
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "Graphe nommé représentant le graphe de connaissances final et consolidé."@fr .
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Final graph"@en .
+<https://w3id.org/PeGazUs#FinalGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Graphe final"@fr .
+# 
+# https://w3id.org/PeGazUs#FuzzyTemporalEntity
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TemporalEntity> .
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A fuzzy temporal entity is an entity that represents a temporal concept with some degree of uncertainty."@en .
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "Une entité temporelle floue est une entité qui représente un concept temporel avec une certaine mesure d'incertitude."@fr .
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Entité temporelle floue"@fr .
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Fuzzy temporal entity"@en .
+# 
+# https://w3id.org/PeGazUs#FuzzyTimeInstant
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#FuzzyTemporalEntity> .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TimeInstant> .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "\nA fuzzy temporal instant represents an instant whose temporal value is uncertain or imprecise. \nThis uncertainty may be described using three relations to precise temporal instants: \n- hasFuzzyBeginning indicates the lower bound of the temporal uncertainty;\n- hasFuzzyPeak indicates the central or most probable instant;\n- hasFuzzyEnd indicates the upper bound of the temporal uncertainty.\nThese relations are optional and may be used independently of one another depending on the level of precision available in the data.\n"@en .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "\nUn instant temporel flou représente un instant dont la valeur temporelle est incertaine ou imprécise. \nCette incertitude peut être décrite à l'aide de trois relations vers des instants temporels précis : \n- hasFuzzyBeginning indique une borne inférieure de l'incertitude temporelle ;\n- hasFuzzyPeak indique un instant central ou le plus probable ;\n- hasFuzzyEnd indique une borne supérieure de l'incertitude temporelle.\nCes relations sont optionnelles et peuvent être utilisées indépendamment les unes des autres selon le niveau de précision disponible dans les données.\n"@fr .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Fuzzy time instant"@en .
+<https://w3id.org/PeGazUs#FuzzyTimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Instant temporel flou"@fr .
+# 
+# https://w3id.org/PeGazUs#FuzzyTimeInterval
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#FuzzyTemporalEntity> .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TimeInterval> .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "A fuzzy time interval represents an interval whose at least one temporal bound is uncertain or imprecise."@en .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "Un intervalle temporel flou représente un intervalle au moins une des bornes temporelles sont incertaines ou imprécises."@fr .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Fuzzy time interval"@en .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Intervalle temporel flou"@fr .
+# 
+# https://w3id.org/PeGazUs#Graph
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sparql-service-description#NamedGraph> .
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/2000/01/rdf-schema#comment> "A named graph used as a container for RDF statements."@en .
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/2000/01/rdf-schema#comment> "Graphe nommé utilisé comme conteneur de triplets RDF."@fr .
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/2000/01/rdf-schema#label> "Graph"@en .
+<https://w3id.org/PeGazUs#Graph> <http://www.w3.org/2000/01/rdf-schema#label> "Graphe"@fr .
+# 
+# https://w3id.org/PeGazUs#Landmark
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2000/01/rdf-schema#comment> "A landmark is a geographic entity. It can be a street, a building, a country, or any other point of reference in space."@en .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2000/01/rdf-schema#comment> "Un repère est une entité géographique. Elle peut être une rue, un bâtiment, un pays ou tout autre point de référence dans l'espace."@fr .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2000/01/rdf-schema#label> "Landmark"@en .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2000/01/rdf-schema#label> "Repère"@fr .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2004/02/skos/core#altLabel> "Entité géographique"@fr .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2004/02/skos/core#altLabel> "Entité spatiale"@fr .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2004/02/skos/core#altLabel> "Geographic entity"@en .
+<https://w3id.org/PeGazUs#Landmark> <http://www.w3.org/2004/02/skos/core#altLabel> "Spatial entity"@en .
+# 
+# https://w3id.org/PeGazUs#LandmarkChange
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/2000/01/rdf-schema#comment> "A change on a landmark is a change of state of a landmark (appearance, disappearance)."@en .
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Un changement sur un repère est une modification d'état d'un repère (apparition, disparition)."@fr .
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/2000/01/rdf-schema#label> "Change on a landmark"@en .
+<https://w3id.org/PeGazUs#LandmarkChange> <http://www.w3.org/2000/01/rdf-schema#label> "Changement sur le repère"@fr .
+# 
+# https://w3id.org/PeGazUs#LandmarkRelation
+<https://w3id.org/PeGazUs#LandmarkRelation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkRelation> <http://www.w3.org/2000/01/rdf-schema#comment> "Il s'agit d'une relation qui représente un lien existant entre un ou plusieurs repères.\nCes relations peuvent prendre diverses formes, notamment :\n- des relations géographiques, par exemple lorsqu'un point de repère est situé à l'angle de deux autres points de repère ;\n- des relations hiérarchiques, par exemple lorsqu'un point de repère est la capitale d'une autre entité administrative ;\n- d'autres relations spécifiques."@fr .
+<https://w3id.org/PeGazUs#LandmarkRelation> <http://www.w3.org/2000/01/rdf-schema#comment> "It is a relation that represents a relation existing between one or more landmarks.\nSuch relations may take various forms, including:\n- geographic relations, for example when a landmark is located at the corner of two other landmarks;\n- hierarchical relations, for example when a landmark is the capital of another administrative entity;\n- as well as other domain-specific or contextual relations depending on the application needs.\n"@en .
+<https://w3id.org/PeGazUs#LandmarkRelation> <http://www.w3.org/2000/01/rdf-schema#label> "Landmark relation"@en .
+<https://w3id.org/PeGazUs#LandmarkRelation> <http://www.w3.org/2000/01/rdf-schema#label> "Relation entre repères"@fr .
+# 
+# https://w3id.org/PeGazUs#LandmarkRelationChange
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Change> .
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/2000/01/rdf-schema#comment> "A change on a landmark relation is a change of state of this relation (appearance, disappearance)."@en .
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/2000/01/rdf-schema#comment> "Un changement sur la relation entre repères est une modification d'état de cette relation (apparition, disparition)."@fr .
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/2000/01/rdf-schema#label> "Change on a landmark relation"@en .
+<https://w3id.org/PeGazUs#LandmarkRelationChange> <http://www.w3.org/2000/01/rdf-schema#label> "changement sur la relation entre repères"@fr .
+# 
+# https://w3id.org/PeGazUs#LandmarkRelationType
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of landmark relation is a category that allows classifying the different existing relations between landmarks."@en .
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#comment> "Un type de relation entre repères est une catégorie qui permet de classer les différentes relations existantes des repères."@fr .
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#label> "Type de relation entre repères"@fr .
+<https://w3id.org/PeGazUs#LandmarkRelationType> <http://www.w3.org/2000/01/rdf-schema#label> "type of landmark relation"@en .
+# 
+# https://w3id.org/PeGazUs#LandmarkType
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of landmark is a category that allows classifying the different types of landmarks."@en .
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/2000/01/rdf-schema#comment> "Un type de repère est une catégorie qui permet de classer les différents types de repères."@fr .
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/2000/01/rdf-schema#label> "Type de repère"@fr .
+<https://w3id.org/PeGazUs#LandmarkType> <http://www.w3.org/2000/01/rdf-schema#label> "Type of landmark"@en .
+# 
+# https://w3id.org/PeGazUs#LandmarkVersion
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid32 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/PeGazUs#hasTime> .
+_:genid32 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/PeGazUs#TimeInterval> .
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "A landmark version is a specific instance of a landmark at a given time."@en .
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/2000/01/rdf-schema#comment> "Une version de repère est une instance spécifique d'un repère à un moment donné."@fr .
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Landmark version"@en .
+<https://w3id.org/PeGazUs#LandmarkVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Version de repère"@fr .
+# 
+# https://w3id.org/PeGazUs#SourceGraph
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#Graph> .
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "A named graph containing data directly derived from sources."@en .
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/2000/01/rdf-schema#comment> "Graphe nommé contenant des données directement issues de sources."@fr .
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Graphe source"@fr .
+<https://w3id.org/PeGazUs#SourceGraph> <http://www.w3.org/2000/01/rdf-schema#label> "Source graph"@en .
+# 
+# https://w3id.org/PeGazUs#TemporalEntity
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2006/time#TemporalEntity> .
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporal entity is an instance of a temporal concept."@en .
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "Une entité temporelle est une instance d'un concept temporel."@fr .
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Entité temporelle"@fr .
+<https://w3id.org/PeGazUs#TemporalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Temporal entity"@en .
+# 
+# https://w3id.org/PeGazUs#TemporalInstant
+# 
+# https://w3id.org/PeGazUs#TimeInstant
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TemporalEntity> .
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "A time instant is an instance of a temporal entity."@en .
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/2000/01/rdf-schema#comment> "Un instant est une instance d'une entité temporelle."@fr .
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Instant"@fr .
+<https://w3id.org/PeGazUs#TimeInstant> <http://www.w3.org/2000/01/rdf-schema#label> "Time instant"@en .
+# 
+# https://w3id.org/PeGazUs#TimeInterval
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/PeGazUs#TemporalEntity> .
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "A time interval is a period of time."@en .
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/2000/01/rdf-schema#comment> "Un intervalle temporel est une période de temps."@fr .
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Intervalle temporel"@fr .
+<https://w3id.org/PeGazUs#TimeInterval> <http://www.w3.org/2000/01/rdf-schema#label> "Time interval"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2006/time#unitCentury
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of 100 years."@en .
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période de 100 ans."@fr .
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/2000/01/rdf-schema#label> "Century"@en .
+<http://www.w3.org/2006/time#unitCentury> <http://www.w3.org/2000/01/rdf-schema#label> "Siècle"@fr .
+# 
+# http://www.w3.org/2006/time#unitDay
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of 24 hours."@en .
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période de 24 heures."@fr .
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/2000/01/rdf-schema#label> "Day"@en .
+<http://www.w3.org/2006/time#unitDay> <http://www.w3.org/2000/01/rdf-schema#label> "Jour"@fr .
+# 
+# http://www.w3.org/2006/time#unitDecade
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of 10 years."@en .
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période de 10 ans."@fr .
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/2000/01/rdf-schema#label> "Decade"@en .
+<http://www.w3.org/2006/time#unitDecade> <http://www.w3.org/2000/01/rdf-schema#label> "Décennie"@fr .
+# 
+# http://www.w3.org/2006/time#unitMonth
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of approximately 30 days."@en .
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période d'environ 30 jours."@fr .
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/2000/01/rdf-schema#label> "Mois"@fr .
+<http://www.w3.org/2006/time#unitMonth> <http://www.w3.org/2000/01/rdf-schema#label> "Month"@en .
+# 
+# http://www.w3.org/2006/time#unitWeek
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of 7 days."@en .
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période de 7 jours."@fr .
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/2000/01/rdf-schema#label> "Semaine"@fr .
+<http://www.w3.org/2006/time#unitWeek> <http://www.w3.org/2000/01/rdf-schema#label> "Week"@en .
+# 
+# http://www.w3.org/2006/time#unitYear
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TemporalUnit> .
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/2000/01/rdf-schema#comment> "A period of approximately 365 days."@en .
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/2000/01/rdf-schema#comment> "Une période d'environ 365 jours."@fr .
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/2000/01/rdf-schema#label> "Année"@fr .
+<http://www.w3.org/2006/time#unitYear> <http://www.w3.org/2000/01/rdf-schema#label> "Year"@en .
+# 
+# http://www.wikidata.org/entity/Q181974
+<http://www.wikidata.org/entity/Q181974> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.wikidata.org/entity/Q181974> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TRS> .
+<http://www.wikidata.org/entity/Q181974> <http://www.w3.org/2004/02/skos/core#definition> "Système de calendrier de la Révolution française"@fr .
+<http://www.wikidata.org/entity/Q181974> <http://www.w3.org/2004/02/skos/core#prefLabel> "French Republican calendar"@en .
+<http://www.wikidata.org/entity/Q181974> <http://www.w3.org/2004/02/skos/core#prefLabel> "calendrier républicain"@fr .
+# 
+# http://www.wikidata.org/entity/Q1985727
+<http://www.wikidata.org/entity/Q1985727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.wikidata.org/entity/Q1985727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TRS> .
+<http://www.wikidata.org/entity/Q1985727> <http://www.w3.org/2004/02/skos/core#definition> "Extension du calendrier grégorien à avant son introduction"@fr .
+<http://www.wikidata.org/entity/Q1985727> <http://www.w3.org/2004/02/skos/core#prefLabel> "calendrier grégorien proleptique"@fr .
+<http://www.wikidata.org/entity/Q1985727> <http://www.w3.org/2004/02/skos/core#prefLabel> "proleptic Gregorian calendar"@en .
+# 
+# http://www.wikidata.org/entity/Q1985786
+<http://www.wikidata.org/entity/Q1985786> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.wikidata.org/entity/Q1985786> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/time#TRS> .
+<http://www.wikidata.org/entity/Q1985786> <http://www.w3.org/2004/02/skos/core#definition> "Extension du calendrier julien à avant son introduction"@fr .
+<http://www.wikidata.org/entity/Q1985786> <http://www.w3.org/2004/02/skos/core#prefLabel> "calendrier julien proleptique"@fr .
+<http://www.wikidata.org/entity/Q1985786> <http://www.w3.org/2004/02/skos/core#prefLabel> "proleptic Julian calendar"@en .
+# 
+# https://w3id.org/PeGazUs#
+<https://w3id.org/PeGazUs#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
+# 
+# https://w3id.org/PeGazUs#AttributeList
+<https://w3id.org/PeGazUs#AttributeList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs#AttributeList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/PeGazUs#AttributeList> <http://www.w3.org/2000/01/rdf-schema#comment> "Liste des différents rôles pouvant être joués par un attribut, représentés comme une liste de concepts SKOS."@fr .
+<https://w3id.org/PeGazUs#AttributeList> <http://www.w3.org/2000/01/rdf-schema#label> "Type d'attribut"@fr .
+<https://w3id.org/PeGazUs#AttributeList> <http://www.w3.org/2000/01/rdf-schema#label> "type of attribute"@en .
+# 
+# https://w3id.org/PeGazUs#ChangeList
+<https://w3id.org/PeGazUs#ChangeList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs#ChangeList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/PeGazUs#ChangeList> <http://www.w3.org/2000/01/rdf-schema#comment> "Liste des différents rôles pouvant être joués par un changement, représentés comme une liste de concepts SKOS."@fr .
+<https://w3id.org/PeGazUs#ChangeList> <http://www.w3.org/2000/01/rdf-schema#label> "Type de changement"@fr .
+<https://w3id.org/PeGazUs#ChangeList> <http://www.w3.org/2000/01/rdf-schema#label> "type of change"@en .
+# 
+# https://w3id.org/PeGazUs#LandmarkList
+<https://w3id.org/PeGazUs#LandmarkList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs#LandmarkList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/PeGazUs#LandmarkList> <http://www.w3.org/2000/01/rdf-schema#comment> "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr .
+<https://w3id.org/PeGazUs#LandmarkList> <http://www.w3.org/2000/01/rdf-schema#label> "Type de repère"@fr .
+<https://w3id.org/PeGazUs#LandmarkList> <http://www.w3.org/2000/01/rdf-schema#label> "Type of landmark"@en .
+# 
+# https://w3id.org/PeGazUs#LandmarkRelationList
+<https://w3id.org/PeGazUs#LandmarkRelationList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs#LandmarkRelationList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+<https://w3id.org/PeGazUs#LandmarkRelationList> <http://www.w3.org/2000/01/rdf-schema#comment> "Liste des différents rôles pouvant être joués par une relation entre repères, représentés comme une liste de concepts SKOS."@fr .
+<https://w3id.org/PeGazUs#LandmarkRelationList> <http://www.w3.org/2000/01/rdf-schema#label> "Type de relation entre repères"@fr .
+<https://w3id.org/PeGazUs#LandmarkRelationList> <http://www.w3.org/2000/01/rdf-schema#label> "Type of landmark relation"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#AttributeType> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#altLabel> "Attribut de géométrie"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#altLabel> "Geometry attribute"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#definition> "Attribut décrivant la géométrie d'un élément"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#definition> "Attribute describing the geometry of an element"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AttributeList> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#prefLabel> "Geometry"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry> <http://www.w3.org/2004/02/skos/core#prefLabel> "Géométrie"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#AttributeType> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#altLabel> "Attribut de code INSEE"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#altLabel> "INSEE code"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#definition> "Attribut décrivant le code INSEE d'un élément"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#definition> "Attribute describing the INSEE code of an element"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AttributeList> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#prefLabel> "Code INSEE"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode> <http://www.w3.org/2004/02/skos/core#prefLabel> "INSEE code"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/AttributeType/Name
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#AttributeType> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#altLabel> "Attribut de nom"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#altLabel> "Name attribute"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#definition> "Attribut décrivant le nom d'un élément"@fr .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#definition> "Attribute describing the name of an element"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AttributeList> .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#prefLabel> "Name"@en .
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name> <http://www.w3.org/2004/02/skos/core#prefLabel> "Nom"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the appearance of a version of an attribute"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant l'apparition d'une version d'un attribut"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Apparition d'une version d'un attribut"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Appearance of an attribute version"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the disappearance of a version of an attribute"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant la disparition d'une version d'un attribut"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Disappearance of an attribute version"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Disparition d'une version d'un attribut"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the transition between versions (appearance and disappearance) of an attribute"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/2004/02/skos/core#prefLabel> "Transition between attribute versions"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition> <http://www.w3.org/2004/02/skos/core#prefLabel> "Transition de versions d'un attribut"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the appearance of the landmark"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant l'apparition du repère"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Apparition du repère"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Appearance of a landmark"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the disappearance of the landmark"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant la disparition du repère"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Disappearance of a landmark"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Disparition du repère"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the appearance of a landmark relation."@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant l'apparition d'une relation entre repères."@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Apparition de la relation entre repères"@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Appearance of a landmark relation"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#ChangeType> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Change describing the disappearance of a landmark relation."@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/2004/02/skos/core#definition> "Changement décrivant la dissolution d'une relation entre repères."@fr .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#ChangeList> .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Disappearance of a landmark relation"@en .
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dissolution de la relation entre repères"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum runs alongside the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum longe le relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/2004/02/skos/core#prefLabel> "Along"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along> <http://www.w3.org/2004/02/skos/core#prefLabel> "Le long de"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum belongs to the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre des repères définissant que le locatum appartient au relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkRelationList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/2004/02/skos/core#prefLabel> "Appartient à"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs> <http://www.w3.org/2004/02/skos/core#prefLabel> "Belongs to"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum is between the relatums"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum est entre deux relatums"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/2004/02/skos/core#prefLabel> "Between"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between> <http://www.w3.org/2004/02/skos/core#prefLabel> "Entre"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum is at the corner the relatums"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum est au coin du relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/2004/02/skos/core#prefLabel> "Coin"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner> <http://www.w3.org/2004/02/skos/core#prefLabel> "Corner"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#altLabel> "Commence à"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum ends at the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum (un repère linéaire) termine au niveau du relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkRelationList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ends at"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt> <http://www.w3.org/2004/02/skos/core#prefLabel> "Termine à"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum is part of the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum fait partie du relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/2004/02/skos/core#prefLabel> "Fait partie de"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf> <http://www.w3.org/2004/02/skos/core#prefLabel> "Is part of"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum is the same thing as the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum est la même chose que le relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/2004/02/skos/core#prefLabel> "Est similaire à"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar> <http://www.w3.org/2004/02/skos/core#prefLabel> "Is similar as"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#altLabel> "Commence à"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum begins at the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum (un repère linéaire) commence au niveau du relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkRelationList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#prefLabel> "Commence à"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt> <http://www.w3.org/2004/02/skos/core#prefLabel> "Starts at"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#altLabel> "En contact"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#altLabel> "Limitrophe"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum touches the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum est en contact avec le relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum touche le relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#prefLabel> "Touche"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches> <http://www.w3.org/2004/02/skos/core#prefLabel> "Touches"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkRelationType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#altLabel> "À l'intérieur"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#definition> "Relation between landmarks defining that the locatum is within the relatum"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères définissant que le locatum est situé dans le relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#definition> "Relation entre repères entre des repères définissant que le locatum est dans un relatum"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#AdressSegmentList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkRelationList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#prefLabel> "Dans"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within> <http://www.w3.org/2004/02/skos/core#prefLabel> "Within"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/2004/02/skos/core#definition> "Area resulting from an administrative division (district, municipality, country...)"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/2004/02/skos/core#definition> "Zone résultant d'un découpage administratif (quatier, commune, pays...)"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "Administrative unit"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit> <http://www.w3.org/2004/02/skos/core#prefLabel> "Unité administrative"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/Country
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#altLabel> "State"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#altLabel> "État"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#definition> "Administrative entity describing a state or country"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#definition> "Entité administrative décrivant un État, un pays"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#prefLabel> "Country"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country> <http://www.w3.org/2004/02/skos/core#prefLabel> "Pays"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/District
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#altLabel> "Hameau"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#altLabel> "Neighborhood"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#altLabel> "Quarter"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#definition> "Administrative entity describing a district"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#definition> "Entité administrative décrivant un quartier"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#prefLabel> "District"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District> <http://www.w3.org/2004/02/skos/core#prefLabel> "Quartier"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/2004/02/skos/core#definition> "Numéro d'un bâtiment, d'un immeuble lié à un quartier"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "District number"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "Numéro de quartier"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/2004/02/skos/core#definition> "Number associated with a landmark used to identify a building, a company or a person within the landmark."@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/2004/02/skos/core#definition> "Numéro associé à un repère permettant d'identifier un bâtiment, une entreprise, une personne au sein du repère."@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "House number"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "Numéro de l'habitation"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#altLabel> "City"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#altLabel> "Town"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#altLabel> "Ville"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#definition> "Administrative entity describing a city, town or commune"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#definition> "Entité administrative décrivant une ville, une commune"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#prefLabel> "Commune"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality> <http://www.w3.org/2004/02/skos/core#prefLabel> "Municipality"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/2004/02/skos/core#definition> "Postal area defined by a code"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/2004/02/skos/core#definition> "Zone postale définie par un code"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/2004/02/skos/core#prefLabel> "Postal area"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea> <http://www.w3.org/2004/02/skos/core#prefLabel> "Zone postale"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#broader> <https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#definition> "Number of a building linked to a street"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#definition> "Numéro d'un bâtiment, d'un immeuble lié à une rue"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "Numéro de rue"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber> <http://www.w3.org/2004/02/skos/core#prefLabel> "Street number"@en .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/2004/02/skos/core#definition> "Defined location (building, shop, house, etc.)"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/2004/02/skos/core#definition> "Lieu défini (bâtiment, magasin, maison...)"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/2004/02/skos/core#prefLabel> "Structure"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure> <http://www.w3.org/2004/02/skos/core#prefLabel> "Structure"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/2004/02/skos/core#definition> "Any element relating to a thoroughfare (street, square, avenue, etc.)"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/2004/02/skos/core#definition> "Tout élément relatif à une voie de communication (rue, place, avenue...)"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/2004/02/skos/core#prefLabel> "Thoroughfare"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare> <http://www.w3.org/2004/02/skos/core#prefLabel> "Voie"@fr .
+# 
+# https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/PeGazUs#LandmarkType> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/2004/02/skos/core#definition> "Lieu non défini, inconnu"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/2004/02/skos/core#definition> "Undefined or unknown place"@en .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/2004/02/skos/core#inScheme> <https://w3id.org/PeGazUs#LandmarkList> .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/2004/02/skos/core#prefLabel> "Non défini"@fr .
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined> <http://www.w3.org/2004/02/skos/core#prefLabel> "Undefined"@en .
+# 
+# Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
