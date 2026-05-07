@@ -7,5 +7,5 @@ national (CC BY NC SA 4.0) license, available to freely use and reuse for all no
 
 ## Code
 
-
+The code for populating the knowledge graph from heterogeneous and fragmentary data, as well as the snapshots visualisation app is published under the terms of the GNU General Public License version 3, a free, copyleft license for software. More details can be found here:[https://www.gnu.org/licenses/gpl-3.0.en.html](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
