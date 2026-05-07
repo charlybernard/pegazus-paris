@@ -59,15 +59,6 @@ This folder contains code to build knowledge graphs.
 
 ### `statistics` folder
 
-## Contacts
-
-You will find the contact details of the authors and contributors on their respective web pages:
-[Charly Bernard](https://www.umr-lastig.fr/charly-bernard/)
-[Nathalie Abadie](https://www.umr-lastig.fr/nathalie-abadie/)
-[Bertrand Duménieu](https://crh.ehess.fr/index.php?5206)
-[Julein Perret](https://www.umr-lastig.fr/julien-perret/)
-
-
 This folder contains Jupyter notebook to get statistics about the graph built after population
 * `stats_about_graph.ipynb` – create statistics files about the graph.
 
@@ -77,3 +68,12 @@ This folder contains Jupyter notebook to get statistics about the graph built af
 This folder contains code for the web application to see the evolution of the landmarks.
 
 ⚠️ To get more information about their content, please read their [readme](web_app/README.md).
+
+## Contacts
+
+You will find the contact details of the authors and contributors on their respective web pages:
+
+* [Charly Bernard](https://www.umr-lastig.fr/charly-bernard/)
+* [Nathalie Abadie](https://www.umr-lastig.fr/nathalie-abadie/)
+* [Bertrand Duménieu](https://crh.ehess.fr/index.php?5206)
+* [Julien Perret](https://www.umr-lastig.fr/julien-perret/)
