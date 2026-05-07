@@ -55,9 +55,10 @@ def check_property_range(graphdb_url:URIRef, repository_name:str, named_graph_ur
     elements = gd.parse_sparql_results(results, [object_var])
     return elements
 
-def check_properties_domains(graphdb_url: URIRef, repository_name: str, named_graph_uri: URIRef,
-                             domain_mapping: list[tuple[URIRef, URIRef]],
-                             property_var: str = "property", subject_var: str = "subject", expected_domain_var: str = "expected_domain"):
+def check_properties_domains(
+        graphdb_url: URIRef, repository_name: str, named_graph_uri: URIRef,
+        domain_mapping: list[tuple[URIRef, URIRef]],
+        property_var: str = "property", subject_var: str = "subject", expected_domain_var: str = "expected_domain"):
     """
     Vérifie les domaines de plusieurs propriétés en une seule fois.
     domain_mapping: [(prop1, domain1), (prop2, domain2), ...]
@@ -83,9 +84,10 @@ def check_properties_domains(graphdb_url: URIRef, repository_name: str, named_gr
     elements = gd.parse_sparql_results(results, [property_var, subject_var, expected_domain_var])
     return elements
 
-def check_properties_ranges(graphdb_url: URIRef, repository_name: str, named_graph_uri: URIRef,
-                            range_mapping: list[tuple[URIRef, URIRef]], 
-                            property_var: str = "property", object_var: str = "object", expected_range_var: str = "expected_range"):
+def check_properties_ranges(
+        graphdb_url: URIRef, repository_name: str, named_graph_uri: URIRef,
+        range_mapping: list[tuple[URIRef, URIRef]], 
+        property_var: str = "property", object_var: str = "object", expected_range_var: str = "expected_range"):
     """
     Vérifie les ranges (Classes ou Datatypes) de plusieurs propriétés.
     range_mapping: [(prop1, class1), (prop2, xsd_type), ...]
@@ -116,7 +118,9 @@ def check_properties_ranges(graphdb_url: URIRef, repository_name: str, named_gra
     elements = gd.parse_sparql_results(results, [property_var, object_var, expected_range_var])
     return elements
 
-def check_property_cardinality(graphdb_url:URIRef, repository_name:str, named_graph_uri:URIRef, property:URIRef, subject_class:URIRef, min_cardinality:int=None, max_cardinality:int=None):
+def check_property_cardinality(
+        graphdb_url:URIRef, repository_name:str, named_graph_uri:URIRef,
+        property:URIRef, subject_class:URIRef, min_cardinality:int=None, max_cardinality:int=None):
     """
     Check if the cardinality of a property is respected in the graph.
     graphdb_url: URL of the graph database

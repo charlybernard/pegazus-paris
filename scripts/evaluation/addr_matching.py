@@ -3,7 +3,11 @@ import csv
 import itertools
 import pandas as pd
 
-def get_postgis_table_geom_settings(conn, schema_name, table_name):
+def get_postgis_table_geom_settings(
+        conn: object, schema_name: str, table_name: str
+    ) -> tuple[str, str]:
+    """Get the id column name, geometry column name and srid of a PostGIS table."""
+
     cur = conn.cursor()
 
     # Requête pour extraire la colonne de l'id
@@ -40,7 +44,15 @@ def get_postgis_table_geom_settings(conn, schema_name, table_name):
 
     return id_col, geom_col
 
-def create_normalised_label_for_streetnumbers(conn, schema_name, table_name, norm_label_col, th_attr_col, sn_attr_col, add_sn_attr_col):
+def create_normalised_label_for_streetnumbers(
+        conn: object, schema_name: str, table_name: str,
+        norm_label_col: str, th_attr_col: str, sn_attr_col: str, add_sn_attr_col: str=None
+    ):
+    """
+    Create a normalised label for street numbers by concatenating the thoroughfare and street number attributes, and optionally an additional street number attribute.
+    The normalised label is stored in a new column in the table.
+    """
+    
     cur = conn.cursor()
 
     # Add the normalised label column if it doesn't exist
@@ -62,8 +74,14 @@ def create_normalised_label_for_streetnumbers(conn, schema_name, table_name, nor
     conn.commit()
     cur.close()
 
-def create_simplified_label_for_streetnumbers(conn, schema_name, table,
-                                              id_col, simp_label_col, th_attr_col, sn_attr_col, add_sn_attr_col=None, exceptions=None):
+def create_simplified_label_for_streetnumbers(
+        conn: object, schema_name: str, table: str,
+        id_col: str, simp_label_col: str, th_attr_col: str, sn_attr_col: str, add_sn_attr_col: str=None, exceptions: dict=None):
+    """
+    Create a simplified label for street numbers by concatenating the thoroughfare and street number attributes, and optionally an additional street number attribute, and applying simplification rules.
+    The simplified label is stored in a new column in the table.
+    """
+    
     cur = conn.cursor()
 
     cur.execute(f"ALTER TABLE {schema_name}.{table} ADD COLUMN IF NOT EXISTS {simp_label_col} TEXT;")
@@ -98,7 +116,14 @@ def create_simplified_label_for_streetnumbers(conn, schema_name, table,
     cur.close()
     conn.commit()
 
-def create_update_query_to_add_simplified_name(schema_name, table, id_val, th_val, sn_val, add_sn_val, id_col, simp_label_col, exceptions):
+def create_update_query_to_add_simplified_name(
+        schema_name: str, table: str,
+        id_val: str, th_val: str, sn_val: str, add_sn_val: str, id_col: str, simp_label_col: str, exceptions: dict):
+    """
+    Create an update query to add a simplified name for a street number based on the thoroughfare and street number attributes,
+    and optionally an additional street number attribute, and applying simplification rules.
+    """
+
     th_label = str(th_val) if th_val is not None else th_val
     sn_label = str(sn_val) if sn_val is not None else sn_val
     add_sn_label = str(add_sn_val) if add_sn_val is not None else add_sn_val
@@ -114,7 +139,12 @@ def create_update_query_to_add_simplified_name(schema_name, table, id_val, th_va
         update_query = f"UPDATE {schema_name}.{table} SET \"{simp_label_col}\"=NULL WHERE \"{id_col}\"='{id_val}'"        
     return update_query
 
-def get_exceptions(exceptions):
+def get_exceptions(exceptions:list[tuple[str, str]]):
+    """
+    Get the exceptions for the simplification of thoroughfare names as a dictionary where the keys are the simplified labels to replace and the values are the simplified labels to use instead.
+    The labels are simplified before being added to the dictionary to ensure that the matching is done on simplified labels.
+    """
+
     exceptions_dict = {}
     for name_to_replace, replacing_name in exceptions:
         name_to_replace_label = sp.simplify_french_name_version(name_to_replace, "thoroughfare")
@@ -158,10 +188,12 @@ def get_address_label_from_street_and_number(number:str, street_label:str, excep
     
     return simp_label
 
-def create_links_table(conn, schema_name, links_table_name,
-                       id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                       geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col, epsg_code, overwrite=False):
-    
+def create_links_table(
+        conn, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col, epsg_code, overwrite=False):
+    """Create the links table to store the links between addresses from different tables."""
+
     query = ""
     if overwrite:
         query += f"""DROP TABLE IF EXISTS {schema_name}.{links_table_name} CASCADE ;"""
@@ -189,10 +221,12 @@ def create_links_table(conn, schema_name, links_table_name,
     cur.execute(query)
     conn.commit()
 
-def create_links_table_from_multiple_tables(conn, tables_settings, schema_name, links_table_name,
-                                            id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                                            geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col, 
-                                            simp_label_col, norm_label_col, default_epsg_code, max_distance):
+def create_links_table_from_multiple_tables(
+        conn, tables_settings, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col, 
+        simp_label_col, norm_label_col, default_epsg_code, max_distance):
+    
     # # Create links between tables
     table_pairs = list(itertools.combinations(tables_settings, 2))
     for pair in table_pairs:
@@ -209,10 +243,12 @@ def create_links_table_from_multiple_tables(conn, tables_settings, schema_name, 
         print(f"Links between {table_name_from} and {table_name_to} created")
 
 
-def create_links_between_similar_addresses(table_settings_from, table_settings_to, conn, schema_name, links_table_name,
-                                          id_col_from, id_col_to, table_name_from_col, table_name_to_col,
-                                          geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col,
-                                          epsg_code, simp_label_col, max_distance=5):
+def create_links_between_similar_addresses(
+        table_settings_from, table_settings_to, conn, schema_name, links_table_name,
+        id_col_from, id_col_to, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, to_keep_col, similar_geom_col, method_col, creation_date_col,
+        epsg_code, simp_label_col, max_distance=5):
+    
     table_name_from = table_settings_from.get("name")
     table_name_to = table_settings_to.get("name")
 
@@ -251,21 +287,26 @@ def create_links_between_similar_addresses(table_settings_from, table_settings_t
     conn.commit()
 
 
-def create_views_for_table_pair(conn, schema_name, links_table_name, from_table_name, to_table_name,
-                                id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                                geom_col, validated_col, norm_label_col):
+def create_views_for_table_pair(
+        conn, schema_name, links_table_name, from_table_name, to_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, norm_label_col):
     
-    create_view_for_links_table(conn, schema_name, links_table_name, from_table_name, to_table_name,
-                                id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                                geom_col, validated_col)
-    create_view_for_unlinked_addresses(conn, schema_name, links_table_name, from_table_name, from_table_name, to_table_name, "from",
-                                       id_table_from_col, geom_col, norm_label_col)
-    create_view_for_unlinked_addresses(conn, schema_name, links_table_name, to_table_name, from_table_name, to_table_name, "to",
-                                       id_table_to_col, geom_col, norm_label_col)
+    create_view_for_links_table(
+        conn, schema_name, links_table_name, from_table_name, to_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col)
+    create_view_for_unlinked_addresses(
+        conn, schema_name, links_table_name, from_table_name, from_table_name, to_table_name, "from",
+        id_table_from_col, geom_col, norm_label_col)
+    create_view_for_unlinked_addresses(
+        conn, schema_name, links_table_name, to_table_name, from_table_name, to_table_name, "to",
+        id_table_to_col, geom_col, norm_label_col)
 
-def create_view_for_links_table(conn, schema_name, links_table_name, from_table_name, to_table_name,
-                                id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                                geom_col, validated_col):
+def create_view_for_links_table(
+        conn, schema_name, links_table_name, from_table_name, to_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col):
     """
     Create a view for the links table with the specified parameters.
     """
@@ -289,8 +330,9 @@ def create_view_for_links_table(conn, schema_name, links_table_name, from_table_
     cur.execute(query)
     conn.commit()
 
-def create_view_for_unlinked_addresses(conn, schema_name, links_table_name, table_name, from_table_name, to_table_name, infix,
-                                       id_table_col, geom_col, norm_label_col):
+def create_view_for_unlinked_addresses(
+        conn, schema_name, links_table_name, table_name, from_table_name, to_table_name, infix,
+        id_table_col, geom_col, norm_label_col):
     """
     Create a view for unlinked addresses with the specified parameters.
     """
@@ -318,9 +360,10 @@ def create_view_for_unlinked_addresses(conn, schema_name, links_table_name, tabl
 
 ################################## Insertion of manual links from CSV ######################################
 
-def insert_manual_links_from_csv(conn, schema_name, links_table_name, csv_file_path,
-                                 id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                                 geom_col, validated_col, method_col, creation_date_col, epsg_code):
+def insert_manual_links_from_csv(
+        conn, schema_name, links_table_name, csv_file_path,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, epsg_code):
     """
     Insert manual links from a CSV file into the database.
     """
@@ -332,8 +375,9 @@ def insert_manual_links_from_csv(conn, schema_name, links_table_name, csv_file_p
                             id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col, geom_col, epsg_code)
     
     
-def insert_manual_links(conn, schema_name, links_table_name, values:list[dict],
-                        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col, method_col):
+def insert_manual_links(
+        conn, schema_name, links_table_name, values:list[dict],
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col, method_col):
     """
     Insert manual links into the links table (geometries are not added for the moment)
     """
@@ -360,8 +404,9 @@ def insert_manual_links(conn, schema_name, links_table_name, values:list[dict],
     conn.commit()
     cur.close()
 
-def add_geometries_to_links(conn, schema_name, links_table_name,
-                            id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col, geom_col, epsg_code):
+def add_geometries_to_links(
+        conn, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col, geom_col, epsg_code):
     """
     Add geometries to the links table based on the table pairs.
     """
@@ -471,9 +516,11 @@ def generate_setting_pairs(settings_list):
             pairs.append((settings_list[i], settings_list[i + k]))
     return pairs
 
-def extract_manual_links(conn, schema_name, links_table_name,
-                      id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                      geom_col, validated_col, to_keep_col, method_col, creation_date_col, output_csv_path):
+def extract_manual_links(
+        conn, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, validated_col, to_keep_col, method_col, creation_date_col, output_csv_path):
+    
     query = f"""
         SELECT \"{id_table_from_col}\", \"{table_name_from_col}\", \"{id_table_to_col}\", \"{table_name_to_col}\", \"{validated_col}\", \"{method_col}\", \"{creation_date_col}\", \"{to_keep_col}\", ST_AsText({geom_col}) AS wkt_geom
         FROM {schema_name}.{links_table_name}
@@ -498,9 +545,11 @@ def extract_manual_links(conn, schema_name, links_table_name,
 
     print(f"Exported to {output_csv_path}")
 
-def extract_to_keep_links(conn, tables_settings, schema_name, links_table_name,
-                      id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                      geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
+def extract_to_keep_links(
+        conn, tables_settings, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
+    
     cur = conn.cursor()
 
     # Mets les données dans un DataFrame
@@ -556,9 +605,11 @@ def extract_to_keep_links(conn, tables_settings, schema_name, links_table_name,
 
     print(f"Exported to {output_csv_path}")
 
-def extract_ground_truth_links(conn, tables_settings, schema_name, links_table_name,
-                      id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                      geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
+def extract_ground_truth_links(
+        conn, tables_settings, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
+    
     cur = conn.cursor()
 
     # Mets les données dans un DataFrame
@@ -607,9 +658,10 @@ def extract_ground_truth_links(conn, tables_settings, schema_name, links_table_n
     print(f"Exported to {output_csv_path}")
 
 
-def extract_streetnumbers_without_link(conn, tables_settings, schema_name, links_table_name,
-                      id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
-                      geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
+def extract_streetnumbers_without_link(
+        conn, tables_settings, schema_name, links_table_name,
+        id_table_from_col, id_table_to_col, table_name_from_col, table_name_to_col,
+        geom_col, to_keep_col, similar_geom_col, simp_label_col, output_csv_path):
     cur = conn.cursor()
 
     # Mets les données dans un DataFrame

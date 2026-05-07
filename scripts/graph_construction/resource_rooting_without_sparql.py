@@ -296,7 +296,7 @@ def reconcile_landmarks_according_to_label(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            uri_fact = URIRef(np.FACTS[f"Landmark/{uuid.uuid4().hex}"])
+            uri_fact = URIRef(np.RES[f"Landmark/{uuid.uuid4().hex}"])
             
             # 1. Graphe de faits : Typage
             ri.create_landmark(g_f, uri_fact, None, type_x)
@@ -352,8 +352,8 @@ def reconcile_landmarks_with_label_and_relation(
             
         else:
             # Nouveau numéro dans cette rue
-            lm_uri_fact = gr.generate_uri(np.FACTS, "Landmark", separator="/")
-            lr_uri_fact = gr.generate_uri(np.FACTS, "LandmarkRelation", separator="/")
+            lm_uri_fact = gr.generate_uri(np.RES, "Landmark", separator="/")
+            lr_uri_fact = gr.generate_uri(np.RES, "LandmarkRelation", separator="/")
 
             # 1. Graphe de faits
             ri.create_landmark(g_f, lm_uri_fact, None, lm_type)
@@ -439,7 +439,7 @@ def reconcile_landmark_relations(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            lr_uri_fact = gr.generate_uri(np.FACTS, "LandmarkRelation", separator="/")
+            lr_uri_fact = gr.generate_uri(np.RES, "LandmarkRelation", separator="/")
             
             # 1. Graphe de faits : Typage et liens avec les racines
             ri.create_landmark_relation(g_f, lr_uri_fact, lr_type, loc_root, rel_roots)
@@ -483,7 +483,7 @@ def reconcile_landmark_attributes(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            attr_uri_fact = gr.generate_uri(np.FACTS, "Attribute", separator="/")
+            attr_uri_fact = gr.generate_uri(np.RES, "Attribute", separator="/")
             
             # 1. Graphe de faits : Typage et lien avec la racine
             ri.create_landmark_attribute(g_f, attr_uri_fact, attr_type, root_entity)
@@ -528,7 +528,7 @@ def reconcile_crisp_time_instants(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            time_uri_fact = gr.generate_uri(np.FACTS, "CrispTimeInstant", separator="/")
+            time_uri_fact = gr.generate_uri(np.RES, "CrispTimeInstant", separator="/")
             
             # 1. Graphe de faits : Typage et propriétés temporelles
             ri.create_crisp_time_instant(g_f, time_uri_fact, time_stamp, time_calendar, time_precision)
@@ -572,7 +572,7 @@ def reconcile_fuzzy_time_instants(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            time_uri_fact = gr.generate_uri(np.FACTS, "FuzzyTimeInstant", separator="/")
+            time_uri_fact = gr.generate_uri(np.RES, "FuzzyTimeInstant", separator="/")
             
             # 1. Graphe de faits : Typage et propriétés temporelles
             ri.create_fuzzy_time_instant(g_f, time_uri_fact, time_start, time_end)
@@ -616,7 +616,7 @@ def reconcile_time_intervals(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            time_uri_fact = gr.generate_uri(np.FACTS, "TimeInterval", separator="/")
+            time_uri_fact = gr.generate_uri(np.RES, "TimeInterval", separator="/")
             
             # 1. Graphe de faits : Typage et propriétés temporelles
             ri.create_crisp_time_interval(g_f, time_uri_fact, time_start, time_end)
@@ -661,7 +661,7 @@ def reconcile_changes(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            change_uri_fact = gr.generate_uri(np.FACTS, "Change", separator="/")
+            change_uri_fact = gr.generate_uri(np.RES, "Change", separator="/")
             
             # 1. Graphe de faits : Typage et propriétés de changement
             ri.create_change_with_applied_to(g_f, change_uri_fact, change_type, applied_to)
@@ -703,7 +703,7 @@ def reconcile_events(
             
         else:
             # Création de la nouvelle entité consolidée (Fait)
-            event_uri_fact = gr.generate_uri(np.FACTS, "Event", separator="/")
+            event_uri_fact = gr.generate_uri(np.RES, "Event", separator="/")
             
             # 1. Graphe de faits : Typage et propriétés de l'événement
             ri.create_event(g_f, event_uri_fact)

@@ -4,8 +4,6 @@ geo: <http://www.opengis.net/ont/geosparql\#>
 
 geof: <http://www.opengis.net/def/function/geosparql/>
 
-geom: <http://data.ign.fr/def/geometrie\#>
-
 owl: <http://www.w3.org/2002/07/owl\#>
 
 prov: <http://www.w3.org/ns/prov#>

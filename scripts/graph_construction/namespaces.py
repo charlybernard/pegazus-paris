@@ -9,13 +9,12 @@ class NameSpaces():
     def __get_namespace_variables(self):
         self.PEG = Namespace("https://w3id.org/PeGazUs#")
 
-        self.ATYPE = Namespace("https://w3id.org/PeGazUs/id/codes/attributeType/")
-        self.LTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/landmarkType/")
-        self.LRTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/landmarkRelationType/")
-        self.CTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/changeType/")
+        self.ATYPE = Namespace("https://w3id.org/PeGazUs/id/codes/AttributeType/")
+        self.LTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/LandmarkType/")
+        self.LRTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/")
+        self.CTYPE = Namespace("https://w3id.org/PeGazUs/id/codes/ChangeType/")
 
-        self.FACTS = Namespace("https://w3id.org/PeGazUs/id/")
-        self.FACTOIDS = Namespace("https://w3id.org/PeGazUs/id/")
+        self.RES = Namespace("https://w3id.org/PeGazUs/id/")
 
         self.TIME = Namespace("http://www.w3.org/2006/time#")
         self.PROV = Namespace("http://www.w3.org/ns/prov#")

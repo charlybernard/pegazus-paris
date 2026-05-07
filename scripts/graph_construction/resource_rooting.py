@@ -97,7 +97,7 @@ def make_rooting_for_landmarks_according_label(graphdb_url:URIRef, repository_na
             }}
         }}
         OPTIONAL {{ GRAPH ?gf {{?existingRootLandmark a peg:Landmark ; peg:isLandmarkType ?landmarkType ; ?propLabel ?keyLabel . }} }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "Landmark/", STRUUID())) AS ?toCreateRootLandmark)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Landmark/", STRUUID())) AS ?toCreateRootLandmark)
         BIND(IF(BOUND(?existingRootLandmark), ?existingRootLandmark, ?toCreateRootLandmark) AS ?rootLandmark)
     }}
     """
@@ -193,8 +193,8 @@ WHERE {{
                 peg:locatum ?existingRootLandmark ; peg:relatum ?rootRelatum .
         }}
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "Landmark/", STRUUID())) AS ?toCreateRootLandmark)
-    BIND(URI(CONCAT(STR(URI(facts:)), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Landmark/", STRUUID())) AS ?toCreateRootLandmark)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
     BIND(IF(BOUND(?existingRootLandmark), ?existingRootLandmark, ?toCreateRootLandmark) AS ?rootLandmark)
     BIND(IF(BOUND(?existingRootLR), ?existingRootLR, ?toCreateRootLR) AS ?rootLR)
     BIND(CONCAT("type=", STR(?landmarkRelationType), "&locatum_label=", STR(?keyLabel), "&locatum_type=", STR(?landmarkType), "&relatum=", STR(?rootRelatum)) AS ?lrKeyLabel)
@@ -301,7 +301,7 @@ def make_rooting_for_changes(graphdb_url:URIRef, repository_name:str, facts_name
                 }}
             }} 
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "Change/", STRUUID())) AS ?toCreateRootCg)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Change/", STRUUID())) AS ?toCreateRootCg)
         OPTIONAL {{
             GRAPH ?gf {{
                 ?existingRootCg a peg:Change .
@@ -372,7 +372,7 @@ def make_rooting_for_events(graphdb_url:URIRef, repository_name:str, facts_named
                 GRAPH ?gf {{ ?rootChange a ?x1 . }}
             }}
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "Event/", STRUUID())) AS ?toCreateRootEvent)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Event/", STRUUID())) AS ?toCreateRootEvent)
         OPTIONAL {{
             GRAPH ?gf {{
                 ?existingRootEvent a peg:Event .
@@ -480,7 +480,7 @@ def make_rooting_for_landmark_relations(graphdb_url, repository_name, label_prop
     #                 ?lr a peg:LandmarkRelation ; peg:isLandmarkRelationType ?landmarkRelationType ; skos:hiddenLabel ?keyLabel .
     #             }}
     #         }}
-    #         BIND(URI(CONCAT(STR(URI(facts:)), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
+    #         BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
     #         OPTIONAL {{
     #             GRAPH ?gf {{ ?existingRootLR a peg:LandmarkRelation }}
     #             ?existingRootLR skos:hiddenLabel ?keyLabel .
@@ -517,7 +517,7 @@ def make_rooting_for_landmark_relations(graphdb_url, repository_name, label_prop
             GRAPH ?gf {{ ?existingRootLR a peg:LandmarkRelation . }}
             ?existingRootLR peg:isLandmarkRelationType ?landmarkRelationType ; ?propLabel ?keyLabel .
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "LandmarkRelation/", STRUUID())) AS ?toCreateRootLR)
         BIND(IF(BOUND(?existingRootLR), ?existingRootLR, ?toCreateRootLR) AS ?rootLR)
     }}
     """
@@ -632,7 +632,7 @@ WHERE {{
         ?rootLandmark peg:hasAttribute ?existingRootAttr .
         ?existingRootAttr peg:isAttributeType ?attrType .
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "Attribute/", STRUUID())) AS ?toCreateRootAttr)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Attribute/", STRUUID())) AS ?toCreateRootAttr)
     BIND(IF(BOUND(?existingRootAttr), ?existingRootAttr, ?toCreateRootAttr) AS ?rootAttr)
 }}
 """
@@ -684,7 +684,7 @@ WHERE {{
 #                         FILTER (?gs != ?gf)
 #                     }}
 #                 }}
-#                 BIND(URI(CONCAT(STR(URI(facts:)), "TI_", STRUUID())) AS ?toCreateRootTime)
+#                 BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "TI_", STRUUID())) AS ?toCreateRootTime)
 #                 BIND(IF(BOUND(?existingRootTime), ?existingRootTime, ?toCreateRootTime) AS ?rootTime)
 #             }}
 #         }}
@@ -721,7 +721,7 @@ WHERE {{
         GRAPH ?gf {{ ?existingRootTime a peg:CrispTimeInstant . }}
         ?existingRootTime a peg:CrispTimeInstant ; peg:timeStamp ?timeStamp ; peg:timePrecision ?timePrec ; peg:timeCalendar ?timeCal .
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "CrispTimeInstant/", STRUUID())) AS ?toCreateRootTime)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "CrispTimeInstant/", STRUUID())) AS ?toCreateRootTime)
     BIND(IF(BOUND(?existingRootTime), ?existingRootTime, ?toCreateRootTime) AS ?rootTime)
 }}
 """
@@ -771,7 +771,7 @@ WHERE {{
 #                         FILTER (?gs != ?gf)
 #                     }}
 #                 }}
-#                 BIND(URI(CONCAT(STR(URI(facts:)), "TI_", STRUUID())) AS ?toCreateRootTimeInt)
+#                 BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "TI_", STRUUID())) AS ?toCreateRootTimeInt)
 #                 BIND(IF(BOUND(?existingRootTimeInt), ?existingRootTimeInt, ?toCreateRootTimeInt) AS ?rootTimeInt)
 #             }}
 #         }}
@@ -813,7 +813,7 @@ WHERE {{
         GRAPH ?gf {{ ?existingRootTime a peg:CrispTimeInterval . }}
         ?existingRootTime a peg:CrispTimeInterval ; peg:hasBeginning ?rootStartTime ; peg:hasEnd ?rootEndTime .
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "CrispTimeInterval/", STRUUID())) AS ?toCreateRootTime)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "CrispTimeInterval/", STRUUID())) AS ?toCreateRootTime)
     BIND(IF(BOUND(?existingRootTime), ?existingRootTime, ?toCreateRootTime) AS ?rootTime)
 }}
 """

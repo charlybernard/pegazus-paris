@@ -18,12 +18,11 @@
 @prefix sd:   <http://www.w3.org/ns/sparql-service-description#> .
 
 # Core namespaces
-@prefix atype: <https://w3id.org/PeGazUs/id/codes/attributeType/> .
-@prefix ctype: <https://w3id.org/PeGazUs/id/codes/changeType/> .
-@prefix ltype: <https://w3id.org/PeGazUs/id/codes/landmarkType/> .
-@prefix lrtype: <https://w3id.org/PeGazUs/id/codes/landmarkRelationType/> .
+@prefix atype: <https://w3id.org/PeGazUs/id/codes/AttributeType/> .
+@prefix ctype: <https://w3id.org/PeGazUs/id/codes/ChangeType/> .
+@prefix ltype: <https://w3id.org/PeGazUs/id/codes/LandmarkType/> .
+@prefix lrtype: <https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/> .
 
-<https://w3id.org/PeGazUs> rdf:type owl:Ontology .
 
 #################################################################
 #    Ontology metadata
@@ -54,8 +53,11 @@
 	      foaf:name "Charly Bernard" ;
           foaf:workInfoHomepage <https://www.umr-lastig.fr/charly-bernard/> ;
 	    ] ;
-        dcterms:description "Ontologie PeGazUs pour décrire l'évolution des entités géographiques"@fr,
-		                    "PeGazUs ontology to describe evolution of geographical entities"@en;
+        dcterms:contributor <https://www.umr-lastig.fr/nathalie-abadie/> ;
+        dcterms:contributor <https://www.umr-lastig.fr/julien-perret/> ;
+        dcterms:contributor <https://crh.ehess.fr/index.php?5206> ;
+        dcterms:description "Ontologie PeGazUs pour représenter l'évolution des entités géographiques"@fr,
+		                    "PeGazUs ontology to represent the evolution of geographical entities"@en;
         dcterms:issued "2023-10-30"^^xsd:date ;
         dcterms:modified "2024-09-13"^^xsd:date ;
         dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
@@ -63,10 +65,7 @@
         vann:preferredNamespacePrefix "peg" ;
 		vann:preferredNamespaceUri <https://w3id.org/PeGazUs#> ;
 		dcterms:rights "Copyright 2025, IGN" ;
-		cc:license <http://www.data.gouv.fr/Licence-Ouverte-Open-Licence> ;
-		cc:license <http://creativecommons.org/licenses/by/2.0/> ;
-		cc:license <http://opendatacommons.org/licenses/by/> ;
-    #owl:priorVersion <> ;
+		cc:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
 		owl:versionInfo "Version 0.1 - 2025-03-04" .
 
 #################################################################
@@ -430,11 +429,11 @@ time:intervalStarts
 ###  https://w3id.org/PeGazUs#firstStep
 :firstStep rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :hasStep ;
-           rdfs:domain :pegess ;
-           rdfs:range :pegessSegment ;
-           rdfs:comment "Première étape de l'adresse."@fr, "First step of an pegess"@en ;
+           rdfs:domain :Address ;
+           rdfs:range :AddressSegment ;
+           rdfs:comment "Première étape de l'adresse."@fr, "First step of an Address"@en ;
            rdfs:label "a pour première étape"@fr , "has first step"@en ;
-           skos:altLabel "a pour premier segment d'adresse"@fr, "has as its first pegess segment"@en .
+           skos:altLabel "a pour premier segment d'adresse"@fr, "has as its first Address segment"@en .
 
 
 ###  https://w3id.org/PeGazUs#hasAttribute
@@ -508,8 +507,8 @@ time:intervalStarts
 :hasStep rdf:type owl:ObjectProperty ;
          owl:inverseOf :isStepOf ;
          rdf:type owl:TransitiveProperty ;
-         rdfs:domain :pegess ;
-         rdfs:range :pegessSegment ;
+         rdfs:domain :Address ;
+         rdfs:range :AddressSegment ;
          owl:propertyChainAxiom ( :firstStep
                                   :nextStep
                                 ) ,
@@ -602,8 +601,8 @@ time:intervalStarts
 
 ###  https://w3id.org/PeGazUs#isStepOf
 :isStepOf rdf:type owl:ObjectProperty ;
-          rdfs:domain :pegessSegment ;
-          rdfs:range :pegess ;
+          rdfs:domain :AddressSegment ;
+          rdfs:range :Address ;
           rdfs:label "est une étape de"@fr ,
                      "is a step of"@en .
 
@@ -644,8 +643,8 @@ time:intervalStarts
 
 ###  https://w3id.org/PeGazUs#nextStep
 :nextStep rdf:type owl:ObjectProperty ;
-          rdfs:domain :pegessSegment ;
-          rdfs:range :pegessSegment ;
+          rdfs:domain :AddressSegment ;
+          rdfs:range :AddressSegment ;
           rdfs:label "a pour prochaine étape"@fr ,
                      "has next step"@en ;
           skos:altLabel "est suivi par"@fr ,
@@ -673,9 +672,9 @@ time:intervalStarts
 
 ###  https://w3id.org/PeGazUs#targets
 :targets rdf:type owl:ObjectProperty ;
-         rdfs:domain :pegess ;
+         rdfs:domain :Address ;
          rdfs:range :Landmark ;
-         rdfs:comment "Cible le repère décrivant l'adresse."@fr, "Target the marker describing the pegess"@en ;
+         rdfs:comment "Cible le repère décrivant l'adresse."@fr, "Target the marker describing the Address"@en ;
          rdfs:label "cible"@fr ,
                     "targets"@en .
 
@@ -749,24 +748,25 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
 #    Classes
 #################################################################
 
-###  https://w3id.org/PeGazUs#pegess
-:pegess rdf:type owl:Class ;
+
+###  https://w3id.org/PeGazUs#Address
+:Address rdf:type owl:Class ;
          rdfs:subClassOf [ rdf:type owl:Restriction ;
                            owl:onProperty :firstStep ;
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :pegessSegment
+                           owl:onClass :AddressSegment
                          ] ,
                          [ rdf:type owl:Restriction ;
                            owl:onProperty :targets ;
                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                            owl:onClass :Landmark
                          ] ;
-         rdfs:label "pegess"@en ,
+         rdfs:label "Address"@en ,
                     "adresse"@fr .
 
 
-###  https://w3id.org/PeGazUs#pegessSegment
-:pegessSegment rdf:type owl:Class ;
+###  https://w3id.org/PeGazUs#AddressSegment
+:AddressSegment rdf:type owl:Class ;
                 rdfs:subClassOf :LandmarkRelation ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :relatum ;
@@ -781,9 +781,9 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty :nextStep ;
                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :pegessSegment
+                                  owl:onClass :AddressSegment
                                 ] ;
-                rdfs:label "pegess segment"@en ,
+                rdfs:label "Address segment"@en ,
                            "segment d'adresse"@fr .
 
 
@@ -876,14 +876,14 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
                   "Événément"@fr .
 
 
-###  https://w3id.org/PeGazUs#FinalpegessSegment
-:FinalpegessSegment rdf:type owl:Class ;
-                     rdfs:subClassOf :pegessSegment ,
+###  https://w3id.org/PeGazUs#FinalAddressSegment
+:FinalAddressSegment rdf:type owl:Class ;
+                     rdfs:subClassOf :AddressSegment ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty :nextStep ;
                                        owl:cardinality "0"^^xsd:nonNegativeInteger
                                      ] ;
-                     rdfs:label "final pegess segment"@en ,
+                     rdfs:label "final Address segment"@en ,
                                 "segment d'adresse final"@fr .
 
 
@@ -1038,7 +1038,7 @@ prov:Entity rdf:type owl:Class ;
                                  "Type of landmark relation"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/attributeType/Geometry
+###  https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry
 atype:Geometry rdf:type owl:NamedIndividual ,
                         :AttributeType ,
                         skos:Concept ;
@@ -1050,7 +1050,7 @@ atype:Geometry rdf:type owl:NamedIndividual ,
                               "Géométrie"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/attributeType/InseeCode
+###  https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode
 atype:InseeCode rdf:type owl:NamedIndividual ,
                          :AttributeType ,
                          skos:Concept ;
@@ -1062,7 +1062,7 @@ atype:InseeCode rdf:type owl:NamedIndividual ,
                                "INSEE code"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/attributeType/Name
+###  https://w3id.org/PeGazUs/id/codes/AttributeType/Name
 atype:Name rdf:type owl:NamedIndividual ,
                     :AttributeType ,
                     skos:Concept ;
@@ -1074,7 +1074,7 @@ atype:Name rdf:type owl:NamedIndividual ,
                           "Nom"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/AttributeVersionAppearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance
 ctype:AttributeVersionAppearance rdf:type owl:NamedIndividual ,
                                           :ChangeType ,
                                           skos:Concept ;
@@ -1084,7 +1084,7 @@ ctype:AttributeVersionAppearance rdf:type owl:NamedIndividual ,
                                                 "Appearance of an attribute version"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/AttributeVersionDisappearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance
 ctype:AttributeVersionDisappearance rdf:type owl:NamedIndividual ,
                                              :ChangeType ,
                                              skos:Concept ;
@@ -1094,7 +1094,7 @@ ctype:AttributeVersionDisappearance rdf:type owl:NamedIndividual ,
                                                    "Disparition d'une version d'un attribut"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/AttributeVersionTransition
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition
 ctype:AttributeVersionTransition rdf:type owl:NamedIndividual ,
                                           :ChangeType ,
                                           skos:Concept ;
@@ -1104,7 +1104,7 @@ ctype:AttributeVersionTransition rdf:type owl:NamedIndividual ,
                                                 "Transition de versions d'un attribut"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/LandmarkAppearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance
 ctype:LandmarkAppearance rdf:type owl:NamedIndividual ,
                                   :ChangeType ,
                                   skos:Concept ;
@@ -1114,7 +1114,7 @@ ctype:LandmarkAppearance rdf:type owl:NamedIndividual ,
                                         "Appearance of a landmark"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/LandmarkDisappearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance
 ctype:LandmarkDisappearance rdf:type owl:NamedIndividual ,
                                      :ChangeType ,
                                      skos:Concept ;
@@ -1124,7 +1124,7 @@ ctype:LandmarkDisappearance rdf:type owl:NamedIndividual ,
                                            "Disparition du repère"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/LandmarkRelationAppearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance
 ctype:LandmarkRelationAppearance rdf:type owl:NamedIndividual ,
                                           :ChangeType ,
                                           skos:Concept ;
@@ -1134,7 +1134,7 @@ ctype:LandmarkRelationAppearance rdf:type owl:NamedIndividual ,
                                                 "Appearance of a landmark relation"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/changeType/LandmarkRelationDisappearance
+###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance
 ctype:LandmarkRelationDisappearance rdf:type owl:NamedIndividual ,
                                              :ChangeType ,
                                              skos:Concept ;
@@ -1144,7 +1144,7 @@ ctype:LandmarkRelationDisappearance rdf:type owl:NamedIndividual ,
                                                    "Dissolution de la relation entre repères"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Along
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along
 lrtype:Along rdf:type owl:NamedIndividual ,
                       :LandmarkRelationType ,
                       skos:Concept ;
@@ -1153,7 +1153,7 @@ lrtype:Along rdf:type owl:NamedIndividual ,
              skos:prefLabel "Along"@en ,
                             "Le long de"@fr .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Belongs
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs
 lrtype:Belongs rdf:type owl:NamedIndividual ,
                         :LandmarkRelationType ,
                         skos:Concept ;
@@ -1162,7 +1162,7 @@ lrtype:Belongs rdf:type owl:NamedIndividual ,
                skos:prefLabel "Appartient à"@fr, "Belongs to"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Between
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between
 lrtype:Between rdf:type owl:NamedIndividual ,
                         :LandmarkRelationType ,
                         skos:Concept ;
@@ -1172,7 +1172,7 @@ lrtype:Between rdf:type owl:NamedIndividual ,
                               "Entre"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Corner
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner
 lrtype:Corner rdf:type owl:NamedIndividual ,
                        :LandmarkRelationType ,
                        skos:Concept ;
@@ -1182,7 +1182,7 @@ lrtype:Corner rdf:type owl:NamedIndividual ,
                              "Corner"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/IsPartOf
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf
 lrtype:IsPartOf rdf:type owl:NamedIndividual ,
                          :LandmarkRelationType ,
                          skos:Concept ;
@@ -1192,7 +1192,7 @@ lrtype:IsPartOf rdf:type owl:NamedIndividual ,
                                "Is part of"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/IsSimilar
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar
 lrtype:IsSimilar rdf:type owl:NamedIndividual ,
                           :LandmarkRelationType ,
                           skos:Concept ;
@@ -1202,7 +1202,7 @@ lrtype:IsSimilar rdf:type owl:NamedIndividual ,
                                 "Is similar as"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Touches
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches
 lrtype:Touches rdf:type owl:NamedIndividual ,
                         :LandmarkRelationType ,
                         skos:Concept ;
@@ -1216,7 +1216,7 @@ lrtype:Touches rdf:type owl:NamedIndividual ,
                               "Touches"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/Within
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within
 lrtype:Within rdf:type owl:NamedIndividual ,
                        :LandmarkRelationType ,
                        skos:Concept ;
@@ -1229,7 +1229,7 @@ lrtype:Within rdf:type owl:NamedIndividual ,
               skos:prefLabel "Dans"@fr ,
                              "Within"@en .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/StartsAt
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt
 lrtype:StartsAt rdf:type owl:NamedIndividual ,
                       :LandmarkRelationType ,
                       skos:Concept ;
@@ -1240,7 +1240,7 @@ lrtype:StartsAt rdf:type owl:NamedIndividual ,
              skos:prefLabel "Commence à"@fr ,
                             "Starts at"@en .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkRelationType/EndsAt
+###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt
 lrtype:EndsAt rdf:type owl:NamedIndividual ,
                       :LandmarkRelationType ,
                       skos:Concept ;
@@ -1251,16 +1251,16 @@ lrtype:EndsAt rdf:type owl:NamedIndividual ,
              skos:prefLabel "Termine à"@fr ,
                             "Ends at"@en .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/AdministrativeUnity
-ltype:AdministrativeUnity rdf:type owl:NamedIndividual ,
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit
+ltype:AdministrativeUnit rdf:type owl:NamedIndividual ,
                                    :LandmarkType ,
                                    skos:Concept ;
                           skos:definition "Zone résultant d'un découpage administratif (quatier, commune, pays...)"@fr, "Area resulting from an administrative division (district, municipality, country...)"@en ;
                           skos:inScheme :LandmarkList ;
-                          skos:prefLabel "Administrative unity"@en ,
+                          skos:prefLabel "Administrative unit"@en ,
                                          "Unité administrative"@fr .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/PostalCodeArea
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea
 ltype:PostalCodeArea rdf:type owl:NamedIndividual ,
                                   :LandmarkType ,
                                   skos:Concept ;
@@ -1269,7 +1269,7 @@ ltype:PostalCodeArea rdf:type owl:NamedIndividual ,
                          skos:prefLabel "Postal area"@en ,
                                         "Zone postale"@fr .
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/Municipality
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality
 ltype:Municipality rdf:type owl:NamedIndividual ,
                     :LandmarkType ,
                     skos:Concept ;
@@ -1283,7 +1283,7 @@ ltype:Municipality rdf:type owl:NamedIndividual ,
                           "Commune"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/Country
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Country
 ltype:Country rdf:type owl:NamedIndividual ,
                        :LandmarkType ,
                        skos:Concept ;
@@ -1296,7 +1296,7 @@ ltype:Country rdf:type owl:NamedIndividual ,
                              "Pays"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/District
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/District
 ltype:District rdf:type owl:NamedIndividual ,
                         :LandmarkType ,
                         skos:Concept ;
@@ -1310,7 +1310,7 @@ ltype:District rdf:type owl:NamedIndividual ,
                               "Quartier"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/DistrictNumber
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber
 ltype:DistrictNumber rdf:type owl:NamedIndividual ,
                               :LandmarkType ,
                               skos:Concept ;
@@ -1321,7 +1321,7 @@ ltype:DistrictNumber rdf:type owl:NamedIndividual ,
                                     "Numéro de quartier"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/HouseNumber
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber
 ltype:HouseNumber rdf:type owl:NamedIndividual ,
                            :LandmarkType ,
                            skos:Concept ;
@@ -1332,7 +1332,7 @@ ltype:HouseNumber rdf:type owl:NamedIndividual ,
                                  "Numéro de l'habitation"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/StreetNumber
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber
 ltype:StreetNumber rdf:type owl:NamedIndividual ,
                             :LandmarkType ,
                             skos:Concept ;
@@ -1343,7 +1343,7 @@ ltype:StreetNumber rdf:type owl:NamedIndividual ,
                                   "Street number"@en .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/Structure
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure
 ltype:Structure rdf:type owl:NamedIndividual ,
                          :LandmarkType ,
                          skos:Concept ;
@@ -1353,7 +1353,7 @@ ltype:Structure rdf:type owl:NamedIndividual ,
                                "Structure"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/Thoroughfare
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare
 ltype:Thoroughfare rdf:type owl:NamedIndividual ,
                             :LandmarkType ,
                             skos:Concept ;
@@ -1363,7 +1363,7 @@ ltype:Thoroughfare rdf:type owl:NamedIndividual ,
                                   "Voie"@fr .
 
 
-###  https://w3id.org/PeGazUs/id/codes/landmarkType/Undefined
+###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined
 ltype:Undefined rdf:type owl:NamedIndividual ,
                          :LandmarkType ,
                          skos:Concept ;

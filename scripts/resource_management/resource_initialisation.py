@@ -5,7 +5,6 @@ from scripts.graph_construction import graphrdf as gr
 from scripts.utils import str_processing as sp
 from scripts.utils import time_processing as tp
 
-
 np = NameSpaces()
 om = OntologyMapping()
 
@@ -16,15 +15,20 @@ om = OntologyMapping()
 ######### Landmark management #########
 # Functions to manage with landmarks 
 
-def create_landmark(g:Graph, landmark_uri:URIRef, label:Literal, landmark_type:URIRef):
+def create_landmark(g:Graph, landmark_uri:URIRef, label:Literal, landmark_type:URIRef)->None:
+    """Create a landmark in the graph with its type and label (if supplied).
+    """
     g.add((landmark_uri, RDF.type, np.PEG["Landmark"]))
     g.add((landmark_uri, np.PEG["isLandmarkType"], landmark_type))
     if label is not None:
         g.add((landmark_uri, RDFS.label, label))
 
-def create_landmark_version(g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, lm_label:str,
-                            attr_types_and_values:list[list], time_description:dict, provenance_uri:URIRef,
-                            factoids_namespace:Namespace, lang:str):
+def create_landmark_version(
+        g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, lm_label:str,
+        attr_types_and_values:list[list], time_description:dict, provenance_uri:URIRef,
+        factoids_namespace:Namespace, lang:str)->None:
+    """Create a landmark version in the graph with its type, label (if supplied), attributes, time and provenance (if supplied)."""
+
     if lm_label is not None:
         lm_label_lit = gr.get_name_literal(lm_label, lang)
     else:
@@ -52,9 +56,14 @@ def create_landmark_version(g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, lm_label
     if provenance_uri is not None:
         add_provenance_to_resource(g, lm_uri, provenance_uri)
 
-def create_landmark_with_attributes(g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, lm_label:str,
-                                    attr_types_and_values:list[list], provenance_uri:URIRef,
-                                    lm_namespace:Namespace, lang:str):
+def create_landmark_with_attributes(
+        g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, lm_label:str,
+        attr_types_and_values:list[list], provenance_uri:URIRef,
+        lm_namespace:Namespace, lang:str)->None:
+    """
+    Create a landmark in the graph with its type, label (if supplied), attributes and provenance (if supplied).
+    """
+    
     if lm_label is not None:
         lm_label_lit = gr.get_name_literal(lm_label, lang)
     else:
@@ -76,8 +85,12 @@ def create_landmark_with_attributes(g:Graph, lm_uri:URIRef, lm_type_uri:URIRef, 
 ######### Landmark relation management #########
 # Functions to manage with landmark relations 
 
-def create_landmark_relation(g:Graph, landmark_relation_uri:URIRef, landmark_relation_type:URIRef,
-                             locatum_uri:URIRef, relatum_uris:list[URIRef],  is_address_segment=False, is_final_address_segment=False):
+def create_landmark_relation(
+        g:Graph, landmark_relation_uri:URIRef, landmark_relation_type:URIRef,
+        locatum_uri:URIRef, relatum_uris:list[URIRef],  is_address_segment=False, is_final_address_segment=False)->None:
+    """Create a landmark relation in the graph with its type, locatum and relatum(s). 
+    The class of the landmark relation depends on whether it is an address segment or a final address segment (if not specified, it is a simple landmark relation).
+    """
     lr_class = "LandmarkRelation"
     if is_final_address_segment:
         lr_class = "FinalAddressSegment"
@@ -91,11 +104,15 @@ def create_landmark_relation(g:Graph, landmark_relation_uri:URIRef, landmark_rel
         g.add((landmark_relation_uri, np.PEG["relatum"], rel_uri))
 
 
-def create_landmark_relation_version(g:Graph, landmark_relation_uri:URIRef, landmark_relation_type:URIRef,
-                                     locatum_uri:URIRef, relatum_uris:list[URIRef],
-                                     time_description:dict, provenance_uri:URIRef,
-                                     is_address_segment=False, is_final_address_segment=False):
-    
+def create_landmark_relation_version(
+        g:Graph, landmark_relation_uri:URIRef, landmark_relation_type:URIRef,
+        locatum_uri:URIRef, relatum_uris:list[URIRef],
+        time_description:dict, provenance_uri:URIRef,
+        is_address_segment=False, is_final_address_segment=False)->None:
+    """Create a landmark relation version in the graph with its type, locatum, relatum(s), time and provenance (if supplied).
+    The class of the landmark relation depends on whether it is an address segment or a final address segment (if not specified, it is a simple landmark relation).
+    """
+
     # Create the landmark relation
     create_landmark_relation(g, landmark_relation_uri, landmark_relation_type, locatum_uri, relatum_uris, is_address_segment, is_final_address_segment)
 
@@ -109,14 +126,18 @@ def create_landmark_relation_version(g:Graph, landmark_relation_uri:URIRef, land
 ######### Change / Event management #########
 # Functions to manage with changes and events
 
-def create_event(g:Graph, event_uri:URIRef):
+def create_event(g:Graph, event_uri:URIRef)->None:
+    """Create an event in the graph"""
     g.add((event_uri, RDF.type, np.PEG["Event"]))
 
-def create_event_with_time(g:Graph, event_uri:URIRef, time_uri:URIRef):
+def create_event_with_time(g:Graph, event_uri:URIRef, time_uri:URIRef)->None:
+    """Create an event in the graph and add time to it"""
     create_event(g, event_uri)
     add_time_to_resource(g, event_uri, time_uri)
 
-def create_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, change_class:str=None):
+def create_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, change_class:str=None)->None:
+    """Create a change in the graph with its type. The class of the change can be specified (if not specified, it is a simple change)."""
+
     if change_class is None:
         change_class = "Change"
     g.add((change_uri, RDF.type, np.PEG[change_class]))
@@ -124,15 +145,20 @@ def create_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, change_cla
     if change_type_uri is not None:
         g.add((change_uri, np.PEG["isChangeType"], change_type_uri))
 
-def create_change_event_relation(g:Graph, change_uri:URIRef, event_uri:URIRef):
+def create_change_event_relation(g:Graph, change_uri:URIRef, event_uri:URIRef)->None:
+    """Create a relation between a change and an event in the graph (the event that depends on the change)"""
     g.add((change_uri, np.PEG["dependsOn"], event_uri))
 
-def create_change_with_applied_to(g:Graph, change_uri:URIRef, change_type_uri:URIRef, applied_to_uri:URIRef, change_class:str=None):
+def create_change_with_applied_to(g:Graph, change_uri:URIRef, change_type_uri:URIRef, applied_to_uri:URIRef, change_class:str=None)->None:
+    """Create a change in the graph with its type and the resource it is applied to. The class of the change can be specified (if not specified, it is a simple change)."""
     create_change(g, change_uri, change_type_uri, change_class=change_class)
     g.add((change_uri, np.PEG["appliedTo"], applied_to_uri))
 
-def create_attribute_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, attribute_uri:URIRef,
-                            made_effective_versions_uris:list[URIRef]=[], outdated_versions_uris:list[URIRef]=[]):
+def create_attribute_change(
+        g:Graph, change_uri:URIRef, change_type_uri:URIRef, attribute_uri:URIRef,
+        made_effective_versions_uris:list[URIRef]=[], outdated_versions_uris:list[URIRef]=[])->None:
+    """Create a change in the graph with its type and the attribute it is applied to. The class of the change is set to "AttributeChange"."""
+
     create_change_with_applied_to(g, change_uri, change_type_uri, attribute_uri, change_class="AttributeChange")
 
     for version in made_effective_versions_uris:
@@ -140,18 +166,21 @@ def create_attribute_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, 
     for version in outdated_versions_uris:
         g.add((change_uri, np.PEG["outdates"], version))
 
-def create_landmark_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, landmark_uri:URIRef):
+def create_landmark_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, landmark_uri:URIRef)->None:
+    """Create a change in the graph with its type and the landmark it is applied to. The class of the change is set to "LandmarkChange"."""
     create_change_with_applied_to(g, change_uri, change_type_uri, landmark_uri, change_class="LandmarkChange")
 
-def create_landmark_relation_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, landmark_relation_uri:URIRef):
+def create_landmark_relation_change(g:Graph, change_uri:URIRef, change_type_uri:URIRef, landmark_relation_uri:URIRef)->None:
+    """Create a change in the graph with its type and the landmark relation it is applied to. The class of the change is set to "LandmarkRelationChange"."""
     create_change_with_applied_to(g, change_uri, change_type_uri, landmark_relation_uri, change_class="LandmarkRelationChange")
 
-def create_landmark_with_changes(g:Graph, landmark_uri:URIRef, label:str, lang:str, landmark_type:URIRef,
-                                resource_namespace:Namespace):
+def create_landmark_with_changes(
+        g:Graph, landmark_uri:URIRef, label:str, lang:str, landmark_type:URIRef,
+        resource_namespace:Namespace)->None:
     label_lit = gr.get_name_literal(label, lang)
     create_landmark(g, landmark_uri, label_lit, landmark_type)
-    creation_change_uri, creation_event_uri = gr.generate_uri(resource_namespace, "CH"), gr.generate_uri(resource_namespace, "EV")
-    dissolution_change_uri, dissolution_event_uri = gr.generate_uri(resource_namespace, "CH"), gr.generate_uri(resource_namespace, "EV")
+    creation_change_uri, creation_event_uri = gr.generate_uri(resource_namespace, "Change", separator="/"), gr.generate_uri(resource_namespace, "Event", separator="/")
+    dissolution_change_uri, dissolution_event_uri = gr.generate_uri(resource_namespace, "Change", separator="/"), gr.generate_uri(resource_namespace, "Event", separator="/")
 
     change_type_landmark_appearance = np.CTYPE["LandmarkAppearance"]
     change_type_landmark_disappearance = np.CTYPE["LandmarkDisappearance"]
@@ -165,44 +194,44 @@ def create_landmark_with_changes(g:Graph, landmark_uri:URIRef, label:str, lang:s
 ######### Attribute management #########
 # Functions to manage with attributes of landmarks
 
-def create_attribute(g:Graph, attribute_uri:URIRef, attribute_type:URIRef):
+def create_attribute(g:Graph, attribute_uri:URIRef, attribute_type:URIRef)->None:
     g.add((attribute_uri, RDF.type, np.PEG["Attribute"]))
     g.add((attribute_uri, np.PEG["isAttributeType"], attribute_type))
 
-def create_landmark_attribute(g:Graph, attribute_uri:URIRef, attribute_type_uri:URIRef, landmark_uri:URIRef):
+def create_landmark_attribute(g:Graph, attribute_uri:URIRef, attribute_type_uri:URIRef, landmark_uri:URIRef)->None:
     create_attribute(g, attribute_uri, attribute_type_uri)
     g.add((landmark_uri, np.PEG["hasAttribute"], attribute_uri))
 
-def create_attribute_version(g:Graph, attr_vers_uri:URIRef, vers_value:Literal=None):
+def create_attribute_version(g:Graph, attr_vers_uri:URIRef, vers_value:Literal=None)->None:
     g.add((attr_vers_uri, RDF.type, np.PEG["AttributeVersion"]))
     if vers_value is not None:
         g.add((attr_vers_uri, np.PEG["versionValue"], vers_value))
 
-def add_version_to_attribute(g:Graph, attribute_uri:URIRef, attr_vers_uri:URIRef):
+def add_version_to_attribute(g:Graph, attribute_uri:URIRef, attr_vers_uri:URIRef)->None:
     g.add((attribute_uri, np.PEG["hasAttributeVersion"], attr_vers_uri))
 
-def create_attribute_version_and_add_to_attribute(g:Graph, attribute_uri:URIRef, attr_vers_uri:URIRef, vers_value:Literal=None):
+def create_attribute_version_and_add_to_attribute(g:Graph, attribute_uri:URIRef, attr_vers_uri:URIRef, vers_value:Literal=None)->None:
     create_attribute_version(g, attr_vers_uri, vers_value)
     add_version_to_attribute(g, attribute_uri, attr_vers_uri)
 
 def create_landmark_attribute_and_version(g:Graph, landmark_uri:URIRef, attribute_uri:URIRef, attribute_type_uri:URIRef,
-                                          attribute_version_uri:URIRef, attribute_version_value:Literal):
+                                          attribute_version_uri:URIRef, attribute_version_value:Literal)->None:
     create_landmark_attribute(g, attribute_uri, attribute_type_uri, landmark_uri)
     create_attribute_version_and_add_to_attribute(g, attribute_uri, attribute_version_uri, attribute_version_value)
 
 def create_attribute_version_with_changes(g:Graph, attribute_uri:URIRef, value:Literal, resource_namespace:Namespace,
-                                          change_outdates_uri=None, change_makes_effective_uri=None):
+                                          change_outdates_uri=None, change_makes_effective_uri=None)->None:
     
-    attr_vers_uri = gr.generate_uri(resource_namespace, "AV")
+    attr_vers_uri = gr.generate_uri(resource_namespace, "AttributeVersion", separator="/")
     create_attribute_version_and_add_to_attribute(g, attribute_uri, attr_vers_uri, value)
 
     if change_makes_effective_uri is None:
-        makes_effective_change_uri, makes_effective_event_uri = gr.generate_uri(resource_namespace, "CH"), gr.generate_uri(resource_namespace, "EV")
+        makes_effective_change_uri, makes_effective_event_uri = gr.generate_uri(resource_namespace, "Change", separator="/"), gr.generate_uri(resource_namespace, "Event", separator="/")
         create_attribute_change(g, makes_effective_change_uri, attribute_uri)
         create_event(g, makes_effective_event_uri)
         create_change_event_relation(g, makes_effective_change_uri, makes_effective_event_uri)
     if change_outdates_uri is None:
-        outdates_change_uri, outdates_event_uri = gr.generate_uri(resource_namespace, "CH"), gr.generate_uri(resource_namespace, "EV")
+        outdates_change_uri, outdates_event_uri = gr.generate_uri(resource_namespace, "Change", separator="/"), gr.generate_uri(resource_namespace, "Event", separator="/")
         create_attribute_change(g, outdates_change_uri, attribute_uri)
         create_event(g, outdates_event_uri)
         create_change_event_relation(g, outdates_change_uri, outdates_event_uri)
@@ -214,7 +243,7 @@ def create_attribute_version_with_changes(g:Graph, attribute_uri:URIRef, value:L
 ######### Address management #########
 # Function to manage with addresses 
 
-def create_address(g:Graph, address_uri:URIRef, address_label:Literal, address_segments_list:list[URIRef], target_uri:URIRef):
+def create_address(g:Graph, address_uri:URIRef, address_label:Literal, address_segments_list:list[URIRef], target_uri:URIRef)->None:
     """
     Create an address as a sequence of address segments (which are landmark relations) and link it to its target (a landmark or a spatial unit).
 
@@ -240,24 +269,47 @@ def create_address(g:Graph, address_uri:URIRef, address_label:Literal, address_s
 ######### Time management #########
 # Function to manage with temporal entities
 
-def create_crisp_time_instant(g:Graph, time_uri:URIRef, time_stamp:Literal, time_calendar:URIRef, time_precision:URIRef):
+def create_crisp_time_instant(g:Graph, time_uri:URIRef, time_stamp:Literal, time_calendar:URIRef, time_precision:URIRef)->None:
     g.add((time_uri, RDF.type, np.PEG["CrispTimeInstant"]))
     g.add((time_uri, np.PEG["timeStamp"], time_stamp))
     g.add((time_uri, np.PEG["timeCalendar"], time_calendar))
     g.add((time_uri, np.PEG["timePrecision"], time_precision))
 
-def create_crisp_time_interval(g:Graph, time_uri:URIRef, start_time_uri:URIRef, end_time_uri:URIRef):
+def create_crisp_time_interval(g:Graph, time_uri:URIRef, start_time_uri:URIRef, end_time_uri:URIRef)->None:
     g.add((time_uri, RDF.type, np.PEG["CrispTimeInterval"]))
     g.add((time_uri, np.PEG["hasBeginning"], start_time_uri))
     g.add((time_uri, np.PEG["hasEnd"], end_time_uri))
 
-def add_time_to_resource(g:Graph, resource_uri:URIRef, time_uri):
+def add_time_to_resource(g:Graph, resource_uri:URIRef, time_uri:URIRef)->None:
     g.add((resource_uri, np.PEG["hasTime"], time_uri))
 
-def add_valid_time_interval_to_resource(g:Graph, lm_uri:URIRef, time_description:dict):
+def add_valid_time_interval_to_resource(g:Graph, lm_uri:URIRef, time_description:dict)->None:
+    """
+    Add a valid time interval to a resource (landmark or landmark relation) based on a time description dictionary containing "start" and "end" keys with time instant descriptions as values.
+    The time instant descriptions are dictionaries containing "timeStamp", "timeCalendar" and "timePrecision" keys with corresponding values.
+    
+    Parameters:
+    - g: RDF graph
+    - lm_uri: URI of the resource to which the time interval will be added
+    - time_description: dictionary containing "start" and "end" keys with time instant descriptions as values. The time instant descriptions are dictionaries containing "timeStamp", "timeCalendar" and "timePrecision" keys with corresponding values.
+
+    Example of time_description:
+    time_description = {
+        "start": {
+            "timeStamp": "1988-01-01",
+            "timeCalendar": "gregorian",
+            "timePrecision": "day"
+        },
+        "end": {
+            "timeStamp": "2020-12-01",
+            "timeCalendar": "gregorian",
+            "timePrecision": "month"
+    }
+    """
     start_time_stamp, start_time_calendar, start_time_precision = tp.get_time_instant_elements(time_description.get("start"))
     end_time_stamp, end_time_calendar, end_time_precision = tp.get_time_instant_elements(time_description.get("end"))
-    time_interval_uri, start_time_uri, end_time_uri = gr.generate_uri(np.FACTOIDS, "TI"), gr.generate_uri(np.FACTOIDS, "TI"), gr.generate_uri(np.FACTOIDS, "TI")
+    time_interval_uri = gr.generate_uri(np.RES, "TimeInterval", separator="/"),
+    start_time_uri, end_time_uri = gr.generate_uri(np.RES, "TimeInstant", separator="/"), gr.generate_uri(np.RES, "TimeInstant", separator="/")
 
     create_crisp_time_instant(g, start_time_uri, start_time_stamp, start_time_calendar, start_time_precision)
     create_crisp_time_instant(g, end_time_uri, end_time_stamp, end_time_calendar, end_time_precision)
@@ -268,13 +320,13 @@ def add_valid_time_interval_to_resource(g:Graph, lm_uri:URIRef, time_description
 ######### Source management #########
 # Function to manage with sources and provenance
 
-def create_prov_entity(g:Graph, prov_uri:URIRef):
+def create_prov_entity(g:Graph, prov_uri:URIRef)->None:
     g.add((prov_uri, RDF.type, np.PROV.Entity))
 
-def add_provenance_to_resource(g:Graph, resource_uri:URIRef, prov_uri:URIRef):
+def add_provenance_to_resource(g:Graph, resource_uri:URIRef, prov_uri:URIRef)->None:
     g.add((resource_uri, np.PROV.wasDerivedFrom, prov_uri))
 
-def create_source(g:Graph, source_uri:URIRef, source_label:Literal=None, source_comment:Literal=None):
+def create_source(g:Graph, source_uri:URIRef, source_label:Literal=None, source_comment:Literal=None)->None:
     g.add((source_uri, RDF.type, np.RICO.Record))
     
     if isinstance(source_label, Literal):
@@ -283,10 +335,10 @@ def create_source(g:Graph, source_uri:URIRef, source_label:Literal=None, source_
     if isinstance(source_comment, Literal):
         g.add((source_uri, RDFS.comment, source_comment))
 
-def add_publisher_to_source(g:Graph, source_uri:URIRef, source_publisher_uri:URIRef):
+def add_publisher_to_source(g:Graph, source_uri:URIRef, source_publisher_uri:URIRef)->None:
     g.add((source_uri, np.RICO.hasPublisher, source_publisher_uri))
 
-def create_publisher(g:Graph, publisher_uri:URIRef, publisher_label:Literal=None, publisher_comment:Literal=None):
+def create_publisher(g:Graph, publisher_uri:URIRef, publisher_label:Literal=None, publisher_comment:Literal=None)->None:
     g.add((publisher_uri, RDF.type, np.RICO.Publisher))
 
     if isinstance(publisher_label, Literal):
@@ -295,14 +347,14 @@ def create_publisher(g:Graph, publisher_uri:URIRef, publisher_label:Literal=None
     if isinstance(publisher_comment, Literal):
         g.add((publisher_uri, RDFS.comment, publisher_comment))
 
-def add_source_to_provenance(g:Graph, prov_uri:URIRef, source_uri:URIRef):
+def add_source_to_provenance(g:Graph, prov_uri:URIRef, source_uri:URIRef)->None:
     g.add((prov_uri, np.RICO.isOrWasDescribedBy, source_uri))
 
 ########################################## Refine data ##########################################
 
 #Refine data by adding hidden label of alt label for example
 
-def add_other_labels_for_resource(g:Graph, res_uri:URIRef, res_label_value:str, res_label_lang:str, res_type_uri:URIRef):
+def add_other_labels_for_resource(g:Graph, res_uri:URIRef, res_label_value:str, res_label_lang:str, res_type_uri:URIRef)->None:
     if res_type_uri == np.LTYPE["Thoroughfare"]:
         res_label_type = "thoroughfare"
     elif res_type_uri in [np.LTYPE["Municipality"], np.LTYPE["District"]]:
@@ -326,7 +378,7 @@ def add_other_labels_for_resource(g:Graph, res_uri:URIRef, res_label_value:str, 
     
 ########################################## Traces and roots ##########################################
 
-def create_trace_and_root_links(g:Graph, root_uri:URIRef, trace_uri:URIRef):
+def create_trace_and_root_links(g:Graph, root_uri:URIRef, trace_uri:URIRef)->None:
     g.add((root_uri, np.PEG["hasTrace"], trace_uri))
     g.add((trace_uri, np.PEG["hasRoot"], root_uri))
     

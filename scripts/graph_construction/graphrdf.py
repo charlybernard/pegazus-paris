@@ -148,6 +148,18 @@ def get_integer_literal(value: int):
     
     return Literal(value, datatype=XSD.integer)
 
+def get_time_stamp_literal(time_stamp:str):
+    """
+    Create a Literal object for a time stamp with xsd:dateTimeStamp datatype.
+    
+    Parameters:
+    - time_stamp (str): The time stamp string to be turned into a Literal.
+    Returns:
+    - Literal: A Literal object containing the time stamp with xsd:dateTimeStamp datatype.
+    """
+    
+    return Literal(time_stamp, datatype=XSD.dateTimeStamp)
+
 def convert_result_elem_to_rdflib_elem(result_elem:dict):
     """
     Convert a dictionary describing an element of a query result into an RDFLib element (URIRef, Literal, or BNode).

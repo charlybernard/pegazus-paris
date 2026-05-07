@@ -39,8 +39,8 @@ def create_missing_landmark_entities(graphdb_url, repository_name, facts_named_g
                 }}
             }}
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "CG_", STRUUID())) AS ?missingChange)
-        BIND(URI(CONCAT(STR(URI(facts:)), "EV_", STRUUID())) AS ?missingEvent)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "CG_", STRUUID())) AS ?missingChange)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "EV_", STRUUID())) AS ?missingEvent)
     }}
     """
     gd.run_update_query(query, graphdb_url, repository_name)
@@ -165,8 +165,8 @@ def finalize_event_times(graphdb_url, repository_name, facts_named_graph_uri, tm
 #                 FILTER NOT EXISTS {{ ?change peg:isChangeType ?changeType ; peg:appliedTo ?elem . }}
 #             }}
 #         }}
-#         BIND(URI(CONCAT(STR(URI(facts:)), "CG_", STRUUID())) AS ?missingChange)
-#         BIND(URI(CONCAT(STR(URI(facts:)), "EV_", STRUUID())) AS ?missingEvent)
+#         BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "CG_", STRUUID())) AS ?missingChange)
+#         BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "EV_", STRUUID())) AS ?missingEvent)
 #     }}
 #     """
 
@@ -264,7 +264,7 @@ def finalize_event_times(graphdb_url, repository_name, facts_named_graph_uri, tm
 #                 FILTER (BOUND(?tB) || BOUND(?tA))
 #             }}
 #         }}
-#         BIND(URI(CONCAT(STR(URI(facts:)), "TI_", STRUUID())) AS ?time)
+#         BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "TI_", STRUUID())) AS ?time)
 #     }}"""
 
 #     queries = [query_calc_bounds, query_create_fuzzy]
@@ -908,7 +908,7 @@ def merge_attribute_versions_to_be_merged(graphdb_url:URIRef, repository_name:st
         }}
         WHERE {{
             BIND({facts_named_graph_uri.n3()} AS ?gf)
-            BIND(URI(CONCAT(STR(URI(facts:)), "AV_", STRUUID())) AS ?rootAttrVers)
+            BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "AV_", STRUUID())) AS ?rootAttrVers)
             {{
                 SELECT DISTINCT ?gt ?versMergeVal WHERE {{
                     BIND({tmp_named_graph_uri.n3()} AS ?gt)
@@ -956,7 +956,7 @@ def merge_attribute_versions_to_be_merged(graphdb_url:URIRef, repository_name:st
                 }}
             }}
             ?change peg:appliedTo ?attr .
-            BIND(URI(CONCAT(STR(URI(facts:)), "CG_", STRUUID())) AS ?newChange)
+            BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "CG_", STRUUID())) AS ?newChange)
         }}
         """
 
@@ -988,7 +988,7 @@ def create_events_and_times_from_attribute_changes(graphdb_url:URIRef, repositor
                 }}
             }}
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "EV_", STRUUID())) AS ?event)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "EV_", STRUUID())) AS ?event)
     }} 
     """
 
@@ -1126,7 +1126,7 @@ def transform_event_bounds_to_fuzzy_times(graphdb_url, repository_name, facts_na
             }}
         }}
         # On ne crée un URI que si ?time n'existe pas déjà
-        BIND(URI(CONCAT(STR(facts:), "TI_", STRUUID())) AS ?generatedTime)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "FuzzyTimeInstant/", STRUUID())) AS ?generatedTime)
         BIND(COALESCE(?time, ?generatedTime) AS ?finalTime)
     }}
     """

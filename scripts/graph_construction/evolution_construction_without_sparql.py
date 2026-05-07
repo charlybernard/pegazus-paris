@@ -73,8 +73,8 @@ def create_missing_changes(graphdb_url, repository_name, facts_named_graph_uri, 
                 }}
             }}
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "Change/", STRUUID())) AS ?missingChange)
-        BIND(URI(CONCAT(STR(URI(facts:)), "Event/", STRUUID())) AS ?missingEvent)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Change/", STRUUID())) AS ?missingChange)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Event/", STRUUID())) AS ?missingEvent)
     }}
     """
     gd.run_update_query(query, graphdb_url, repository_name)
@@ -257,7 +257,7 @@ def construct_evolutions(types, changes, versions):
             # Création du changement d'APPARITION (Start)
             evolutions[attr_uri]["changes"].append({
                 "real_change": False,
-                "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
+                "change_uri": gr.generate_uri(np.RES, "Change", separator="/"),
                 "time": v.get('startTime'),
                 "timestamp": v.get('startTimeStamp'),
                 "time_precision": v.get('startTimePrecision'),
@@ -268,7 +268,7 @@ def construct_evolutions(types, changes, versions):
             # Création du changement de DISPARITION (End)
             evolutions[attr_uri]["changes"].append({
                 "real_change": False,
-                "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
+                "change_uri": gr.generate_uri(np.RES, "Change", separator="/"),
                 "time": v.get('endTime'),
                 "timestamp": v.get('endTimeStamp'),
                 "time_precision": v.get('endTimePrecision'),
@@ -303,7 +303,7 @@ def generate_temporary_changes(attr_evolutions):
                 "time": t_uri,
                 "timestamp": t_stamp,
                 "time_precision": t_prec,
-                "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"), # URI générique pour le changement consolidé
+                "change_uri": gr.generate_uri(np.RES, "Change", separator="/"), # URI générique pour le changement consolidé
                 "makes_effective": [],
                 "outdates": [],
                 "traces": []
@@ -359,7 +359,7 @@ def add_infinite_boundaries_for_temporary_changes(attr_evolutions):
     start_inf = {
         "time": None,
         "timestamp": "-inf", # Ou "0001-01-01T00:00:00Z"
-        "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
+        "change_uri": gr.generate_uri(np.RES, "Change", separator="/"),
         "makes_effective": [],
         "outdates": [],
         "traces": []
@@ -369,7 +369,7 @@ def add_infinite_boundaries_for_temporary_changes(attr_evolutions):
     end_inf = {
         "time": None,
         "timestamp": "+inf", # Ou "9999-12-31T23:59:59Z"
-        "change_uri": gr.generate_uri(np.FACTS, "Change", separator="/"),
+        "change_uri": gr.generate_uri(np.RES, "Change", separator="/"),
         "makes_effective": [],
         "outdates": [],
         "traces": []
@@ -400,7 +400,7 @@ def generate_temporary_versions(temporary_changes:list[dict]):
         c_end = temporary_changes[i+1]
         
         segment = {
-            "uri": gr.generate_uri(np.FACTS, "AttributeVersion", separator="/"),
+            "uri": gr.generate_uri(np.RES, "AttributeVersion", separator="/"),
             "made_effective_by": c_start["change_uri"], # URI du changement de début
             "outdated_by": c_end["change_uri"],        # URI du changement de fin
             "traces": []                          # Sera rempli par la suite       
@@ -662,7 +662,7 @@ def replace_elementary_changes_and_versions_to_remove(
                 OPTIONAL {{ ?oChange peg:hasRelatedTime ?oChangeTime . }}
             }}
         }}
-        BIND(URI(CONCAT(STR(URI(facts:)), "Change/", STRUUID())) AS ?newChange)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Change/", STRUUID())) AS ?newChange)
     }}
     """
 
@@ -794,7 +794,7 @@ WHERE {{
             ?oChange peg:outdates ?lastAttrVers .
         }}
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "AttributeVersion/", STRUUID())) AS ?newAttrVers)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "AttributeVersion/", STRUUID())) AS ?newAttrVers)
 }} 
 """
    
@@ -864,7 +864,7 @@ INSERT {{
             GRAPH ?gt {{ ?change peg:appliedTo ?attr ; peg:isFinalAttributeElement "true"^^xsd:boolean . }}
         }}   
     }}
-    BIND(URI(CONCAT(STR(URI(facts:)), "Event/", STRUUID())) AS ?event)
+    BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "Event/", STRUUID())) AS ?event)
 }}
 """
     
@@ -963,7 +963,7 @@ def transform_event_bounds_to_fuzzy_times(graphdb_url, repository_name, facts_na
             }}
         }}
         # On ne crée un URI que si ?time n'existe pas déjà
-        BIND(URI(CONCAT(STR(facts:), "TimeInstant/", STRUUID())) AS ?generatedTime)
+        BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "FuzzyTimeInstant/", STRUUID())) AS ?generatedTime)
         BIND(COALESCE(?time, ?generatedTime) AS ?finalTime)
     }}
     """

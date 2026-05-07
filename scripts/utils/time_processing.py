@@ -4,39 +4,50 @@ from rdflib import Literal, URIRef
 from rdflib.namespace import XSD
 from scripts.graph_construction.namespaces import NameSpaces, OntologyMapping
 from scripts.graph_construction import graphdb as gd
+from scripts.graph_construction import graphrdf as gr
 from convertdate import french_republican, gregorian, islamic, hebrew, julian
 
 np = NameSpaces()
 om = OntologyMapping()
 
 def get_standardized_date(timestamp_str: str, cal: URIRef, precision: URIRef) -> str:
-    # 1. Conversion
+    """
+    Get a standardized date in ISO 8601 format (string) from a date given in a specific calendar and with a specific precision.
+    :param timestamp_str: Date with format "YYYY-MM-DDTHH:mm:ssZ" (ISO 8601)
+    :param cal: URI of the calendar ('republican', 'julian', 'hebrew', etc.)
+    :param precision: URIRef of the temporal precision (day, month, year, decade, century, millenium)
+    :return: String of the standardized date in ISO 8601 format
+    """
+    
+    # 1. Convert the date from the given calendar to the Gregorian calendar (ISO 8601 format)
     iso_greg = date_from_cal_to_gregorian(timestamp_str, cal)
     
-    # 2. Formatage
-    return format_date_by_uri_precision(iso_greg, precision)
+    # 2. Format the ISO date according to the given precision URIRef
+    std_date = format_date_by_uri_precision(iso_greg, precision)
+
+    return std_date
 
 def date_from_cal_to_gregorian(timestamp_str: str, from_cal: URIRef) -> str:
     """
-    Convertit une date d'un calendrier spécifique vers le calendrier Grégorien.
+    Convertit a date from a given calendar to the Gregorian calendar in ISO 8601 format.
     
-    :param timestamp_str: Date au format "YYYY-MM-DDTHH:mm:ssZ" (ISO 8601)
-    :param from_cal: Identifiant du calendrier ('republican', 'julian', 'hebrew', etc.)
-    :return: String de la date en calendrier Grégorien (ISO 8601)
+    :param timestamp_str: Date with format "YYYY-MM-DDTHH:mm:ssZ" (ISO 8601)
+    :param from_cal: URI of the calendar ('republican', 'julian', 'hebrew', etc.)
+    :return: String of the date in the Gregorian calendar (ISO 8601)
     """
     
-    # 1. Parsing du timestamp pour extraire les composants
-    # On gère le cas avec ou sans millisecondes
+    # 1. Parse the input timestamp string to extract year, month, day, hour, minute, second, microsecond
+    # We manage the case with or without milliseconds
     try:
         dt = datetime.datetime.fromisoformat(timestamp_str)
     except ValueError:
-        # Fallback pour les formats très spécifiques
+        # Fallback for special case of timestamps ending with 'Z' and without milliseconds
         dt = datetime.datetime.strptime(timestamp_str.split('.')[0], "%Y-%m-%dT%H:%M:%SZ")
 
     year, month, day = dt.year, dt.month, dt.day
     
-    # 2. Conversion vers le Jour Julien (Pivot universel)
-    # On sélectionne le convertisseur selon le calendrier source
+    # 2. Convert the date from the source calendar to the Julian calendar
+    # We select the appropriate converter based on the from_cal URIRef
     cal_map = {
         np.WD["Q181974"]: french_republican,
         np.WD["Q1985786"]: julian,
@@ -50,10 +61,10 @@ def date_from_cal_to_gregorian(timestamp_str: str, from_cal: URIRef) -> str:
     
     converter = cal_map[from_cal]
     
-    # Conversion vers Julian Day (JD)
+    # Convert towards the appropriate calendar's date tuple (year, month, day) and then to JD
     jd = converter.to_jd(year, month, day)
     
-    # 3. Conversion du Julian Day vers le calendrier Grégorien
+    # 3. Convert from Julian Day to Gregorian date
     greg_tuple = gregorian.from_jd(jd) # Retourne (year, month, day)
     
     # 4. Reconstruction du timestamp ISO (en conservant l'heure d'origine)
@@ -71,10 +82,10 @@ def date_from_cal_to_gregorian(timestamp_str: str, from_cal: URIRef) -> str:
 
 def format_date_by_uri_precision(iso_date: str, precision_uri: URIRef) -> str:
     """
-    Formate une date ISO selon un URIRef de précision temporelle.
+    Format a date in ISO 8601 format according to a temporal precision URIRef.
     """
-    # 1. Dictionnaire de correspondance URIRef -> Clé interne
-    # (Adapté selon votre structure self.time_units)
+
+    # 1. Dictionary mapping URIRef to internal key (Adapted according to your self.time_units structure)
     uri_to_key = {
         np.TIME["unitDay"]: "day",
         np.TIME["unitMonth"]: "month",
@@ -98,7 +109,7 @@ def format_date_by_uri_precision(iso_date: str, precision_uri: URIRef) -> str:
     is_negative = year_str.startswith('-')
     abs_year = year_str.lstrip('-')
 
-    # 3. Logique de troncature
+    # 3. Logic for truncation based on precision
     if precision == "millenium":
         res = abs_year[:-3] if len(abs_year) > 3 else "0"
         formatted_year = f"-{res}" if is_negative and res != "0" else res
@@ -466,7 +477,7 @@ def get_validity_interval_for_attribute_versions(graphdb_url:URIRef, repository_
         WHERE {{
             ?av a peg:AttributeVersion .
             MINUS {{ ?av peg:hasTime [a peg:CrispTimeInterval] }}
-            BIND(URI(CONCAT(STR(URI(facts:)), "TI_", STRUUID())) AS ?timeInterval)
+            BIND(URI(CONCAT(STR(URI({URIRef(np.RES).n3()})), "TI_", STRUUID())) AS ?timeInterval)
         }}
     """
 
@@ -690,6 +701,8 @@ def get_time_precision_from_integer(precision_int:int):
     return precision
 
 def more_precise(target_precision:URIRef, t_precision:URIRef):
+    """Compare the precision of two time instants. Return true if t_precision is more precise than target_precision."""
+
     precisions = {
         np.TIME["unitBillionYears"]: 0,
         np.TIME["unitHundredMillionYears"]: 1,
@@ -713,6 +726,7 @@ def more_precise(target_precision:URIRef, t_precision:URIRef):
     return t_val > target_val
 
 def get_time_calendar_from_wikidata_uri(calendar_uri:URIRef):
+    """Get the calendar corresponding to a Wikidata URIRef. Return None if the calendar is not supported."""
     calendars = {
         np.WD["Q1985727"]: "gregorian",
         np.WD["Q181974"]: "republican",
@@ -723,6 +737,10 @@ def get_time_calendar_from_wikidata_uri(calendar_uri:URIRef):
     return calendar
 
 def get_time_instant_elements(time_dict:dict):
+    """
+    Get the elements of a time instant from a dictionary. The dictionary must have the following keys: "stamp", "calendar", "precision".
+    Return a list of three elements: [stamp, calendar, precision]. If one of the keys is missing or if the value is not valid, return [None, None, None].
+    """
     if not isinstance(time_dict, dict):
         return [None, None, None]
     
@@ -734,14 +752,11 @@ def get_time_instant_elements(time_dict:dict):
     if None in [time_stamp, time_cal, time_prec]:
         return [None, None, None]
     
-    stamp = get_literal_time_stamp(time_stamp)
+    stamp = gr.get_time_stamp_literal(time_stamp)
     precision = om.get_time_unit(time_prec)
     calendar = om.get_time_calendar(time_cal)
 
     return [stamp, calendar, precision]
-
-def get_literal_time_stamp(time_stamp:str):
-    return Literal(time_stamp, datatype=XSD.dateTimeStamp)
 
 def get_current_timestamp():
     return datetime.datetime.now().isoformat() + "Z"

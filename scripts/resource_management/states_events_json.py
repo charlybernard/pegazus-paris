@@ -14,7 +14,7 @@ def get_provenance_uri(provenance_description:dict):
     if prov_uri_str is not None:
         prov_uri = URIRef(prov_uri_str)
     else:
-        prov_uri = gr.generate_uri(np.FACTS, "PROV")
+        prov_uri = gr.generate_uri(np.RES, "Provenance", separator="/")
     return prov_uri
 
 def create_provenance(g, provenance_description:dict):
@@ -35,7 +35,7 @@ def create_time_instant(g:Graph, time_uri:URIRef, time_description:dict):
 
 def create_time_interval(g:Graph, time_uri:URIRef, time_description:dict):
     start_time, end_time = time_description.get("start"), time_description.get("end")
-    start_time_uri, end_time_uri = gr.generate_uri(np.FACTOIDS, "TI"), gr.generate_uri(np.FACTOIDS, "TI")
+    start_time_uri, end_time_uri = gr.generate_uri(np.RES, "TI"), gr.generate_uri(np.RES, "TI")
 
     create_time_instant(g, start_time_uri, start_time)
     create_time_instant(g, end_time_uri, end_time)
@@ -66,7 +66,7 @@ def create_source_from_description(g:Graph, description:dict):
 
     # Get the source URI 
     source_uri_str = description.get("uri")
-    source_uri = URIRef(source_uri_str) if source_uri_str is not None else gr.generate_uri(np.FACTS, "SRC")
+    source_uri = URIRef(source_uri_str) if source_uri_str is not None else gr.generate_uri(np.RES, "Source", separator="/")
 
     # Get the source label and language
     lang, label, comment = description.get("lang"), description.get("label"), description.get("comment")
@@ -91,7 +91,7 @@ def create_publisher_from_description(g:Graph, description:dict, lang:str=None):
 
     # Get the publisher URI
     publisher_uri_str = description.get("uri")
-    publisher_uri = URIRef(publisher_uri_str) if publisher_uri_str is not None else gr.generate_uri(np.FACTS, "PUB")
+    publisher_uri = URIRef(publisher_uri_str) if publisher_uri_str is not None else gr.generate_uri(np.RES, "Publisher", separator="/")
     publisher_label = description.get("label")
     publisher_lang = description.get("lang") if description.get("lang") is not None else lang
     publisher_label_lit = gr.get_literal_with_lang(publisher_label, publisher_lang)
@@ -146,7 +146,7 @@ def create_graph_from_event_description(g:Graph, event_description:dict, source_
     ```
     """
 
-    event_uri = gr.generate_uri(np.FACTOIDS, "EV")
+    event_uri = gr.generate_uri(np.RES, "Event", separator="/")
     landmark_uris = {}
 
     created_entities = [event_uri]
@@ -159,13 +159,13 @@ def create_graph_from_event_description(g:Graph, event_description:dict, source_
         g.add((event_uri, np.RDFS.comment, ev_label))
 
     for desc in landmark_descriptions:
-        lm_id, lm_uri = desc.get("id"), gr.generate_uri(np.FACTOIDS, "LM")
+        lm_id, lm_uri = desc.get("id"), gr.generate_uri(np.RES, "Landmark", separator="/")
         landmark_uris[lm_id] = lm_uri
         new_entities = create_event_landmark(g, event_uri, lm_uri, desc)
         created_entities += new_entities
 
     for desc in landmark_relation_descriptions:
-        lr_uri = gr.generate_uri(np.FACTOIDS, "LR")
+        lr_uri = gr.generate_uri(np.RES, "LandmarkRelation", separator="/")
         create_event_landmark_relation(g, event_uri, lr_uri, desc, landmark_uris)
         created_entities.append(lr_uri)
 
@@ -216,7 +216,7 @@ def get_event_description_elements(event_description:dict):
     return time_description, label, lang, landmark_descriptions, landmark_relation_descriptions, provenance_description
 
 def create_event_with_time(g:Graph, event_uri:URIRef, time_description:dict):
-    time_uri = gr.generate_uri(np.FACTOIDS, "TI")
+    time_uri = gr.generate_uri(np.RES, "TimeInstant", separator="/")
     if isinstance(time_description, dict):
         ri.create_event_with_time(g, event_uri, time_uri)
         create_time_instant(g, time_uri, time_description)
@@ -259,7 +259,7 @@ def create_event_change_on_landmark(g:Graph, event_uri:URIRef, landmark_uri:URIR
         "unclassement":"landmark_unclassement",
     }
     
-    change_uri = gr.generate_uri(np.FACTOIDS, "CG")
+    change_uri = gr.generate_uri(np.RES, "Change", separator="/")
     change_type = change_description.get("type")
     change_type_uri = om.get_change_type(change_types.get(change_type))
 
@@ -271,20 +271,20 @@ def create_event_change_on_landmark_attribute(g:Graph, event_uri:URIRef, landmar
     attribute_type = change_description.get("attribute")
     attribute_type_uri = om.get_attribute_type(attribute_type)
 
-    attribute_uri = gr.generate_uri(np.FACTOIDS, "ATTR")
-    change_uri = gr.generate_uri(np.FACTOIDS, "CG")
+    attribute_uri = gr.generate_uri(np.RES, "Attribute", separator="/")
+    change_uri = gr.generate_uri(np.RES, "Change", separator="/")
 
     made_effective_versions = change_description.get("makes_effective") or []
     outdated_versions = change_description.get("outdates") or []
 
     made_effective_versions_uris, outdated_versions_uris = [], []
     for vers in made_effective_versions:
-        vers_uri = gr.generate_uri(np.FACTOIDS, "AV")
+        vers_uri = gr.generate_uri(np.RES, "AttributeVersion", separator="/")
         create_event_attribute_version(g, attribute_uri, vers_uri, vers)
         made_effective_versions_uris.append(vers_uri)
 
     for vers in outdated_versions:
-        vers_uri = gr.generate_uri(np.FACTOIDS, "AV")
+        vers_uri = gr.generate_uri(np.RES, "AttributeVersion", separator="/")
         create_event_attribute_version(g, attribute_uri, vers_uri, vers)
         outdated_versions_uris.append(vers_uri)
 
@@ -321,7 +321,7 @@ def create_event_landmark_relation(g:Graph, event_uri:URIRef, landmark_relation_
         change_type = cg_desc.get("type")
         change_type_uri = om.get_change_type(change_types.get(change_type))
         if change_type_uri is not None:
-            change_uri = gr.generate_uri(np.FACTOIDS, "CG")
+            change_uri = gr.generate_uri(np.RES, "Change", separator="/")
             ri.create_landmark_relation_change(g, change_uri, change_type_uri, landmark_relation_uri)
             ri.create_change_event_relation(g, change_uri, event_uri)
 
@@ -457,7 +457,7 @@ def create_graph_from_state_descriptions(states_descriptions:dict):
     valid_time_uri = None
     # Check if the time description is a dictionary and contains the keys 'start' and 'end'
     if isinstance(time_description, dict) and {"start", "end"}.issubset(time_description.keys()):
-        valid_time_uri = gr.generate_uri(np.FACTOIDS, "TI")
+        valid_time_uri = gr.generate_uri(np.RES, "TI")
         create_time_interval(g, valid_time_uri, time_description)
 
     source_uri = None
@@ -514,7 +514,7 @@ def create_landmark_version_from_description(g:Graph, lm_state_description:dict,
     ```
     """
 
-    lm_uri = gr.generate_uri(np.FACTOIDS, "LM") # Generate a unique URI for the landmark
+    lm_uri = gr.generate_uri(np.RES, "LM") # Generate a unique URI for the landmark
     lm_id = lm_state_description.get("id") # Extract the landmark ID from the version description
     lm_label = lm_state_description.get("label") # Extract the landmark label from the version description
     lm_lang = lm_state_description.get("lang") # Extract the language from the version description
@@ -527,7 +527,7 @@ def create_landmark_version_from_description(g:Graph, lm_state_description:dict,
     # If it does not exist, use the valid time URI if it is provided
     if lm_valid_time is not None:
         time_description = tp.get_valid_time_description(lm_valid_time) # Create a time description for the landmark
-        lm_valid_time_uri = gr.generate_uri(np.FACTOIDS, "TI")
+        lm_valid_time_uri = gr.generate_uri(np.RES, "TI")
         create_time_interval(g, lm_valid_time_uri, time_description) # Create the time interval for the landmark
         ri.add_time_to_resource(g, lm_uri, lm_valid_time_uri)
     elif isinstance(valid_time_uri, URIRef):
@@ -538,7 +538,7 @@ def create_landmark_version_from_description(g:Graph, lm_state_description:dict,
     attr_types_and_values = create_version_attribute_version(lm_attributes) # Create a dictionary of attribute types and values
     lm_provenance_uri = create_provenance(g, lm_provenance) # Get the URI for the provenance
 
-    ri.create_landmark_with_attributes(g, lm_uri, lm_type_uri, lm_label, attr_types_and_values, lm_provenance_uri, np.FACTOIDS, lm_lang)
+    ri.create_landmark_with_attributes(g, lm_uri, lm_type_uri, lm_label, attr_types_and_values, lm_provenance_uri, np.RES, lm_lang)
 
     # Add provenance to the landmark and source to the provenance if it exists
     if lm_provenance_uri is not None and source_uri is not None:
@@ -568,7 +568,7 @@ def create_landmark_relation_version_from_description(g:Graph, lr_state_descript
     }
     ```
     """
-    lr_uri = gr.generate_uri(np.FACTOIDS, "LR") # Generate a unique URI for the landmark relation
+    lr_uri = gr.generate_uri(np.RES, "LR") # Generate a unique URI for the landmark relation
     lr_id = lr_state_description.get("id") # Extract the landmark relation ID from the version description
     lr_type = lr_state_description.get("type") # Extract the landmark relation type from the version description
     lr_provenance = lr_state_description.get("provenance") or {} # Extract the provenance from the version description
@@ -637,7 +637,7 @@ def create_address_version_from_description(g:Graph, addr_state_description:list
     ```
     """
 
-    addr_uri = gr.generate_uri(np.FACTOIDS, "ADDR") # Generate a unique URI for the address
+    addr_uri = gr.generate_uri(np.RES, "Address", separator="/") # Generate a unique URI for the address
     addr_label = addr_state_description.get("label") # Extract the address label from the version description
     addr_lang = addr_state_description.get("lang") # Extract the language from the version description
     addr_target = addr_state_description.get("target") # Extract the target (it is a landmark) from the version description
@@ -648,7 +648,7 @@ def create_address_version_from_description(g:Graph, addr_state_description:list
     addr_target_uri = landmark_uris.get(addr_target) # Get the URI for the address target
     # Case when the target is not defined, create it (undefined landmark)
     if addr_target_uri is None:
-        lm_uri = gr.generate_uri(np.FACTOIDS, "LM") # Generate a unique URI for the landmark
+        lm_uri = gr.generate_uri(np.RES, "Landmark", separator="/") # Generate a unique URI for the landmark
         lm_type_uri = om.get_landmark_relation_type("undefined")
         ri.create_landmark(g, lm_uri, None, lm_type_uri)
 
