@@ -1,4 +1,4 @@
-# Multi-Source Ontology Population --- Evaluation README
+# Evaluation
 
 ## Overview
 
@@ -33,7 +33,7 @@ correctly defined and consistent:
 
 ### 1. Ontology Population
 
-Populate the PeGazUs ontology using dataset D.
+Populate the PeGazUs ontology using dataset $D$.
 
 * Input: set of datasets $D$
 * Output: graph $G$
@@ -52,8 +52,8 @@ house number geometries.
 
 Generate additional coherent fragmentary datasets:
 
-* $d_st$: spatio-temporal states\
-* $d_ev$: events describing changes
+* $d_{st}$: spatio-temporal states
+* $d_{ev}$: events describing changes
 
 ------------------------------------------------------------------------
 
@@ -104,29 +104,23 @@ This metric requires **full equality** of temporal information.
 
 Measures **temporal compatibility** between evolutions.
 
-* For each change in \(G\) occurring at time \(t\),  
-  its corresponding change in the derived graph occurs at time \(t'\)
+* For each change in $G$ occurring at time $t$,  
+  its corresponding change in the derived graph occurs at time $t'$
 
 The following constraint must hold:
 
-* \(t'\) must be **included in** \(t\)
+* $t'$ must be **included in** $t$
 
 This inclusion is defined depending on the nature of temporal representations:
 
-* **Crisp vs. crisp**:  
-  \(t' = t\)
+- **Crisp vs. crisp**: t' = t
 
-* **Crisp vs. fuzzy** (where \(t = [t_{begin}, t_{end}]\)):  
-  \(t' \in t\), i.e. \(t_{begin} \leq t' \leq t_{end}\)
+- **Crisp vs. fuzzy**:  t ∈ interval(t_begin, t_end), and t' ∈ t, i.e.   t_begin ≤ t' ≤ t_end
 
-* **Fuzzy vs. fuzzy**:  
-  \(t' \subseteq t\)
-
-where:
-* \(t = [t_{begin}, t_{end}]\)
-* \(t' = [t'_{begin}, t'_{end}]\)
-* and:
-  \(t_{begin} \leq t'_{begin} \leq t'_{end} \leq t_{end}\)
+- **Fuzzy vs. fuzzy**: t' ⊆ t where:
+  - t = [t_begin, t_end]
+  - t' = [t'_begin, t'_end]
+  - or t_begin ≤ t'_begin ≤ t'_end ≤ t_end
 
 ---
 
