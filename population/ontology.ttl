@@ -810,7 +810,7 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
 :AttributeChange rdf:type owl:Class ;
                  rdfs:subClassOf :Change ;
                  rdfs:label "Change on an attribute"@en ,
-                            "Changement sur l'attribut"@fr 
+                            "Changement sur l'attribut"@fr ;
                  rdfs:comment "Un changement sur un attribut est une modification appliquée à un attribut, elle définit une ou plusieurs de ses versions qui sont créées ou périmées lors de l'application du changement."@fr,
                               "A change on an attribute is a modification applied to an attribute, it defines one or more of its versions that are created or outdated when the change is applied."@en .
                           
@@ -937,7 +937,7 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
                                   :TimeInstant ;
                   rdfs:label "Fuzzy time instant"@en ,
                              "Instant temporel flou"@fr ;
-                  rdfs:comment rdfs:comment """
+                  rdfs:comment """
 Un instant temporel flou représente un instant dont la valeur temporelle est incertaine ou imprécise. 
 Cette incertitude peut être décrite à l'aide de trois relations vers des instants temporels précis : 
 - hasFuzzyBeginning indique une borne inférieure de l'incertitude temporelle ;
@@ -980,7 +980,7 @@ These relations are optional and may be used independently of one another depend
 :LandmarkChange rdf:type owl:Class ;
                 rdfs:subClassOf :Change ;
                 rdfs:label "Change on a landmark"@en ,
-                           "Changement sur le repère"@fr ,
+                           "Changement sur le repère"@fr ;
                 rdfs:comment "Un changement sur un repère est une modification d'état d'un repère (apparition, disparition)."@fr, 
                               "A change on a landmark is a change of state of a landmark (appearance, disappearance)."@en .
 
@@ -993,8 +993,7 @@ These relations are optional and may be used independently of one another depend
 Ces relations peuvent prendre diverses formes, notamment :
 - des relations géographiques, par exemple lorsqu'un point de repère est situé à l'angle de deux autres points de repère ;
 - des relations hiérarchiques, par exemple lorsqu'un point de repère est la capitale d'une autre entité administrative ;
-- ainsi que d'autres relations spécifiques au domaine ou contextuelles, selon les besoins de l'application.
-                  
+- d'autres relations spécifiques."""@fr ,
                   """It is a relation that represents a relation existing between one or more landmarks.
 Such relations may take various forms, including:
 - geographic relations, for example when a landmark is located at the corner of two other landmarks;
@@ -1015,7 +1014,7 @@ Such relations may take various forms, including:
 :LandmarkRelationType rdf:type owl:Class ;
                       rdfs:subClassOf skos:Concept ;
                       rdfs:label "type of landmark relation"@en ,
-                                 "Type de relation entre repères"@fr 
+                                 "Type de relation entre repères"@fr ; 
                       rdfs:comment "Un type de relation entre repères est une catégorie qui permet de classer les différentes relations existantes des repères."@fr,
                                    "A type of landmark relation is a category that allows classifying the different existing relations between landmarks."@en .
 
@@ -1462,32 +1461,57 @@ ltype:Undefined rdf:type owl:NamedIndividual ,
 
 ###  http://www.w3.org/2006/time#unitCentury
 time:unitCentury rdf:type owl:NamedIndividual ,
-                          time:TemporalUnit .
+                          time:TemporalUnit ;
+                  rdfs:label "Century"@en ;
+                  rdfs:label "Siècle"@fr ;
+                  rdfs:comment "A period of 100 years."@en ;
+                  rdfs:comment "Une période de 100 ans."@fr .
+
 
 
 ###  http://www.w3.org/2006/time#unitDay
 time:unitDay rdf:type owl:NamedIndividual ,
-                      time:TemporalUnit .
+                      time:TemporalUnit ;
+                  rdfs:label "Day"@en ;
+                  rdfs:label "Jour"@fr ;
+                  rdfs:comment "A period of 24 hours."@en ;
+                  rdfs:comment "Une période de 24 heures."@fr .
 
 
 ###  http://www.w3.org/2006/time#unitDecade
 time:unitDecade rdf:type owl:NamedIndividual ,
-                         time:TemporalUnit .
+                         time:TemporalUnit ;
+                  rdfs:label "Decade"@en ;
+                  rdfs:label "Décennie"@fr ;
+                  rdfs:comment "A period of 10 years."@en ;
+                  rdfs:comment "Une période de 10 ans."@fr .
 
 
 ###  http://www.w3.org/2006/time#unitMonth
 time:unitMonth rdf:type owl:NamedIndividual ,
-                        time:TemporalUnit .
+                        time:TemporalUnit ;
+                  rdfs:label "Month"@en ;
+                  rdfs:label "Mois"@fr ;
+                  rdfs:comment "A period of approximately 30 days."@en ;
+                  rdfs:comment "Une période d'environ 30 jours."@fr .
 
 
 ###  http://www.w3.org/2006/time#unitWeek
 time:unitWeek rdf:type owl:NamedIndividual ,
-                       time:TemporalUnit .
+                       time:TemporalUnit ;
+                  rdfs:label "Week"@en ;
+                  rdfs:label "Semaine"@fr ;
+                  rdfs:comment "A period of 7 days."@en ;
+                  rdfs:comment "Une période de 7 jours."@fr .
 
 
 ###  http://www.w3.org/2006/time#unitYear
 time:unitYear rdf:type owl:NamedIndividual ,
-                       time:TemporalUnit .
+                       time:TemporalUnit ;
+                  rdfs:label "Year"@en ;
+                  rdfs:label "Année"@fr ;
+                  rdfs:comment "A period of approximately 365 days."@en ;
+                  rdfs:comment "Une période d'environ 365 jours."@fr .
 
 
 ###  http://www.wikidata.org/entity/Q181974

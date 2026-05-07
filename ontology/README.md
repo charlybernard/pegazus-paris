@@ -18,6 +18,7 @@ The ontology describes:
 PeGazUs reuses common RDF vocabularies, including:
 - **OWL / RDF / RDFS**
 - **SKOS**
+- **OWL-Time**
 - **PROV-O**
 
 ## Ontology metadata
