@@ -1,4 +1,4 @@
-# Licence
+# Licenses
 
 ## Semantic resources
 
