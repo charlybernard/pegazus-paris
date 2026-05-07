@@ -1,0 +1,5565 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "fr", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "http://www.w3.org/ns/sparql-service-description", "http://www.w3.org/ns/org", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://www.w3.org/2001/XMLSchema", "http://xmlns.com/foaf/0.1", "https://w3id.org/PeGazUs", "http://www.w3.org/2006/time", "http://www.w3.org/2004/02/skos/core" ],
+    "title" : {
+      "en" : "PeGazUs ontology",
+      "fr" : "Ontologie PeGazUs"
+    },
+    "iri" : "https://w3id.org/PeGazUs#",
+    "version" : "Version 0.1 - 2025-03-04",
+    "author" : [ "_:genid2147483653" ],
+    "description" : {
+      "en" : "PeGazUs ontology to represent the evolution of geographical entities",
+      "fr" : "Ontologie PeGazUs pour représenter l'évolution des entités géographiques"
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "type" : "iri"
+      } ],
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "_:genid2147483653",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://crh.ehess.fr/index.php?5206",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://www.umr-lastig.fr/julien-perret/",
+        "type" : "iri"
+      }, {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://www.umr-lastig.fr/nathalie-abadie/",
+        "type" : "iri"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "peg",
+        "type" : "label"
+      } ],
+      "rights" : [ {
+        "identifier" : "rights",
+        "language" : "undefined",
+        "value" : "Copyright 2025, IGN",
+        "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re",
+        "type" : "iri"
+      } ],
+      "modified" : [ {
+        "identifier" : "modified",
+        "language" : "undefined",
+        "value" : "2024-09-13",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://w3id.org/PeGazUs#",
+        "type" : "iri"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "Version 0.1 - 2025-03-04",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "fr",
+        "value" : "Ontologie PeGazUs",
+        "type" : "label"
+      }, {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "PeGazUs ontology",
+        "type" : "label"
+      } ],
+      "issued" : [ {
+        "identifier" : "issued",
+        "language" : "undefined",
+        "value" : "2023-10-30",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "75",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "97",
+    "type" : "owl:Class"
+  }, {
+    "id" : "98",
+    "type" : "owl:Class"
+  }, {
+    "id" : "53",
+    "type" : "owl:Class"
+  }, {
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "103",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "116",
+    "type" : "owl:Class"
+  }, {
+    "id" : "56",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "63",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "45",
+    "type" : "owl:Class"
+  }, {
+    "id" : "49",
+    "type" : "owl:Class"
+  }, {
+    "id" : "64",
+    "type" : "owl:Class"
+  }, {
+    "id" : "58",
+    "type" : "owl:Class"
+  }, {
+    "id" : "102",
+    "type" : "owl:Class"
+  }, {
+    "id" : "51",
+    "type" : "owl:Class"
+  }, {
+    "id" : "92",
+    "type" : "owl:Class"
+  }, {
+    "id" : "47",
+    "type" : "owl:Class"
+  }, {
+    "id" : "144",
+    "type" : "owl:Class"
+  }, {
+    "id" : "37",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "105",
+    "type" : "owl:Class"
+  }, {
+    "id" : "146",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "96",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "28",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "66",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "142",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "149",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "61",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "13",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "74",
+    "type" : "owl:Class"
+  }, {
+    "id" : "155",
+    "type" : "owl:Class"
+  }, {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "60",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/PeGazUs#CrispTemporalEntity",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CrispTemporalEntity",
+      "en" : "Crisp temporal entity",
+      "fr" : "Entité temporelle non floue"
+    },
+    "subClasses" : [ "2", "3" ],
+    "comment" : {
+      "en" : "A crisp temporal entity is an entity that has a precise moment in time, which is either an instant or an interval.",
+      "fr" : "Une entité temporelle non floue est une entité qui a un moment précis de temps, que ce soit un instant ou un intervalle."
+    },
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2006/time#Interval",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Interval"
+    },
+    "attributes" : [ "external" ],
+    "id" : "10"
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Concept"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Thoroughfare",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Voie",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Tout élément relatif à une voie de communication (rue, place, avenue...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Any element relating to a thoroughfare (street, square, avenue, etc.)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Thoroughfare"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Country",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Country",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Pays",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "État",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "State",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant un État, un pays",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a state or country",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Country"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Non défini",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Undefined",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Lieu non défini, inconnu",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Undefined or unknown place",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Undefined"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/District",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Quartier",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "District",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Neighborhood",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Quarter",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Hameau",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant un quartier",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a district",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "District"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "District number",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de quartier",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro d'un bâtiment, d'un immeuble lié à un quartier",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DistrictNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Is similar as",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Est similaire à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is the same thing as the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est la même chose que le relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "IsSimilar"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Municipality",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Commune",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a city, town or commune",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant une ville, une commune",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Town",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "City",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Ville",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Municipality"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of a landmark relation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition de la relation entre repères",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition d'une relation entre repères.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of a landmark relation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkRelationAppearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Administrative unit",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Unité administrative",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Zone résultant d'un découpage administratif (quatier, commune, pays...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Area resulting from an administrative division (district, municipality, country...)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AdministrativeUnit"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/Name",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Name",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Nom",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Name attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de nom",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant le nom d'un élément",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the name of an element",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Name"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Disparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of a landmark",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la disparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of the landmark",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Termine à",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Ends at",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum ends at the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum (un repère linéaire) termine au niveau du relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EndsAt"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Starts at",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum (un repère linéaire) commence au niveau du relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum begins at the relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "StartsAt"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Corner",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Coin",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est au coin du relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is at the corner the relatums",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Corner"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of a landmark relation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Dissolution de la relation entre repères",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la dissolution d'une relation entre repères.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of a landmark relation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkRelationDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of a landmark",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition du repère",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of the landmark",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkAppearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Touches",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Touche",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "En contact",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Limitrophe",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum touche le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum touches the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est en contact avec le relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Touches"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition d'une version d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of an attribute version",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition d'une version d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of a version of an attribute",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionAppearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Fait partie de",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Is part of",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is part of the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum fait partie du relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "IsPartOf"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "House number",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de l'habitation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Number associated with a landmark used to identify a building, a company or a person within the landmark.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro associé à un repère permettant d'identifier un bâtiment, une entreprise, une personne au sein du repère.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "HouseNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Structure",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Structure",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Lieu défini (bâtiment, magasin, maison...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Defined location (building, shop, house, etc.)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Structure"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Code INSEE",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "INSEE code",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de code INSEE",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "INSEE code",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the INSEE code of an element",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant le code INSEE d'un élément",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "InseeCode"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Belongs to",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Appartient à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum belongs to the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre des repères définissant que le locatum appartient au relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Belongs"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Zone postale",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Postal area",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Zone postale définie par un code",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Postal area defined by a code",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PostalCodeArea"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of an attribute version",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Disparition d'une version d'un attribut",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of a version of an attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la disparition d'une version d'un attribut",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Le long de",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Along",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum longe le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum runs alongside the relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Along"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Entre",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Between",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is between the relatums",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est entre deux relatums",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Between"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de rue",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Street number",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro d'un bâtiment, d'un immeuble lié à une rue",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Number of a building linked to a street",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "StreetNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geometry",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Géométrie",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant la géométrie d'un élément",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the geometry of an element",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Geometry attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de géométrie",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Geometry"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Transition de versions d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Transition between attribute versions",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the transition between versions (appearance and disappearance) of an attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionTransition"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Within",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Dans",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est situé dans le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères entre des repères définissant que le locatum est dans un relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is within the relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "À l'intérieur",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Within"
+      }
+    } ],
+    "subClasses" : [ "18", "19", "20", "21" ],
+    "attributes" : [ "external" ],
+    "id" : "17"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#AttributeVersion",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AttributeVersion",
+      "en" : "Attribute version",
+      "fr" : "Version de l'attribut"
+    },
+    "comment" : {
+      "en" : "An attribute version is a version of an attribute which has a specific value.",
+      "fr" : "Une version d'attribut est une version reliée à un attribut qui possède est définie par une valeur."
+    },
+    "id" : "6"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#ChangeType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ChangeType",
+      "en" : "Change Type",
+      "fr" : "Type de changement"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of an attribute version",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Disparition d'une version d'un attribut",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of a version of an attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la disparition d'une version d'un attribut",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of a landmark relation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition de la relation entre repères",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition d'une relation entre repères.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of a landmark relation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkRelationAppearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition d'une version d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of an attribute version",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition d'une version d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of a version of an attribute",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionAppearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Disparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of a landmark",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la disparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of the landmark",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Disappearance of a landmark relation",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Dissolution de la relation entre repères",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la dissolution d'une relation entre repères.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the disappearance of a landmark relation.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkRelationDisappearance"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Transition de versions d'un attribut",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Transition between attribute versions",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the transition between versions (appearance and disappearance) of an attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AttributeVersionTransition"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/ChangeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#ChangeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Appearance of a landmark",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Apparition du repère",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Changement décrivant l'apparition du repère",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Change describing the appearance of the landmark",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkAppearance"
+      }
+    } ],
+    "comment" : {
+      "en" : "A change type is a category of changes defined by common characteristics.",
+      "fr" : "Un type de changement est une catégorie de changements définie par des caractéristiques communes."
+    },
+    "id" : "21",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Entity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Entity",
+      "en" : "Entity",
+      "fr" : "entité"
+    },
+    "comment" : {
+      "en" : "An entity is a physical, digital, conceptual or other element, which has certain fixed aspects; it can be real or imaginary.",
+      "fr" : "Une entité est un élément physique, numérique, conceptuel ou autre, possédant certains aspects fixes ; les entités peuvent être réelles ou imaginaires."
+    },
+    "attributes" : [ "external" ],
+    "id" : "32"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkType",
+      "en" : "Type of landmark",
+      "fr" : "Type de repère"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Thoroughfare",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Voie",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Tout élément relatif à une voie de communication (rue, place, avenue...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Any element relating to a thoroughfare (street, square, avenue, etc.)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Thoroughfare"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "House number",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de l'habitation",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Number associated with a landmark used to identify a building, a company or a person within the landmark.",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro associé à un repère permettant d'identifier un bâtiment, une entreprise, une personne au sein du repère.",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "HouseNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Administrative unit",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Unité administrative",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Zone résultant d'un découpage administratif (quatier, commune, pays...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Area resulting from an administrative division (district, municipality, country...)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "AdministrativeUnit"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de rue",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Street number",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro d'un bâtiment, d'un immeuble lié à une rue",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Number of a building linked to a street",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "StreetNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Non défini",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Undefined",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Lieu non défini, inconnu",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Undefined or unknown place",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Undefined"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Country",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Country",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Pays",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "État",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "State",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant un État, un pays",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a state or country",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Country"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Structure",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Structure",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Lieu défini (bâtiment, magasin, maison...)",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Defined location (building, shop, house, etc.)",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Structure"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/District",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Quartier",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "District",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Neighborhood",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Quarter",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Hameau",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant un quartier",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a district",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "District"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "District number",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Numéro de quartier",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Numéro d'un bâtiment, d'un immeuble lié à un quartier",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "DistrictNumber"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Zone postale",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Postal area",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Zone postale définie par un code",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Postal area defined by a code",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "PostalCodeArea"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Municipality",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Commune",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Administrative entity describing a city, town or commune",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Entité administrative décrivant une ville, une commune",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Town",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "City",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Ville",
+          "type" : "label"
+        } ],
+        "broader" : [ {
+          "identifier" : "broader",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Municipality"
+      }
+    } ],
+    "comment" : {
+      "en" : "A type of landmark is a category that allows classifying the different types of landmarks.",
+      "fr" : "Un type de repère est une catégorie qui permet de classer les différents types de repères."
+    },
+    "id" : "18",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#TemporalInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporalInstant"
+    },
+    "id" : "29"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Change",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Change",
+      "en" : "Change",
+      "fr" : "Changement"
+    },
+    "subClasses" : [ "63", "64", "5" ],
+    "comment" : {
+      "en" : "A change is any modification made to a geographic feature or its attributes, or to a relationship between features.",
+      "fr" : "Un changement est toute modification appliquée à une entité géographique ou à ses attributs ou bien à une relation entre entités."
+    },
+    "id" : "12"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#TimeInterval",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TimeInterval",
+      "en" : "Time interval",
+      "fr" : "Intervalle temporel"
+    },
+    "subClasses" : [ "49", "2" ],
+    "comment" : {
+      "en" : "A time interval is a period of time.",
+      "fr" : "Un intervalle temporel est une période de temps."
+    },
+    "id" : "75",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#CrispTimeInterval",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CrispTimeInterval",
+      "en" : "Crisp time interval",
+      "fr" : "Intervalle temporel précis"
+    },
+    "comment" : {
+      "en" : "A crisp time interval is a precise time interval, whose bounds are defined by crisp time instants.",
+      "fr" : "Un intervalle temporel précis est un intervalle de temps précis, dont les bornes sont définies par des instants temporels précis."
+    },
+    "id" : "2",
+    "superClasses" : [ "75", "0" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Event",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Event",
+      "en" : "Event",
+      "fr" : "Événément"
+    },
+    "comment" : {
+      "en" : "Event describing a development involving one or more resources at a given time.",
+      "fr" : "Un événément décrit une évolution impliquant une ou plusieurs ressources à un instant donné."
+    },
+    "id" : "39"
+  }, {
+    "iri" : "http://purl.org/vocommons/voaf#Vocabulary",
+    "baseIri" : "http://purl.org/vocommons/voaf",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Vocabulary"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs#",
+      "baseIri" : "https://w3id.org/PeGazUs",
+      "labels" : { }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "97"
+  }, {
+    "iri" : "http://xmlns.com/foaf/0.1/Person",
+    "baseIri" : "http://xmlns.com/foaf/0.1",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Person"
+    },
+    "attributes" : [ "external" ],
+    "id" : "98"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#TimeInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TimeInstant",
+      "en" : "Time instant",
+      "fr" : "Instant"
+    },
+    "subClasses" : [ "3", "16" ],
+    "comment" : {
+      "en" : "A time instant is an instance of a temporal entity.",
+      "fr" : "Un instant est une instance d'une entité temporelle."
+    },
+    "id" : "53",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/2006/time#ProperInterval",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ProperInterval"
+    },
+    "attributes" : [ "external" ],
+    "id" : "23"
+  }, {
+    "iri" : "http://www.w3.org/ns/org#Role",
+    "baseIri" : "http://www.w3.org/ns/org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Role"
+    },
+    "attributes" : [ "external" ],
+    "id" : "103"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#AttributeType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AttributeType",
+      "en" : "attribute type",
+      "fr" : "Type d'attribut"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Geometry",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Géométrie",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant la géométrie d'un élément",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the geometry of an element",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Geometry attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de géométrie",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Geometry"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/Name",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Name",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Nom",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "Name attribute",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de nom",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant le nom d'un élément",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the name of an element",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Name"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/AttributeType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AttributeList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Code INSEE",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "INSEE code",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Attribut de code INSEE",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "en",
+          "value" : "INSEE code",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Attribute describing the INSEE code of an element",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Attribut décrivant le code INSEE d'un élément",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "InseeCode"
+      }
+    } ],
+    "comment" : {
+      "en" : "An attribute type is a category of attributes defined by common characteristics.",
+      "fr" : "Un type d'attribut est une catégorie d'attributs définie par des caractéristiques communes."
+    },
+    "id" : "19",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkRelationType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkRelationType",
+      "en" : "type of landmark relation",
+      "fr" : "Type de relation entre repères"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Le long de",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Along",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum longe le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum runs alongside the relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Along"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Entre",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Between",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is between the relatums",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est entre deux relatums",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Between"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Fait partie de",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Is part of",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is part of the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum fait partie du relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "IsPartOf"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Termine à",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Ends at",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum ends at the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum (un repère linéaire) termine au niveau du relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "EndsAt"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Starts at",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum (un repère linéaire) commence au niveau du relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum begins at the relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Commence à",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "StartsAt"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Corner",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Coin",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est au coin du relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is at the corner the relatums",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Corner"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Belongs to",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Appartient à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum belongs to the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre des repères définissant que le locatum appartient au relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Belongs"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Touches",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Touche",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "En contact",
+          "type" : "label"
+        }, {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "Limitrophe",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum touche le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum touches the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est en contact avec le relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Touches"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Is similar as",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Est similaire à",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is the same thing as the relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est la même chose que le relatum",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "IsSimilar"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within",
+      "baseIri" : "https://w3id.org/PeGazUs/id/codes/LandmarkRelationType",
+      "annotations" : {
+        "inScheme" : [ {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#AdressSegmentList",
+          "type" : "iri"
+        }, {
+          "identifier" : "inScheme",
+          "language" : "undefined",
+          "value" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+          "type" : "iri"
+        } ],
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "Within",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "Dans",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères définissant que le locatum est situé dans le relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Relation entre repères entre des repères définissant que le locatum est dans un relatum",
+          "type" : "label"
+        }, {
+          "identifier" : "definition",
+          "language" : "en",
+          "value" : "Relation between landmarks defining that the locatum is within the relatum",
+          "type" : "label"
+        } ],
+        "altLabel" : [ {
+          "identifier" : "altLabel",
+          "language" : "fr",
+          "value" : "À l'intérieur",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Within"
+      }
+    } ],
+    "comment" : {
+      "en" : "A type of landmark relation is a category that allows classifying the different existing relations between landmarks.",
+      "fr" : "Un type de relation entre repères est une catégorie qui permet de classer les différentes relations existantes des repères."
+    },
+    "id" : "20",
+    "superClasses" : [ "17" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#FuzzyTimeInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FuzzyTimeInstant",
+      "en" : "Fuzzy time instant",
+      "fr" : "Instant temporel flou"
+    },
+    "comment" : {
+      "en" : "\nA fuzzy temporal instant represents an instant whose temporal value is uncertain or imprecise. \nThis uncertainty may be described using three relations to precise temporal instants: \n- hasFuzzyBeginning indicates the lower bound of the temporal uncertainty;\n- hasFuzzyPeak indicates the central or most probable instant;\n- hasFuzzyEnd indicates the upper bound of the temporal uncertainty.\nThese relations are optional and may be used independently of one another depending on the level of precision available in the data.\n",
+      "fr" : "\nUn instant temporel flou représente un instant dont la valeur temporelle est incertaine ou imprécise. \nCette incertitude peut être décrite à l'aide de trois relations vers des instants temporels précis : \n- hasFuzzyBeginning indique une borne inférieure de l'incertitude temporelle ;\n- hasFuzzyPeak indique un instant central ou le plus probable ;\n- hasFuzzyEnd indique une borne supérieure de l'incertitude temporelle.\nCes relations sont optionnelles et peuvent être utilisées indépendamment les unes des autres selon le niveau de précision disponible dans les données.\n"
+    },
+    "id" : "16",
+    "superClasses" : [ "53", "37" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkVersion",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkVersion",
+      "en" : "Landmark version",
+      "fr" : "Version de repère"
+    },
+    "comment" : {
+      "en" : "A landmark version is a specific instance of a landmark at a given time.",
+      "fr" : "Une version de repère est une instance spécifique d'un repère à un moment donné."
+    },
+    "id" : "116"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#FinalGraph",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FinalGraph",
+      "en" : "Final graph",
+      "fr" : "Graphe final"
+    },
+    "comment" : {
+      "en" : "A named graph representing the final, consolidated knowledge graph.",
+      "fr" : "Graphe nommé représentant le graphe de connaissances final et consolidé."
+    },
+    "id" : "56",
+    "superClasses" : [ "45" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#AddressSegment",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AddressSegment",
+      "en" : "Address segment",
+      "fr" : "segment d'adresse"
+    },
+    "subClasses" : [ "58" ],
+    "comment" : {
+      "en" : "An address segment describes a relationship between a landmark (the locatum) and one or more other landmarks (the relatums). An address segment may be followed by another address segment that describes a relationship between the locatum of the previous address segment and other landmarks.",
+      "fr" : "Un segment d'adresse décrit une relation entre un repère (le locatum) et un ou plusieurs autres repères (les relatums). Un segment d'adresse peut être suivi par un autre segment d'adresse qui décrit une relation entre le locatum du segment d'adresse précédent et d'autres repères."
+    },
+    "id" : "34",
+    "superClasses" : [ "35" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkChange",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkChange",
+      "en" : "Change on a landmark",
+      "fr" : "Changement sur le repère"
+    },
+    "comment" : {
+      "en" : "A change on a landmark is a change of state of a landmark (appearance, disappearance).",
+      "fr" : "Un changement sur un repère est une modification d'état d'un repère (apparition, disparition)."
+    },
+    "id" : "63",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#AttributeChange",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "AttributeChange",
+      "en" : "Change on an attribute",
+      "fr" : "Changement sur l'attribut"
+    },
+    "comment" : {
+      "en" : "A change on an attribute is a modification applied to an attribute, it defines one or more of its versions that are created or outdated when the change is applied.",
+      "fr" : "Un changement sur un attribut est une modification appliquée à un attribut, elle définit une ou plusieurs de ses versions qui sont créées ou périmées lors de l'application du changement."
+    },
+    "id" : "5",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Graph",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Graph",
+      "en" : "Graph",
+      "fr" : "Graphe"
+    },
+    "subClasses" : [ "56", "47", "44" ],
+    "comment" : {
+      "en" : "A named graph used as a container for RDF statements.",
+      "fr" : "Graphe nommé utilisé comme conteneur de triplets RDF."
+    },
+    "id" : "45",
+    "superClasses" : [ "51" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#FuzzyTimeInterval",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FuzzyTimeInterval",
+      "en" : "Fuzzy time interval",
+      "fr" : "Intervalle temporel flou"
+    },
+    "comment" : {
+      "en" : "A fuzzy time interval represents an interval whose at least one temporal bound is uncertain or imprecise.",
+      "fr" : "Un intervalle temporel flou représente un intervalle au moins une des bornes temporelles sont incertaines ou imprécises."
+    },
+    "id" : "49",
+    "superClasses" : [ "75", "37" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkRelationChange",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkRelationChange",
+      "en" : "Change on a landmark relation",
+      "fr" : "changement sur la relation entre repères"
+    },
+    "comment" : {
+      "en" : "A change on a landmark relation is a change of state of this relation (appearance, disappearance).",
+      "fr" : "Un changement sur la relation entre repères est une modification d'état de cette relation (apparition, disparition)."
+    },
+    "id" : "64",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#FinalAddressSegment",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FinalAddressSegment",
+      "en" : "final Address segment",
+      "fr" : "segment d'adresse final"
+    },
+    "comment" : {
+      "en" : "A final address segment is the last segment of an address, it is not followed by any other segment.",
+      "fr" : "Un segment d'adresse final est le dernier segment d'une adresses, elle n'est suivie d'aucun autre segment."
+    },
+    "id" : "58",
+    "superClasses" : [ "34" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Landmark",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "annotations" : {
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "Spatial entity",
+        "type" : "label"
+      }, {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "Geographic entity",
+        "type" : "label"
+      }, {
+        "identifier" : "altLabel",
+        "language" : "fr",
+        "value" : "Entité géographique",
+        "type" : "label"
+      }, {
+        "identifier" : "altLabel",
+        "language" : "fr",
+        "value" : "Entité spatiale",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Landmark",
+      "en" : "Landmark",
+      "fr" : "Repère"
+    },
+    "comment" : {
+      "en" : "A landmark is a geographic entity. It can be a street, a building, a country, or any other point of reference in space.",
+      "fr" : "Un repère est une entité géographique. Elle peut être une rue, un bâtiment, un pays ou tout autre point de référence dans l'espace."
+    },
+    "id" : "102"
+  }, {
+    "iri" : "http://www.w3.org/ns/sparql-service-description#NamedGraph",
+    "baseIri" : "http://www.w3.org/ns/sparql-service-description",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "NamedGraph"
+    },
+    "subClasses" : [ "45" ],
+    "attributes" : [ "external" ],
+    "id" : "51"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#TRS",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TRS"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.wikidata.org/entity/Q1985786",
+      "baseIri" : "http://www.wikidata.org/entity",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "proleptic Julian calendar",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "calendrier julien proleptique",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Extension du calendrier julien à avant son introduction",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Q1985786"
+      }
+    }, {
+      "iri" : "http://www.wikidata.org/entity/Q181974",
+      "baseIri" : "http://www.wikidata.org/entity",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "French Republican calendar",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "calendrier républicain",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Système de calendrier de la Révolution française",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Q181974"
+      }
+    }, {
+      "iri" : "http://www.wikidata.org/entity/Q1985727",
+      "baseIri" : "http://www.wikidata.org/entity",
+      "annotations" : {
+        "prefLabel" : [ {
+          "identifier" : "prefLabel",
+          "language" : "fr",
+          "value" : "calendrier grégorien proleptique",
+          "type" : "label"
+        }, {
+          "identifier" : "prefLabel",
+          "language" : "en",
+          "value" : "proleptic Gregorian calendar",
+          "type" : "label"
+        } ],
+        "definition" : [ {
+          "identifier" : "definition",
+          "language" : "fr",
+          "value" : "Extension du calendrier grégorien à avant son introduction",
+          "type" : "label"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "Q1985727"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "92"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#SourceGraph",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "SourceGraph",
+      "en" : "Source graph",
+      "fr" : "Graphe source"
+    },
+    "comment" : {
+      "en" : "A named graph containing data directly derived from sources.",
+      "fr" : "Graphe nommé contenant des données directement issues de sources."
+    },
+    "id" : "47",
+    "superClasses" : [ "45" ]
+  }, {
+    "iri" : "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "baseIri" : "http://www.w3.org/2004/02/skos/core",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConceptScheme"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/PeGazUs#AttributeList",
+      "baseIri" : "https://w3id.org/PeGazUs",
+      "comment" : {
+        "fr" : "Liste des différents rôles pouvant être joués par un attribut, représentés comme une liste de concepts SKOS."
+      },
+      "labels" : {
+        "IRI-based" : "AttributeList",
+        "en" : "type of attribute",
+        "fr" : "Type d'attribut"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs#LandmarkList",
+      "baseIri" : "https://w3id.org/PeGazUs",
+      "comment" : {
+        "fr" : "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkList",
+        "en" : "Type of landmark",
+        "fr" : "Type de repère"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs#LandmarkRelationList",
+      "baseIri" : "https://w3id.org/PeGazUs",
+      "comment" : {
+        "fr" : "Liste des différents rôles pouvant être joués par une relation entre repères, représentés comme une liste de concepts SKOS."
+      },
+      "labels" : {
+        "IRI-based" : "LandmarkRelationList",
+        "en" : "Type of landmark relation",
+        "fr" : "Type de relation entre repères"
+      }
+    }, {
+      "iri" : "https://w3id.org/PeGazUs#ChangeList",
+      "baseIri" : "https://w3id.org/PeGazUs",
+      "comment" : {
+        "fr" : "Liste des différents rôles pouvant être joués par un changement, représentés comme une liste de concepts SKOS."
+      },
+      "labels" : {
+        "IRI-based" : "ChangeList",
+        "en" : "type of change",
+        "fr" : "Type de changement"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "144"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#FuzzyTemporalEntity",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FuzzyTemporalEntity",
+      "en" : "Fuzzy temporal entity",
+      "fr" : "Entité temporelle floue"
+    },
+    "subClasses" : [ "49", "16" ],
+    "comment" : {
+      "en" : "A fuzzy temporal entity is an entity that represents a temporal concept with some degree of uncertainty.",
+      "fr" : "Une entité temporelle floue est une entité qui représente un concept temporel avec une certaine mesure d'incertitude."
+    },
+    "id" : "37",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#ConstructionGraph",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ConstructionGraph",
+      "en" : "Construction graph",
+      "fr" : "Graphe de construction"
+    },
+    "comment" : {
+      "en" : "A named graph containing intermediate results produced during the knowledge graph construction process.",
+      "fr" : "Graphe nommé contenant des résultats intermédiaires produits au cours du processus de construction du graphe de connaissances."
+    },
+    "id" : "44",
+    "superClasses" : [ "45" ]
+  }, {
+    "iri" : "http://www.w3.org/2006/time#TemporalUnit",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporalUnit"
+    },
+    "individuals" : [ {
+      "iri" : "http://www.w3.org/2006/time#unitCentury",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of 100 years.",
+        "fr" : "Une période de 100 ans."
+      },
+      "labels" : {
+        "IRI-based" : "unitCentury",
+        "en" : "Century",
+        "fr" : "Siècle"
+      }
+    }, {
+      "iri" : "http://www.w3.org/2006/time#unitDecade",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of 10 years.",
+        "fr" : "Une période de 10 ans."
+      },
+      "labels" : {
+        "IRI-based" : "unitDecade",
+        "en" : "Decade",
+        "fr" : "Décennie"
+      }
+    }, {
+      "iri" : "http://www.w3.org/2006/time#unitWeek",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of 7 days.",
+        "fr" : "Une période de 7 jours."
+      },
+      "labels" : {
+        "IRI-based" : "unitWeek",
+        "en" : "Week",
+        "fr" : "Semaine"
+      }
+    }, {
+      "iri" : "http://www.w3.org/2006/time#unitYear",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of approximately 365 days.",
+        "fr" : "Une période d'environ 365 jours."
+      },
+      "labels" : {
+        "IRI-based" : "unitYear",
+        "en" : "Year",
+        "fr" : "Année"
+      }
+    }, {
+      "iri" : "http://www.w3.org/2006/time#unitMonth",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of approximately 30 days.",
+        "fr" : "Une période d'environ 30 jours."
+      },
+      "labels" : {
+        "IRI-based" : "unitMonth",
+        "en" : "Month",
+        "fr" : "Mois"
+      }
+    }, {
+      "iri" : "http://www.w3.org/2006/time#unitDay",
+      "baseIri" : "http://www.w3.org/2006/time",
+      "comment" : {
+        "en" : "A period of 24 hours.",
+        "fr" : "Une période de 24 heures."
+      },
+      "labels" : {
+        "IRI-based" : "unitDay",
+        "en" : "Day",
+        "fr" : "Jour"
+      }
+    } ],
+    "attributes" : [ "external" ],
+    "id" : "105"
+  }, {
+    "iri" : "http://www.w3.org/ns/org#Membership",
+    "baseIri" : "http://www.w3.org/ns/org",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Membership"
+    },
+    "attributes" : [ "external" ],
+    "id" : "146"
+  }, {
+    "instances" : 0,
+    "union" : [ "102", "60", "35" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "31"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "96",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "28",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "66",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#LandmarkRelation",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LandmarkRelation",
+      "en" : "Landmark relation",
+      "fr" : "Relation entre repères"
+    },
+    "subClasses" : [ "34" ],
+    "comment" : {
+      "en" : "It is a relation that represents a relation existing between one or more landmarks.\nSuch relations may take various forms, including:\n- geographic relations, for example when a landmark is located at the corner of two other landmarks;\n- hierarchical relations, for example when a landmark is the capital of another administrative entity;\n- as well as other domain-specific or contextual relations depending on the application needs.\n",
+      "fr" : "Il s'agit d'une relation qui représente un lien existant entre un ou plusieurs repères.\nCes relations peuvent prendre diverses formes, notamment :\n- des relations géographiques, par exemple lorsqu'un point de repère est situé à l'angle de deux autres points de repère ;\n- des relations hiérarchiques, par exemple lorsqu'un point de repère est la capitale d'une autre entité administrative ;\n- d'autres relations spécifiques."
+    },
+    "id" : "35"
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "142",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "id" : "149",
+    "label" : {
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "61",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "instances" : 0,
+    "union" : [ "102", "60", "35" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Address",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Address",
+      "en" : "Address",
+      "fr" : "adresse"
+    },
+    "comment" : {
+      "en" : "An address defines an indirect spatial reference to a location that is the target of the address. This location is described as a sequence of address segments, each of which describes the relationships between entities.",
+      "fr" : "Une adresse définit une référence spatiale indirecte d'un lieu qui est la cible de l'adresse. La manière dont ce lieu est décrit se fait comme étant une séquence de segments d'adresse étant chacun une description de relations entre entités."
+    },
+    "id" : "74"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#Instant",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Instant"
+    },
+    "attributes" : [ "external" ],
+    "id" : "155"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#TemporalEntity",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporalEntity"
+    },
+    "subClasses" : [ "1" ],
+    "attributes" : [ "external" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#TemporalEntity",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemporalEntity",
+      "en" : "Temporal entity",
+      "fr" : "Entité temporelle"
+    },
+    "subClasses" : [ "75", "0", "53", "37" ],
+    "comment" : {
+      "en" : "A temporal entity is an instance of a temporal concept.",
+      "fr" : "Une entité temporelle est une instance d'un concept temporel."
+    },
+    "id" : "1",
+    "superClasses" : [ "9" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#CrispTimeInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CrispTimeInstant",
+      "en" : "Crisp time instant",
+      "fr" : "Instant temporel précis"
+    },
+    "comment" : {
+      "en" : "A crisp time instant is a precise moment in time, defined by a timestamp, a calendar, and a temporal precision.",
+      "fr" : "Un instant temporel précis est un moment précis de temps, défini par un stamp, un calendrier et une précision temporelle."
+    },
+    "id" : "3",
+    "superClasses" : [ "0", "53" ]
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#Attribute",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Attribute",
+      "en" : "Attribute",
+      "fr" : "Attribut"
+    },
+    "comment" : {
+      "en" : "An attribute is a property of a geographic entity.",
+      "fr" : "Un attribut est une propriété d'une entité géographique."
+    },
+    "id" : "60"
+  } ],
+  "property" : [ {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "8",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "36",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "41",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "48",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "50",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "52",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "55",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "59",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "73",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "76",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "78",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "81",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "85",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "86",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "87",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "89",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "90",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "91",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "94",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "95",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "99",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "100",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "101",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "40",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "104",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "106",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "107",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "108",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "109",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "110",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "113",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "112",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "62",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "117",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "118",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "120",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "121",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "122",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "123",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "125",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "127",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "128",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "129",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "131",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "132",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "133",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "134",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "135",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "130",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "137",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "138",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "140",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "141",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "124",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "119",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "143",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "88",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "145",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "7",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "111",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "147",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "126",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "148",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "139",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "150",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "151",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "152",
+    "type" : "owl:allValuesFrom"
+  }, {
+    "id" : "84",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "69",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "153",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "154",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "156",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "136",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "115",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "114",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/PeGazUs#makesEffective",
+    "inverse" : "7",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "makesEffective",
+      "en" : "makes effective",
+      "fr" : "rend effectif"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "Describes the fact that a change makes a version of an attribute effective",
+      "fr" : "Décrit le fait qu'un changement rend effectif une version d'un attribut"
+    },
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "range" : "9",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "8"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#appliedTo",
+    "inverse" : "14",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "13",
+    "label" : {
+      "IRI-based" : "appliedTo",
+      "en" : "is applied to",
+      "fr" : "s'applique"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "Defines what the change applies to",
+      "fr" : "Définit sur quoi s'applique le changement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasFuzzyPeak",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasFuzzyPeak",
+      "en" : "has fuzzy peak",
+      "fr" : "a pour pic flou"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "Defines the validity peak for a fuzzy instant",
+      "fr" : "Définit le pic de validité pour un instant flou"
+    },
+    "attributes" : [ "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalDuring",
+    "inverse" : "24",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalDuring",
+      "en" : "interval during"
+    },
+    "superproperty" : [ "25" ],
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalEquals",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalEquals",
+      "en" : "interval equals"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "26"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasTimeBefore",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasTimeBefore",
+      "en" : "occurs before",
+      "fr" : "se passe avant"
+    },
+    "domain" : "28",
+    "subproperty" : [ "30" ],
+    "comment" : {
+      "en" : "Indicates that the resource is linked to a time after the associated time",
+      "fr" : "Indique que la ressource est liée à un instant situé après l'instant associé"
+    },
+    "attributes" : [ "object" ],
+    "id" : "27"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#changedBy",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "changedBy",
+      "en" : "is changed by",
+      "fr" : "changé par"
+    },
+    "domain" : "31",
+    "comment" : {
+      "en" : "Defines the change applied to the element",
+      "fr" : "Définit le changement qui est appliqué à l'élément"
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "range" : "35",
+    "domain" : "34",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "33"
+  }, {
+    "range" : "37",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "36"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#eventAfter",
+    "inverse" : "40",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "eventAfter",
+      "en" : "is after",
+      "fr" : "est après"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Describes the temporal relationship of posteriority between two events",
+      "fr" : "Décrit la relation temporelle de postériorité entre deux événements"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "38"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantAfter",
+    "inverse" : "42",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantAfter",
+      "en" : "is after",
+      "fr" : "est après"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Describes the temporal relationship of posteriority between two instants",
+      "fr" : "Décrit la relation temporelle de postériorité entre deux instants"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "41"
+  }, {
+    "range" : "45",
+    "domain" : "44",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "range" : "45",
+    "domain" : "47",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "range" : "37",
+    "domain" : "49",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "48"
+  }, {
+    "range" : "51",
+    "domain" : "45",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "50"
+  }, {
+    "range" : "53",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "52"
+  }, {
+    "range" : "53",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "54"
+  }, {
+    "range" : "45",
+    "domain" : "56",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "55"
+  }, {
+    "range" : "34",
+    "domain" : "58",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "57"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isAttributeOf",
+    "inverse" : "62",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "61",
+    "label" : {
+      "IRI-based" : "isAttributeOf",
+      "en" : "is attribute of",
+      "fr" : "est un attribut de"
+    },
+    "domain" : "60",
+    "comment" : {
+      "en" : "Defines the frame of reference for which the attribute exists",
+      "fr" : "Définit le repère pour lequel l'attribut existe"
+    },
+    "attributes" : [ "object" ],
+    "id" : "59"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasRootLandmark",
+    "inverse" : "67",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasRootLandmark",
+      "en" : "has root",
+      "fr" : "a pour racine"
+    },
+    "superproperty" : [ "68" ],
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that an landmark has another landmark as its root",
+      "fr" : "Décrit qu'un repère a pour racine un autre repère"
+    },
+    "attributes" : [ "object" ],
+    "id" : "65"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalIn",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "note" : [ {
+        "identifier" : "note",
+        "language" : "en",
+        "value" : "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as 'an important relationship' in Allen and Ferguson (1997). It is the disjoint union of time:intervalStarts v time:intervalDuring v time:intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalStarts , time:intervalDuring , time:intervalFinishes as sub-properties",
+        "type" : "label"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalIn",
+      "en" : "interval in"
+    },
+    "domain" : "23",
+    "subproperty" : [ "69", "70", "22" ],
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantLessPreciseThan",
+    "inverse" : "72",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantLessPreciseThan",
+      "en" : "is less precise than",
+      "fr" : "est moins précis que"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Compares time accuracies between two instants",
+      "fr" : "Compare les précisions temporelles entre deux instants"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "71"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isStepOf",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "74",
+    "label" : {
+      "IRI-based" : "isStepOf",
+      "en" : "is a step of",
+      "fr" : "est une étape de"
+    },
+    "domain" : "34",
+    "comment" : {
+      "en" : "Describes that an address segment is a step of an address",
+      "fr" : "Décrit qu'un segment d'adresse est une étape d'une adresse"
+    },
+    "attributes" : [ "object" ],
+    "id" : "73"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#outdates",
+    "inverse" : "77",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "outdates",
+      "en" : "outdates",
+      "fr" : "rend caduc"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "Describes the fact that a change invalidates a version of an attribute",
+      "fr" : "Décrit le fait qu'un changement rend caduc une version d'un attribut"
+    },
+    "attributes" : [ "object" ],
+    "id" : "76"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalOverlaps",
+    "inverse" : "79",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalOverlaps",
+      "en" : "interval overlaps"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "78"
+  }, {
+    "range" : "75",
+    "domain" : "49",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "80"
+  }, {
+    "range" : "12",
+    "domain" : "5",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "81"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalFinishedBy",
+    "inverse" : "69",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalFinishedBy",
+      "en" : "interval finished by"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasAttributeVersion",
+    "inverse" : "84",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "hasAttributeVersion",
+      "en" : "has version",
+      "fr" : "a pour version"
+    },
+    "domain" : "60",
+    "comment" : {
+      "en" : "Version of a value associated with the attribute",
+      "fr" : "Version d'une valeur associée à l'attribut"
+    },
+    "attributes" : [ "object" ],
+    "id" : "83"
+  }, {
+    "range" : "75",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "85"
+  }, {
+    "range" : "17",
+    "domain" : "21",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "86"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isOverlappedByVersion",
+    "inverse" : "88",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "isOverlappedByVersion",
+      "en" : "is overlapped by version",
+      "fr" : "est chevauché par"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that one landmark version is overlapped by another",
+      "fr" : "Décrit qu'une version de repère est chevauchée par une autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "87"
+  }, {
+    "range" : "17",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "89"
+  }, {
+    "range" : "12",
+    "domain" : "64",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "90"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#timeCalendar",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "92",
+    "label" : {
+      "IRI-based" : "timeCalendar",
+      "en" : "has calendar",
+      "fr" : "a pour calendrier"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Time-based calendar (Gregorian, Julian, Revolutionary)",
+      "fr" : "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"
+    },
+    "attributes" : [ "object" ],
+    "id" : "91"
+  }, {
+    "range" : "12",
+    "domain" : "63",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "93"
+  }, {
+    "range" : "0",
+    "domain" : "3",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "94"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#timeStamp",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "96",
+    "label" : {
+      "IRI-based" : "timeStamp",
+      "fr" : "a pour timestamp"
+    },
+    "maxCardinality" : "1",
+    "domain" : "3",
+    "comment" : {
+      "fr" : "Timestamp lié à l'instant"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "95"
+  }, {
+    "range" : "17",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "99"
+  }, {
+    "range" : "17",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "100"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isLandmarkType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "18",
+    "label" : {
+      "IRI-based" : "isLandmarkType",
+      "en" : "is landmark type",
+      "fr" : "est un repère de type"
+    },
+    "domain" : "102",
+    "comment" : {
+      "en" : "Describes the type of landmark.",
+      "fr" : "Décrit le type de repère définie par la ressource."
+    },
+    "attributes" : [ "object" ],
+    "id" : "101"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#eventBefore",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "eventBefore",
+      "en" : "is before",
+      "fr" : "est avant"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Describes the temporal relationship of anteriority between two events",
+      "fr" : "Décrit la relation temporelle d'antériorité entre deux événéments"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "40"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#timePrecision",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "105",
+    "label" : {
+      "IRI-based" : "timePrecision",
+      "en" : "has time precision",
+      "fr" : "a pour précision temporelle"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Time accuracy (to the day, month, year, etc.)",
+      "fr" : "Précision de l'instant (au jour, au mois, à l'année...)"
+    },
+    "attributes" : [ "object" ],
+    "id" : "104"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#targets",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "102",
+    "label" : {
+      "IRI-based" : "targets",
+      "en" : "targets",
+      "fr" : "cible"
+    },
+    "domain" : "74",
+    "comment" : {
+      "en" : "Target the marker describing the Address",
+      "fr" : "Cible le repère décrivant l'adresse."
+    },
+    "attributes" : [ "object" ],
+    "id" : "106"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantAsPreciseAs",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantAsPreciseAs",
+      "en" : "is as precise as",
+      "fr" : "est aussi précis que"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Compares time accuracies between two instants",
+      "fr" : "Compare les précisions temporelles entre deux instants"
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "107"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#relatum",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "102",
+    "label" : {
+      "IRI-based" : "relatum",
+      "en" : "has relatum",
+      "fr" : "a pour relatum"
+    },
+    "domain" : "35",
+    "comment" : {
+      "en" : "Gives the landmark which is one of the relatums for the landmark relation",
+      "fr" : "Donne l'entité géographique qui est un des relatums pour la relation entre repères"
+    },
+    "attributes" : [ "object" ],
+    "id" : "108"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isRootOf",
+    "inverse" : "68",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "isRootOf",
+      "en" : "is root of",
+      "fr" : "est racine de"
+    },
+    "domain" : "66",
+    "subproperty" : [ "67" ],
+    "comment" : {
+      "en" : "Describes that an element is the root of another",
+      "fr" : "Décrit qu'un élément est la racine d'un autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "109"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#after",
+    "inverse" : "111",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "9",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "after",
+      "en" : "after"
+    },
+    "domain" : "9",
+    "subproperty" : [ "112" ],
+    "comment" : {
+      "en" : "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "110"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isRootLandmarkOf",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "isRootLandmarkOf",
+      "en" : "is root of",
+      "fr" : "est racine de"
+    },
+    "superproperty" : [ "109" ],
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that an landmark is the root of another",
+      "fr" : "Décrit qu'un repère est la racine d'un autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "67"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#eventSameTime",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "eventSameTime",
+      "en" : "is at the same time",
+      "fr" : "est en même temps que"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Describes the temporal relationship of simultaneity between two events",
+      "fr" : "Décrit la relation temporelle de simultanéité entre deux événements"
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "113"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalAfter",
+    "inverse" : "114",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalAfter",
+      "en" : "interval after"
+    },
+    "superproperty" : [ "115", "110" ],
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "112"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasRoot",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasRoot",
+      "en" : "has root",
+      "fr" : "a pour racine"
+    },
+    "domain" : "66",
+    "subproperty" : [ "65" ],
+    "comment" : {
+      "en" : "Describes that an element has another element of reference as its root",
+      "fr" : "Décrit qu'un élément a pour racine un autre élement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "68"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasAttribute",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "60",
+    "label" : {
+      "IRI-based" : "hasAttribute",
+      "en" : "has attribute",
+      "fr" : "a pour attribut"
+    },
+    "domain" : "61",
+    "comment" : {
+      "en" : "Describes the attribute for an element",
+      "fr" : "Décrit l'attribut pour un élement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "62"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantSameTime",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantSameTime",
+      "en" : "is at the same time",
+      "fr" : "est en même temps que"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Describes the temporal relationship of simultaneity between two instants",
+      "fr" : "Décrit la relation temporelle de simultanéité entre deux instants"
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "117"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasEarliestTimeInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasEarliestTimeInstant",
+      "en" : "has earliest time instant",
+      "fr" : "instant au plus tôt"
+    },
+    "superproperty" : [ "119" ],
+    "domain" : "28",
+    "comment" : {
+      "en" : "Earliest time linked to the resource",
+      "fr" : "Instant au plus tôt lié à la ressource"
+    },
+    "attributes" : [ "object" ],
+    "id" : "118"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isChangeType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "isChangeType",
+      "en" : "is change type",
+      "fr" : "est une changement de type"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "Describes the type of change.",
+      "fr" : "Décrit le type de changement."
+    },
+    "attributes" : [ "object" ],
+    "id" : "120"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#nextStep",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "34",
+    "annotations" : {
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "fr",
+        "value" : "est suivi par",
+        "type" : "label"
+      }, {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "is followed by",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "nextStep",
+      "en" : "has next step",
+      "fr" : "a pour prochaine étape"
+    },
+    "domain" : "34",
+    "comment" : {
+      "en" : "Describes that an address segment is followed by another address segment",
+      "fr" : "Décrit qu'un segment d'adresse est suivi par un autre segment d'adresse"
+    },
+    "attributes" : [ "object" ],
+    "id" : "121"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalStartedBy",
+    "inverse" : "70",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalStartedBy",
+      "en" : "interval started by"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "122"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isTraceOf",
+    "inverse" : "124",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "isTraceOf",
+      "en" : "is trace of",
+      "fr" : "est une trace de"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that an element is the trace of another element",
+      "fr" : "Décrit qu'un élément est la trace d'un autre élément"
+    },
+    "attributes" : [ "object" ],
+    "id" : "123"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalMeets",
+    "inverse" : "126",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalMeets",
+      "en" : "interval meets"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "125"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "127"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantBefore",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantBefore",
+      "en" : "is before",
+      "fr" : "est avant"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Describes the temporal relationship of anteriority between two instants",
+      "fr" : "Décrit la relation temporelle d'antériorité entre deux instants"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "42"
+  }, {
+    "range" : "1",
+    "domain" : "75",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "128"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasPreviousVersion",
+    "inverse" : "130",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasPreviousVersion",
+      "en" : "has previous version",
+      "fr" : "a pour version précédente"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that one landmark version follows another",
+      "fr" : "Décrit qu'une version de repère en succède à une autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "129"
+  }, {
+    "range" : "1",
+    "domain" : "37",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "131"
+  }, {
+    "range" : "1",
+    "domain" : "53",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "132"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#wasDerivedFrom",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "range" : "32",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://www.w3.org/ns/prov-o#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "wasDerivedFrom",
+      "en" : "was derived from",
+      "fr" : "est dérivé de"
+    },
+    "domain" : "32",
+    "comment" : {
+      "en" : "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "133"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasFuzzyBeginning",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasFuzzyBeginning",
+      "en" : "has fuzzy beginning",
+      "fr" : "a pour début flou"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "Defines the start of validity for a fuzzy instant",
+      "fr" : "Définit le début de validité pour un instant flou"
+    },
+    "attributes" : [ "object" ],
+    "id" : "134"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalStarts",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalStarts",
+      "en" : "interval starts"
+    },
+    "superproperty" : [ "25" ],
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "70"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#dependsOn",
+    "inverse" : "136",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "39",
+    "label" : {
+      "IRI-based" : "dependsOn",
+      "en" : "depends on the event",
+      "fr" : "dépend de l'événement"
+    },
+    "domain" : "12",
+    "comment" : {
+      "en" : "Describes whether a change belongs to an event",
+      "fr" : "Décrit l'appartenance d'un changement à un événement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "135"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasNextVersion",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasNextVersion",
+      "en" : "has next version",
+      "fr" : "a pour version suivante"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that one landmark version precedes another",
+      "fr" : "Décrit qu'une version de repère en précède une autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "130"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isLandmarkRelationType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "20",
+    "label" : {
+      "IRI-based" : "isLandmarkRelationType",
+      "en" : "is landmark relation type",
+      "fr" : "est une relation entre repères de type"
+    },
+    "domain" : "35",
+    "comment" : {
+      "en" : "Describes the type of landmark relation.",
+      "fr" : "Décrit le type de relation entre repères définie par la ressource."
+    },
+    "attributes" : [ "object" ],
+    "id" : "137"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasStep",
+    "inverse" : "73",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "34",
+    "label" : {
+      "IRI-based" : "hasStep",
+      "en" : "has step",
+      "fr" : "a pour étape"
+    },
+    "domain" : "74",
+    "subproperty" : [ "139" ],
+    "comment" : {
+      "en" : "Describes that an address has an address segment as its step",
+      "fr" : "Décrit qu'une adresse à pour étape un segment d'adresse"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "138"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasEnd",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "53",
+    "label" : {
+      "IRI-based" : "hasEnd",
+      "en" : "has end",
+      "fr" : "finit par"
+    },
+    "domain" : "75",
+    "comment" : {
+      "en" : "End of time interval",
+      "fr" : "Fin de l'intervalle temporel"
+    },
+    "attributes" : [ "object" ],
+    "id" : "140"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasTime",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "hasTime",
+      "en" : "has time",
+      "fr" : "a pour valeur temporelle"
+    },
+    "domain" : "142",
+    "comment" : {
+      "en" : "Time value linked to a resource",
+      "fr" : "Valeur temporelle liée à une ressource"
+    },
+    "attributes" : [ "object" ],
+    "id" : "141"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalContains",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalContains",
+      "en" : "interval contains"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "24"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasTrace",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasTrace",
+      "en" : "has trace",
+      "fr" : "a pour trace"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that an element has another element as its trace",
+      "fr" : "Décrit qu'un élément a pour trace un autre élément"
+    },
+    "attributes" : [ "object" ],
+    "id" : "124"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasTimeAfter",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasTimeAfter",
+      "en" : "occurs after",
+      "fr" : "se passe après"
+    },
+    "domain" : "28",
+    "subproperty" : [ "118" ],
+    "comment" : {
+      "en" : "Indicates that the resource is linked to an instant prior to the associated instant",
+      "fr" : "Indique que la ressource est liée à un instant situé avant l'instant associé"
+    },
+    "attributes" : [ "object" ],
+    "id" : "119"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasFuzzyEnd",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "hasFuzzyEnd",
+      "en" : "has fuzzy end",
+      "fr" : "a pour fin floue"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "Defines the end of validity for a fuzzy instant",
+      "fr" : "Définit la fin de validité pour un instant flou"
+    },
+    "attributes" : [ "object" ],
+    "id" : "143"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasOverlappingVersion",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasOverlappingVersion",
+      "en" : "overlaps version",
+      "fr" : "chevauche la version"
+    },
+    "domain" : "66",
+    "comment" : {
+      "en" : "Describes that one landmark version overlaps another",
+      "fr" : "Décrit qu'une version de repère en chevauche une autre"
+    },
+    "attributes" : [ "object" ],
+    "id" : "88"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#differentVersionValueFrom",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "differentVersionValueFrom",
+      "en" : "has different version value from",
+      "fr" : "a une valeur différente de"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Indicates that two versions of attributes have different values",
+      "fr" : "Indique que deux versions d'attributs ont des valeurs différents"
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "145"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#instantMorePreciseThan",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "3",
+    "label" : {
+      "IRI-based" : "instantMorePreciseThan",
+      "en" : "is more precise than",
+      "fr" : "est plus précis que"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "Compares time accuracies between two instants",
+      "fr" : "Compare les précisions temporelles entre deux instants"
+    },
+    "attributes" : [ "object", "transitive" ],
+    "id" : "72"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isMadeEffectiveBy",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "isMadeEffectiveBy",
+      "en" : "is made effective by",
+      "fr" : "est rendu effectif par"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Describes the fact that a version of an attribute is made effective by a change",
+      "fr" : "Décrit le fait qu'une version d'un attribut est rendue effectif par un changement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "7"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#before",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "9",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "before",
+      "en" : "before"
+    },
+    "domain" : "9",
+    "subproperty" : [ "114" ],
+    "comment" : {
+      "en" : "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."
+    },
+    "attributes" : [ "external", "object", "transitive" ],
+    "id" : "111"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#locatum",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "102",
+    "label" : {
+      "IRI-based" : "locatum",
+      "en" : "has locatum",
+      "fr" : "a pour locatum"
+    },
+    "domain" : "35",
+    "comment" : {
+      "en" : "Gives the landmark which is the locatum for the landmark relation",
+      "fr" : "Donne le repère qui est le locatum pour la relation entre repères"
+    },
+    "attributes" : [ "object" ],
+    "id" : "147"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalMetBy",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalMetBy",
+      "en" : "interval met by"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "126"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#versionOf",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "102",
+    "label" : {
+      "IRI-based" : "versionOf",
+      "en" : "is a version of",
+      "fr" : "est une version de repère de"
+    },
+    "domain" : "116",
+    "comment" : {
+      "en" : "Defines which landmark a version depends on",
+      "fr" : "Définit pour une version de quel repère elle dépend"
+    },
+    "attributes" : [ "object" ],
+    "id" : "148"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalOverlappedBy",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalOverlappedBy",
+      "en" : "interval overlapped by"
+    },
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#firstStep",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "34",
+    "annotations" : {
+      "altLabel" : [ {
+        "identifier" : "altLabel",
+        "language" : "en",
+        "value" : "has as its first Address segment",
+        "type" : "label"
+      }, {
+        "identifier" : "altLabel",
+        "language" : "fr",
+        "value" : "a pour premier segment d'adresse",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "firstStep",
+      "en" : "has first step",
+      "fr" : "a pour première étape"
+    },
+    "superproperty" : [ "138" ],
+    "domain" : "74",
+    "comment" : {
+      "en" : "First step of an Address",
+      "fr" : "Première étape de l'adresse."
+    },
+    "attributes" : [ "object" ],
+    "id" : "139"
+  }, {
+    "range" : "0",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "150"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#versionValue",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "149",
+    "label" : {
+      "IRI-based" : "versionValue",
+      "en" : "has version value",
+      "fr" : "a pour valeur"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Value linked to an attribute version",
+      "fr" : "Valeur de liée à une version d'attribut"
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "151"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasTime",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "75",
+    "label" : {
+      "IRI-based" : "hasTime",
+      "en" : "has time",
+      "fr" : "a pour valeur temporelle"
+    },
+    "domain" : "116",
+    "comment" : {
+      "en" : "Time value linked to a resource",
+      "fr" : "Valeur temporelle liée à une ressource"
+    },
+    "attributes" : [ "object", "allValues" ],
+    "id" : "152"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isAttributeVersionOf",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "60",
+    "label" : {
+      "IRI-based" : "isAttributeVersionOf",
+      "en" : "is attribute version of",
+      "fr" : "est une version de l'attribut"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Attribute associated with the attribute version",
+      "fr" : "Attribut associée à la version d'attribut"
+    },
+    "attributes" : [ "object" ],
+    "id" : "84"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalFinishes",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalFinishes",
+      "en" : "interval finishes"
+    },
+    "superproperty" : [ "25" ],
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "69"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isAttributeType",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "19",
+    "label" : {
+      "IRI-based" : "isAttributeType",
+      "en" : "is attribute type",
+      "fr" : "est un attribut de type"
+    },
+    "domain" : "60",
+    "comment" : {
+      "en" : "Describes the type of attribute.",
+      "fr" : "Décrit le type d'attribut."
+    },
+    "attributes" : [ "object" ],
+    "id" : "153"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#isOutdatedBy",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "isOutdatedBy",
+      "en" : "is outdated by",
+      "fr" : "est rendu caduc par"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Describes the fact that a version of an attribute is rendered obsolete by a change",
+      "fr" : "Décrit le fait qu'une version d'un attribut est rendue caduc par un changement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasBeginning",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "53",
+    "label" : {
+      "IRI-based" : "hasBeginning",
+      "en" : "has beginning",
+      "fr" : "commence par"
+    },
+    "domain" : "75",
+    "comment" : {
+      "en" : "Start of time interval",
+      "fr" : "Début de l'intervalle temporel"
+    },
+    "attributes" : [ "object" ],
+    "id" : "154"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasLatestTimeInstant",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasLatestTimeInstant",
+      "en" : "has latest time instant",
+      "fr" : "instant au plus tard"
+    },
+    "superproperty" : [ "27" ],
+    "domain" : "28",
+    "comment" : {
+      "en" : "Latest time linked to the resource",
+      "fr" : "Instant au plus tard lié à la ressource"
+    },
+    "attributes" : [ "object" ],
+    "id" : "30"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#sameVersionValueAs",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "sameVersionValueAs",
+      "en" : "has same version value as",
+      "fr" : "a une valeur similaire à"
+    },
+    "domain" : "6",
+    "comment" : {
+      "en" : "Indicates that two versions of attributes have similar values",
+      "fr" : "Indique que deux versions d'attributs ont des valeurs similaires"
+    },
+    "attributes" : [ "object", "symmetric" ],
+    "id" : "156"
+  }, {
+    "iri" : "https://w3id.org/PeGazUs#hasChange",
+    "baseIri" : "https://w3id.org/PeGazUs",
+    "range" : "12",
+    "label" : {
+      "IRI-based" : "hasChange",
+      "en" : "has change",
+      "fr" : "comporte le changement"
+    },
+    "domain" : "39",
+    "comment" : {
+      "en" : "Defines the changes linked to the event",
+      "fr" : "Définit les changements qui sont liés à l'événement"
+    },
+    "attributes" : [ "object" ],
+    "id" : "136"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalDisjoint",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "note" : [ {
+        "identifier" : "note",
+        "language" : "en",
+        "value" : "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of time:intervalBefore v time:intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalBefore , time:intervalAfter as sub-properties",
+        "type" : "label"
+      } ],
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalDisjoint",
+      "en" : "interval disjoint"
+    },
+    "domain" : "23",
+    "subproperty" : [ "112", "114" ],
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "115"
+  }, {
+    "iri" : "http://www.w3.org/2006/time#intervalBefore",
+    "baseIri" : "http://www.w3.org/2006/time",
+    "range" : "23",
+    "annotations" : {
+      "definition" : [ {
+        "identifier" : "definition",
+        "language" : "en",
+        "value" : "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "intervalBefore",
+      "en" : "interval before"
+    },
+    "superproperty" : [ "115", "111" ],
+    "domain" : "23",
+    "comment" : {
+      "en" : "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "114"
+  } ]
+}
