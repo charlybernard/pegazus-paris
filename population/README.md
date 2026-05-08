@@ -58,8 +58,7 @@ The following variables in the notebook refer to these files:
 
 ### Historical GeoJSON Files
 For historical sources, when a source contains both streets and addresses, two separate files are used:
-
-* ** Plan Delagrive (1728):**
+* **Plan Delagrive (1728):**
     * `del_1728_th_geojson_file_name`: streets.
 * **Verniquet Atlas (1784–1791):**
     * `ve_1790_th_geojson_file_name`: streets.
