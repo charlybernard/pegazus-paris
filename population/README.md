@@ -33,7 +33,6 @@ The following sources are used for this population:
 | **General Cadastre of Paris (1807)** |       ✅      |       ❓      |                   
 | **Vasserot Atlas (1810–1836)**       |       ✅      |       ✅      |                   
 | **Jacoubet Atlas (1827–1839)**       |       ✅      |       ✅      |                   
-| **Napoleonic cadastre (1847)**       |       ✅      |       ✅      |                   
 | **Andriveau Plan (1849)**            |       ✅      |       ✅      |                   
 | **Municipal Parcel Map (1871)**      |               |       ✅      |                   
 | **Municipal Atlas (1888)**           |       ✅      |       ✅      |                   
@@ -98,7 +97,7 @@ Extracted data from OpenStreetMap are :
 1. Extract Paris addresses
 In the query interface, there are two queries to launch.
 * Query 1 :
-```
+```sparql
 PREFIX osmrel: <https://www.openstreetmap.org/relation/>
 PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>
 PREFIX osmrdf: <https://osm2rdf.cs.uni-freiburg.de/rdf/member#>
@@ -117,7 +116,7 @@ SELECT DISTINCT ?houseNumberId ?streetId ?streetName ?arrdtId ?arrdtName ?arrdtI
 ```
 
 * Query 2 :
-```
+```sparql
 PREFIX osmkey: <https://www.openstreetmap.org/wiki/Key:>
 PREFIX ogc: <http://www.opengis.net/rdf#>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
@@ -151,6 +150,117 @@ Three files in CSV format must be stored in the `data` folder, the names of whic
 * `wdp_loc_csv_file_name`: file of geographical entity relations (between thoroughfares and areas).
 
 Obtaining these files is straightforward. Simply run the `get_data_from_wikidata()` function defined in the notebook.
+
+#### SPARQL query for geographical entities
+
+```sparql
+PREFIX wb: <http://wikiba.se/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX psv: <http://www.wikidata.org/prop/statement/value/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+
+SELECT DISTINCT ?landmarkId ?landmarkType ?nomOff ?lang
+                ?timeType ?timeStamp ?timePrec ?timeCal ?statement
+WHERE {
+{
+    ?landmarkId p:P361 [ps:P361 wd:Q16024163].
+    BIND("thoroughfare" AS ?landmarkType)
+} UNION {
+    ?landmarkId p:P361 [ps:P361 wd:Q107311481].
+    BIND("thoroughfare" AS ?landmarkType)
+} UNION {
+    ?landmarkId p:P31 [ps:P31 wd:Q252916].
+    BIND("district" AS ?landmarkType)
+} UNION {
+    ?landmarkId p:P31 [ps:P31 wd:Q702842];
+                 p:P131 [ps:P131 wd:Q90].
+    BIND("district" AS ?landmarkType)
+} UNION {
+    ?landmarkId p:P31 [ps:P31 wd:Q484170];
+                 p:P131 [ps:P131 wd:Q1142326].
+    BIND("municipality" AS ?landmarkType)
+}
+
+{
+    VALUES (?timeProp ?timeType) { (pqv:P580 "start")  (pqv:P582 "end") }
+
+    ?landmarkId p:P1448 ?statement.
+    ?statement ps:P1448 ?nomOff ;
+               ?timeProp [ wb:timeValue ?timeStamp ; wb:timePrecision ?timePrec ; wb:timeCalendarModel ?timeCal ].
+
+    BIND(LANG(?nomOff) AS ?lang)
+}
+UNION
+{
+    VALUES (?prop ?timeProp ?timeType) { (p:P571 psv:P571 "start") (p:P576 psv:P576 "end") }
+
+    ?landmarkId wdt:P361 wd:Q107311481 ; rdfs:label ?nomOff ;  ?prop ?statement.
+
+    BIND("fr" AS ?lang)
+    FILTER (LANG(?nomOff) = ?lang)
+    FILTER NOT EXISTS { ?landmarkId p:P1448 ?nomOffSt }
+
+    ?statement ?timeProp [
+        wb:timeValue ?timeStamp ;
+        wb:timePrecision ?timePrec ;
+        wb:timeCalendarModel ?timeCal
+    ] .
+}
+}
+```
+
+#### SPARQL query for geographical relations
+
+```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+PREFIX ps: <http://www.wikidata.org/prop/statement/>
+PREFIX p: <http://www.wikidata.org/prop/>
+PREFIX pqv: <http://www.wikidata.org/prop/qualifier/value/>
+PREFIX wb: <http://wikiba.se/ontology#>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT DISTINCT ?locatumId ?relatumId ?landmarkRelationType
+                ?dateStartStamp ?dateStartCal ?dateStartPrec
+                ?dateEndStamp ?dateEndCal ?dateEndPrec
+                ?statement ?statementType
+WHERE {
+{
+    ?locatumId p:P361 [ps:P361 wd:Q16024163].
+} UNION {
+    ?locatumId p:P361 [ps:P361 wd:Q107311481].
+} UNION {
+    ?locatumId p:P31 [ps:P31 wd:Q252916].
+} UNION {
+    ?locatumId p:P31 [ps:P31 wd:Q702842]; p:P131 [ps:P131 wd:Q90].
+} UNION {
+    ?locatumId p:P31 [ps:P31 wd:Q484170]; p:P131 [ps:P131 wd:Q1142326].
+}
+
+BIND(wb:Statement AS ?statementType)
+
+?locatumId p:P131 ?statement.
+?statement ps:P131 ?relatumId.
+
+OPTIONAL {
+    ?statement pq:P580 ?dateStartStamp ;
+               pqv:P580 [ wb:timeCalendarModel ?dateStartCal ; wb:timePrecision ?dateStartPrec ]
+}
+
+OPTIONAL {
+    ?statement pq:P582 ?dateEndStamp ;
+               pqv:P582 [ wb:timeCalendarModel ?dateEndCal ;wb:timePrecision ?dateEndPrec ]
+}
+
+BIND("within" AS ?landmarkRelationType)
+}
+```
 
 ### Ville de Paris
 The data for the city of Paris is made up of two datasets:
