@@ -34,6 +34,7 @@ This folder contains the CSS styles for the visual presentation of the applicati
 
 ### `libs`: This subfolder contains the third-party JavaScript libraries used in the project.
 - **`leaflet`**: Folder to use the [Leaflet](https://leafletjs.com/) library (version [1.9.4](https://unpkg.com/leaflet@1.9.4/dist/leaflet.js)), which is used to display interactive maps, it contains **`leaflet.js`** and **`leaflet.css`**.
+- **`leaflet-draw`**: Folder to use the [Leaflet.draw](https://leaflet.github.io/Leaflet.draw/) plugin (version [1.0.4](https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js)), which provides drawing and editing tools for Leaflet maps, it contains **`leaflet.draw.js`** and **`leaflet.draw.css`**.
 - **`timelineJS`**: Folder to use [Timeline.js](https://timeline.knightlab.com/), a JavaScript library for creating interactive timelines. it contains **`timeline.js`** and **`timeline.css`**.
 - **`jquery.js`**: File to use the [jQuery](https://jquery.com/) library (version 3.6.1), which simplifies DOM manipulation and event handling.
 - **`proj4.js`**: [Proj4js](https://github.com/proj4js/proj4js) library (version [2.9.0](https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js)), a JavaScript library to transform point coordinates from one coordinate system to another.
@@ -49,6 +50,7 @@ This folder contains the JavaScript files necessary for managing user interactio
 - **`html-creator.js`**: Functions to initialize HTML page
 - **`html-utils.js`**: Functions to create HTML elements
 - **`leaflet-objects.js`**: provides predefined marker icons and polygon styles for use in Leaflet maps, facilitating consistent visual customization.
+- **`local-settings.js`**: Local settings for the application, such as default values and configurations.
 - **`queries.js`**: Functions to build and handle SPARQL queries for querying a graph database.
 - **`script.js`**: Main script to be executed when the webpage is loaded.
 - **`time.js`**: Functions to manage time-related features in the application.

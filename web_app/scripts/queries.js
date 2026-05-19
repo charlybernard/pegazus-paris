@@ -35,12 +35,6 @@ function runSparqlQuery(endpoint, query){
     data: query,
     contentType: "application/sparql-query",
     dataType: "json",
-
-    // Useful but does not "fix" CORS by itself
-    xhrFields: {
-      withCredentials: true
-    },
-
     headers: {
       "Accept": "application/sparql-results+json"
     }
