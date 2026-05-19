@@ -17,6 +17,7 @@ This repository contains the documentation of the PeGazUs (PErpetual GAZeteer of
 ├── 📂 [`population`](./population/)   
 ├── 📂 [`scripts`](./scripts/)   
 ├── 📂 [`statistics`](./statistics/)   
+├── 📂 [`web_app`](./web_app/)   
 ├── 📄 [`LICENCE.md`](./LICENCE.md)  
 └── 📄 [`README.md`](./README.md)  
 

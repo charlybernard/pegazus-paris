@@ -1,10 +1,10 @@
-function getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
+function getSnapshotFromTimeStamp(finalEndpointURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
   var [lowTimeStamp, highTimeStamp] = getLowAndHighTimeStampFromDurationDelay(timeStamp, timeDelay) ;
   var queryValidLandmarksFromTime = getValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphURI, lowTimeStamp, highTimeStamp, uiConfig.graphLang) ;
   
-  runSparqlQuery(graphDBRepositoryURI, queryValidLandmarksFromTime).then(bindings => {
+  runSparqlQuery(finalEndpointURI, queryValidLandmarksFromTime).then(bindings => {
       var landmarksDesc = getInitLandmarksDescriptions(bindings);
-      displayLandmarksFromGivenTime(graphDBRepositoryURI,  timeStamp, timeCalendarURI, namedGraphURI, landmarksDesc, uiConfig, mapSettings);
+      displayLandmarksFromGivenTime(finalEndpointURI,  timeStamp, timeCalendarURI, namedGraphURI, landmarksDesc, uiConfig, mapSettings);
     })
     .catch(err => {
       console.error("SPARQL timeline config error:", err);
@@ -26,11 +26,11 @@ function getLowAndHighTimeStampFromDurationDelay(timeStamp, timeDelay){
   return [lowTimeStamp, highTimeStamp] ;
 }
 
-function displayLandmarksFromGivenTime(graphDBRepositoryURI, timeStamp, timeCalendarURI, namedGraphURI, landmarksDescriptions, uiConfig, mapSettings){
+function displayLandmarksFromGivenTime(finalEndpointURI, timeStamp, timeCalendarURI, namedGraphURI, landmarksDescriptions, uiConfig, mapSettings){
 
   var searchArea = geomWktToGeomWktLiteral(mapSettings.selectedDrawnWKT) ;
   var queryValidAttrVersFromTime = getValidAttributeVersionsFromTime(timeStamp, timeCalendarURI, namedGraphURI, searchArea) ;
-  runSparqlQuery(graphDBRepositoryURI, queryValidAttrVersFromTime).then(bindings => {
+  runSparqlQuery(finalEndpointURI, queryValidAttrVersFromTime).then(bindings => {
       displayLandmarksFromDescriptions(bindings, landmarksDescriptions, uiConfig, mapSettings);
       updateMapViewForSnapshotSelection(landmarksDescriptions, mapSettings, uiConfig.labels.noLandmarkToDisplayAlert[uiConfig.systemLang]);
     })
@@ -159,8 +159,8 @@ function initGeoJsonForLandmark(landmark, landmarkLayers){
   });
 }
 
-function displaySnapshotFromSelectedTime(graphDBRepositoryURI, timeStampDivId, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
+function displaySnapshotFromSelectedTime(finalEndpointURI, timeStampDivId, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings){
     var timeStamp = document.getElementById(timeStampDivId).value;
     removeOverlayLayers(mapSettings.overlayLayers, mapSettings.map, mapSettings.layerControl);
-    getSnapshotFromTimeStamp(graphDBRepositoryURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings) ;
+    getSnapshotFromTimeStamp(finalEndpointURI, timeStamp, timeCalendarURI, timeDelay, namedGraphURI, uiConfig, mapSettings) ;
 }

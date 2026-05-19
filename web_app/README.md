@@ -66,19 +66,37 @@ This is the HTML file that loads the web application, containing the structure a
 
 ## Requirements
 
-Before launching the web app, please ensure `settings.js` is correctly filled out :
-* `graphDBURL`: URL of the GraphDB ;
-* `graphName`  name of the repository ;
-* `lang`: selected language of the labels of landmarks ;
-* `namedGraphName`: name of the named graph in which the final construction is made.
+Before launching the web app, make sure `settings.js` is filled in according to the way you connect to your data source.
 
-Then, to allow the interaction with the repository, you have to avoid CORS errors. To do so, click on `Settings...` in GraphDB Desktop window.
+In all cases, the following values must be defined:
+* `graphLang`: language of the graph, used to retrieve labels in the right language;
+* `systemLang`: language of the system, used to display labels in the right language if it differs from `graphLang`;
+* `gregorianCalendarURI`: URI of the Gregorian calendar.
+* `defaultFinalGraphURI`: the URI of the graph used by default for the final construction;
 
-![image](./images/graphdb-desktop.png)
+`defaultFinalGraphURI` is optional. If the graph does not contain any explicit final graph declaration, that URI is used as the default final graph. If at least one graph `?g` is explicitly declared as a final graph, with a statement such as `?g a peg:FinalGraph`, then the application displays a dropdown menu listing all the final graphs found and lets you choose among them.
 
-Next, you can custom properties by typing their name and value.
 
-![image](./images/graphdb-settings.png)
+There are two possible configurations:
+
+1. **You use a generic SPARQL endpoint**
+    In this case, fill in:
+    * `endpointURI`: the URL of the SPARQL endpoint to query;
+
+2. **You use a local GraphDB instance**
+    In this case, the endpoint is built from:
+    * `graphDBURI`: the URL of the local GraphDB instance;
+    * `graphName`: the name of the GraphDB repository.
+
+    When using GraphDB locally, `endpointURI` should be undefined since it is automatically constructed : `${graphDBURI}/repositories/${graphName}`. You still need to define `defaultFinalGraphURI`, `lang`, and `namedGraphName` as above. You also need to configure GraphDB to avoid CORS errors.
+
+To allow the web app to interact with a local GraphDB repository, open `Settings...` in the GraphDB Desktop window.
+
+![image](./images/graphdb_desktop.png)
+
+Then add the following properties:
+
+![image](./images/graphdb_settings.png)
 
 Properties are the following ones:
 * `graphdb.workbench.cors.enable`:`true` 

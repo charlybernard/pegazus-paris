@@ -773,16 +773,24 @@ def get_valid_time_description(time_description:dict):
 
     return time_description
 
-def get_gregorian_date_from_timestamp(time_stamp:str):
+def get_gregorian_date_from_timestamp(time_stamp: str):
     time_stamp = format_timestamp(time_stamp)
-    time_match_pattern = "^(-|\+|)\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$"
-    if re.match(time_match_pattern, time_stamp) is not None:
+
+    time_match_pattern = r"^[+-]?\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$"
+
+    if re.fullmatch(time_match_pattern, time_stamp):
         time_stamp += "T00:00:00Z"
-        time_description = {"stamp":time_stamp, "calendar":"gregorian", "precision":"day"}
+
+        time_description = {
+            "stamp": time_stamp,
+            "calendar": "gregorian",
+            "precision": "day"
+        }
+
         time_elements = get_time_instant_elements(time_description)
 
         return time_elements
-    
+
     return [None, None, None]
 
 def format_timestamp(raw_ts: str) -> str:

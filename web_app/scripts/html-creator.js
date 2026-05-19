@@ -1,4 +1,4 @@
-function createMainHTML(L, endpoint, uiConfig){
+function createMainHTML(L, endpoint, defaultGraphURI, uiConfig){
     var lang = uiConfig.lang; // to be sure to use the right lang in case of a call to createMainHTML after a change of language
     document.body.style.height = "100vh";
     document.body.style.width = "100vw";
@@ -31,7 +31,7 @@ function createMainHTML(L, endpoint, uiConfig){
 
     // --- Affichage des graphes dans un menu déroulant ---
     dropDownMenu = document.getElementById(uiConfig.divIds.graphSelection) ;
-    displayGraphsInDropDownMenu(endpoint, dropDownMenu, lang=lang) ;
+    displayGraphsInDropDownMenu(endpoint, defaultGraphURI, dropDownMenu, lang=lang) ;
 }
 
 
@@ -226,26 +226,29 @@ function createHTMLGraph(L, uiConfig){
     return graphNamesDiv;   
 }
 
-function displayGraphsInDropDownMenu(endpoint, dropDownMenu, lang="fr"){
-  var query = getQueryForGraphs(uiConfig.graphLang) ;
+function displayGraphsInDropDownMenu(endpoint, defaultGraphURI, dropDownMenu, lang = "fr") {
+  var query = getQueryForGraphs(uiConfig.graphLang);
 
-  $.ajax({
-    url: endpoint,
-    Accept: "application/sparql-results+json",
-    contentType:"application/sparql-results+json",
-    dataType:"json",
-    data:{"query":query}
-  }).done((promise) => {
-    insertGraphsInDropDownMenu(dropDownMenu, promise.results.bindings);
-  })
+  runSparqlQuery(endpoint, query)
+    .then(bindings => {
+      insertGraphsInDropDownMenu(dropDownMenu, bindings, defaultGraphURI);
+    })
+    .catch(err => {
+      console.error("SPARQL error:", err);
+    });
 }
 
-function insertGraphsInDropDownMenu(dropDownMenu, bindings) {
+function insertGraphsInDropDownMenu(dropDownMenu, bindings, defaultGraphURI) {
 
   // reset
   dropDownMenu.innerHTML = "";
 
   var uris = [];
+
+  if (bindings.length === 0) {
+    var option = createOptionDiv(defaultGraphURI, "Default graph");
+    dropDownMenu.appendChild(option);
+  }
 
   bindings.forEach((binding, index) => {
 
@@ -272,21 +275,17 @@ function insertGraphsInDropDownMenu(dropDownMenu, bindings) {
 
 function selectGraphs(L, uiConfig, endpoint, graphSelectionDivId, graphSelectionLabel, mapMessages, selectDiv) {
 
-    var query = getQueryForGraph(uiConfig.graphLang);
+  var query = getQueryForGraph(uiConfig.graphLang);
 
-    $.ajax({
-        url: endpoint,
-        headers: { "Accept": "application/sparql-results+json" },
-        contentType: "application/sparql-results+json",
-        dataType: "json",
-        data: { "query": query }
-    }).done((response) => {
-        var graphURIs = extractGraphs(response.results.bindings);
-        var selectGraphDiv = createHTMLGraphSelection(L, graphURIs, graphSelectionDivId, graphSelectionLabel, graphSelectionSelectValue);   
-        selectDiv.appendChild(selectGraphDiv); 
-    }).fail((err) => {
-        console.error("Erreur lors de la récupération des graphes:", err);
-        alert(uiConfig.labels.graphSelectionAlert[uiConfig.lang]);
+  runSparqlQuery(endpoint, query)
+    .then(bindings => {
+      var graphURIs = extractGraphs(bindings);
+      var selectGraphDiv = createHTMLGraphSelection(L, graphURIs, graphSelectionDivId, graphSelectionLabel, graphSelectionSelectValue);
+      selectDiv.appendChild(selectGraphDiv);
+    })
+    .catch(err => {
+      console.error("Erreur lors de la récupération des graphes:", err);
+      alert(uiConfig.labels.graphSelectionAlert[uiConfig.lang]);
     });
 }
 

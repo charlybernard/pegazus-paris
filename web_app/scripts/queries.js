@@ -18,14 +18,47 @@ const prefixes = {
     dcterms: "http://purl.org/dc/terms/"
 };
 
+// function runSparqlQuery(endpoint, query){
+//   return $.ajax({
+//     url: endpoint,
+//     Accept: "application/sparql-results+json",
+//     contentType:"application/sparql-results+json",
+//     dataType: "json",
+//     data: { query }
+//   }).then(res => res.results.bindings);
+// }
+
 function runSparqlQuery(endpoint, query){
   return $.ajax({
     url: endpoint,
-    Accept: "application/sparql-results+json",
-    contentType:"application/sparql-results+json",
+    method: "POST",
+    data: query,
+    contentType: "application/sparql-query",
     dataType: "json",
-    data: { query }
-  }).then(res => res.results.bindings);
+
+    // Useful but does not "fix" CORS by itself
+    xhrFields: {
+      withCredentials: true
+    },
+
+    headers: {
+      "Accept": "application/sparql-results+json"
+    }
+  })
+  .then(res => res.results.bindings)
+
+  .catch(err => {
+    console.error("SPARQL request failed:", err);
+
+    // Diagnose possible causes based on error status
+    if (err.status === 0) {
+      console.error("➡️ Probable CORS issue (blocked by browser)");
+    } else if (err.status === 403) {
+      console.error("➡️ Refused request (auth / security / endpoint)");
+    }
+
+    throw err;
+  });
 }
 
 function getPrefixesForQuery(prefixes){
@@ -382,7 +415,6 @@ SELECT DISTINCT ?lm ?vers ?versValue ?existsForSure ?attrType ?lm WHERE {
     )
 }  
     `
-    console.log(query) ;
     return query ;
 }
 

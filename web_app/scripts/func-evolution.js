@@ -157,11 +157,11 @@ function createTimelineText(attrVersion, attrVersionValues, uiConfig){
   return text ;
 }
 
-function changeSelectedLandmark(graphDBRepositoryURI, namedGraphURI, uiConfig, mapSettings){
+function changeSelectedLandmark(finalEndpointURI, namedGraphURI, uiConfig, mapSettings){
   var dropDownMenu = document.getElementById(uiConfig.divIds.landmarkSelectionSuggestions);
   var landmarkURI = dropDownMenu.value;
-  displayLandmarkValidTime(graphDBRepositoryURI, namedGraphURI, landmarkURI, uiConfig.divIds.landmarkValidTime, uiConfig);
-  initTimelineFromLandmark(graphDBRepositoryURI, namedGraphURI, uiConfig, mapSettings, landmarkURI);
+  displayLandmarkValidTime(finalEndpointURI, namedGraphURI, landmarkURI, uiConfig.divIds.landmarkValidTime, uiConfig);
+  initTimelineFromLandmark(finalEndpointURI, namedGraphURI, uiConfig, mapSettings, landmarkURI);
 }
 
 function buildTypesDataMap(bindings, valueVar, labelVar){
@@ -225,6 +225,7 @@ function buildLandmarkDataMap(typeBindings, landmarkBindings){
     }
   });
 
+  console.log("Built landmark data map") ;
   return map;
 }
 
@@ -372,6 +373,7 @@ function displayLandmarksToSelectForEvolution(
   lmTypeDropDown, lmDropDown, lmSuggestionsDropDown,
   selectTypeMessage, selectLmMessage
 ){
+  var namedGraphURI = "https://w3id.org/PeGazUs/id/pegazus-paris"
   var queryLandmarkTypes = getQueryForLandmarkTypes(namedGraphURI, uiConfig.graphLang) ;
   var queryAttrTypes = getQueryForAttributeTypes(namedGraphURI, uiConfig.graphLang);
   var queryLandmarks = getQueryForLandmarks(namedGraphURI, uiConfig.graphLang);
@@ -381,7 +383,6 @@ function displayLandmarksToSelectForEvolution(
     runSparqlQuery(endpoint, queryAttrTypes),
     runSparqlQuery(endpoint, queryLandmarks)
   ]).then(([landmarkTypeBindings, attrTypeBindings, landmarkBindings]) => {
-
     var attrTypesDataMap = buildTypesDataMap(attrTypeBindings, "attrType", "attrTypeLabel");
     var lmTypesDataMap = buildTypesDataMap(landmarkTypeBindings, "lmType", "lmTypeLabel");
     uiConfig.types.attributes = attrTypesDataMap;
