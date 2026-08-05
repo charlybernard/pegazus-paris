@@ -1,1570 +1,1580 @@
-@prefix : <https://w3id.org/PeGazUs#> .
-@base <https://w3id.org/PeGazUs#> .
-
-#Others namespaces
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix organization: <http://www.w3.org/ns/org#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix sd:   <http://www.w3.org/ns/sparql-service-description#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns0: <http://purl.org/vocab/vann/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 
-# Core namespaces
-@prefix atype: <https://w3id.org/PeGazUs/id/codes/AttributeType/> .
-@prefix ctype: <https://w3id.org/PeGazUs/id/codes/ChangeType/> .
-@prefix ltype: <https://w3id.org/PeGazUs/id/codes/LandmarkType/> .
-@prefix lrtype: <https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/> .
+<https://w3id.org/PeGazUs#>
+  a owl:Ontology, owl:NamedIndividual, <http://purl.org/vocommons/voaf#Vocabulary> ;
+  cc:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
+  dc:contributor <https://crh.ehess.fr/index.php?5206>, <https://www.umr-lastig.fr/julien-perret/>, <https://www.umr-lastig.fr/nathalie-abadie/> ;
+  dc:creator [
+    a foaf:Person ;
+    org:hasMembership [
+      a org:Membership ;
+      org:memberDuring [
+        a time:Interval ;
+        time:hasBeginning [
+          a time:Instant ;
+          time:inXSDDateTimeStamp "2019-10-15"^^xsd:dateTimeStamp
+        ]
+      ] ;
+      org:organization <http://www.ign.fr/>, <http://www.umr-lastig.fr/> ;
+      org:role [
+        a org:Role ;
+        rdfs:label "Doctorant"@fr, "PhD Student"@en
+      ]
+    ] ;
+    foaf:family_name "Bernard" ;
+    foaf:firstName "Charly" ;
+    foaf:mbox <mailto:charly.bernard@ign.fr> ;
+    foaf:name "Charly Bernard" ;
+    foaf:workInfoHomepage <https://www.umr-lastig.fr/charly-bernard/>
+  ] ;
+  dc:description "Ontologie PeGazUs pour représenter l'évolution des entités géographiques"@fr, "PeGazUs ontology to represent the evolution of geographical entities"@en ;
+  dc:issued "2023-10-30"^^xsd:date ;
+  dc:modified "2024-09-13"^^xsd:date ;
+  dc:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
+  dc:rights "Copyright 2025, IGN" ;
+  dc:title "Ontologie PeGazUs"@fr, "PeGazUs ontology"@en ;
+  ns0:preferredNamespacePrefix "peg" ;
+  ns0:preferredNamespaceUri <https://w3id.org/PeGazUs#> ;
+  owl:versionInfo "Version 0.1 - 2025-03-04" .
 
+cc:license a owl:AnnotationProperty .
+dc:contributor a owl:AnnotationProperty .
+dc:creator a owl:AnnotationProperty .
+dc:description a owl:AnnotationProperty .
+dc:issued a owl:AnnotationProperty .
+dc:modified a owl:AnnotationProperty .
+dc:publisher a owl:AnnotationProperty .
+dc:rights a owl:AnnotationProperty .
+dc:title a owl:AnnotationProperty .
+ns0:preferredNamespacePrefix a owl:AnnotationProperty .
+ns0:preferredNamespaceUri a owl:AnnotationProperty .
+rdfs:comment
+  a owl:AnnotationProperty ;
+  rdfs:comment ""@en ;
+  rdfs:isDefinedBy prov:, <http://www.w3.org/ns/prov-o#> .
 
-#################################################################
-#    Ontology metadata
-#################################################################
-
-<https://w3id.org/PeGazUs#> a owl:Ontology, voaf:Vocabulary ;
-        dcterms:creator [
-	      a foaf:Person ;
-	      organization:hasMembership [
-	          a organization:Membership ;
-	          organization:memberDuring [
-	              a time:Interval ;
-	              time:hasBeginning [
-	                  a time:Instant ;
-	                  time:inXSDDateTimeStamp "2019-10-15"^^xsd:dateTimeStamp ;
-	                ] ;
-	            ] ;
-	          organization:organization <http://www.ign.fr/> ;
-	          organization:organization <http://www.umr-lastig.fr/> ;
-	          organization:role [
-	              a organization:Role ;
-	              rdfs:label "Doctorant"@fr, "PhD Student"@en ;
-	            ] ;
-	        ] ;
-	      foaf:family_name "Bernard" ;
-	      foaf:firstName "Charly" ;
-	      foaf:mbox <mailto:charly.bernard@ign.fr> ;
-	      foaf:name "Charly Bernard" ;
-          foaf:workInfoHomepage <https://www.umr-lastig.fr/charly-bernard/> ;
-	    ] ;
-        dcterms:contributor <https://www.umr-lastig.fr/nathalie-abadie/> ;
-        dcterms:contributor <https://www.umr-lastig.fr/julien-perret/> ;
-        dcterms:contributor <https://crh.ehess.fr/index.php?5206> ;
-        dcterms:description "Ontologie PeGazUs pour représenter l'évolution des entités géographiques"@fr,
-		                    "PeGazUs ontology to represent the evolution of geographical entities"@en;
-        dcterms:issued "2023-10-30"^^xsd:date ;
-        dcterms:modified "2024-09-13"^^xsd:date ;
-        dcterms:publisher <http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re> ;
-        dcterms:title "Ontologie PeGazUs"@fr, "PeGazUs ontology"@en ;
-        vann:preferredNamespacePrefix "peg" ;
-		vann:preferredNamespaceUri <https://w3id.org/PeGazUs#> ;
-		dcterms:rights "Copyright 2025, IGN" ;
-		cc:license <https://creativecommons.org/licenses/by-nc-sa/4.0/> ;
-		owl:versionInfo "Version 0.1 - 2025-03-04" .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://www.w3.org/2002/07/owl#maxQualifiedCardinality
-owl:maxQualifiedCardinality rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#altLabel
-skos:altLabel rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#broader
-skos:broader rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#definition
-skos:definition rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#inScheme
-skos:inScheme rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#prefLabel
-skos:prefLabel rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://w3id.org/PeGazUs#hasNextVersion
-:hasNextVersion rdf:type owl:ObjectProperty ;
-       owl:inverseOf :hasPreviousVersion ;
-       rdfs:comment "Décrit qu'une version de repère en précède une autre"@fr, "Describes that one landmark version precedes another"@en ;
-       rdfs:label "a pour version suivante"@fr, "has next version"@en .
-
-###  https://w3id.org/PeGazUs#hasPreviousVersion
-:hasPreviousVersion rdf:type owl:ObjectProperty ;
-      owl:inverseOf :hasNextVersion ;
-      rdfs:comment "Décrit qu'une version de repère en succède à une autre"@fr, "Describes that one landmark version follows another"@en ;
-      rdfs:label "a pour version précédente"@fr, 'has previous version'@en .
-
-###  https://w3id.org/PeGazUs#hasOverlappingVersion
-:hasOverlappingVersion rdf:type owl:ObjectProperty ;
-      owl:inverseOf :isOverlappedByVersion ;
-      rdfs:comment "Décrit qu'une version de repère en chevauche une autre"@fr, "Describes that one landmark version overlaps another"@en ;
-      rdfs:label "chevauche la version"@fr, "overlaps version"@en .
-
-###  https://w3id.org/PeGazUs#isOverlappedByVersion
-:isOverlappedByVersion rdf:type owl:ObjectProperty ;
-      owl:inverseOf :hasOverlappingVersion ;
-      rdfs:comment "Décrit qu'une version de repère est chevauchée par une autre"@fr, "Describes that one landmark version is overlapped by another"@en ;
-      rdfs:label "est chevauché par"@fr, "is overlapped by version"@en .
-
-###  https://w3id.org/PeGazUs#hasTrace
-:hasTrace a owl:ObjectProperty ;
-    rdfs:label "a pour trace"@fr, "has trace"@en ;
-    rdfs:comment "Décrit qu'un élément a pour trace un autre élément"@fr, "Describes that an element has another element as its trace"@en ;
-    owl:inverseOf :isTraceOf.
-
-###  https://w3id.org/PeGazUs#isTraceOf
-:isTraceOf a owl:ObjectProperty ;
-    rdfs:label "est une trace de"@fr, "is trace of"@en ;
-    rdfs:comment "Décrit qu'un élément est la trace d'un autre élément"@fr, "Describes that an element is the trace of another element"@en ;
-    owl:inverseOf :hasTrace.
-
-###  https://w3id.org/PeGazUs#hasRoot
-:hasRoot rdf:type owl:ObjectProperty ;
-       owl:inverseOf :isRootOf ;
-       rdfs:comment "Décrit qu'un élément a pour racine un autre élement"@fr, "Describes that an element has another element of reference as its root"@en ;
-       rdfs:label "a pour racine"@fr, "has root"@en .
-
-###  https://w3id.org/PeGazUs#isRootOf
-:isRootOf rdf:type owl:ObjectProperty ;
-       owl:inverseOf :hasRoot ;
-      rdfs:comment "Décrit qu'un élément est la racine d'un autre"@fr, "Describes that an element is the root of another"@en ;
-      rdfs:label "est racine de"@fr, "is root of"@en .
-
-###  https://w3id.org/PeGazUs#hasRootLandmark
-:hasRootLandmark rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf :hasRoot ;
-       owl:inverseOf :isRootLandmarkOf ;
-       rdfs:comment "Décrit qu'un repère a pour racine un autre repère"@fr, "Describes that an landmark has another landmark as its root"@en ;
-       rdfs:label "a pour racine"@fr, "has root"@en .
-
-###  https://w3id.org/PeGazUs#isRootLandmarkOf
-:isRootLandmarkOf rdf:type owl:ObjectProperty ;
-       rdfs:subPropertyOf :isRootOf ;
-      rdfs:comment "Décrit qu'un repère est la racine d'un autre"@fr, "Describes that an landmark is the root of another"@en ;
-      rdfs:label "est racine de"@fr, "is root of"@en .
-
-###  https://w3id.org/PeGazUs#appliedTo
-:appliedTo rdf:type owl:ObjectProperty ;
-           owl:inverseOf :changedBy ;
-           rdfs:domain :Change ;
-           rdfs:range [ rdf:type owl:Class ;
-                        owl:unionOf ( :Attribute
-                                      :Landmark
-                                      :LandmarkRelation
-                                    )
-                      ] ;
-           rdfs:comment "Définit sur quoi s'applique le changement"@fr, "Defines what the change applies to"@en ;
-           rdfs:label "s'applique"@fr, "is applied to"@en .
-
-###  https://w3id.org/PeGazUs#eventBefore
-:eventBefore rdf:type owl:ObjectProperty ,
-                owl:TransitiveProperty ;
-       owl:inverseOf :eventAfter ;
-       rdfs:domain :Event ;
-       rdfs:range :Event ;
-       rdfs:comment "Décrit la relation temporelle d'antériorité entre deux événéments"@fr, "Describes the temporal relationship of anteriority between two events"@en ;
-       rdfs:label "est avant"@fr, "is before"@en .
-
-
-###  https://w3id.org/PeGazUs#eventAfter
-:eventAfter rdf:type owl:ObjectProperty ;
-      owl:inverseOf :eventBefore ;
-      rdf:type owl:TransitiveProperty ;
-      rdfs:domain :Event ;
-      rdfs:range :Event ;
-      rdfs:comment "Décrit la relation temporelle de postériorité entre deux événements"@fr, "Describes the temporal relationship of posteriority between two events"@en ;
-      rdfs:label "est après"@fr, "is after"@en .
-
-###  https://w3id.org/PeGazUs#eventSameTime
-:eventSameTime rdf:type owl:ObjectProperty ,
-                   owl:SymmetricProperty ;
-          rdfs:domain :Event ;
-          rdfs:range :Event ;
-          rdfs:comment "Décrit la relation temporelle de simultanéité entre deux événements"@fr, "Describes the temporal relationship of simultaneity between two events"@en ;
-          rdfs:label "est en même temps que"@fr, "is at the same time"@en .
-
-:instantBefore rdf:type owl:ObjectProperty ;
-      owl:inverseOf :instantAfter ;
-      rdf:type owl:TransitiveProperty ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Décrit la relation temporelle d'antériorité entre deux instants"@fr, "Describes the temporal relationship of anteriority between two instants"@en ;
-      rdfs:label "est avant"@fr, "is before"@en .
-
-:instantAfter rdf:type owl:ObjectProperty ;
-      owl:inverseOf :instantBefore ;
-      rdf:type owl:TransitiveProperty ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Décrit la relation temporelle de postériorité entre deux instants"@fr, "Describes the temporal relationship of posteriority between two instants"@en ;
-      rdfs:label "est après"@fr, "is after"@en .
-
-:instantSameTime rdf:type owl:ObjectProperty ;
-      rdf:type owl:SymmetricProperty ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Décrit la relation temporelle de simultanéité entre deux instants"@fr, "Describes the temporal relationship of simultaneity between two instants"@en ;
-      rdfs:label "est en même temps que"@fr, "is at the same time"@en .
-
-:instantMorePreciseThan rdf:type owl:ObjectProperty , owl:TransitiveProperty ;
-      owl:inverseOf :instantLessPreciseThan ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
-      rdfs:label "est plus précis que"@fr, "is more precise than"@en .
-
-:instantLessPreciseThan rdf:type owl:ObjectProperty , owl:TransitiveProperty ;
-      owl:inverseOf :instantMorePreciseThan ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
-      rdfs:label "est moins précis que"@fr, "is less precise than"@en .
-
-:instantAsPreciseAs rdf:type owl:ObjectProperty , owl:SymmetricProperty ;
-      rdfs:domain :CrispTimeInstant ;
-      rdfs:range :CrispTimeInstant ;
-      rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
-      rdfs:label "est aussi précis que"@fr, "is as precise as"@en .
-
+owl:maxQualifiedCardinality a owl:AnnotationProperty .
+skos:altLabel a owl:AnnotationProperty .
+skos:broader a owl:AnnotationProperty .
+skos:changeNote a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+skos:example a owl:AnnotationProperty .
+skos:inScheme a owl:AnnotationProperty .
+skos:note a owl:AnnotationProperty .
+skos:prefLabel a owl:AnnotationProperty .
+skos:scopeNote a owl:AnnotationProperty .
+time:hasBeginning a owl:AnnotationProperty .
+time:inXSDDateTimeStamp a owl:AnnotationProperty .
+org:hasMembership a owl:AnnotationProperty .
+org:memberDuring a owl:AnnotationProperty .
+org:organization a owl:AnnotationProperty .
+org:role a owl:AnnotationProperty .
+prov:category a owl:AnnotationProperty .
+prov:component a owl:AnnotationProperty .
+prov:constraints a owl:AnnotationProperty .
+prov:definition a owl:AnnotationProperty .
+prov:dm a owl:AnnotationProperty .
+prov:inverse a owl:AnnotationProperty .
+prov:n a owl:AnnotationProperty .
+prov:qualifiedForm a owl:AnnotationProperty .
+foaf:family_name a owl:AnnotationProperty .
+foaf:firstName a owl:AnnotationProperty .
+foaf:mbox a owl:AnnotationProperty .
+foaf:name a owl:AnnotationProperty .
+foaf:workInfoHomepage a owl:AnnotationProperty .
+xsd:date a rdfs:Datatype .
 time:after
-  rdf:type owl:ObjectProperty ;
-  rdfs:comment "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en ;
-  rdfs:domain time:TemporalEntity ;
-  rdfs:label "after"@en ;
-  rdfs:range time:TemporalEntity ;
+  a owl:ObjectProperty ;
   owl:inverseOf time:before ;
-  skos:definition "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en .
+  rdfs:domain time:TemporalEntity ;
+  rdfs:range time:TemporalEntity ;
+  rdfs:comment "Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2."@es, "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en ;
+  rdfs:label "after"@en, "después"@es ;
+  skos:definition "Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2."@es, "Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2."@en .
 
 time:before
-  rdf:type owl:ObjectProperty ;
-  rdf:type owl:TransitiveProperty ;
-  rdfs:comment "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en ;
+  a owl:ObjectProperty, owl:TransitiveProperty ;
   rdfs:domain time:TemporalEntity ;
-  rdfs:label "before"@en ;
   rdfs:range time:TemporalEntity ;
-  owl:inverseOf time:after ;
-  skos:definition "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en .
+  rdfs:comment "Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, \"antes\" se puede considerar básica para instantes y derivada para intervalos."@es, "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en ;
+  rdfs:label "antes"@es, "before"@en ;
+  skos:definition "Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, \"antes\" se puede considerar básica para instantes y derivada para intervalos."@es, "Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, \"before\" can be considered to be basic to instants and derived for intervals."@en .
+
+time:hasTRS
+  a owl:ObjectProperty, owl:FunctionalProperty ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     time:GeneralDurationDescription
+     time:TemporalPosition
+   )
+  ] ;
+  rdfs:range time:TRS ;
+  rdfs:comment "El sistema de referencia temporal utilizado por una posición temporal o descripción de extensión."@es, "The temporal reference system used by a temporal position or extent description. "@en ;
+  rdfs:label "Temporal reference system used"@en, "sistema de referencia temporal utilizado"@es ;
+  skos:definition "El sistema de referencia temporal utilizado por una posición temporal o descripción de extensión."@es, "The temporal reference system used by a temporal position or extent description. "@en .
 
 time:intervalAfter
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval after"@en ;
- rdfs:range time:ProperInterval ;
- rdfs:subPropertyOf time:after ;
- rdfs:subPropertyOf time:intervalDisjoint ;
- owl:inverseOf time:intervalBefore ;
- skos:definition "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:after, time:intervalDisjoint ;
+  owl:inverseOf time:intervalBefore ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en, "Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2." ;
+  rdfs:label "interval after"@en, "intervalo posterior"@es ;
+  skos:definition "If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2."@en, "Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2."@es .
 
 time:intervalBefore
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval before"@en ;
- rdfs:range time:ProperInterval ;
- rdfs:subPropertyOf time:before ;
- rdfs:subPropertyOf time:intervalDisjoint ;
- owl:inverseOf time:intervalAfter ;
- skos:definition "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:before, time:intervalDisjoint ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en, "Si un intervalo propio T1 está antes que otro intervalo propio T2, entonces el final de T1 está antes que el principio de T2."@es ;
+  rdfs:label "interval before"@en, "intervalo anterior"@es ;
+  skos:definition "If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2."@en, "Si un intervalo propio T1 está antes que otro intervalo propio T2, entonces el final de T1 está antes que el principio de T2."@es .
 
 time:intervalContains
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval contains"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalDuring ;
- skos:definition "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en .
+  a owl:ObjectProperty ;
+  owl:inverseOf time:intervalDuring ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 contiene otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 está después del final de T2."@es ;
+  rdfs:label "interval contains"@en, "intervalo contiene"@es ;
+  skos:definition "If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 contiene otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 está después del final de T2."@es .
 
 time:intervalDisjoint
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval disjoint"@en ;
- rdfs:range time:ProperInterval ;
- skos:definition "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en ;
- skos:note "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of time:intervalBefore v time:intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalBefore , time:intervalAfter as sub-properties"@en .
+  a owl:ObjectProperty ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en, "Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca."@es ;
+  rdfs:label "interval disjoint"@en, "intervalo disjunto"@es ;
+  skos:definition "If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en, "Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca."@es ;
+  skos:note "Esta relación entre intervalos no estaba incluida en las 13 relaciones básicas definidas por Allen (1984), pero está definida en T.3 como la unión de 'intervalo anterior' con 'intervalo posterior'. Sin embargo, esto está fuera de la expresividad de OWL2, por tanto, está implementado como una propiedad explícita, con 'intervalo anterior' e 'intervalo posterior' como sub-propiedades."@es, "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of :intervalBefore v :intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with :intervalBefore , :intervalAfter as sub-properties"@en, "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of time:intervalBefore v time:intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalBefore , time:intervalAfter as sub-properties"@en .
 
 time:intervalDuring
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval during"@en ;
- rdfs:range time:ProperInterval ;
- rdfs:subPropertyOf time:intervalIn ;
- owl:inverseOf time:intervalContains ;
- skos:definition "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:intervalIn ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 está durante otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 está antes que el final de T2."@es ;
+  rdfs:label "interval during"@en, "intervalo durante"@es ;
+  skos:definition "If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 está durante otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 está antes que el final de T2."@es .
 
 time:intervalEquals
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval equals"@en ;
- rdfs:range time:ProperInterval ;
- owl:propertyDisjointWith time:intervalIn ;
- skos:definition "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  owl:propertyDisjointWith time:intervalIn ;
+  rdfs:comment "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 es igual a otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 coincide con el final de T2."@es ;
+  rdfs:label "interval equals"@en, "intervalo igual"@es ;
+  skos:definition "If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 es igual a otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 coincide con el final de T2."@es .
 
 time:intervalFinishedBy
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval finished by"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalFinishes ;
- skos:definition "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+  a owl:ObjectProperty ;
+  owl:inverseOf time:intervalFinishes ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 está terminado por otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 coincide con el final de T2."@es ;
+  rdfs:label "interval finished by"@en, "intervalo terminado por"@es ;
+  skos:definition "If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 está terminado por otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 coincide con el final de T2."@es .
 
 time:intervalFinishes
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval finishes"@en ;
- rdfs:range time:ProperInterval ;
- rdfs:subPropertyOf time:intervalIn ;
- owl:inverseOf time:intervalFinishedBy ;
- skos:definition "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:intervalIn ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 termina otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 coincide con el final de T2."@es ;
+  rdfs:label "interval finishes"@en, "intervalo termina"@es ;
+  skos:definition "If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 termina otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 coincide con el final de T2."@es .
 
 time:intervalIn
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval in"@en ;
- rdfs:range time:ProperInterval ;
- owl:propertyDisjointWith time:intervalEquals ;
- skos:definition "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en ;
- skos:note "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as 'an important relationship' in Allen and Ferguson (1997). It is the disjoint union of time:intervalStarts v time:intervalDuring v time:intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalStarts , time:intervalDuring , time:intervalFinishes as sub-properties"@en .
+  a owl:ObjectProperty ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en, "Si un intervalo propio T1 es un intervalo interior a otro intervalo propio T2, entonces el principio de T1 está después del principio de T2 o coincide con el principio de T2, y el final de T1 está antes que el final de T2, o coincide con el final de T2, excepto que el final de T1 puede no coincidir con el final de T2 si el principio de T1 coincide con el principio de T2."@es ;
+  rdfs:label "interval in"@en, "intervalo interior"@es ;
+  skos:definition "If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2."@en, "Si un intervalo propio T1 es un intervalo interior a otro intervalo propio T2, entonces el principio de T1 está después del principio de T2 o coincide con el principio de T2, y el final de T1 está antes que el final de T2, o coincide con el final de T2, excepto que el final de T1 puede no coincidir con el final de T2 si el principio de T1 coincide con el principio de T2."@es ;
+  skos:note "Esta relación entre intervalos no estaba incluida en las 13 relaciones básicas definidas por Allen (1984), pero se hace referencia a ella como \"una relación importante\" en Allen y Ferguson (1997). Es la unión disjunta de 'intervalo empieza', 'intervalo durante' y con 'intervalo termina'. Sin embargo, esto está fuera de la expresividad de OWL2, por tanto, se implementa como una propiedad explícita, con 'intervalo empieza', 'intervalo durante' e 'intervalo termina' como sub-propiedades."@es, "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as 'an important relationship' in Allen and Ferguson (1997). It is the disjoint union of :intervalStarts v :intervalDuring v :intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with :intervalStarts , :intervalDuring , :intervalFinishes as sub-properties"@en, "This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as 'an important relationship' in Allen and Ferguson (1997). It is the disjoint union of time:intervalStarts v time:intervalDuring v time:intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalStarts , time:intervalDuring , time:intervalFinishes as sub-properties"@en .
 
 time:intervalMeets
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval meets"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalMetBy ;
- skos:definition "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en .
+  a owl:ObjectProperty ;
+  owl:inverseOf time:intervalMetBy ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en, "Si un intervalo propio T1 se encuentra con otro intervalo propio T2, entonces el final de T1 coincide con el principio de T2."@es ;
+  rdfs:label "interval meets"@en, "intervalo se encuentra"@es ;
+  skos:definition "If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2."@en, "Si un intervalo propio T1 se encuentra con otro intervalo propio T2, entonces el final de T1 coincide con el principio de T2."@es .
 
 time:intervalMetBy
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval met by"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalMeets ;
- skos:definition "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 es 'intervalo encontrado por' otro intervalo propio T2, entonces el principio de T1 coincide con el final de T2."@es ;
+  rdfs:label "interval met by"@en, "intervalo encontrado por"@es ;
+  skos:definition "If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2."@en, "Si un intervalo propio T1 es 'intervalo encontrado por' otro intervalo propio T2, entonces el principio de T1 coincide con el final de T2."@es .
 
 time:intervalOverlappedBy
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval overlapped by"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalOverlaps ;
- skos:definition "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en .
+  a owl:ObjectProperty ;
+  owl:inverseOf time:intervalOverlaps ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 es 'intervalo solapado por' otro intervalo propio T2, entonces el principio de T1 es posterior al principio de T2, y el principio de T1 es anterior al final de T2, y el final de T1 es posterior al final de T2."@es ;
+  rdfs:label "interval overlapped by"@en, "intervalo solapado por"@es ;
+  skos:definition "If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 es 'intervalo solapado por' otro intervalo propio T2, entonces el principio de T1 es posterior al principio de T2, y el principio de T1 es anterior al final de T2, y el final de T1 es posterior al final de T2."@es .
 
 time:intervalOverlaps
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval overlaps"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalOverlappedBy ;
- skos:definition "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en .
+  a owl:ObjectProperty ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2."@es, "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 se solapa con otro intervalo propio T2, entonces el principio de T1 es anterior al principio de T2, el final de T1 es posterior al principio de T2, y el final de T1 es anterior al final de T2."@es ;
+  rdfs:label "interval overlaps"@en, "intervalo se solapa"@es ;
+  skos:definition "If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 se solapa con otro intervalo propio T2, entonces el principio de T1 es anterior al principio de T2, el final de T1 es posterior al principio de T2, y el final de T1 es anterior al final de T2."@es .
 
 time:intervalStartedBy
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval started by"@en ;
- rdfs:range time:ProperInterval ;
- owl:inverseOf time:intervalStarts ;
- skos:definition "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en .
+  a owl:ObjectProperty ;
+  owl:inverseOf time:intervalStarts ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 es empezado por otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 es posterior al final de T2."@es ;
+  rdfs:label "interval started by"@en ;
+  skos:definition "If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2."@en, "Si un intervalo propio T1 es empezado por otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 es posterior al final de T2."@es .
 
 time:intervalStarts
- rdf:type owl:ObjectProperty ;
- rdfs:comment "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en ;
- rdfs:domain time:ProperInterval ;
- rdfs:label "interval starts"@en ;
- rdfs:range time:ProperInterval ;
- rdfs:subPropertyOf time:intervalIn ;
- owl:inverseOf time:intervalStartedBy ;
- skos:definition "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en .
-
-###  https://w3id.org/PeGazUs#changedBy
-:changedBy rdf:type owl:ObjectProperty ;
-           rdfs:domain [ rdf:type owl:Class ;
-                         owl:unionOf ( :Attribute
-                                       :Landmark
-                                       :LandmarkRelation
-                                     )
-                       ] ;
-           rdfs:range :Change ;
-           rdfs:comment "Définit le changement qui est appliqué à l'élément"@fr, "Defines the change applied to the element"@en ;
-           rdfs:label "changé par"@fr, "is changed by"@en .
-
-
-###  https://w3id.org/PeGazUs#dependsOn
-:dependsOn rdf:type owl:ObjectProperty ;
-           owl:inverseOf :hasChange ;
-           rdfs:domain :Change ;
-           rdfs:range :Event ;
-           rdfs:comment "Décrit l'appartenance d'un changement à un événement"@fr, "Describes whether a change belongs to an event"@en ;
-           rdfs:label "dépend de l'événement"@fr, "depends on the event"@en .
-
-
-###  https://w3id.org/PeGazUs#firstStep
-:firstStep rdf:type owl:ObjectProperty ;
-           rdfs:subPropertyOf :hasStep ;
-           rdfs:domain :Address ;
-           rdfs:range :AddressSegment ;
-           rdfs:comment "Première étape de l'adresse."@fr, "First step of an Address"@en ;
-           rdfs:label "a pour première étape"@fr , "has first step"@en ;
-           skos:altLabel "a pour premier segment d'adresse"@fr, "has as its first Address segment"@en .
-
-
-###  https://w3id.org/PeGazUs#hasAttribute
-:hasAttribute rdf:type owl:ObjectProperty ;
-              owl:inverseOf :isAttributeOf ;
-              rdfs:domain owl:Thing ;
-              rdfs:range :Attribute ;
-              rdfs:comment "Décrit l'attribut pour un élement"@fr, "Describes the attribute for an element"@en ;
-              rdfs:label "a pour attribut"@fr , "has attribute"@en.
-
-
-###  https://w3id.org/PeGazUs#hasAttributeVersion
-:hasAttributeVersion rdf:type owl:ObjectProperty ;
-                     owl:inverseOf :isAttributeVersionOf ;
-                     rdfs:domain :Attribute ;
-                     rdfs:range :AttributeVersion ;
-                     rdfs:comment "Version d'une valeur associée à l'attribut"@fr, "Version of a value associated with the attribute"@en ;
-                     rdfs:label "a pour version"@fr, "has version"@en.
-
-
-###  https://w3id.org/PeGazUs#hasBeginning
-:hasBeginning rdf:type owl:ObjectProperty ;
-              rdfs:domain :TimeInterval ;
-              rdfs:range :TimeInstant ;
-              rdfs:comment "Début de l'intervalle temporel"@fr, "Start of time interval"@en ;
-              rdfs:label "commence par"@fr, "has beginning"@en .
-
-
-###  https://w3id.org/PeGazUs#hasChange
-:hasChange rdf:type owl:ObjectProperty ;
-           rdfs:domain :Event ;
-           rdfs:range :Change ;
-           rdfs:comment "Définit les changements qui sont liés à l'événement"@fr, "Defines the changes linked to the event"@en ;
-           rdfs:label "comporte le changement"@fr ,
-                      "has change"@en .
-
-
-###  https://w3id.org/PeGazUs#hasEnd
-:hasEnd rdf:type owl:ObjectProperty ;
-        rdfs:domain :TimeInterval ;
-        rdfs:range :TimeInstant ;
-        rdfs:comment "Fin de l'intervalle temporel"@fr, "End of time interval"@en ;
-        rdfs:label "finit par"@fr, "has end"@en .
-
-
-###  https://w3id.org/PeGazUs#hasFuzzyBeginning
-:hasFuzzyBeginning rdf:type owl:ObjectProperty ;
-                   rdfs:domain :FuzzyTimeInstant ;
-                   rdfs:range :CrispTimeInstant ;
-                   rdfs:comment "Définit le début de validité pour un instant flou"@fr, "Defines the start of validity for a fuzzy instant"@en ;
-                   rdfs:label "a pour début flou"@fr , "has fuzzy beginning"@en.
-
-
-###  https://w3id.org/PeGazUs#hasFuzzyEnd
-:hasFuzzyEnd rdf:type owl:ObjectProperty ;
-             rdfs:domain :FuzzyTimeInstant ;
-             rdfs:range :CrispTimeInstant ;
-             rdfs:comment "Définit la fin de validité pour un instant flou"@fr, "Defines the end of validity for a fuzzy instant"@en ;
-             rdfs:label "a pour fin floue"@fr , "has fuzzy end"@en.
-
-
-###  https://w3id.org/PeGazUs#hasFuzzyPeak
-:hasFuzzyPeak rdf:type owl:ObjectProperty ;
-              rdfs:domain :FuzzyTimeInstant ;
-              rdfs:range :CrispTimeInstant ;
-              rdfs:comment "Définit le pic de validité pour un instant flou"@fr, "Defines the validity peak for a fuzzy instant"@en ;
-              rdfs:label "a pour pic flou"@fr , "has fuzzy peak"@en.
-
-
-###  https://w3id.org/PeGazUs#hasStep
-:hasStep rdf:type owl:ObjectProperty ;
-         owl:inverseOf :isStepOf ;
-         rdf:type owl:TransitiveProperty ;
-         rdfs:domain :Address ;
-         rdfs:range :AddressSegment ;
-         owl:propertyChainAxiom ( :firstStep
-                                  :nextStep
-                                ) ,
-                                ( :hasStep
-                                  :nextStep
-                                ) ;
-         rdfs:label "a pour étape"@fr ,
-                    "has step"@en ;
-         rdfs:comment "Décrit qu'une adresse à pour étape un segment d'adresse"@fr,
-                      "Describes that an address has an address segment as its step"@en .
-
-
-###  https://w3id.org/PeGazUs#hasTime
-:hasTime rdf:type owl:ObjectProperty ;
-         rdfs:range :TemporalEntity ;
-         rdfs:comment "Valeur temporelle liée à une ressource"@fr, "Time value linked to a resource"@en ;
-         rdfs:label "a pour valeur temporelle"@fr, "has time"@en .
-
-###  https://w3id.org/PeGazUs#hasTimeAfter
-:hasTimeAfter rdf:type owl:ObjectProperty ;
-       rdfs:range :TemporalInstant ;
-       rdfs:comment "Indique que la ressource est liée à un instant situé avant l'instant associé"@fr, "Indicates that the resource is linked to an instant prior to the associated instant"@en ;
-       rdfs:label "se passe après"@fr, "occurs after"@en .
-
-###  https://w3id.org/PeGazUs#hasTimeBefore
-:hasTimeBefore rdf:type owl:ObjectProperty ;
-       rdfs:range :TemporalInstant ;
-       rdfs:comment "Indique que la ressource est liée à un instant situé après l'instant associé"@fr, "Indicates that the resource is linked to a time after the associated time"@en ;
-       rdfs:label "se passe avant"@fr, "occurs before"@en .
-
-###  https://w3id.org/PeGazUs#hasEarliestTimeInstant
-:hasEarliestTimeInstant rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :hasTimeAfter ;
-        rdfs:range :TemporalInstant ;
-        rdfs:comment "Instant au plus tôt lié à la ressource"@fr, "Earliest time linked to the resource"@en ;
-        rdfs:label "instant au plus tôt"@fr, "has earliest time instant"@en .
-
-###  https://w3id.org/PeGazUs#hasLatestTimeInstant
-:hasLatestTimeInstant rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :hasTimeBefore ;
-        rdfs:range :TemporalInstant ;
-        rdfs:comment "Instant au plus tard lié à la ressource"@fr, "Latest time linked to the resource"@en ;
-        rdfs:label "instant au plus tard"@fr, "has latest time instant"@en .
-
-###  https://w3id.org/PeGazUs#isAttributeOf
-:isAttributeOf rdf:type owl:ObjectProperty ;
-               owl:inverseOf :hasAttribute ;
-               rdfs:comment "Définit le repère pour lequel l'attribut existe"@fr, "Defines the frame of reference for which the attribute exists"@en ;
-               rdfs:label "est un attribut de"@fr, "is attribute of"@en .
-
-
-###  https://w3id.org/PeGazUs#isAttributeType
-:isAttributeType rdf:type owl:ObjectProperty ;
-                 rdfs:domain :Attribute ;
-                 rdfs:range :AttributeType ;
-                 rdfs:comment "Décrit le type d'attribut."@fr, "Describes the type of attribute."@en ;
-                 rdfs:label "est un attribut de type"@fr, "is attribute type"@en .
-
-
-###  https://w3id.org/PeGazUs#isAttributeVersionOf
-:isAttributeVersionOf rdf:type owl:ObjectProperty ;
-                      rdfs:domain :AttributeVersion ;
-                      rdfs:range :Attribute ;
-                      rdfs:comment "Attribut associée à la version d'attribut"@fr, "Attribute associated with the attribute version"@en ;
-                      rdfs:label "est une version de l'attribut"@fr, "is attribute version of"@en .
-
-
-###  https://w3id.org/PeGazUs#isChangeType
-:isChangeType rdf:type owl:ObjectProperty ;
-              rdfs:domain :Change ;
-              rdfs:range :ChangeType ;
-              rdfs:comment "Décrit le type de changement."@fr, "Describes the type of change."@en ;
-              rdfs:label "est une changement de type"@fr, "is change type"@en .
-
-
-###  https://w3id.org/PeGazUs#isLandmarkRelationType
-:isLandmarkRelationType rdf:type owl:ObjectProperty ;
-                        rdfs:domain :LandmarkRelation ;
-                        rdfs:range :LandmarkRelationType ;
-                        rdfs:comment "Décrit le type de relation entre repères définie par la ressource."@fr, "Describes the type of landmark relation."@en ;
-                        rdfs:label "est une relation entre repères de type"@fr, "is landmark relation type"@en .
-
-
-###  https://w3id.org/PeGazUs#isLandmarkType
-:isLandmarkType rdf:type owl:ObjectProperty ;
-                rdfs:domain :Landmark ;
-                rdfs:range :LandmarkType ;
-                rdfs:comment "Décrit le type de repère définie par la ressource."@fr, "Describes the type of landmark."@en ;
-                rdfs:label "est un repère de type"@fr ,
-                           "is landmark type"@en .
-
-
-###  https://w3id.org/PeGazUs#isStepOf
-:isStepOf rdf:type owl:ObjectProperty ;
-          rdfs:domain :AddressSegment ;
-          rdfs:range :Address ;
-          rdfs:label "est une étape de"@fr ,
-                     "is a step of"@en ;
-          rdfs:comment "Décrit qu'un segment d'adresse est une étape d'une adresse"@fr,
-                       "Describes that an address segment is a step of an address"@en .
-
-
-###  https://w3id.org/PeGazUs#locatum
-:locatum rdf:type owl:ObjectProperty ;
-         rdfs:domain :LandmarkRelation ;
-         rdfs:range :Landmark ;
-         rdfs:comment "Donne le repère qui est le locatum pour la relation entre repères"@fr ,
-                      "Gives the landmark which is the locatum for the landmark relation"@en ;
-         rdfs:label "a pour locatum"@fr , "has locatum"@en .
-
-
-###  https://w3id.org/PeGazUs#makesEffective
-:makesEffective rdf:type owl:ObjectProperty ;
-                owl:inverseOf :isMadeEffectiveBy ;
-                rdfs:domain :AttributeChange ;
-                rdfs:range :AttributeVersion ;
-                rdfs:comment "Décrit le fait qu'un changement rend effectif une version d'un attribut"@fr, "Describes the fact that a change makes a version of an attribute effective"@en ;
-                rdfs:label "rend effectif"@fr, "makes effective"@en .
-
-###  https://w3id.org/PeGazUs#isMadeEffectiveBy
-:isMadeEffectiveBy rdf:type owl:ObjectProperty ;
-                owl:inverseOf :makesEffective ;
-                rdfs:domain :AttributeVersion ;
-                rdfs:range :AttributeChange ;
-                rdfs:comment "Décrit le fait qu'une version d'un attribut est rendue effectif par un changement"@fr, "Describes the fact that a version of an attribute is made effective by a change"@en ;
-                rdfs:label "est rendu effectif par"@fr, "is made effective by"@en .
-
-###  https://w3id.org/PeGazUs#isOutdatedBy
-:isOutdatedBy rdf:type owl:ObjectProperty ;
-                owl:inverseOf :outdates ;
-                rdfs:domain :AttributeVersion ;
-                rdfs:range :AttributeChange ;
-                rdfs:comment "Décrit le fait qu'une version d'un attribut est rendue caduc par un changement"@fr, "Describes the fact that a version of an attribute is rendered obsolete by a change"@en ;
-                rdfs:label "est rendu caduc par"@fr, "is outdated by"@en .
-
-
-###  https://w3id.org/PeGazUs#nextStep
-:nextStep rdf:type owl:ObjectProperty ;
-          rdfs:domain :AddressSegment ;
-          rdfs:range :AddressSegment ;
-          rdfs:label "a pour prochaine étape"@fr ,
-                     "has next step"@en ;
-          skos:altLabel "est suivi par"@fr ,
-                        "is followed by"@en ;
-          rdfs:comment "Décrit qu'un segment d'adresse est suivi par un autre segment d'adresse"@fr,
-                       "Describes that an address segment is followed by another address segment"@en .
-
-
-###  https://w3id.org/PeGazUs#outdates
-:outdates rdf:type owl:ObjectProperty ;
-          owl:inverseOf :isOutdatedBy ;
-          rdfs:domain :AttributeChange ;
-          rdfs:range :AttributeVersion ;
-          rdfs:comment "Décrit le fait qu'un changement rend caduc une version d'un attribut"@fr,
-                        "Describes the fact that a change invalidates a version of an attribute"@en ;
-          rdfs:label "rend caduc"@fr, "outdates"@en .
-
-
-###  https://w3id.org/PeGazUs#relatum
-:relatum rdf:type owl:ObjectProperty ;
-         rdfs:domain :LandmarkRelation ;
-         rdfs:range :Landmark ;
-         rdfs:comment "Donne l'entité géographique qui est un des relatums pour la relation entre repères"@fr ,
-                      "Gives the landmark which is one of the relatums for the landmark relation"@en ;
-         rdfs:label "a pour relatum"@fr ,
-                    "has relatum"@en .
-
-
-###  https://w3id.org/PeGazUs#targets
-:targets rdf:type owl:ObjectProperty ;
-         rdfs:domain :Address ;
-         rdfs:range :Landmark ;
-         rdfs:comment "Cible le repère décrivant l'adresse."@fr, "Target the marker describing the Address"@en ;
-         rdfs:label "cible"@fr ,
-                    "targets"@en .
-
-
-###  https://w3id.org/PeGazUs#timeCalendar
-:timeCalendar rdf:type owl:ObjectProperty ;
-              rdfs:domain :CrispTimeInstant ;
-              rdfs:range time:TRS ;
-              rdfs:comment "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"@fr, "Time-based calendar (Gregorian, Julian, Revolutionary)"@en ;
-              rdfs:label "a pour calendrier"@fr, "has calendar"@en .
-
-
-###  https://w3id.org/PeGazUs#timePrecision
-:timePrecision rdf:type owl:ObjectProperty ;
-               rdfs:domain :CrispTimeInstant ;
-               rdfs:range time:TemporalUnit ;
-               rdfs:comment "Précision de l'instant (au jour, au mois, à l'année...)"@fr, "Time accuracy (to the day, month, year, etc.)"@en ;
-               rdfs:label "a pour précision temporelle"@fr, "has time precision"@en .
-
-###  https://w3id.org/PeGazUs#sameVersionValueAs
-:sameVersionValueAs rdf:type owl:ObjectProperty , owl:SymmetricProperty ;
-               rdfs:domain :AttributeVersion ;
-               rdfs:range :AttributeVersion ;
-               rdfs:comment "Indique que deux versions d'attributs ont des valeurs similaires"@fr, "Indicates that two versions of attributes have similar values"@en ;
-               rdfs:label "a une valeur similaire à"@fr, "has same version value as"@en .
-
-###  https://w3id.org/PeGazUs#differentVersionValueFrom
-:differentVersionValueFrom rdf:type owl:ObjectProperty , owl:SymmetricProperty ;
-              rdfs:domain :AttributeVersion ;
-              rdfs:range :AttributeVersion ;
-              rdfs:comment "Indique que deux versions d'attributs ont des valeurs différents"@fr, "Indicates that two versions of attributes have different values"@en ;
-              rdfs:label "a une valeur différente de"@fr, "has different version value from"@en .
-
-###  https://w3id.org/PeGazUs#versionOf
-:versionOf rdf:type owl:ObjectProperty ;
-           rdfs:domain :LandmarkVersion ;
-           rdfs:range :Landmark ;
-           rdfs:comment "Définit pour une version de quel repère elle dépend"@fr, "Defines which landmark a version depends on"@en ;
-           rdfs:label "est une version de repère de"@fr, "is a version of"@en .
-
-
-###  http://www.w3.org/ns/prov#wasDerivedFrom
-prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
-                    rdfs:domain prov:Entity ;
-                    rdfs:range prov:Entity ;
-                    rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
-                    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-                    rdfs:label "est dérivé de"@fr ,
-                               "was derived from"@en .
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://w3id.org/PeGazUs#timeStamp
-:timeStamp rdf:type owl:DatatypeProperty ;
-           rdfs:domain :CrispTimeInstant ;
-           rdfs:range xsd:dateTimeStamp ;
-           rdfs:comment "Timestamp lié à l'instant"@fr ;
-           rdfs:label "a pour timestamp"@fr .
-
-
-###  https://w3id.org/PeGazUs#versionValue
-:versionValue rdf:type owl:DatatypeProperty ;
-              rdfs:domain :AttributeVersion ;
-              rdfs:comment "Valeur de liée à une version d'attribut"@fr, "Value linked to an attribute version"@en ;
-              rdfs:label "a pour valeur"@fr, "has version value"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-
-###  https://w3id.org/PeGazUs#Address
-:Address rdf:type owl:Class ;
-         rdfs:subClassOf [ rdf:type owl:Restriction ;
-                           owl:onProperty :firstStep ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :AddressSegment
-                         ] ,
-                         [ rdf:type owl:Restriction ;
-                           owl:onProperty :targets ;
-                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                           owl:onClass :Landmark
-                         ] ;
-         rdfs:label "Address"@en ,
-                    "adresse"@fr ;
-         rdfs:comment "Une adresse définit une référence spatiale indirecte d'un lieu qui est la cible de l'adresse. La manière dont ce lieu est décrit se fait comme étant une séquence de segments d'adresse étant chacun une description de relations entre entités."@fr,
-         "An address defines an indirect spatial reference to a location that is the target of the address. This location is described as a sequence of address segments, each of which describes the relationships between entities."@en .
-
-
-###  https://w3id.org/PeGazUs#AddressSegment
-:AddressSegment rdf:type owl:Class ;
-                rdfs:subClassOf :LandmarkRelation ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :relatum ;
-                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :Landmark
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :locatum ;
-                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :Landmark
-                                ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty :nextStep ;
-                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                  owl:onClass :AddressSegment
-                                ] ;
-                rdfs:label "Address segment"@en ,
-                           "segment d'adresse"@fr ;
-                rdfs:comment "Un segment d'adresse décrit une relation entre un repère (le locatum) et un ou plusieurs autres repères (les relatums). Un segment d'adresse peut être suivi par un autre segment d'adresse qui décrit une relation entre le locatum du segment d'adresse précédent et d'autres repères."@fr,
-                             "An address segment describes a relationship between a landmark (the locatum) and one or more other landmarks (the relatums). An address segment may be followed by another address segment that describes a relationship between the locatum of the previous address segment and other landmarks."@en .
-
-
-###  https://w3id.org/PeGazUs#Attribute
-:Attribute rdf:type owl:Class ;
-           rdfs:label "Attribut"@fr, "Attribute"@en ;
-           rdfs:comment "Un attribut est une propriété d'une entité géographique."@fr,
-                        "An attribute is a property of a geographic entity."@en .
-
-###  https://w3id.org/PeGazUs#AttributeChange
-:AttributeChange rdf:type owl:Class ;
-                 rdfs:subClassOf :Change ;
-                 rdfs:label "Change on an attribute"@en ,
-                            "Changement sur l'attribut"@fr ;
-                 rdfs:comment "Un changement sur un attribut est une modification appliquée à un attribut, elle définit une ou plusieurs de ses versions qui sont créées ou périmées lors de l'application du changement."@fr,
-                              "A change on an attribute is a modification applied to an attribute, it defines one or more of its versions that are created or outdated when the change is applied."@en .
-                          
-
-
-###  https://w3id.org/PeGazUs#AttributeType
-:AttributeType rdf:type owl:Class ;
-               rdfs:subClassOf skos:Concept ;
-               rdfs:label "Type d'attribut"@fr, "attribute type"@en ;
-               rdfs:comment "Un type d'attribut est une catégorie d'attributs définie par des caractéristiques communes."@fr,
-                            "An attribute type is a category of attributes defined by common characteristics."@en .
-
-
-###  https://w3id.org/PeGazUs#AttributeVersion
-:AttributeVersion rdf:type owl:Class ;
-                  rdfs:label "Attribute version"@en ,
-                             "Version de l'attribut"@fr ;
-                  rdfs:comment "Une version d'attribut est une version reliée à un attribut qui possède est définie par une valeur."@fr,
-                               "An attribute version is a version of an attribute which has a specific value."@en .
-
-
-
-###  https://w3id.org/PeGazUs#Change
-:Change rdf:type owl:Class ;
-        rdfs:subClassOf [ rdf:type owl:Restriction ;
-                          owl:onProperty :appliedTo ;
-                          owl:allValuesFrom [ rdf:type owl:Class ;
-                                              owl:unionOf ( :Attribute
-                                                            :Landmark
-                                                            :LandmarkRelation
-                                                          )
-                                            ]
-                        ] ;
-        rdfs:label "Changement"@fr, "Change"@en ;
-        rdfs:comment "Un changement est toute modification appliquée à une entité géographique ou à ses attributs ou bien à une relation entre entités."@fr,
-                     "A change is any modification made to a geographic feature or its attributes, or to a relationship between features."@en .
-
-
-###  https://w3id.org/PeGazUs#ChangeType
-:ChangeType rdf:type owl:Class ;
-            rdfs:subClassOf skos:Concept ;
-            rdfs:label "Type de changement"@fr, "Change Type"@en ;
-            rdfs:comment "Un type de changement est une catégorie de changements définie par des caractéristiques communes."@fr,
-                         "A change type is a category of changes defined by common characteristics."@en .
-
-
-###  https://w3id.org/PeGazUs#CrispTemporalEntity
-:CrispTemporalEntity rdf:type owl:Class ;
-                     rdfs:subClassOf :TemporalEntity ;
-                     rdfs:label "Crisp temporal entity"@en ,
-                                "Entité temporelle non floue"@fr ;
-                     rdfs:comment "Une entité temporelle non floue est une entité qui a un moment précis de temps, que ce soit un instant ou un intervalle."@fr,
-                                  "A crisp temporal entity is an entity that has a precise moment in time, which is either an instant or an interval."@en .
-
-
-###  https://w3id.org/PeGazUs#CrispTimeInstant
-:CrispTimeInstant rdf:type owl:Class ;
-                  rdfs:subClassOf :CrispTemporalEntity ,
-                                  :TimeInstant ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :timeCalendar ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass time:TRS
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :timePrecision ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onClass time:TemporalUnit
-                                  ] ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty :timeStamp ;
-                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange xsd:dateTimeStamp
-                                  ] ;
-                  rdfs:label "Crisp time instant"@en ,
-                             "Instant temporel précis"@fr ;
-                  rdfs:comment "Un instant temporel précis est un moment précis de temps, défini par un stamp, un calendrier et une précision temporelle."@fr,
-                               "A crisp time instant is a precise moment in time, defined by a timestamp, a calendar, and a temporal precision."@en .
-
-
-###  https://w3id.org/PeGazUs#CrispTimeInterval
-:CrispTimeInterval rdf:type owl:Class ;
-                   rdfs:subClassOf :CrispTemporalEntity ,
-                                   :TimeInterval ;
-                   rdfs:label "Crisp time interval"@en ,
-                              "Intervalle temporel précis"@fr ;
-                   rdfs:comment "Un intervalle temporel précis est un intervalle de temps précis, dont les bornes sont définies par des instants temporels précis."@fr,
-                                "A crisp time interval is a precise time interval, whose bounds are defined by crisp time instants."@en .
-
-
-###  https://w3id.org/PeGazUs#Event
-:Event rdf:type owl:Class ;
-       rdfs:comment "Un événément décrit une évolution impliquant une ou plusieurs ressources à un instant donné."@fr,
-                    "Event describing a development involving one or more resources at a given time."@en ;
-       rdfs:label "Event"@en ,
-                  "Événément"@fr .
-
-
-###  https://w3id.org/PeGazUs#FinalAddressSegment
-:FinalAddressSegment rdf:type owl:Class ;
-                     rdfs:subClassOf :AddressSegment ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :nextStep ;
-                                       owl:cardinality "0"^^xsd:nonNegativeInteger
-                                     ] ;
-                     rdfs:label "final Address segment"@en ,
-                                "segment d'adresse final"@fr ;
-                      rdfs:comment "Un segment d'adresse final est le dernier segment d'une adresses, elle n'est suivie d'aucun autre segment."@fr,
-                                   "A final address segment is the last segment of an address, it is not followed by any other segment."@en .
-
-
-###  https://w3id.org/PeGazUs#FuzzyTemporalEntity
-:FuzzyTemporalEntity rdf:type owl:Class ;
-                     rdfs:subClassOf :TemporalEntity ;
-                     rdfs:label "Entité temporelle floue"@fr ,
-                                "Fuzzy temporal entity"@en ;
-                     rdfs:comment "Une entité temporelle floue est une entité qui représente un concept temporel avec une certaine mesure d'incertitude."@fr,
-                                  "A fuzzy temporal entity is an entity that represents a temporal concept with some degree of uncertainty."@en .
-
-
-###  https://w3id.org/PeGazUs#FuzzyTimeInstant
-:FuzzyTimeInstant rdf:type owl:Class ;
-                  rdfs:subClassOf :FuzzyTemporalEntity ,
-                                  :TimeInstant ;
-                  rdfs:label "Fuzzy time instant"@en ,
-                             "Instant temporel flou"@fr ;
-                  rdfs:comment """
-Un instant temporel flou représente un instant dont la valeur temporelle est incertaine ou imprécise. 
-Cette incertitude peut être décrite à l'aide de trois relations vers des instants temporels précis : 
-- hasFuzzyBeginning indique une borne inférieure de l'incertitude temporelle ;
-- hasFuzzyPeak indique un instant central ou le plus probable ;
-- hasFuzzyEnd indique une borne supérieure de l'incertitude temporelle.
-Ces relations sont optionnelles et peuvent être utilisées indépendamment les unes des autres selon le niveau de précision disponible dans les données.
-"""@fr , """
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf time:intervalIn ;
+  rdfs:domain time:ProperInterval ;
+  rdfs:range time:ProperInterval ;
+  rdfs:comment "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 empieza otro intervalo propio T2, entonces del principio de T1 con el principio de T2, y el final de T1 es anterior al final de T2."@es ;
+  rdfs:label "interval starts"@en, "intervalo empieza"@es ;
+  skos:definition "If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2."@en, "Si un intervalo propio T1 empieza otro intervalo propio T2, entonces del principio de T1 con el final de T2, y el final de T1 es anterior al final de T2."@es .
+
+prov:alternateOf
+  a owl:ObjectProperty ;
+  rdfs:domain prov:Entity ;
+  rdfs:range prov:Entity ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+  rdfs:label "alternateOf" ;
+  rdfs:seeAlso prov:specializationOf ;
+  prov:category "expanded" ;
+  prov:component "alternate" ;
+  prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+  prov:definition "Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time."@en ;
+  prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate"^^xsd:anyURI ;
+  prov:inverse "alternateOf" ;
+  prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate"^^xsd:anyURI .
+
+prov:specializationOf
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:alternateOf ;
+  rdfs:domain prov:Entity ;
+  rdfs:isDefinedBy prov:, <http://www.w3.org/ns/prov-o#> ;
+  rdfs:label "specializationOf" ;
+  rdfs:seeAlso prov:alternateOf ;
+  prov:category "expanded" ;
+  prov:component "alternate" ;
+  prov:constraints "http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-constraints.html#prov-dm-constraints-fig"^^xsd:anyURI, "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+  prov:definition "An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity."@en ;
+  prov:dm "http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-dm.html#term-specialization"^^xsd:anyURI, "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization"^^xsd:anyURI ;
+  prov:inverse "generalizationOf" ;
+  prov:n "http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-n.html#expression-specialization"^^xsd:anyURI, "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization"^^xsd:anyURI .
+
+prov:wasDerivedFrom
+  a owl:ObjectProperty ;
+  rdfs:domain prov:Entity ;
+  rdfs:range prov:Entity ;
+  rdfs:comment "The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+  rdfs:label "est dérivé de"@fr, "was derived from"@en, "wasDerivedFrom" ;
+  prov:category "starting-point" ;
+  prov:component "derivations" ;
+  prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+  prov:inverse "hadDerivation" ;
+  prov:qualifiedForm prov:Derivation, prov:qualifiedDerivation .
+
+prov:wasRevisionOf
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf prov:wasDerivedFrom ;
+  rdfs:domain prov:Entity ;
+  rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+  rdfs:label "wasRevisionOf" ;
+  prov:category "expanded" ;
+  prov:component "derivations" ;
+  prov:inverse "hadRevision" ;
+  prov:qualifiedForm prov:Revision, prov:qualifiedRevision .
+
+<https://w3id.org/PeGazUs#appliedTo>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#changedBy> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Change> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <https://w3id.org/PeGazUs#Attribute>
+     <https://w3id.org/PeGazUs#Landmark>
+     <https://w3id.org/PeGazUs#LandmarkRelation>
+   )
+  ] ;
+  rdfs:comment "Defines what the change applies to"@en, "Définit sur quoi s'applique le changement"@fr ;
+  rdfs:label "is applied to"@en, "s'applique"@fr .
+
+<https://w3id.org/PeGazUs#changedBy>
+  a owl:ObjectProperty ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <https://w3id.org/PeGazUs#Attribute>
+     <https://w3id.org/PeGazUs#Landmark>
+     <https://w3id.org/PeGazUs#LandmarkRelation>
+   )
+  ] ;
+  rdfs:range <https://w3id.org/PeGazUs#Change> ;
+  rdfs:comment "Defines the change applied to the element"@en, "Définit le changement qui est appliqué à l'élément"@fr ;
+  rdfs:label "changé par"@fr, "is changed by"@en .
+
+<https://w3id.org/PeGazUs#dependsOn>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#hasChange> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Change> ;
+  rdfs:range <https://w3id.org/PeGazUs#Event> ;
+  rdfs:comment "Describes whether a change belongs to an event"@en, "Décrit l'appartenance d'un changement à un événement"@fr ;
+  rdfs:label "depends on the event"@en, "dépend de l'événement"@fr .
+
+<https://w3id.org/PeGazUs#differentVersionValueFrom>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Indicates that two versions of attributes have different values"@en, "Indique que deux versions d'attributs ont des valeurs différents"@fr ;
+  rdfs:label "a une valeur différente de"@fr, "has different version value from"@en .
+
+<https://w3id.org/PeGazUs#eventAfter>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#eventBefore> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Event> ;
+  rdfs:range <https://w3id.org/PeGazUs#Event> ;
+  rdfs:comment "Describes the temporal relationship of posteriority between two events"@en, "Décrit la relation temporelle de postériorité entre deux événements"@fr ;
+  rdfs:label "est après"@fr, "is after"@en .
+
+<https://w3id.org/PeGazUs#eventBefore>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Event> ;
+  rdfs:range <https://w3id.org/PeGazUs#Event> ;
+  rdfs:comment "Describes the temporal relationship of anteriority between two events"@en, "Décrit la relation temporelle d'antériorité entre deux événéments"@fr ;
+  rdfs:label "est avant"@fr, "is before"@en .
+
+<https://w3id.org/PeGazUs#eventSameTime>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Event> ;
+  rdfs:range <https://w3id.org/PeGazUs#Event> ;
+  rdfs:comment "Describes the temporal relationship of simultaneity between two events"@en, "Décrit la relation temporelle de simultanéité entre deux événements"@fr ;
+  rdfs:label "est en même temps que"@fr, "is at the same time"@en .
+
+<https://w3id.org/PeGazUs#firstStep>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <https://w3id.org/PeGazUs#hasStep> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Address> ;
+  rdfs:range <https://w3id.org/PeGazUs#AddressSegment> ;
+  rdfs:comment "First step of an Address"@en, "Première étape de l'adresse."@fr ;
+  rdfs:label "a pour première étape"@fr, "has first step"@en ;
+  skos:altLabel "a pour premier segment d'adresse"@fr, "has as its first Address segment"@en .
+
+<https://w3id.org/PeGazUs#hasAttribute>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isAttributeOf> ;
+  rdfs:domain owl:Thing ;
+  rdfs:range <https://w3id.org/PeGazUs#Attribute> ;
+  rdfs:comment "Describes the attribute for an element"@en, "Décrit l'attribut pour un élement"@fr ;
+  rdfs:label "a pour attribut"@fr, "has attribute"@en .
+
+<https://w3id.org/PeGazUs#hasAttributeVersion>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isAttributeVersionOf> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Attribute> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Version d'une valeur associée à l'attribut"@fr, "Version of a value associated with the attribute"@en ;
+  rdfs:label "a pour version"@fr, "has version"@en .
+
+<https://w3id.org/PeGazUs#hasBeginning>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#TimeInterval> ;
+  rdfs:range <https://w3id.org/PeGazUs#TimeInstant> ;
+  rdfs:comment "Début de l'intervalle temporel"@fr, "Start of time interval"@en ;
+  rdfs:label "commence par"@fr, "has beginning"@en .
+
+<https://w3id.org/PeGazUs#hasChange>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Event> ;
+  rdfs:range <https://w3id.org/PeGazUs#Change> ;
+  rdfs:comment "Defines the changes linked to the event"@en, "Définit les changements qui sont liés à l'événement"@fr ;
+  rdfs:label "comporte le changement"@fr, "has change"@en .
+
+<https://w3id.org/PeGazUs#hasEarliestTimeInstant>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <https://w3id.org/PeGazUs#hasTimeAfter> ;
+  rdfs:range <https://w3id.org/PeGazUs#TemporalInstant> ;
+  rdfs:comment "Earliest time linked to the resource"@en, "Instant au plus tôt lié à la ressource"@fr ;
+  rdfs:label "has earliest time instant"@en, "instant au plus tôt"@fr .
+
+<https://w3id.org/PeGazUs#hasEnd>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#TimeInterval> ;
+  rdfs:range <https://w3id.org/PeGazUs#TimeInstant> ;
+  rdfs:comment "End of time interval"@en, "Fin de l'intervalle temporel"@fr ;
+  rdfs:label "finit par"@fr, "has end"@en .
+
+<https://w3id.org/PeGazUs#hasFuzzyBeginning>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#FuzzyTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Defines the start of validity for a fuzzy instant"@en, "Définit le début de validité pour un instant flou"@fr ;
+  rdfs:label "a pour début flou"@fr, "has fuzzy beginning"@en .
+
+<https://w3id.org/PeGazUs#hasFuzzyEnd>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#FuzzyTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Defines the end of validity for a fuzzy instant"@en, "Définit la fin de validité pour un instant flou"@fr ;
+  rdfs:label "a pour fin floue"@fr, "has fuzzy end"@en .
+
+<https://w3id.org/PeGazUs#hasFuzzyPeak>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#FuzzyTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Defines the validity peak for a fuzzy instant"@en, "Définit le pic de validité pour un instant flou"@fr ;
+  rdfs:label "a pour pic flou"@fr, "has fuzzy peak"@en .
+
+<https://w3id.org/PeGazUs#hasLatestTimeInstant>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <https://w3id.org/PeGazUs#hasTimeBefore> ;
+  rdfs:range <https://w3id.org/PeGazUs#TemporalInstant> ;
+  rdfs:comment "Instant au plus tard lié à la ressource"@fr, "Latest time linked to the resource"@en ;
+  rdfs:label "has latest time instant"@en, "instant au plus tard"@fr .
+
+<https://w3id.org/PeGazUs#hasNextVersion>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#hasPreviousVersion> ;
+  rdfs:comment "Describes that one landmark version precedes another"@en, "Décrit qu'une version de repère en précède une autre"@fr ;
+  rdfs:label "a pour version suivante"@fr, "has next version"@en .
+
+<https://w3id.org/PeGazUs#hasOverlappingVersion>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isOverlappedByVersion> ;
+  rdfs:comment "Describes that one landmark version overlaps another"@en, "Décrit qu'une version de repère en chevauche une autre"@fr ;
+  rdfs:label "chevauche la version"@fr, "overlaps version"@en .
+
+<https://w3id.org/PeGazUs#hasPreviousVersion>
+  a owl:ObjectProperty ;
+  rdfs:comment "Describes that one landmark version follows another"@en, "Décrit qu'une version de repère en succède à une autre"@fr ;
+  rdfs:label "a pour version précédente"@fr, "has previous version"@en .
+
+<https://w3id.org/PeGazUs#hasRoot>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isRootOf> ;
+  rdfs:comment "Describes that an element has another element of reference as its root"@en, "Décrit qu'un élément a pour racine un autre élement"@fr ;
+  rdfs:label "a pour racine"@fr, "has root"@en .
+
+<https://w3id.org/PeGazUs#hasRootLandmark>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <https://w3id.org/PeGazUs#hasRoot> ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isRootLandmarkOf> ;
+  rdfs:comment "Describes that an landmark has another landmark as its root"@en, "Décrit qu'un repère a pour racine un autre repère"@fr ;
+  rdfs:label "a pour racine"@fr, "has root"@en .
+
+<https://w3id.org/PeGazUs#hasStep>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isStepOf> ;
+  rdfs:domain <https://w3id.org/PeGazUs#Address> ;
+  rdfs:range <https://w3id.org/PeGazUs#AddressSegment> ;
+  owl:propertyChainAxiom (
+   <https://w3id.org/PeGazUs#firstStep>
+   <https://w3id.org/PeGazUs#nextStep>
+ ), (
+   <https://w3id.org/PeGazUs#hasStep>
+   <https://w3id.org/PeGazUs#nextStep>
+ ) ;
+  rdfs:comment "Describes that an address has an address segment as its step"@en, "Décrit qu'une adresse à pour étape un segment d'adresse"@fr ;
+  rdfs:label "a pour étape"@fr, "has step"@en .
+
+<https://w3id.org/PeGazUs#hasTime>
+  a owl:ObjectProperty ;
+  rdfs:range <https://w3id.org/PeGazUs#TemporalEntity> ;
+  rdfs:comment "Time value linked to a resource"@en, "Valeur temporelle liée à une ressource"@fr ;
+  rdfs:label "a pour valeur temporelle"@fr, "has time"@en .
+
+<https://w3id.org/PeGazUs#hasTimeAfter>
+  a owl:ObjectProperty ;
+  rdfs:range <https://w3id.org/PeGazUs#TemporalInstant> ;
+  rdfs:comment "Indicates that the resource is linked to an instant prior to the associated instant"@en, "Indique que la ressource est liée à un instant situé avant l'instant associé"@fr ;
+  rdfs:label "occurs after"@en, "se passe après"@fr .
+
+<https://w3id.org/PeGazUs#hasTimeBefore>
+  a owl:ObjectProperty ;
+  rdfs:range <https://w3id.org/PeGazUs#TemporalInstant> ;
+  rdfs:comment "Indicates that the resource is linked to a time after the associated time"@en, "Indique que la ressource est liée à un instant situé après l'instant associé"@fr ;
+  rdfs:label "occurs before"@en, "se passe avant"@fr .
+
+<https://w3id.org/PeGazUs#hasTrace>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#isTraceOf> ;
+  rdfs:comment "Describes that an element has another element as its trace"@en, "Décrit qu'un élément a pour trace un autre élément"@fr ;
+  rdfs:label "a pour trace"@fr, "has trace"@en .
+
+<https://w3id.org/PeGazUs#instantAfter>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#instantBefore> ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Describes the temporal relationship of posteriority between two instants"@en, "Décrit la relation temporelle de postériorité entre deux instants"@fr ;
+  rdfs:label "est après"@fr, "is after"@en .
+
+<https://w3id.org/PeGazUs#instantAsPreciseAs>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
+  rdfs:label "est aussi précis que"@fr, "is as precise as"@en .
+
+<https://w3id.org/PeGazUs#instantBefore>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Describes the temporal relationship of anteriority between two instants"@en, "Décrit la relation temporelle d'antériorité entre deux instants"@fr ;
+  rdfs:label "est avant"@fr, "is before"@en .
+
+<https://w3id.org/PeGazUs#instantLessPreciseThan>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#instantMorePreciseThan> ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
+  rdfs:label "est moins précis que"@fr, "is less precise than"@en .
+
+<https://w3id.org/PeGazUs#instantMorePreciseThan>
+  a owl:ObjectProperty, owl:TransitiveProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Compare les précisions temporelles entre deux instants"@fr, "Compares time accuracies between two instants"@en ;
+  rdfs:label "est plus précis que"@fr, "is more precise than"@en .
+
+<https://w3id.org/PeGazUs#instantSameTime>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:comment "Describes the temporal relationship of simultaneity between two instants"@en, "Décrit la relation temporelle de simultanéité entre deux instants"@fr ;
+  rdfs:label "est en même temps que"@fr, "is at the same time"@en .
+
+<https://w3id.org/PeGazUs#isAttributeOf>
+  a owl:ObjectProperty ;
+  rdfs:comment "Defines the frame of reference for which the attribute exists"@en, "Définit le repère pour lequel l'attribut existe"@fr ;
+  rdfs:label "est un attribut de"@fr, "is attribute of"@en .
+
+<https://w3id.org/PeGazUs#isAttributeType>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Attribute> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeType> ;
+  rdfs:comment "Describes the type of attribute."@en, "Décrit le type d'attribut."@fr ;
+  rdfs:label "est un attribut de type"@fr, "is attribute type"@en .
+
+<https://w3id.org/PeGazUs#isAttributeVersionOf>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#Attribute> ;
+  rdfs:comment "Attribut associée à la version d'attribut"@fr, "Attribute associated with the attribute version"@en ;
+  rdfs:label "est une version de l'attribut"@fr, "is attribute version of"@en .
+
+<https://w3id.org/PeGazUs#isChangeType>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Change> ;
+  rdfs:range <https://w3id.org/PeGazUs#ChangeType> ;
+  rdfs:comment "Describes the type of change."@en, "Décrit le type de changement."@fr ;
+  rdfs:label "est une changement de type"@fr, "is change type"@en .
+
+<https://w3id.org/PeGazUs#isLandmarkRelationType>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#LandmarkRelation> ;
+  rdfs:range <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  rdfs:comment "Describes the type of landmark relation."@en, "Décrit le type de relation entre repères définie par la ressource."@fr ;
+  rdfs:label "est une relation entre repères de type"@fr, "is landmark relation type"@en .
+
+<https://w3id.org/PeGazUs#isLandmarkType>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Landmark> ;
+  rdfs:range <https://w3id.org/PeGazUs#LandmarkType> ;
+  rdfs:comment "Describes the type of landmark."@en, "Décrit le type de repère définie par la ressource."@fr ;
+  rdfs:label "est un repère de type"@fr, "is landmark type"@en .
+
+<https://w3id.org/PeGazUs#isMadeEffectiveBy>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#makesEffective> ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeChange> ;
+  rdfs:comment "Describes the fact that a version of an attribute is made effective by a change"@en, "Décrit le fait qu'une version d'un attribut est rendue effectif par un changement"@fr ;
+  rdfs:label "est rendu effectif par"@fr, "is made effective by"@en .
+
+<https://w3id.org/PeGazUs#isOutdatedBy>
+  a owl:ObjectProperty ;
+  owl:inverseOf <https://w3id.org/PeGazUs#outdates> ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeChange> ;
+  rdfs:comment "Describes the fact that a version of an attribute is rendered obsolete by a change"@en, "Décrit le fait qu'une version d'un attribut est rendue caduc par un changement"@fr ;
+  rdfs:label "est rendu caduc par"@fr, "is outdated by"@en .
+
+<https://w3id.org/PeGazUs#isOverlappedByVersion>
+  a owl:ObjectProperty ;
+  rdfs:comment "Describes that one landmark version is overlapped by another"@en, "Décrit qu'une version de repère est chevauchée par une autre"@fr ;
+  rdfs:label "est chevauché par"@fr, "is overlapped by version"@en .
+
+<https://w3id.org/PeGazUs#isRootLandmarkOf>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf <https://w3id.org/PeGazUs#isRootOf> ;
+  rdfs:comment "Describes that an landmark is the root of another"@en, "Décrit qu'un repère est la racine d'un autre"@fr ;
+  rdfs:label "est racine de"@fr, "is root of"@en .
+
+<https://w3id.org/PeGazUs#isRootOf>
+  a owl:ObjectProperty ;
+  rdfs:comment "Describes that an element is the root of another"@en, "Décrit qu'un élément est la racine d'un autre"@fr ;
+  rdfs:label "est racine de"@fr, "is root of"@en .
+
+<https://w3id.org/PeGazUs#isStepOf>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AddressSegment> ;
+  rdfs:range <https://w3id.org/PeGazUs#Address> ;
+  rdfs:comment "Describes that an address segment is a step of an address"@en, "Décrit qu'un segment d'adresse est une étape d'une adresse"@fr ;
+  rdfs:label "est une étape de"@fr, "is a step of"@en .
+
+<https://w3id.org/PeGazUs#isTraceOf>
+  a owl:ObjectProperty ;
+  rdfs:comment "Describes that an element is the trace of another element"@en, "Décrit qu'un élément est la trace d'un autre élément"@fr ;
+  rdfs:label "est une trace de"@fr, "is trace of"@en .
+
+<https://w3id.org/PeGazUs#locatum>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#LandmarkRelation> ;
+  rdfs:range <https://w3id.org/PeGazUs#Landmark> ;
+  rdfs:comment "Donne le repère qui est le locatum pour la relation entre repères"@fr, "Gives the landmark which is the locatum for the landmark relation"@en ;
+  rdfs:label "a pour locatum"@fr, "has locatum"@en .
+
+<https://w3id.org/PeGazUs#makesEffective>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeChange> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Describes the fact that a change makes a version of an attribute effective"@en, "Décrit le fait qu'un changement rend effectif une version d'un attribut"@fr ;
+  rdfs:label "makes effective"@en, "rend effectif"@fr .
+
+<https://w3id.org/PeGazUs#nextStep>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AddressSegment> ;
+  rdfs:range <https://w3id.org/PeGazUs#AddressSegment> ;
+  rdfs:comment "Describes that an address segment is followed by another address segment"@en, "Décrit qu'un segment d'adresse est suivi par un autre segment d'adresse"@fr ;
+  rdfs:label "a pour prochaine étape"@fr, "has next step"@en ;
+  skos:altLabel "est suivi par"@fr, "is followed by"@en .
+
+<https://w3id.org/PeGazUs#outdates>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeChange> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Describes the fact that a change invalidates a version of an attribute"@en, "Décrit le fait qu'un changement rend caduc une version d'un attribut"@fr ;
+  rdfs:label "outdates"@en, "rend caduc"@fr .
+
+<https://w3id.org/PeGazUs#relatum>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#LandmarkRelation> ;
+  rdfs:range <https://w3id.org/PeGazUs#Landmark> ;
+  rdfs:comment "Donne l'entité géographique qui est un des relatums pour la relation entre repères"@fr, "Gives the landmark which is one of the relatums for the landmark relation"@en ;
+  rdfs:label "a pour relatum"@fr, "has relatum"@en .
+
+<https://w3id.org/PeGazUs#sameVersionValueAs>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Indicates that two versions of attributes have similar values"@en, "Indique que deux versions d'attributs ont des valeurs similaires"@fr ;
+  rdfs:label "a une valeur similaire à"@fr, "has same version value as"@en .
+
+<https://w3id.org/PeGazUs#targets>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#Address> ;
+  rdfs:range <https://w3id.org/PeGazUs#Landmark> ;
+  rdfs:comment "Cible le repère décrivant l'adresse."@fr, "Target the marker describing the Address"@en ;
+  rdfs:label "cible"@fr, "targets"@en .
+
+<https://w3id.org/PeGazUs#timeCalendar>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range time:TRS ;
+  rdfs:comment "Calendrier lié à l'instant (grégorien, julien, révolutionnaire)"@fr, "Time-based calendar (Gregorian, Julian, Revolutionary)"@en ;
+  rdfs:label "a pour calendrier"@fr, "has calendar"@en .
+
+<https://w3id.org/PeGazUs#timePrecision>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range time:TemporalUnit ;
+  rdfs:comment "Précision de l'instant (au jour, au mois, à l'année...)"@fr, "Time accuracy (to the day, month, year, etc.)"@en ;
+  rdfs:label "a pour précision temporelle"@fr, "has time precision"@en .
+
+<https://w3id.org/PeGazUs#versionOf>
+  a owl:ObjectProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#LandmarkVersion> ;
+  rdfs:range <https://w3id.org/PeGazUs#Landmark> ;
+  rdfs:comment "Defines which landmark a version depends on"@en, "Définit pour une version de quel repère elle dépend"@fr ;
+  rdfs:label "est une version de repère de"@fr, "is a version of"@en .
+
+time:days
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en días."@es, "length of, or element of the length of, a temporal extent expressed in days"@en ;
+  rdfs:label "days duration"@en, "duración en días"@es ;
+  skos:definition "Longitud de, o elemento de la longitud de, una extensión temporal expresada en días."@es, "length of, or element of the length of, a temporal extent expressed in days"@en .
+
+time:hours
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en horas."@es, "length of, or element of the length of, a temporal extent expressed in hours"@en ;
+  rdfs:label "duración en horas"@es, "hours duration"@en ;
+  skos:definition "Longitud de, o elemento de la longitud de, una extensión temporal expresada en horas."@es, "length of, or element of the length of, a temporal extent expressed in hours"@en .
+
+time:minutes
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en minutos."@es, "length, or element of, a temporal extent expressed in minutes"@en ;
+  rdfs:label "minutes"@en, "minutos"@es ;
+  skos:definition "Longitud de, o elemento de la longitud de, una extensión temporal expresada en minutos."@es, "length, or element of, a temporal extent expressed in minutes"@en .
+
+time:months
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en meses."@es, "length of, or element of the length of, a temporal extent expressed in months"@en ;
+  rdfs:label "duración en meses"@es, "months duration"@en ;
+  skos:definition "Longitud de, o elemento de la longitud de, una extensión temporal expresada en meses."@es, "length of, or element of the length of, a temporal extent expressed in months"@en .
+
+time:seconds
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en segundos."@es, "length of, or element of the length of, a temporal extent expressed in seconds"@en ;
+  rdfs:label "duración en segundos"@es, "seconds duration"@en ;
+  rdfs:seeAlso <http://www.bipm.org/en/publications/si-brochure/second.html> .
+
+time:weeks
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en semanas."@es, "length of, or element of the length of, a temporal extent expressed in weeks"@en ;
+  rdfs:label "duración en semanas"@es, "weeks duration"@en .
+
+time:years
+  a owl:DatatypeProperty ;
+  rdfs:domain time:GeneralDurationDescription ;
+  rdfs:range xsd:decimal ;
+  rdfs:comment "Longitud de, o elemento de la longitud de, una extensión temporal expresada en años."@es, "length of, or element of the length of, a temporal extent expressed in years"@en ;
+  rdfs:label "duración en años"@es, "years duration"@en .
+
+<https://w3id.org/PeGazUs#timeStamp>
+  a owl:DatatypeProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#CrispTimeInstant> ;
+  rdfs:range xsd:dateTimeStamp ;
+  rdfs:comment "Timestamp lié à l'instant"@fr ;
+  rdfs:label "a pour timestamp"@fr .
+
+<https://w3id.org/PeGazUs#versionValue>
+  a owl:DatatypeProperty ;
+  rdfs:domain <https://w3id.org/PeGazUs#AttributeVersion> ;
+  rdfs:comment "Valeur de liée à une version d'attribut"@fr, "Value linked to an attribute version"@en ;
+  rdfs:label "a pour valeur"@fr, "has version value"@en .
+
+<http://purl.org/vocommons/voaf#Vocabulary> a owl:Class .
+skos:Concept
+  a owl:Class ;
+  owl:disjointWith skos:ConceptScheme ;
+  rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+  rdfs:label "Concept"@en ;
+  skos:definition "An idea or notion; a unit of thought."@en .
+
+skos:ConceptScheme
+  a owl:Class ;
+  rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
+  rdfs:label "Concept Scheme"@en ;
+  skos:definition "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
+  skos:example "Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies."@en ;
+  skos:scopeNote "A concept scheme may be defined to include concepts from different sources."@en .
+
+time:GeneralDurationDescription
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty time:hasTRS ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:days ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:hours ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:minutes ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:months ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:seconds ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:weeks ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ], [
+    a owl:Restriction ;
+    owl:onProperty time:years ;
+    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario."@es, "Description of temporal extent structured with separate values for the various elements of a calendar-clock system."@en ;
+  rdfs:label "Generalized duration description"@en, "descripción de duración generalizada"@es ;
+  skos:definition "Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario."@es, "Description of temporal extent structured with separate values for the various elements of a calendar-clock system."@en ;
+  skos:note "La extensión de una duración de tiempo expresada como una 'descripción de duración general' depende del Sistema de Referencia Temporal. En algunos calendarios la longitud de la semana o del mes no es constante a lo largo del año. Por tanto, un valor como \"25 meses\" puede no ser necesariamente ser comparado con un duración similar expresada en términos de semanas o días. Cuando se consideran calendarios que no están basados en el movimiento de la Tierra, se deben tomar incluso más precauciones en la comparación de duraciones."@es, "The extent of a time duration expressed as a GeneralDurationDescription depends on the Temporal Reference System. In some calendars the length of the week or month is not constant within the year. Therefore, a value like \"2.5 months\" may not necessarily be exactly compared with a similar duration expressed in terms of weeks or days. When non-earth-based calendars are considered even more care must be taken in comparing durations."@en .
+
+time:Instant
+  a owl:Class ;
+  rdfs:subClassOf time:TemporalEntity ;
+  owl:disjointWith time:ProperInterval ;
+  rdfs:comment "A temporal entity with zero extent or duration"@en, "Una entidad temporal con una extensión o duración cero."@es ;
+  rdfs:label "Time instant"@en, "instante de tiempo."@es ;
+  skos:definition "A temporal entity with zero extent or duration"@en, "Una entidad temporal con una extensión o duración cero."@es .
+
+time:Interval
+  a owl:Class ;
+  rdfs:subClassOf time:TemporalEntity ;
+  rdfs:comment "A temporal entity with an extent or duration"@en, "Una entidad temporal con una extensión o duración."@es ;
+  rdfs:label "Time interval"@en, "intervalo de tiempo"@es ;
+  skos:definition "A temporal entity with an extent or duration"@en, "Una entidad temporal con una extensión o duración."@es .
+
+time:ProperInterval
+  a owl:Class ;
+  rdfs:subClassOf time:Interval ;
+  rdfs:comment "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different"@en, "Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes."@es ;
+  rdfs:label "Proper interval"@en, "intervalo propio"@es ;
+  skos:definition "A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different"@en, "Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes."@es .
+
+time:TRS
+  a owl:Class ;
+  rdfs:comment """A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems."""@en, """Un sistema de referencia temporal, tal como un sistema de coordenadas temporales (con un origen, una dirección y una escala), una combinación calendario-reloj, o un sistema ordinal (posiblemente jerárquico).
+        Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal."""@es ;
+  rdfs:label "Temporal Reference System"@en, "sistema de referencia temporal"@es ;
+  skos:definition """A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems."""@en, """Un sistema de referencia temporal, tal como un sistema de coordenadas temporales (con un origen, una dirección y una escala), una combinación calendario-reloj, o un sistema ordinal (posiblemente jerárquico).
+    Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal."""@es ;
+  skos:note "A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e. numeric offset from an epoch); (c) temporal ordinal reference systems (i.e. ordered sequence of named intervals, not necessarily of equal duration)."@en, "En el ISO 19108:2002 [ISO19108] se proporciona una taxonomía de sistemas de referencia temporal, incluyendo (a) sistemas de calendario + reloj; (b) sistemas de coordenadas temporales (es decir, desplazamiento numérico a partir de una época); (c) sistemas de referencia ordinales temporales (es decir, secuencia ordenada de intervalos nombrados, no necesariamente de igual duración)."@es .
+
+time:TemporalEntity
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     time:Instant
+     time:Interval
+   )
+  ] ;
+  rdfs:comment "A temporal interval or instant."@en, "Un intervalo temporal o un instante."@es ;
+  rdfs:label "Temporal entity"@en, "entidad temporal"@es ;
+  skos:definition "A temporal interval or instant."@en, "Un intervalo temporal o un instante."@es .
+
+time:TemporalPosition
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty time:hasTRS ;
+    owl:cardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "A position on a time-line"@en, "Una posición sobre una línea de tiempo."@es ;
+  rdfs:label "Temporal position"@en, "posición temporal"@es ;
+  skos:definition "A position on a time-line"@en, "Una posición sobre una línea de tiempo."@es .
+
+time:TemporalUnit
+  a owl:Class ;
+  rdfs:comment "A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position."@en, "Una duración estándar, que proporciona un factor de escala para una extensión de tiempo, o la granularidad o precisión para una posición de tiempo."@es ;
+  rdfs:label "Temporal unit"@en, "unidad de tiempo"@es ;
+  skos:changeNote """Remove enumeration from definition, in order to allow other units to be used when required in other coordinate systems. 
+NOTE: existing units are still present as members of the class, but the class membership is now open. 
+
+In the original OWL-Time the following constraint appeared: 
+  owl:oneOf (
+      time:unitSecond
+      time:unitMinute
+      time:unitHour
+      time:unitDay
+      time:unitWeek
+      time:unitMonth
+      time:unitYear
+    ) ;"""@en ;
+  skos:definition "A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position."@en, "Una duración estándar, que proporciona un factor de escala para una extensión de tiempo, o la granularidad o precisión para una posición de tiempo."@es ;
+  skos:note "La pertenencia de la clase 'unidad de tiempo' está abierta, para permitir otras unidades de tiempo utilizadas en algunas aplicaciones técnicas (por ejemplo, millones de años o el mes Baha'i)."@es, "Membership of the class TemporalUnit is open, to allow for other temporal units used in some technical applications (e.g. millions of years, Baha'i month)."@en .
+
+org:Membership a owl:Class .
+org:Role a owl:Class .
+prov:Entity
+  a owl:Class ;
+  rdfs:comment "An entity is a physical, digital, conceptual or other element, which has certain fixed aspects; it can be real or imaginary."@en, "Une entité est un élément physique, numérique, conceptuel ou autre, possédant certains aspects fixes ; les entités peuvent être réelles ou imaginaires."@fr ;
+  rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+  rdfs:label "Entity", "Entity"@en, "entité"@fr ;
+  prov:category "starting-point" ;
+  prov:component "entities-activities" ;
+  prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig"^^xsd:anyURI ;
+  prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
+  prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
+  prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
+
+sd:NamedGraph a owl:Class .
+foaf:Person a owl:Class .
+<https://w3id.org/PeGazUs#Address>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#firstStep> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <https://w3id.org/PeGazUs#AddressSegment>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#targets> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <https://w3id.org/PeGazUs#Landmark>
+  ] ;
+  rdfs:comment "An address defines an indirect spatial reference to a location that is the target of the address. This location is described as a sequence of address segments, each of which describes the relationships between entities."@en, "Une adresse définit une référence spatiale indirecte d'un lieu qui est la cible de l'adresse. La manière dont ce lieu est décrit se fait comme étant une séquence de segments d'adresse étant chacun une description de relations entre entités."@fr ;
+  rdfs:label "Address"@en, "adresse"@fr .
+
+<https://w3id.org/PeGazUs#AddressSegment>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#LandmarkRelation>, [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#relatum> ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <https://w3id.org/PeGazUs#Landmark>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#locatum> ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <https://w3id.org/PeGazUs#Landmark>
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#nextStep> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass <https://w3id.org/PeGazUs#AddressSegment>
+  ] ;
+  rdfs:comment "An address segment describes a relationship between a landmark (the locatum) and one or more other landmarks (the relatums). An address segment may be followed by another address segment that describes a relationship between the locatum of the previous address segment and other landmarks."@en, "Un segment d'adresse décrit une relation entre un repère (le locatum) et un ou plusieurs autres repères (les relatums). Un segment d'adresse peut être suivi par un autre segment d'adresse qui décrit une relation entre le locatum du segment d'adresse précédent et d'autres repères."@fr ;
+  rdfs:label "Address segment"@en, "segment d'adresse"@fr .
+
+<https://w3id.org/PeGazUs#Attribute>
+  a owl:Class ;
+  rdfs:comment "An attribute is a property of a geographic entity."@en, "Un attribut est une propriété d'une entité géographique."@fr ;
+  rdfs:label "Attribut"@fr, "Attribute"@en .
+
+<https://w3id.org/PeGazUs#AttributeChange>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Change> ;
+  rdfs:comment "A change on an attribute is a modification applied to an attribute, it defines one or more of its versions that are created or outdated when the change is applied."@en, "Un changement sur un attribut est une modification appliquée à un attribut, elle définit une ou plusieurs de ses versions qui sont créées ou périmées lors de l'application du changement."@fr ;
+  rdfs:label "Change on an attribute"@en, "Changement sur l'attribut"@fr .
+
+<https://w3id.org/PeGazUs#AttributeType>
+  a owl:Class ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:comment "An attribute type is a category of attributes defined by common characteristics."@en, "Un type d'attribut est une catégorie d'attributs définie par des caractéristiques communes."@fr ;
+  rdfs:label "Type d'attribut"@fr, "attribute type"@en .
+
+<https://w3id.org/PeGazUs#AttributeVersion>
+  a owl:Class ;
+  rdfs:comment "An attribute version is a version of an attribute which has a specific value."@en, "Une version d'attribut est une version reliée à un attribut qui possède est définie par une valeur."@fr ;
+  rdfs:label "Attribute version"@en, "Version de l'attribut"@fr .
+
+<https://w3id.org/PeGazUs#Change>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#appliedTo> ;
+    owl:allValuesFrom [
+      a owl:Class ;
+      owl:unionOf (
+       <https://w3id.org/PeGazUs#Attribute>
+       <https://w3id.org/PeGazUs#Landmark>
+       <https://w3id.org/PeGazUs#LandmarkRelation>
+     )
+    ]
+  ] ;
+  rdfs:comment "A change is any modification made to a geographic feature or its attributes, or to a relationship between features."@en, "Un changement est toute modification appliquée à une entité géographique ou à ses attributs ou bien à une relation entre entités."@fr ;
+  rdfs:label "Change"@en, "Changement"@fr .
+
+<https://w3id.org/PeGazUs#ChangeType>
+  a owl:Class ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:comment "A change type is a category of changes defined by common characteristics."@en, "Un type de changement est une catégorie de changements définie par des caractéristiques communes."@fr ;
+  rdfs:label "Change Type"@en, "Type de changement"@fr .
+
+<https://w3id.org/PeGazUs#ConstructionGraph>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Graph> ;
+  rdfs:comment "A named graph containing intermediate results produced during the knowledge graph construction process."@en, "Graphe nommé contenant des résultats intermédiaires produits au cours du processus de construction du graphe de connaissances."@fr ;
+  rdfs:label "Construction graph"@en, "Graphe de construction"@fr .
+
+<https://w3id.org/PeGazUs#CrispTemporalEntity>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#TemporalEntity> ;
+  rdfs:comment "A crisp temporal entity is an entity that has a precise moment in time, which is either an instant or an interval."@en, "Une entité temporelle non floue est une entité qui a un moment précis de temps, que ce soit un instant ou un intervalle."@fr ;
+  rdfs:label "Crisp temporal entity"@en, "Entité temporelle non floue"@fr .
+
+<https://w3id.org/PeGazUs#CrispTimeInstant>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#CrispTemporalEntity>, <https://w3id.org/PeGazUs#TimeInstant>, [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#timeCalendar> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass time:TRS
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#timePrecision> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass time:TemporalUnit
+  ], [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#timeStamp> ;
+    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onDataRange xsd:dateTimeStamp
+  ] ;
+  rdfs:comment "A crisp time instant is a precise moment in time, defined by a timestamp, a calendar, and a temporal precision."@en, "Un instant temporel précis est un moment précis de temps, défini par un stamp, un calendrier et une précision temporelle."@fr ;
+  rdfs:label "Crisp time instant"@en, "Instant temporel précis"@fr .
+
+<https://w3id.org/PeGazUs#CrispTimeInterval>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#CrispTemporalEntity>, <https://w3id.org/PeGazUs#TimeInterval> ;
+  rdfs:comment "A crisp time interval is a precise time interval, whose bounds are defined by crisp time instants."@en, "Un intervalle temporel précis est un intervalle de temps précis, dont les bornes sont définies par des instants temporels précis."@fr ;
+  rdfs:label "Crisp time interval"@en, "Intervalle temporel précis"@fr .
+
+<https://w3id.org/PeGazUs#Event>
+  a owl:Class ;
+  rdfs:comment "Event describing a development involving one or more resources at a given time."@en, "Un événément décrit une évolution impliquant une ou plusieurs ressources à un instant donné."@fr ;
+  rdfs:label "Event"@en, "Événément"@fr .
+
+<https://w3id.org/PeGazUs#FinalAddressSegment>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#AddressSegment>, [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#nextStep> ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:comment "A final address segment is the last segment of an address, it is not followed by any other segment."@en, "Un segment d'adresse final est le dernier segment d'une adresses, elle n'est suivie d'aucun autre segment."@fr ;
+  rdfs:label "final Address segment"@en, "segment d'adresse final"@fr .
+
+<https://w3id.org/PeGazUs#FinalGraph>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Graph> ;
+  rdfs:comment "A named graph representing the final, consolidated knowledge graph."@en, "Graphe nommé représentant le graphe de connaissances final et consolidé."@fr ;
+  rdfs:label "Final graph"@en, "Graphe final"@fr .
+
+<https://w3id.org/PeGazUs#FuzzyTemporalEntity>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#TemporalEntity> ;
+  rdfs:comment "A fuzzy temporal entity is an entity that represents a temporal concept with some degree of uncertainty."@en, "Une entité temporelle floue est une entité qui représente un concept temporel avec une certaine mesure d'incertitude."@fr ;
+  rdfs:label "Entité temporelle floue"@fr, "Fuzzy temporal entity"@en .
+
+<https://w3id.org/PeGazUs#FuzzyTimeInstant>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#FuzzyTemporalEntity>, <https://w3id.org/PeGazUs#TimeInstant> ;
+  rdfs:comment """
 A fuzzy temporal instant represents an instant whose temporal value is uncertain or imprecise. 
 This uncertainty may be described using three relations to precise temporal instants: 
 - hasFuzzyBeginning indicates the lower bound of the temporal uncertainty;
 - hasFuzzyPeak indicates the central or most probable instant;
 - hasFuzzyEnd indicates the upper bound of the temporal uncertainty.
 These relations are optional and may be used independently of one another depending on the level of precision available in the data.
-"""@en .
+"""@en, """
+Un instant temporel flou représente un instant dont la valeur temporelle est incertaine ou imprécise. 
+Cette incertitude peut être décrite à l'aide de trois relations vers des instants temporels précis : 
+- hasFuzzyBeginning indique une borne inférieure de l'incertitude temporelle ;
+- hasFuzzyPeak indique un instant central ou le plus probable ;
+- hasFuzzyEnd indique une borne supérieure de l'incertitude temporelle.
+Ces relations sont optionnelles et peuvent être utilisées indépendamment les unes des autres selon le niveau de précision disponible dans les données.
+"""@fr ;
+  rdfs:label "Fuzzy time instant"@en, "Instant temporel flou"@fr .
 
-###  https://w3id.org/PeGazUs#FuzzyTimeInterval
-:FuzzyTimeInterval rdf:type owl:Class ;
-                   rdfs:subClassOf :FuzzyTemporalEntity ,
-                                   :TimeInterval ;
-                   rdfs:label "Fuzzy time interval"@en ,
-                              "Intervalle temporel flou"@fr ;
-                   rdfs:comment "Un intervalle temporel flou représente un intervalle au moins une des bornes temporelles sont incertaines ou imprécises."@fr,
-                                "A fuzzy time interval represents an interval whose at least one temporal bound is uncertain or imprecise."@en .
+<https://w3id.org/PeGazUs#FuzzyTimeInterval>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#FuzzyTemporalEntity>, <https://w3id.org/PeGazUs#TimeInterval> ;
+  rdfs:comment "A fuzzy time interval represents an interval whose at least one temporal bound is uncertain or imprecise."@en, "Un intervalle temporel flou représente un intervalle au moins une des bornes temporelles sont incertaines ou imprécises."@fr ;
+  rdfs:label "Fuzzy time interval"@en, "Intervalle temporel flou"@fr .
 
+<https://w3id.org/PeGazUs#Graph>
+  a owl:Class ;
+  rdfs:subClassOf sd:NamedGraph ;
+  rdfs:comment "A named graph used as a container for RDF statements."@en, "Graphe nommé utilisé comme conteneur de triplets RDF."@fr ;
+  rdfs:label "Graph"@en, "Graphe"@fr .
 
-###  https://w3id.org/PeGazUs#Landmark
-:Landmark rdf:type owl:Class ;
-          rdfs:label "Landmark"@en ,
-                     "Repère"@fr ,
-                     "Landmark"@en ;
-          skos:altLabel "Entité géographique"@fr ,
-                        "Entité spatiale"@fr ,
-                        "Geographic entity"@en ,
-                        "Spatial entity"@en ;
-          rdfs:comment "Un repère est une entité géographique. Elle peut être une rue, un bâtiment, un pays ou tout autre point de référence dans l'espace."@fr,
-          "A landmark is a geographic entity. It can be a street, a building, a country, or any other point of reference in space."@en .
+<https://w3id.org/PeGazUs#Landmark>
+  a owl:Class ;
+  rdfs:comment "A landmark is a geographic entity. It can be a street, a building, a country, or any other point of reference in space."@en, "Un repère est une entité géographique. Elle peut être une rue, un bâtiment, un pays ou tout autre point de référence dans l'espace."@fr ;
+  rdfs:label "Landmark"@en, "Repère"@fr ;
+  skos:altLabel "Entité géographique"@fr, "Entité spatiale"@fr, "Geographic entity"@en, "Spatial entity"@en .
 
+<https://w3id.org/PeGazUs#LandmarkChange>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Change> ;
+  rdfs:comment "A change on a landmark is a change of state of a landmark (appearance, disappearance)."@en, "Un changement sur un repère est une modification d'état d'un repère (apparition, disparition)."@fr ;
+  rdfs:label "Change on a landmark"@en, "Changement sur le repère"@fr .
 
-###  https://w3id.org/PeGazUs#LandmarkChange
-:LandmarkChange rdf:type owl:Class ;
-                rdfs:subClassOf :Change ;
-                rdfs:label "Change on a landmark"@en ,
-                           "Changement sur le repère"@fr ;
-                rdfs:comment "Un changement sur un repère est une modification d'état d'un repère (apparition, disparition)."@fr, 
-                              "A change on a landmark is a change of state of a landmark (appearance, disappearance)."@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkRelation
-:LandmarkRelation rdf:type owl:Class ;
-                  rdfs:label "Landmark relation"@en ,
-                             "Relation entre repères"@fr ;
-                  rdfs:comment """Il s'agit d'une relation qui représente un lien existant entre un ou plusieurs repères.
+<https://w3id.org/PeGazUs#LandmarkRelation>
+  a owl:Class ;
+  rdfs:comment """Il s'agit d'une relation qui représente un lien existant entre un ou plusieurs repères.
 Ces relations peuvent prendre diverses formes, notamment :
 - des relations géographiques, par exemple lorsqu'un point de repère est situé à l'angle de deux autres points de repère ;
 - des relations hiérarchiques, par exemple lorsqu'un point de repère est la capitale d'une autre entité administrative ;
-- d'autres relations spécifiques."""@fr ,
-                  """It is a relation that represents a relation existing between one or more landmarks.
+- d'autres relations spécifiques."""@fr, """It is a relation that represents a relation existing between one or more landmarks.
 Such relations may take various forms, including:
 - geographic relations, for example when a landmark is located at the corner of two other landmarks;
 - hierarchical relations, for example when a landmark is the capital of another administrative entity;
 - as well as other domain-specific or contextual relations depending on the application needs.
-"""@en .
-
-###  https://w3id.org/PeGazUs#LandmarkRelationChange
-:LandmarkRelationChange rdf:type owl:Class ;
-                        rdfs:subClassOf :Change ;
-                        rdfs:label "Change on a landmark relation"@en ,
-                                   "changement sur la relation entre repères"@fr ;
-                        rdfs:comment "Un changement sur la relation entre repères est une modification d'état de cette relation (apparition, disparition)."@fr,
-                                     "A change on a landmark relation is a change of state of this relation (appearance, disappearance)."@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkRelationType
-:LandmarkRelationType rdf:type owl:Class ;
-                      rdfs:subClassOf skos:Concept ;
-                      rdfs:label "type of landmark relation"@en ,
-                                 "Type de relation entre repères"@fr ; 
-                      rdfs:comment "Un type de relation entre repères est une catégorie qui permet de classer les différentes relations existantes des repères."@fr,
-                                   "A type of landmark relation is a category that allows classifying the different existing relations between landmarks."@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkType
-:LandmarkType rdf:type owl:Class ;
-              rdfs:subClassOf skos:Concept ;
-              rdfs:label "Type de repère"@fr ,
-                         "Type of landmark"@en ;
-              rdfs:comment "Un type de repère est une catégorie qui permet de classer les différents types de repères."@fr,
-                           "A type of landmark is a category that allows classifying the different types of landmarks."@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkVersion
-:LandmarkVersion rdf:type owl:Class ;
-                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasTime ;
-                                   owl:allValuesFrom :TimeInterval
-                                 ] ;
-                 rdfs:label "Landmark version"@en ,
-                            "Version de repère"@fr ;
-                  rdfs:comment "Une version de repère est une instance spécifique d'un repère à un moment donné."@fr,
-                               "A landmark version is a specific instance of a landmark at a given time."@en .
-
-
-###  https://w3id.org/PeGazUs#TemporalEntity
-:TemporalEntity rdf:type owl:Class ;
-                rdfs:subClassOf time:TemporalEntity ;
-                rdfs:label "Entité temporelle"@fr ,
-                           "Temporal entity"@en ;
-                rdfs:comment "Une entité temporelle est une instance d'un concept temporel."@fr,
-                             "A temporal entity is an instance of a temporal concept."@en .
-
-
-###  https://w3id.org/PeGazUs#TimeInstant
-:TimeInstant rdf:type owl:Class ;
-             rdfs:subClassOf :TemporalEntity ;
-             rdfs:label "Instant"@fr ,
-                        "Time instant"@en ;
-             rdfs:comment "Un instant est une instance d'une entité temporelle."@fr,
-                          "A time instant is an instance of a temporal entity."@en .
-
-
-###  https://w3id.org/PeGazUs#TimeInterval
-:TimeInterval rdf:type owl:Class ;
-              rdfs:subClassOf :TemporalEntity ;
-              rdfs:label "Intervalle temporel"@fr ,
-                         "Time interval"@en ;
-              rdfs:comment "Un intervalle temporel est une période de temps."@fr,
-                           "A time interval is a period of time."@en .
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
-
-
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-skos:ConceptScheme rdf:type owl:Class .
-
-
-###  http://www.w3.org/2006/time#TRS
-time:TRS rdf:type owl:Class .
-
-
-###  http://www.w3.org/2006/time#TemporalUnit
-time:TemporalUnit rdf:type owl:Class .
-
-
-###  http://www.w3.org/ns/prov#Entity
-prov:Entity rdf:type owl:Class ;
-            rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-            rdfs:label "entité"@fr, "Entity"@en ;
-            rdfs:comment "Une entité est un élément physique, numérique, conceptuel ou autre, possédant certains aspects fixes ; les entités peuvent être réelles ou imaginaires."@fr,
-                         "An entity is a physical, digital, conceptual or other element, which has certain fixed aspects; it can be real or imaginary."@en .
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  https://w3id.org/PeGazUs#AttributeList
-:AttributeList rdf:type owl:NamedIndividual ,
-                        skos:ConceptScheme ;
-               rdfs:comment "Liste des différents rôles pouvant être joués par un attribut, représentés comme une liste de concepts SKOS."@fr ;
-               rdfs:label "Type d'attribut"@fr, "type of attribute"@en .
-
-
-###  https://w3id.org/PeGazUs#ChangeList
-:ChangeList rdf:type owl:NamedIndividual ,
-                     skos:ConceptScheme ;
-            rdfs:comment "Liste des différents rôles pouvant être joués par un changement, représentés comme une liste de concepts SKOS."@fr ;
-            rdfs:label "Type de changement"@fr, "type of change"@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkList
-:LandmarkList rdf:type owl:NamedIndividual ,
-                       skos:ConceptScheme ;
-              rdfs:comment "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr ;
-              rdfs:label "Type de repère"@fr ,
-                         "Type of landmark"@en .
-
-
-###  https://w3id.org/PeGazUs#LandmarkRelationList
-:LandmarkRelationList rdf:type owl:NamedIndividual ,
-                               skos:ConceptScheme ;
-                      rdfs:comment "Liste des différents rôles pouvant être joués par une relation entre repères, représentés comme une liste de concepts SKOS."@fr ;
-                      rdfs:label "Type de relation entre repères"@fr ,
-                                 "Type of landmark relation"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry
-atype:Geometry rdf:type owl:NamedIndividual ,
-                        :AttributeType ,
-                        skos:Concept ;
-               skos:altLabel "Attribut de géométrie"@fr ,
-                             "Geometry attribute"@en ;
-               skos:definition "Attribut décrivant la géométrie d'un élément"@fr, "Attribute describing the geometry of an element"@en ;
-               skos:inScheme :AttributeList ;
-               skos:prefLabel "Geometry"@en ,
-                              "Géométrie"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode
-atype:InseeCode rdf:type owl:NamedIndividual ,
-                         :AttributeType ,
-                         skos:Concept ;
-                skos:altLabel "Attribut de code INSEE"@fr ,
-                              "INSEE code"@en ;
-                skos:definition "Attribut décrivant le code INSEE d'un élément"@fr, "Attribute describing the INSEE code of an element"@en ;
-                skos:inScheme :AttributeList ;
-                skos:prefLabel "Code INSEE"@fr ,
-                               "INSEE code"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/AttributeType/Name
-atype:Name rdf:type owl:NamedIndividual ,
-                    :AttributeType ,
-                    skos:Concept ;
-           skos:altLabel "Attribut de nom"@fr ,
-                         "Name attribute"@en ;
-           skos:definition "Attribut décrivant le nom d'un élément"@fr, "Attribute describing the name of an element"@en ;
-           skos:inScheme :AttributeList ;
-           skos:prefLabel "Name"@en ,
-                          "Nom"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance
-ctype:AttributeVersionAppearance rdf:type owl:NamedIndividual ,
-                                          :ChangeType ,
-                                          skos:Concept ;
-                                 skos:definition "Changement décrivant l'apparition d'une version d'un attribut"@fr, "Change describing the appearance of a version of an attribute"@en ;
-                                 skos:inScheme :ChangeList ;
-                                 skos:prefLabel "Apparition d'une version d'un attribut"@fr ,
-                                                "Appearance of an attribute version"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance
-ctype:AttributeVersionDisappearance rdf:type owl:NamedIndividual ,
-                                             :ChangeType ,
-                                             skos:Concept ;
-                                    skos:definition "Changement décrivant la disparition d'une version d'un attribut"@fr, "Change describing the disappearance of a version of an attribute"@en ;
-                                    skos:inScheme :ChangeList ;
-                                    skos:prefLabel "Disappearance of an attribute version"@en ,
-                                                   "Disparition d'une version d'un attribut"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition
-ctype:AttributeVersionTransition rdf:type owl:NamedIndividual ,
-                                          :ChangeType ,
-                                          skos:Concept ;
-                                 skos:definition "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut"@fr, "Change describing the transition between versions (appearance and disappearance) of an attribute"@en ;
-                                 skos:inScheme :ChangeList ;
-                                 skos:prefLabel "Transition between attribute versions"@en ,
-                                                "Transition de versions d'un attribut"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance
-ctype:LandmarkAppearance rdf:type owl:NamedIndividual ,
-                                  :ChangeType ,
-                                  skos:Concept ;
-                         skos:definition "Changement décrivant l'apparition du repère"@fr, "Change describing the appearance of the landmark"@en ;
-                         skos:inScheme :ChangeList ;
-                         skos:prefLabel "Apparition du repère"@fr ,
-                                        "Appearance of a landmark"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance
-ctype:LandmarkDisappearance rdf:type owl:NamedIndividual ,
-                                     :ChangeType ,
-                                     skos:Concept ;
-                            skos:definition "Changement décrivant la disparition du repère"@fr, "Change describing the disappearance of the landmark"@en ;
-                            skos:inScheme :ChangeList ;
-                            skos:prefLabel "Disappearance of a landmark"@en ,
-                                           "Disparition du repère"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance
-ctype:LandmarkRelationAppearance rdf:type owl:NamedIndividual ,
-                                          :ChangeType ,
-                                          skos:Concept ;
-                                 skos:definition "Changement décrivant l'apparition d'une relation entre repères."@fr, "Change describing the appearance of a landmark relation."@en ;
-                                 skos:inScheme :ChangeList ;
-                                 skos:prefLabel "Apparition de la relation entre repères"@fr ,
-                                                "Appearance of a landmark relation"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance
-ctype:LandmarkRelationDisappearance rdf:type owl:NamedIndividual ,
-                                             :ChangeType ,
-                                             skos:Concept ;
-                                    skos:definition "Changement décrivant la dissolution d'une relation entre repères."@fr, "Change describing the disappearance of a landmark relation."@en ;
-                                    skos:inScheme :ChangeList ;
-                                    skos:prefLabel "Disappearance of a landmark relation"@en ,
-                                                   "Dissolution de la relation entre repères"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along
-lrtype:Along rdf:type owl:NamedIndividual ,
-                      :LandmarkRelationType ,
-                      skos:Concept ;
-             skos:definition "Relation entre repères définissant que le locatum longe le relatum"@fr, "Relation between landmarks defining that the locatum runs alongside the relatum"@en ;
-             skos:inScheme :AdressSegmentList ;
-             skos:prefLabel "Along"@en ,
-                            "Le long de"@fr .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs
-lrtype:Belongs rdf:type owl:NamedIndividual ,
-                        :LandmarkRelationType ,
-                        skos:Concept ;
-               skos:definition "Relation entre des repères définissant que le locatum appartient au relatum"@fr, "Relation between landmarks defining that the locatum belongs to the relatum"@en ;
-               skos:inScheme :LandmarkRelationList ;
-               skos:prefLabel "Appartient à"@fr, "Belongs to"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between
-lrtype:Between rdf:type owl:NamedIndividual ,
-                        :LandmarkRelationType ,
-                        skos:Concept ;
-               skos:definition "Relation entre repères définissant que le locatum est entre deux relatums"@fr, "Relation between landmarks defining that the locatum is between the relatums"@en ;
-               skos:inScheme :AdressSegmentList ;
-               skos:prefLabel "Between"@en ,
-                              "Entre"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner
-lrtype:Corner rdf:type owl:NamedIndividual ,
-                       :LandmarkRelationType ,
-                       skos:Concept ;
-              skos:definition "Relation entre repères définissant que le locatum est au coin du relatum"@fr, "Relation between landmarks defining that the locatum is at the corner the relatums"@en ;
-              skos:inScheme :AdressSegmentList ;
-              skos:prefLabel "Coin"@fr ,
-                             "Corner"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf
-lrtype:IsPartOf rdf:type owl:NamedIndividual ,
-                         :LandmarkRelationType ,
-                         skos:Concept ;
-                skos:definition "Relation entre repères définissant que le locatum fait partie du relatum"@fr, "Relation between landmarks defining that the locatum is part of the relatum"@en ;
-                skos:inScheme :AdressSegmentList ;
-                skos:prefLabel "Fait partie de"@fr ,
-                               "Is part of"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar
-lrtype:IsSimilar rdf:type owl:NamedIndividual ,
-                          :LandmarkRelationType ,
-                          skos:Concept ;
-                 skos:definition "Relation entre repères définissant que le locatum est la même chose que le relatum"@fr, "Relation between landmarks defining that the locatum is the same thing as the relatum"@en ;
-                 skos:inScheme :AdressSegmentList ;
-                 skos:prefLabel "Est similaire à"@fr ,
-                                "Is similar as"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches
-lrtype:Touches rdf:type owl:NamedIndividual ,
-                        :LandmarkRelationType ,
-                        skos:Concept ;
-               skos:altLabel "En contact"@fr ,
-                             "Limitrophe"@fr ;
-               skos:definition "Relation entre repères définissant que le locatum est en contact avec le relatum"@fr,
-                               "Relation between landmarks defining that the locatum touches the relatum"@en ,
-                               "Relation entre repères définissant que le locatum touche le relatum"@fr ;
-               skos:inScheme :AdressSegmentList ;
-               skos:prefLabel "Touche"@fr ,
-                              "Touches"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within
-lrtype:Within rdf:type owl:NamedIndividual ,
-                       :LandmarkRelationType ,
-                       skos:Concept ;
-              skos:altLabel "À l'intérieur"@fr ;
-              skos:definition "Relation entre repères définissant que le locatum est situé dans le relatum"@fr ,
-                              "Relation entre repères entre des repères définissant que le locatum est dans un relatum"@fr,
-                              "Relation between landmarks defining that the locatum is within the relatum"@en ;
-              skos:inScheme :AdressSegmentList ,
-                            :LandmarkRelationList ;
-              skos:prefLabel "Dans"@fr ,
-                             "Within"@en .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt
-lrtype:StartsAt rdf:type owl:NamedIndividual ,
-                      :LandmarkRelationType ,
-                      skos:Concept ;
-             skos:altLabel "Commence à"@fr ;
-             skos:definition "Relation entre repères définissant que le locatum (un repère linéaire) commence au niveau du relatum"@fr, "Relation between landmarks defining that the locatum begins at the relatum"@en ;
-             skos:inScheme :AdressSegmentList ,
-                           :LandmarkRelationList ;
-             skos:prefLabel "Commence à"@fr ,
-                            "Starts at"@en .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt
-lrtype:EndsAt rdf:type owl:NamedIndividual ,
-                      :LandmarkRelationType ,
-                      skos:Concept ;
-             skos:altLabel "Commence à"@fr ;
-             skos:definition "Relation entre repères définissant que le locatum (un repère linéaire) termine au niveau du relatum"@fr, "Relation between landmarks defining that the locatum ends at the relatum"@en ;
-             skos:inScheme :AdressSegmentList ,
-                           :LandmarkRelationList ;
-             skos:prefLabel "Termine à"@fr ,
-                            "Ends at"@en .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit
-ltype:AdministrativeUnit rdf:type owl:NamedIndividual ,
-                                   :LandmarkType ,
-                                   skos:Concept ;
-                          skos:definition "Zone résultant d'un découpage administratif (quatier, commune, pays...)"@fr, "Area resulting from an administrative division (district, municipality, country...)"@en ;
-                          skos:inScheme :LandmarkList ;
-                          skos:prefLabel "Administrative unit"@en ,
-                                         "Unité administrative"@fr .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea
-ltype:PostalCodeArea rdf:type owl:NamedIndividual ,
-                                  :LandmarkType ,
-                                  skos:Concept ;
-                         skos:definition "Zone postale définie par un code"@fr, "Postal area defined by a code"@en ;
-                         skos:inScheme :LandmarkList ;
-                         skos:prefLabel "Postal area"@en ,
-                                        "Zone postale"@fr .
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality
-ltype:Municipality rdf:type owl:NamedIndividual ,
-                    :LandmarkType ,
-                    skos:Concept ;
-           skos:altLabel "City"@en ,
-                         "Town"@en ,
-                         "Ville"@fr ;
-           skos:broader ltype:AdministrativeUnity ;
-           skos:definition "Entité administrative décrivant une ville, une commune"@fr, "Administrative entity describing a city, town or commune"@en ;
-           skos:inScheme :LandmarkList ;
-           skos:prefLabel "Municipality"@en ,
-                          "Commune"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Country
-ltype:Country rdf:type owl:NamedIndividual ,
-                       :LandmarkType ,
-                       skos:Concept ;
-              skos:altLabel "State"@en ,
-                            "État"@fr ;
-              skos:broader ltype:AdministrativeUnity ;
-              skos:definition "Entité administrative décrivant un État, un pays"@fr, "Administrative entity describing a state or country"@en ;
-              skos:inScheme :LandmarkList ;
-              skos:prefLabel "Country"@en ,
-                             "Pays"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/District
-ltype:District rdf:type owl:NamedIndividual ,
-                        :LandmarkType ,
-                        skos:Concept ;
-               skos:altLabel "Hameau"@fr ,
-                             "Neighborhood"@en ,
-                             "Quarter"@en ;
-               skos:broader ltype:AdministrativeUnity ;
-               skos:definition "Entité administrative décrivant un quartier"@fr, "Administrative entity describing a district"@en ;
-               skos:inScheme :LandmarkList ;
-               skos:prefLabel "District"@en ,
-                              "Quartier"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber
-ltype:DistrictNumber rdf:type owl:NamedIndividual ,
-                              :LandmarkType ,
-                              skos:Concept ;
-                     skos:broader ltype:HouseNumber ;
-                     skos:definition "Numéro d'un bâtiment, d'un immeuble lié à un quartier"@fr ;
-                     skos:inScheme :LandmarkList ;
-                     skos:prefLabel "District number"@en ,
-                                    "Numéro de quartier"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber
-ltype:HouseNumber rdf:type owl:NamedIndividual ,
-                           :LandmarkType ,
-                           skos:Concept ;
-                  skos:definition "Numéro associé à un repère permettant d'identifier un bâtiment, une entreprise, une personne au sein du repère."@fr,
-                                  "Number associated with a landmark used to identify a building, a company or a person within the landmark."@en ;
-                  skos:inScheme :LandmarkList ;
-                  skos:prefLabel "House number"@en ,
-                                 "Numéro de l'habitation"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber
-ltype:StreetNumber rdf:type owl:NamedIndividual ,
-                            :LandmarkType ,
-                            skos:Concept ;
-                   skos:broader ltype:HouseNumber ;
-                   skos:definition "Numéro d'un bâtiment, d'un immeuble lié à une rue"@fr, "Number of a building linked to a street"@en ;
-                   skos:inScheme :LandmarkList ;
-                   skos:prefLabel "Numéro de rue"@fr ,
-                                  "Street number"@en .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure
-ltype:Structure rdf:type owl:NamedIndividual ,
-                         :LandmarkType ,
-                         skos:Concept ;
-                skos:definition "Lieu défini (bâtiment, magasin, maison...)"@fr, "Defined location (building, shop, house, etc.)"@en ;
-                skos:inScheme :LandmarkList ;
-                skos:prefLabel "Structure"@en ,
-                               "Structure"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare
-ltype:Thoroughfare rdf:type owl:NamedIndividual ,
-                            :LandmarkType ,
-                            skos:Concept ;
-                   skos:definition "Tout élément relatif à une voie de communication (rue, place, avenue...)"@fr, "Any element relating to a thoroughfare (street, square, avenue, etc.)"@en ;
-                   skos:inScheme :LandmarkList ;
-                   skos:prefLabel "Thoroughfare"@en ,
-                                  "Voie"@fr .
-
-
-###  https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined
-ltype:Undefined rdf:type owl:NamedIndividual ,
-                         :LandmarkType ,
-                         skos:Concept ;
-                skos:definition "Lieu non défini, inconnu"@fr, "Undefined or unknown place"@en ;
-                skos:inScheme :LandmarkList ;
-                skos:prefLabel "Non défini"@fr ,
-                               "Undefined"@en .
-
-
-###  http://www.w3.org/2006/time#unitCentury
-time:unitCentury rdf:type owl:NamedIndividual ,
-                          time:TemporalUnit ;
-                  rdfs:label "Century"@en ;
-                  rdfs:label "Siècle"@fr ;
-                  rdfs:comment "A period of 100 years."@en ;
-                  rdfs:comment "Une période de 100 ans."@fr .
-
-
-
-###  http://www.w3.org/2006/time#unitDay
-time:unitDay rdf:type owl:NamedIndividual ,
-                      time:TemporalUnit ;
-                  rdfs:label "Day"@en ;
-                  rdfs:label "Jour"@fr ;
-                  rdfs:comment "A period of 24 hours."@en ;
-                  rdfs:comment "Une période de 24 heures."@fr .
-
-
-###  http://www.w3.org/2006/time#unitDecade
-time:unitDecade rdf:type owl:NamedIndividual ,
-                         time:TemporalUnit ;
-                  rdfs:label "Decade"@en ;
-                  rdfs:label "Décennie"@fr ;
-                  rdfs:comment "A period of 10 years."@en ;
-                  rdfs:comment "Une période de 10 ans."@fr .
-
-
-###  http://www.w3.org/2006/time#unitMonth
-time:unitMonth rdf:type owl:NamedIndividual ,
-                        time:TemporalUnit ;
-                  rdfs:label "Month"@en ;
-                  rdfs:label "Mois"@fr ;
-                  rdfs:comment "A period of approximately 30 days."@en ;
-                  rdfs:comment "Une période d'environ 30 jours."@fr .
-
-
-###  http://www.w3.org/2006/time#unitWeek
-time:unitWeek rdf:type owl:NamedIndividual ,
-                       time:TemporalUnit ;
-                  rdfs:label "Week"@en ;
-                  rdfs:label "Semaine"@fr ;
-                  rdfs:comment "A period of 7 days."@en ;
-                  rdfs:comment "Une période de 7 jours."@fr .
-
-
-###  http://www.w3.org/2006/time#unitYear
-time:unitYear rdf:type owl:NamedIndividual ,
-                       time:TemporalUnit ;
-                  rdfs:label "Year"@en ;
-                  rdfs:label "Année"@fr ;
-                  rdfs:comment "A period of approximately 365 days."@en ;
-                  rdfs:comment "Une période d'environ 365 jours."@fr .
-
-
-###  http://www.wikidata.org/entity/Q181974
-<http://www.wikidata.org/entity/Q181974> rdf:type owl:NamedIndividual ,
-                                                  time:TRS ;
-                                         skos:definition "Système de calendrier de la Révolution française"@fr ;
-                                         skos:prefLabel "French Republican calendar"@en ,
-                                                        "calendrier républicain"@fr .
-
-
-###  http://www.wikidata.org/entity/Q1985727
-<http://www.wikidata.org/entity/Q1985727> rdf:type owl:NamedIndividual ,
-                                                   time:TRS ;
-                                          skos:definition "Extension du calendrier grégorien à avant son introduction"@fr ;
-                                          skos:prefLabel "calendrier grégorien proleptique"@fr ,
-                                                         "proleptic Gregorian calendar"@en .
-
-####  http://www.wikidata.org/entity/Q1985786
-<http://www.wikidata.org/entity/Q1985786> rdf:type owl:NamedIndividual ,
-                                                   time:TRS ;
-                                          skos:definition "Extension du calendrier julien à avant son introduction"@fr ;
-                                          skos:prefLabel "calendrier julien proleptique"@fr ,
-                                                         "proleptic Julian calendar"@en .
-
-##### Descriptions of named graphs
-:Graph
-    a owl:Class ;
-    rdfs:label "Graph"@en ;
-    rdfs:label "Graphe"@fr ;
-    rdfs:comment "A named graph used as a container for RDF statements."@en ;
-    rdfs:comment "Graphe nommé utilisé comme conteneur de triplets RDF."@fr ;
-    rdfs:subClassOf sd:NamedGraph .
-
-:SourceGraph
-    a owl:Class ;
-    rdfs:label "Source graph"@en ;
-    rdfs:label "Graphe source"@fr ;
-    rdfs:comment "A named graph containing data directly derived from sources."@en ;
-    rdfs:comment "Graphe nommé contenant des données directement issues de sources."@fr ;
-    rdfs:subClassOf :Graph .
-
-:ConstructionGraph
-    a owl:Class ;
-    rdfs:label "Construction graph"@en ;
-    rdfs:label "Graphe de construction"@fr ;
-    rdfs:comment "A named graph containing intermediate results produced during the knowledge graph construction process."@en ;
-    rdfs:comment "Graphe nommé contenant des résultats intermédiaires produits au cours du processus de construction du graphe de connaissances."@fr ;
-    rdfs:subClassOf :Graph .
-
-:FinalGraph
-    a owl:Class ;
-    rdfs:label "Final graph"@en ;
-    rdfs:label "Graphe final"@fr ;
-    rdfs:comment "A named graph representing the final, consolidated knowledge graph."@en ;
-    rdfs:comment "Graphe nommé représentant le graphe de connaissances final et consolidé."@fr ;
-    rdfs:subClassOf :Graph .
+"""@en ;
+  rdfs:label "Landmark relation"@en, "Relation entre repères"@fr .
+
+<https://w3id.org/PeGazUs#LandmarkRelationChange>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Change> ;
+  rdfs:comment "A change on a landmark relation is a change of state of this relation (appearance, disappearance)."@en, "Un changement sur la relation entre repères est une modification d'état de cette relation (apparition, disparition)."@fr ;
+  rdfs:label "Change on a landmark relation"@en, "changement sur la relation entre repères"@fr .
+
+<https://w3id.org/PeGazUs#LandmarkRelationType>
+  a owl:Class ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:comment "A type of landmark relation is a category that allows classifying the different existing relations between landmarks."@en, "Un type de relation entre repères est une catégorie qui permet de classer les différentes relations existantes des repères."@fr ;
+  rdfs:label "Type de relation entre repères"@fr, "type of landmark relation"@en .
+
+<https://w3id.org/PeGazUs#LandmarkType>
+  a owl:Class ;
+  rdfs:subClassOf skos:Concept ;
+  rdfs:comment "A type of landmark is a category that allows classifying the different types of landmarks."@en, "Un type de repère est une catégorie qui permet de classer les différents types de repères."@fr ;
+  rdfs:label "Type de repère"@fr, "Type of landmark"@en .
+
+<https://w3id.org/PeGazUs#LandmarkVersion>
+  a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty <https://w3id.org/PeGazUs#hasTime> ;
+    owl:allValuesFrom <https://w3id.org/PeGazUs#TimeInterval>
+  ] ;
+  rdfs:comment "A landmark version is a specific instance of a landmark at a given time."@en, "Une version de repère est une instance spécifique d'un repère à un moment donné."@fr ;
+  rdfs:label "Landmark version"@en, "Version de repère"@fr .
+
+<https://w3id.org/PeGazUs#SourceGraph>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#Graph> ;
+  rdfs:comment "A named graph containing data directly derived from sources."@en, "Graphe nommé contenant des données directement issues de sources."@fr ;
+  rdfs:label "Graphe source"@fr, "Source graph"@en .
+
+<https://w3id.org/PeGazUs#TemporalEntity>
+  a owl:Class ;
+  rdfs:subClassOf time:TemporalEntity ;
+  rdfs:comment "A temporal entity is an instance of a temporal concept."@en, "Une entité temporelle est une instance d'un concept temporel."@fr ;
+  rdfs:label "Entité temporelle"@fr, "Temporal entity"@en .
+
+<https://w3id.org/PeGazUs#TemporalInstant> a owl:Class .
+<https://w3id.org/PeGazUs#TimeInstant>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#TemporalEntity> ;
+  rdfs:comment "A time instant is an instance of a temporal entity."@en, "Un instant est une instance d'une entité temporelle."@fr ;
+  rdfs:label "Instant"@fr, "Time instant"@en .
+
+<https://w3id.org/PeGazUs#TimeInterval>
+  a owl:Class ;
+  rdfs:subClassOf <https://w3id.org/PeGazUs#TemporalEntity> ;
+  rdfs:comment "A time interval is a period of time."@en, "Un intervalle temporel est une période de temps."@fr ;
+  rdfs:label "Intervalle temporel"@fr, "Time interval"@en .
+
+<file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430> a owl:NamedIndividual .
+<file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312> a owl:NamedIndividual .
+<file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl> a owl:NamedIndividual .
+<file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#>
+  a owl:NamedIndividual ;
+  prov:specializationOf <file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl> ;
+  prov:wasDerivedFrom <file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430> ;
+  prov:wasRevisionOf <file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312> .
+
+time:unitCentury
+  a owl:NamedIndividual, time:TemporalUnit ;
+  rdfs:comment "A period of 100 years."@en, "Une période de 100 ans."@fr ;
+  rdfs:label "Century"@en, "Siècle"@fr .
+
+time:unitDay
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 1.0 ;
+  time:hours 0.0 ;
+  time:minutes 0.0 ;
+  time:months 0.0 ;
+  time:seconds 0.0 ;
+  time:weeks 0.0 ;
+  time:years 0.0 ;
+  rdfs:comment "A period of 24 hours."@en, "Une période de 24 heures."@fr ;
+  rdfs:label "Day"@en, "Day (unit of temporal duration)"@en, "Jour"@fr ;
+  skos:prefLabel "Tag"@de, "dag"@nl, "day"@en, "dia"@pt, "doba"@pl, "día"@es, "giorno"@it, "jour"@fr, "يوماً ما"@ar, "ある日"@jp, "一天"@zh, "언젠가"@kr .
+
+time:unitDecade
+  a owl:NamedIndividual, time:TemporalUnit ;
+  rdfs:comment "A period of 10 years."@en, "Une période de 10 ans."@fr ;
+  rdfs:label "Decade"@en, "Décennie"@fr .
+
+time:unitHour
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 1.0 ;
+  time:minutes 0.0 ;
+  time:months 0.0 ;
+  time:seconds 0.0 ;
+  time:weeks 0.0 ;
+  time:years 0.0 ;
+  rdfs:label "Hour (unit of temporal duration)"@en ;
+  skos:prefLabel "Stunde"@de, "godzina"@pl, "heure"@fr, "hora"@es, "hora"@pt, "hour"@en, "ora"@it, "uur"@nl, "один час\"@ru", "ساعة واحدة"@ar, "一小時"@zh, "一時間"@jp, "한 시간"@kr .
+
+time:unitMinute
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 0.0 ;
+  time:minutes 1.0 ;
+  time:months 0.0 ;
+  time:seconds 0.0 ;
+  time:weeks 0.0 ;
+  time:years 0.0 ;
+  rdfs:label "Minute (unit of temporal duration)"@en ;
+  skos:prefLabel "Minute"@de, "minuta"@pl, "minute"@en, "minute"@fr, "minuto"@es, "minuto"@it, "minuto"@pt, "minuut"@nl, "одна минута"@ru, "دقيقة واحدة"@ar, "一分"@jp, "等一下"@zh, "분"@kr .
+
+time:unitMonth
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 0.0 ;
+  time:minutes 0.0 ;
+  time:months 1.0 ;
+  time:seconds 0.0 ;
+  time:weeks 0.0 ;
+  time:years 0.0 ;
+  rdfs:comment "A period of approximately 30 days."@en, "Une période d'environ 30 jours."@fr ;
+  rdfs:label "Mois"@fr, "Month"@en, "Month (unit of temporal duration)"@en ;
+  skos:prefLabel "Monat"@de, "maand"@nl, "mes"@es, "mese"@it, "miesiąc"@pl, "mois"@fr, "month"@en, "один месяц"@ru, "شهر واحد"@ar, "一か月"@jp, "一個月"@zh, "한달"@kr .
+
+time:unitSecond
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 0.0 ;
+  time:minutes 0.0 ;
+  time:months 0.0 ;
+  time:seconds 1.0 ;
+  time:weeks 0.0 ;
+  time:years 0.0 ;
+  rdfs:label "Second (unit of temporal duration)"@en ;
+  skos:prefLabel "Sekunde"@de, "Sekundę"@pl, "second"@en, "seconde"@fr, "seconde"@nl, "secondo"@it, "segundo"@es, "segundo"@pt, "ثانية واحدة"@ar, "一秒"@jp, "一秒"@zh, "일초"@kr .
+
+time:unitWeek
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 0.0 ;
+  time:minutes 0.0 ;
+  time:months 0.0 ;
+  time:seconds 0.0 ;
+  time:weeks 1.0 ;
+  time:years 0.0 ;
+  rdfs:comment "A period of 7 days."@en, "Une période de 7 jours."@fr ;
+  rdfs:label "Semaine"@fr, "Week"@en, "Week (unit of temporal duration)"@en ;
+  skos:prefLabel "Woche"@de, "semaine"@fr, "semana"@es, "semana"@pt, "settimana"@it, "tydzień"@pl, "week"@en, "week"@nl, "одна неделя"@ru, "سبوع واحد"@ar, "一周"@zh, "一週間"@jp, "일주일"@kr .
+
+time:unitYear
+  a owl:NamedIndividual, time:TemporalUnit ;
+  time:days 0.0 ;
+  time:hours 0.0 ;
+  time:minutes 0.0 ;
+  time:months 0.0 ;
+  time:seconds 0.0 ;
+  time:weeks 0.0 ;
+  time:years 1.0 ;
+  rdfs:comment "A period of approximately 365 days."@en, "Une période d'environ 365 jours."@fr ;
+  rdfs:label "Année"@fr, "Year"@en, "Year (unit of temporal duration)"@en ;
+  skos:prefLabel "1 년"@kr, "1年"@jp, "Jahr"@de, "an"@fr, "anno"@it, "ano"@pt, "jaar"@nl, "rok"@pl, "un año"@es, "year"@en, "один год"@ru, "سنة واحدة"@ar, "一年"@zh .
+
+<http://www.w3.org/ns/prov-20130312> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-links> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-o> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-o-20120312> a owl:NamedIndividual .
+prov:
+  a owl:NamedIndividual ;
+  prov:wasDerivedFrom <http://www.w3.org/ns/prov-aq#>, <http://www.w3.org/ns/prov-dc#>, <http://www.w3.org/ns/prov-dictionary#>, <http://www.w3.org/ns/prov-links#>, <http://www.w3.org/ns/prov-o#>, <http://www.w3.org/ns/prov-o-inverses#> ;
+  prov:wasRevisionOf <http://www.w3.org/ns/prov-20130312> .
+
+<http://www.w3.org/ns/prov-aq#> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-dc#> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-dictionary#> a owl:NamedIndividual .
+<http://www.w3.org/ns/prov-links#>
+  a owl:NamedIndividual ;
+  prov:specializationOf <http://www.w3.org/ns/prov-links> .
+
+<http://www.w3.org/ns/prov-o#>
+  a owl:NamedIndividual ;
+  prov:specializationOf <http://www.w3.org/ns/prov-o> ;
+  prov:wasRevisionOf <http://www.w3.org/ns/prov-o-20120312> .
+
+<http://www.w3.org/ns/prov-o-inverses#> a owl:NamedIndividual .
+<http://www.wikidata.org/entity/Q181974>
+  a owl:NamedIndividual, time:TRS ;
+  skos:definition "Système de calendrier de la Révolution française"@fr ;
+  skos:prefLabel "French Republican calendar"@en, "calendrier républicain"@fr .
+
+<http://www.wikidata.org/entity/Q1985727>
+  a owl:NamedIndividual, time:TRS ;
+  skos:definition "Extension du calendrier grégorien à avant son introduction"@fr ;
+  skos:prefLabel "calendrier grégorien proleptique"@fr, "proleptic Gregorian calendar"@en .
+
+<http://www.wikidata.org/entity/Q1985786>
+  a owl:NamedIndividual, time:TRS ;
+  skos:definition "Extension du calendrier julien à avant son introduction"@fr ;
+  skos:prefLabel "calendrier julien proleptique"@fr, "proleptic Julian calendar"@en .
+
+<https://w3id.org/PeGazUs#AttributeList>
+  a owl:NamedIndividual, skos:ConceptScheme ;
+  rdfs:comment "Liste des différents rôles pouvant être joués par un attribut, représentés comme une liste de concepts SKOS."@fr ;
+  rdfs:label "Type d'attribut"@fr, "type of attribute"@en .
+
+<https://w3id.org/PeGazUs#ChangeList>
+  a owl:NamedIndividual, skos:ConceptScheme ;
+  rdfs:comment "Liste des différents rôles pouvant être joués par un changement, représentés comme une liste de concepts SKOS."@fr ;
+  rdfs:label "Type de changement"@fr, "type of change"@en .
+
+<https://w3id.org/PeGazUs#LandmarkList>
+  a owl:NamedIndividual, skos:ConceptScheme ;
+  rdfs:comment "Liste des différents rôles pouvant être joués par un repère, représentés comme une liste de concepts SKOS."@fr ;
+  rdfs:label "Type de repère"@fr, "Type of landmark"@en .
+
+<https://w3id.org/PeGazUs#LandmarkRelationList>
+  a owl:NamedIndividual, skos:ConceptScheme ;
+  rdfs:comment "Liste des différents rôles pouvant être joués par une relation entre repères, représentés comme une liste de concepts SKOS."@fr ;
+  rdfs:label "Type de relation entre repères"@fr, "Type of landmark relation"@en .
+
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#AttributeType> ;
+  skos:altLabel "Attribut de géométrie"@fr, "Geometry attribute"@en ;
+  skos:definition "Attribut décrivant la géométrie d'un élément"@fr, "Attribute describing the geometry of an element"@en ;
+  skos:inScheme <https://w3id.org/PeGazUs#AttributeList> ;
+  skos:prefLabel "Geometry"@en, "Géométrie"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#AttributeType> ;
+  skos:altLabel "Attribut de code INSEE"@fr, "INSEE code"@en ;
+  skos:definition "Attribut décrivant le code INSEE d'un élément"@fr, "Attribute describing the INSEE code of an element"@en ;
+  skos:inScheme <https://w3id.org/PeGazUs#AttributeList> ;
+  skos:prefLabel "Code INSEE"@fr, "INSEE code"@en .
+
+<https://w3id.org/PeGazUs/id/codes/AttributeType/Name>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#AttributeType> ;
+  skos:altLabel "Attribut de nom"@fr, "Name attribute"@en ;
+  skos:definition "Attribut décrivant le nom d'un élément"@fr, "Attribute describing the name of an element"@en ;
+  skos:inScheme <https://w3id.org/PeGazUs#AttributeList> ;
+  skos:prefLabel "Name"@en, "Nom"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the appearance of a version of an attribute"@en, "Changement décrivant l'apparition d'une version d'un attribut"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Apparition d'une version d'un attribut"@fr, "Appearance of an attribute version"@en .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the disappearance of a version of an attribute"@en, "Changement décrivant la disparition d'une version d'un attribut"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Disappearance of an attribute version"@en, "Disparition d'une version d'un attribut"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the transition between versions (appearance and disappearance) of an attribute"@en, "Changement décrivant la transition entre des versions (apparition et disparition) d'un attribut"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Transition between attribute versions"@en, "Transition de versions d'un attribut"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the appearance of the landmark"@en, "Changement décrivant l'apparition du repère"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Apparition du repère"@fr, "Appearance of a landmark"@en .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the disappearance of the landmark"@en, "Changement décrivant la disparition du repère"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Disappearance of a landmark"@en, "Disparition du repère"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the appearance of a landmark relation."@en, "Changement décrivant l'apparition d'une relation entre repères."@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Apparition de la relation entre repères"@fr, "Appearance of a landmark relation"@en .
+
+<https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#ChangeType> ;
+  skos:definition "Change describing the disappearance of a landmark relation."@en, "Changement décrivant la dissolution d'une relation entre repères."@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#ChangeList> ;
+  skos:prefLabel "Disappearance of a landmark relation"@en, "Dissolution de la relation entre repères"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum runs alongside the relatum"@en, "Relation entre repères définissant que le locatum longe le relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Along"@en, "Le long de"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum belongs to the relatum"@en, "Relation entre des repères définissant que le locatum appartient au relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkRelationList> ;
+  skos:prefLabel "Appartient à"@fr, "Belongs to"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum is between the relatums"@en, "Relation entre repères définissant que le locatum est entre deux relatums"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Between"@en, "Entre"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum is at the corner the relatums"@en, "Relation entre repères définissant que le locatum est au coin du relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Coin"@fr, "Corner"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:altLabel "Commence à"@fr ;
+  skos:definition "Relation between landmarks defining that the locatum ends at the relatum"@en, "Relation entre repères définissant que le locatum (un repère linéaire) termine au niveau du relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList>, <https://w3id.org/PeGazUs#LandmarkRelationList> ;
+  skos:prefLabel "Ends at"@en, "Termine à"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum is part of the relatum"@en, "Relation entre repères définissant que le locatum fait partie du relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Fait partie de"@fr, "Is part of"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:definition "Relation between landmarks defining that the locatum is the same thing as the relatum"@en, "Relation entre repères définissant que le locatum est la même chose que le relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Est similaire à"@fr, "Is similar as"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:altLabel "Commence à"@fr ;
+  skos:definition "Relation between landmarks defining that the locatum begins at the relatum"@en, "Relation entre repères définissant que le locatum (un repère linéaire) commence au niveau du relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList>, <https://w3id.org/PeGazUs#LandmarkRelationList> ;
+  skos:prefLabel "Commence à"@fr, "Starts at"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:altLabel "En contact"@fr, "Limitrophe"@fr ;
+  skos:definition "Relation between landmarks defining that the locatum touches the relatum"@en, "Relation entre repères définissant que le locatum est en contact avec le relatum"@fr, "Relation entre repères définissant que le locatum touche le relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList> ;
+  skos:prefLabel "Touche"@fr, "Touches"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkRelationType> ;
+  skos:altLabel "À l'intérieur"@fr ;
+  skos:definition "Relation between landmarks defining that the locatum is within the relatum"@en, "Relation entre repères définissant que le locatum est situé dans le relatum"@fr, "Relation entre repères entre des repères définissant que le locatum est dans un relatum"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#AdressSegmentList>, <https://w3id.org/PeGazUs#LandmarkRelationList> ;
+  skos:prefLabel "Dans"@fr, "Within"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Area resulting from an administrative division (district, municipality, country...)"@en, "Zone résultant d'un découpage administratif (quatier, commune, pays...)"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Administrative unit"@en, "Unité administrative"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Country>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:altLabel "State"@en, "État"@fr ;
+  skos:broader <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> ;
+  skos:definition "Administrative entity describing a state or country"@en, "Entité administrative décrivant un État, un pays"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Country"@en, "Pays"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/District>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:altLabel "Hameau"@fr, "Neighborhood"@en, "Quarter"@en ;
+  skos:broader <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> ;
+  skos:definition "Administrative entity describing a district"@en, "Entité administrative décrivant un quartier"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "District"@en, "Quartier"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:broader <https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> ;
+  skos:definition "Numéro d'un bâtiment, d'un immeuble lié à un quartier"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "District number"@en, "Numéro de quartier"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Number associated with a landmark used to identify a building, a company or a person within the landmark."@en, "Numéro associé à un repère permettant d'identifier un bâtiment, une entreprise, une personne au sein du repère."@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "House number"@en, "Numéro de l'habitation"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:altLabel "City"@en, "Town"@en, "Ville"@fr ;
+  skos:broader <https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnity> ;
+  skos:definition "Administrative entity describing a city, town or commune"@en, "Entité administrative décrivant une ville, une commune"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Commune"@fr, "Municipality"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Postal area defined by a code"@en, "Zone postale définie par un code"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Postal area"@en, "Zone postale"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:broader <https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber> ;
+  skos:definition "Number of a building linked to a street"@en, "Numéro d'un bâtiment, d'un immeuble lié à une rue"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Numéro de rue"@fr, "Street number"@en .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Defined location (building, shop, house, etc.)"@en, "Lieu défini (bâtiment, magasin, maison...)"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Structure"@en, "Structure"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Any element relating to a thoroughfare (street, square, avenue, etc.)"@en, "Tout élément relatif à une voie de communication (rue, place, avenue...)"@fr ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Thoroughfare"@en, "Voie"@fr .
+
+<https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined>
+  a owl:NamedIndividual, skos:Concept, <https://w3id.org/PeGazUs#LandmarkType> ;
+  skos:definition "Lieu non défini, inconnu"@fr, "Undefined or unknown place"@en ;
+  skos:inScheme <https://w3id.org/PeGazUs#LandmarkList> ;
+  skos:prefLabel "Non défini"@fr, "Undefined"@en .
+
+[]
+  a owl:Axiom ;
+  owl:annotatedSource prov:wasRevisionOf ;
+  owl:annotatedProperty rdfs:subPropertyOf ;
+  owl:annotatedTarget prov:wasDerivedFrom ;
+  rdfs:comment """Revision is a derivation (see http://www.w3.org/TR/prov-dm/#term-Revision). Moreover, according to 
+http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 2012 'wasRevisionOf is a strict sub-relation of wasDerivedFrom since two entities e2 and e1 may satisfy wasDerivedFrom(e2,e1) without being a variant of each other.'""" .

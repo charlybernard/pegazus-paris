@@ -1,0 +1,24 @@
+The increasing availability of digitized archival sources and recent advances in information extraction approaches from texts and images, enabled by the rise of deep neural networks, now make it possible to exploit these sources to produce structured data on the various aspects of the past they describe.
+Among the information that can be found in archival sources, addresses constitute a particularly important corpus, both in terms of volume and application potential.
+First, they play a central role in various types of iconographic documents, such as city maps, as well as textual documents, including resident and business directories, civil status records, notarial documents, etc.
+They are therefore available in large quantities, with a potentially significant overlap between sources.
+Second, they reflect the evolution of cities, whose morphological and administrative changes they have accompanied over time.
+For example, in Paris, several building numbering systems have successively been used since the Ancien Régime.
+Finally, the main interest of addresses lies in their dual role as direct spatial references, when extracted from maps and described through coordinates, and indirect spatial references, when represented as textual information.
+Indeed, having both representations makes it possible to geocode textual archival sources and locate the information they contain on the Earth's surface.
+
+To structure and enhance the value of address-related information available in heterogeneous and fragmented forms within archival sources, we propose the construction of a geo-historical knowledge base on Parisian addresses.
+The choice was made to focus exclusively on the French capital, as numerous sources are available for this city, covering a substantial period and representing addresses in various forms.
+This knowledge base aims to structure the available knowledge on addresses, represent their temporal evolution, and describe the sources that mention them.
+This article presents the ontology developed to represent the first two aspects of historical addresses extracted from archival sources.
+We developed it following the methodology called \textit{Simplified Agile Methodology for Ontology Development} (SAMOD)~\cite{peroni_simplified_2017}, which consists in separating a complex modelling problem into smaller sub-problems, called modelets, which are easier to address, validate, and test.
+A modelet starts with a natural language argumentation describing the sub-problem to be addressed, together with a glossary defining the key concepts and terms involved.
+Each modelet is accompanied by a set of informal competency questions, also expressed in natural language, representing the questions that the knowledge base should be able to answer.
+Each question is finally associated with a set of expected example answers, which are used to validate the modelet once implemented.
+The modelling of geo-historical phenomena is complex and involves different themes from knowledge engineering; the SAMOD methodology makes it possible to identify and separate these themes in order to facilitate the design process.
+Moreover, it enables rapid iterative cycles with regular evaluation of the ontology throughout its development.
+
+This article is organized as follows.
+We first present a state of the art on knowledge representation for addresses and the temporal evolution of geographic entities.
+Then, we present the two modelets developed to represent addresses of all types and their evolution over time.
+Finally, we populate these modelets using real-world data from various sources in order to assess their generality and their ability to effectively answer the competency questions initially defined.

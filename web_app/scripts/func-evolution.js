@@ -87,7 +87,7 @@ function getTimelineJson(uiConfig, versions, headline){
 );
     timelineJson.events.push(feature);
   }
-
+  console.log("Timeline JSON:", timelineJson) ;
   return timelineJson;
 }
 
@@ -377,7 +377,9 @@ function displayLandmarksToSelectForEvolution(
   var queryLandmarkTypes = getQueryForLandmarkTypes(namedGraphURI, uiConfig.graphLang) ;
   var queryAttrTypes = getQueryForAttributeTypes(namedGraphURI, uiConfig.graphLang);
   var queryLandmarks = getQueryForLandmarks(namedGraphURI, uiConfig.graphLang);
-
+  console.log("Query for landmark types:", queryLandmarkTypes) ;
+  console.log("Query for attribute types:", queryAttrTypes) ;
+  console.log("Query for landmarks:", queryLandmarks) ;
   Promise.all([
     runSparqlQuery(endpoint, queryLandmarkTypes),
     runSparqlQuery(endpoint, queryAttrTypes),
