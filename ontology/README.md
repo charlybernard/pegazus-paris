@@ -73,7 +73,7 @@ This folder contains example data for each developed modelet.
 
 These datasets demonstrate how the ontology can be populated and provide concrete instances illustrating the concepts and relationships defined in each modelet.
 
-## Publication
+#### [`publication`](./samod/publication)
 
 An English translation and updated version of the article:
 
@@ -83,12 +83,12 @@ An English translation and updated version of the article:
 
 is provided as:
 
-[`PeGazUs_ontology_article_updated_2026_en.pdf`](./publication/PeGazUs_ontology_article_updated_2026_en.pdf)
+[`PeGazUs_ontology_article_updated_2026_en.pdf`](./publication/samod/PeGazUs_ontology_article_updated_2026_en.pdf)
 
 The PDF presents the PeGazUs ontology, its modeling approach, and its application for building a geo-historical address reference from heterogeneous and multi-temporal sources.
 
 The LaTeX source files used to generate this document are also provided:
 
-[`latex`](./publication/latex)
+[`latex`](./publication/samod/latex)
 
 They allow the document to be reproduced, modified, and extended.
