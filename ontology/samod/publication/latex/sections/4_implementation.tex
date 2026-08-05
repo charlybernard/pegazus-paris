@@ -14,9 +14,11 @@ The address ontology is also evaluated by populating it with three address datas
         4 & & Rue Regnard & 75006 & Paris 6th & 2.338073 & 48.849885 \\
         48 & bis & Rue de Rivoli & 75004 & Paris 4th & 2.35448 & 48.85690 \\ \hline
     \end{tabular}
-    \caption{Extract from a BAN file for the city of Paris. The address locations (provided by the \texttt{lat} and \texttt{lon} fields) in the BAN do not follow a single positioning rule. For each address, the method used to determine the location is specified (postal delivery point, entrance door, parcel centroid, etc.).}
+    \caption{Extract from a BAN file for the city of Paris\protect\footnotemark.}
     \label{tab:ban_sample}
 \end{table}
+
+\footnotetext{The address locations (provided by the \texttt{lat} and \texttt{lon} fields) in the BAN do not follow a single positioning rule. For each address, the method used to determine the location is specified (postal delivery point, entrance door, parcel centroid, etc.).}
 
 The first step is straightforward for OSM and BAN data, which consist of postal addresses whose components are already separated. Structuring the historical addresses extracted from the Paris trade directories, which are more organic in nature (Figure~\ref{fig:exemple_modelisation_adresse}), is considerably more difficult, and off-the-shelf parsing tools such as LibPostal\footnote{\url{https://github.com/openvenues/libpostal}} fail to process them correctly. We therefore structured these addresses manually. The data from each source are then formatted as CSV or JSON, possibly after minor restructuring. For example, the BAN data (Table~\ref{tab:ban_sample}) are adapted by creating a \texttt{house\_number} field that concatenates the \texttt{num} and \texttt{rep} fields.
 

@@ -9,7 +9,7 @@
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/exemple_modelisation_adresse.pdf}
+    \includegraphics[width=0.9\textwidth]{images/exemple_modelisation_adresse.pdf}
     \caption{Example of address modelling.}
     \label{fig:exemple_modelisation_adresse}
 \end{figure}
@@ -27,7 +27,7 @@ The ontology, presented in Figure~\ref{fig:address_ont}, contains three concepts
     \item the landmark (\texttt{Landmark}), describing a geographic entity. \texttt{LandmarkType} defines its nature (e.g., administrative unit, street, house number, building, etc.).
 \end{itemize}
 
-The location designated by an address is represented as a~\texttt{Landmark}, while the sequence of geographic references composing the address is represented through resources of type~\texttt{AddressSegment}. Since~\texttt{AddressSegment} is a subclass of~\texttt{LandmarkRelation}, each segment represents a typed relation between two landmarks.
+The location designated by an address is represented as a~\texttt{Landmark}, while the sequence of geographic references composing the address is represented through resources of type~\texttt{AddressSegment} which is a subclass of~\texttt{LandmarkRelation}, each segment represents a typed relation between two landmarks.
 
 A resource of type~\texttt{Address} is linked through the property~\texttt{firstStep} to the first resource of type~\texttt{AddressSegment}. Each segment is then linked through the property~\texttt{nextStep} to the following segment, and so on. The type of relation represented by each segment is specified using~\texttt{LandmarkRelationType}. To represent the end of this sequence, the last resource is typed as~\texttt{FinalAddressSegment}, a subclass of~\texttt{AddressSegment}.
 
