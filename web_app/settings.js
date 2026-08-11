@@ -10,8 +10,7 @@
 // const graphName = "fbg_saint_antoine" ;
 
 // // Other case : if you want to use a different SPARQL endpoint, you can set the finalEndpointURI variable directly, for example : `endpointURI = "https://data.geohistoricaldata.org/query"`
-
-const endpointURI = "https://data.geohistoricaldata.org/query"
+// const endpointURI = "https://data.geohistoricaldata.org/query"
 
 // ----------------------------- Settings to get the graph URI ----------------------------
 

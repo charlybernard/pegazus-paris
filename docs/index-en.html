@@ -6,7 +6,7 @@
 
 
 <!-- SCHEMA.ORG METADATA -->
-<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://w3id.org/PeGazUs#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/PeGazUs#","name":"PeGazUs ontology", "headline":"PeGazUs ontology to represent the evolution of geographical entities", "datePublished":"2024-09-13", "version":"Version 0.1 - 2025-03-04", "license":"https://creativecommons.org/licenses/by-nc-sa/4.0/", "contributor":[{"@type":"Person","name":"https://crh.ehess.fr/index.php?5206","url":"https://crh.ehess.fr/index.php?5206"},{"@type":"Person","name":"https://www.umr-lastig.fr/julien-perret/","url":"https://www.umr-lastig.fr/julien-perret/"},{"@type":"Person","name":"https://www.umr-lastig.fr/nathalie-abadie/","url":"https://www.umr-lastig.fr/nathalie-abadie/"}]}</script>
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"TechArticle","url":"https://w3id.org/PeGazUs#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://w3id.org/PeGazUs#","name":"PeGazUs ontology", "headline":"PeGazUs ontology to represent the evolution of geographical entities", "datePublished":"2026-08-01", "version":"Version 0.2 - 2026-08-01", "license":"https://creativecommons.org/licenses/by-nc-sa/4.0/", "contributor":[{"@type":"Person","name":"https://crh.ehess.fr/index.php?5206","url":"https://crh.ehess.fr/index.php?5206"},{"@type":"Person","name":"https://www.umr-lastig.fr/julien-perret/","url":"https://www.umr-lastig.fr/julien-perret/"},{"@type":"Person","name":"https://www.umr-lastig.fr/nathalie-abadie/","url":"https://www.umr-lastig.fr/nathalie-abadie/"}]}</script>
 
 <script src="resources/jquery.js"></script> 
 <script src="resources/marked.min.js"></script> 
@@ -53,23 +53,26 @@ function loadTOC(){
 <div class="head">
 <div style="float:right">language <a href="index-en.html"><b>en</b></a> <a href="index-fr.html"><b>fr</b></a> </div>
 <h1>PeGazUs ontology</h1>
-<h2>Release  2024-09-13</h2>
+<h2>Release  2026-08-01</h2>
 
 
 <dl>
+<dt>Latest version:</dt>
+<dd><a href="https://w3id.org/PeGazUs#">https://w3id.org/PeGazUs#</a></dd>
 <dt>Revision:</dt>
-<dd>Version 0.1 - 2025-03-04</dd>
+<dd>Version 0.2 - 2026-08-01</dd>
 <dt>Author:</dt>
 <dd><a href="https://www.umr-lastig.fr/charly-bernard/">Charly Bernard</a></dd>
 <dt>Contributors:</dt>
 <dd><a href="https://www.umr-lastig.fr/nathalie-abadie/">Nathalie Abadie</a></dd><dd><a href="https://crh.ehess.fr/index.php?5206">Bertrand Duménieu</a></dd><dd><a href="https://www.umr-lastig.fr/julien-perret/">Julien Perret</a></dd>
 
 <dt>Publisher:</dt>
-<dd><a href="http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re">http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re</a></dd>
+<dd><a href="http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re">Institut National de l'Information Géographique et Forestière</a></dd>
 <dt>Download serialization:</dt><dd><span><a href="ontology.json" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.xml" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License: </dt><dd><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-https://creativecommons.org/licenses/by_nc_sa/4.0/-blue.svg" alt="https://creativecommons.org/licenses/by-nc-sa/4.0/" /></a>
 </dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+
 <!-- <dt>Evaluation:</dt><dd><a href="OOPSEvaluation/OOPSeval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
-<dd> PeGazUs ontology. Revision: Version 0.1 - 2025-03-04.</dd>
+<dd> PeGazUs ontology. Revision: Version 0.2 - 2026-08-01.</dd>
 </dl>
 
 <hr/>
@@ -79,7 +82,7 @@ function loadTOC(){
 <span>Ontology Specification Draft</span>
 </div>
 </div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
-PeGazUs ontology to represent the evolution of geographical entities.</span>
+PeGazUs ontology to represent addresses and the evolution of geographical entities</span>
 </div>
 <div id="toc"></div> 
 
@@ -87,6 +90,7 @@ PeGazUs ontology to represent the evolution of geographical entities.</span>
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This ontology was developed to represent historical addresses in a structured way. This objective involves representing not only numbered addresses, but also pathway-addresses that were in use when numbered addressing systems had not yet been established. It also provides a way of representing changes to the geographical features on which address definitions are based (streets, notable buildings, administrative units, etc.). Finally, it allows the source of each fact recorded in the corresponding knowledge graph to be defined.</span>
+</span>
 <div id="namespacedeclarations">
 <h3 id="ns" class="list">Namespace declarations</h3>
 <div id="ns" align="center">
@@ -106,6 +110,7 @@ This ontology was developed to represent historical addresses in a structured wa
 <tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema&gt;</td></tr>
 <tr><td><b>sparql-service-description</b></td><td>&lt;http://www.w3.org/ns/sparql-service-description&gt;</td></tr>
 <tr><td><b>landmarktype</b></td><td>&lt;https://w3id.org/PeGazUs/id/codes/LandmarkType&gt;</td></tr>
+<tr><td><b>si-brochure</b></td><td>&lt;http://www.bipm.org/en/publications/si-brochure&gt;</td></tr>
 <tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns&gt;</td></tr>
 <tr><td><b>terms</b></td><td>&lt;http://purl.org/dc/terms&gt;</td></tr>
 <tr><td><b>changetype</b></td><td>&lt;https://w3id.org/PeGazUs/id/codes/ChangeType&gt;</td></tr>
@@ -160,6 +165,13 @@ This ontology has the following classes and properties.</span>
       <a href="#ChangeType" title="https://w3id.org/PeGazUs#ChangeType">Change Type</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+         title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
+   </li>
+   <li>
       <a href="#ConstructionGraph" title="https://w3id.org/PeGazUs#ConstructionGraph">Construction graph</a>
    </li>
    <li>
@@ -193,6 +205,10 @@ This ontology has the following classes and properties.</span>
       <a href="#FuzzyTimeInterval" title="https://w3id.org/PeGazUs#FuzzyTimeInterval">Fuzzy time interval</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+         title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+   </li>
+   <li>
       <a href="#Graph" title="https://w3id.org/PeGazUs#Graph">Graph</a>
    </li>
    <li>
@@ -205,13 +221,34 @@ This ontology has the following classes and properties.</span>
       <a href="#LandmarkVersion" title="https://w3id.org/PeGazUs#LandmarkVersion">Landmark version</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
+   </li>
+   <li>
       <a href="#SourceGraph" title="https://w3id.org/PeGazUs#SourceGraph">Source graph</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
    </li>
    <li>
       <a href="#TemporalEntity" title="https://w3id.org/PeGazUs#TemporalEntity">Temporal entity</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#TemporalPosition" title="http://www.w3.org/2006/time#TemporalPosition">Temporal position</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#Instant" title="http://www.w3.org/2006/time#Instant">Time instant</a>
+   </li>
+   <li>
       <a href="#TimeInstant" title="https://w3id.org/PeGazUs#TimeInstant">Time instant</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#Interval" title="http://www.w3.org/2006/time#Interval">Time interval</a>
    </li>
    <li>
       <a href="#TimeInterval" title="https://w3id.org/PeGazUs#TimeInterval">Time interval</a>
@@ -225,6 +262,9 @@ This ontology has the following classes and properties.</span>
 </ul><h4>Object Properties</h4><ul class="hlist">
    <li>
       <a href="#http://www.w3.org/2006/time#after" title="http://www.w3.org/2006/time#after">after</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#alternateOf" title="http://www.w3.org/ns/prov#alternateOf">alternateOf</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2006/time#before" title="http://www.w3.org/2006/time#before">before</a>
@@ -444,17 +484,47 @@ This ontology has the following classes and properties.</span>
       <a href="#hasOverlappingVersion" title="https://w3id.org/PeGazUs#hasOverlappingVersion">overlaps version</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+   </li>
+   <li>
       <a href="#targets" title="https://w3id.org/PeGazUs#targets">targets</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#hasTRS" title="http://www.w3.org/2006/time#hasTRS">Temporal reference system used</a>
+   </li>
+   <li>
       <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
    </li>
 </ul><h4>Data Properties</h4><ul class="hlist">
    <li>
       <a href="#timeStamp" title="https://w3id.org/PeGazUs#timeStamp">a pour timestamp</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+   </li>
+   <li>
       <a href="#versionValue" title="https://w3id.org/PeGazUs#versionValue">has version value</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
    </li>
 </ul><h4>Named Individuals</h4><ul class="hlist">
    <li>
@@ -502,7 +572,7 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Country">Country</a>
    </li>
    <li>
-      <a href="#http://www.w3.org/2006/time#unitDay" title="http://www.w3.org/2006/time#unitDay">Day</a>
+      <a href="#http://www.w3.org/2006/time#unitDay" title="http://www.w3.org/2006/time#unitDay">Day day</a>
    </li>
    <li>
       <a href="#http://www.w3.org/2006/time#unitDecade" title="http://www.w3.org/2006/time#unitDecade">Decade</a>
@@ -532,6 +602,12 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt">Ends at</a>
    </li>
    <li>
+      <a href="#file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#"
+         title="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#">
+         <span>file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#</span>
+      </a>
+   </li>
+   <li>
       <a href="#http://www.wikidata.org/entity/Q181974" title="http://www.wikidata.org/entity/Q181974">French Republican calendar</a>
    </li>
    <li>
@@ -539,8 +615,21 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry">Geometry</a>
    </li>
    <li>
+      <a href="#http://www.w3.org/2006/time#unitHour" title="http://www.w3.org/2006/time#unitHour">Hour (unit of temporal duration) hour</a>
+   </li>
+   <li>
       <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber"
          title="https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber">House number</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov-links#" title="http://www.w3.org/ns/prov-links#">
+         <span>http://www.w3.org/ns/prov-links#</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov-o#" title="http://www.w3.org/ns/prov-o#">
+         <span>http://www.w3.org/ns/prov-o#</span>
+      </a>
    </li>
    <li>
       <a href="#https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode"
@@ -555,7 +644,10 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar">Is similar as</a>
    </li>
    <li>
-      <a href="#http://www.w3.org/2006/time#unitMonth" title="http://www.w3.org/2006/time#unitMonth">Month</a>
+      <a href="#http://www.w3.org/2006/time#unitMinute" title="http://www.w3.org/2006/time#unitMinute">Minute (unit of temporal duration) minute</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#unitMonth" title="http://www.w3.org/2006/time#unitMonth">Month month</a>
    </li>
    <li>
       <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality"
@@ -574,6 +666,14 @@ This ontology has the following classes and properties.</span>
    </li>
    <li>
       <a href="#http://www.wikidata.org/entity/Q1985786" title="http://www.wikidata.org/entity/Q1985786">proleptic Julian calendar</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/prov#" title="http://www.w3.org/ns/prov#">
+         <span>prov:</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2006/time#unitSecond" title="http://www.w3.org/2006/time#unitSecond">Second (unit of temporal duration) second</a>
    </li>
    <li>
       <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt"
@@ -616,29 +716,29 @@ This ontology has the following classes and properties.</span>
          title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined">Undefined</a>
    </li>
    <li>
-      <a href="#http://www.w3.org/2006/time#unitWeek" title="http://www.w3.org/2006/time#unitWeek">Week</a>
+      <a href="#http://www.w3.org/2006/time#unitWeek" title="http://www.w3.org/2006/time#unitWeek">Week week</a>
    </li>
    <li>
       <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within"
          title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within">Within</a>
    </li>
    <li>
-      <a href="#http://www.w3.org/2006/time#unitYear" title="http://www.w3.org/2006/time#unitYear">Year</a>
+      <a href="#http://www.w3.org/2006/time#unitYear" title="http://www.w3.org/2006/time#unitYear">Year year</a>
    </li>
 </ul><iframe align="center" width="100%" height ="500px" src="webvowl/index.html"></iframe> 
 </div>
   
 
 <!--DESCRIPTION SECTION-->
-<!--    <div id="description"><h2 id="desc" class="list">PeGazUs ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+    <div id="description"><h2 id="desc" class="list">PeGazUs ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
 This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
 
-</div>-->
+</div>
    
 
 <!--CROSSREF SECTION-->
-   <div id="crossref"><h2 id="crossreference" class="list">Detailed description<span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+   <div id="crossref"><h2 id="crossreference" class="list">Cross reference for PeGazUs ontology classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 This section provides details for each class and property defined by PeGazUs ontology.
 <div id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
@@ -674,6 +774,13 @@ This section provides details for each class and property defined by PeGazUs ont
          <a href="#ChangeType" title="https://w3id.org/PeGazUs#ChangeType">Change Type</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+            title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
+      </li>
+      <li>
          <a href="#ConstructionGraph" title="https://w3id.org/PeGazUs#ConstructionGraph">Construction graph</a>
       </li>
       <li>
@@ -707,6 +814,10 @@ This section provides details for each class and property defined by PeGazUs ont
          <a href="#FuzzyTimeInterval" title="https://w3id.org/PeGazUs#FuzzyTimeInterval">Fuzzy time interval</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+            title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+      </li>
+      <li>
          <a href="#Graph" title="https://w3id.org/PeGazUs#Graph">Graph</a>
       </li>
       <li>
@@ -719,13 +830,34 @@ This section provides details for each class and property defined by PeGazUs ont
          <a href="#LandmarkVersion" title="https://w3id.org/PeGazUs#LandmarkVersion">Landmark version</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
+      </li>
+      <li>
          <a href="#SourceGraph" title="https://w3id.org/PeGazUs#SourceGraph">Source graph</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
       </li>
       <li>
          <a href="#TemporalEntity" title="https://w3id.org/PeGazUs#TemporalEntity">Temporal entity</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#TemporalPosition" title="http://www.w3.org/2006/time#TemporalPosition">Temporal position</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#Instant" title="http://www.w3.org/2006/time#Instant">Time instant</a>
+      </li>
+      <li>
          <a href="#TimeInstant" title="https://w3id.org/PeGazUs#TimeInstant">Time instant</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#Interval" title="http://www.w3.org/2006/time#Interval">Time interval</a>
       </li>
       <li>
          <a href="#TimeInterval" title="https://w3id.org/PeGazUs#TimeInterval">Time interval</a>
@@ -838,7 +970,7 @@ This section provides details for each class and property defined by PeGazUs ont
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1006,7 +1138,7 @@ This section provides details for each class and property defined by PeGazUs ont
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1031,6 +1163,143 @@ This section provides details for each class and property defined by PeGazUs ont
             <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition"
                title="https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition">Transition between attribute versions</a>
             <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#Concept">
+      <h3>Concept<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#Concept</p>
+      <div class="comment">
+         <span class="markdown">An idea or notion; a unit of thought.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core</a>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#ChangeType" title="https://w3id.org/PeGazUs#ChangeType">Change Type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#LandmarkType" title="https://w3id.org/PeGazUs#LandmarkType">Type of landmark</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#AttributeType" title="https://w3id.org/PeGazUs#AttributeType">attribute type</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#LandmarkRelationType" title="https://w3id.org/PeGazUs#LandmarkRelationType">type of landmark relation</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/AdministrativeUnit">Administrative unit</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Along">Along</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkAppearance">Appearance of a landmark</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationAppearance">Appearance of a landmark relation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionAppearance">Appearance of an attribute version</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Belongs">Belongs to</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Between">Between</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Corner">Corner</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Country"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Country">Country</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkDisappearance">Disappearance of a landmark</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/LandmarkRelationDisappearance">Disappearance of a landmark relation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionDisappearance">Disappearance of an attribute version</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/District"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/District">District</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/DistrictNumber">District number</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt">Ends at</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry"
+               title="https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry">Geometry</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber">House number</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode"
+               title="https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode">INSEE code</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsPartOf">Is part of</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar">Is similar as</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality">Municipality</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/AttributeType/Name"
+               title="https://w3id.org/PeGazUs/id/codes/AttributeType/Name">Name</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/PostalCodeArea">Postal area</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt">Starts at</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/StreetNumber">Street number</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Structure">Structure</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Thoroughfare">Thoroughfare</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Touches">Touches</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition"
+               title="https://w3id.org/PeGazUs/id/codes/ChangeType/AttributeVersionTransition">Transition between attribute versions</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined">Undefined</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within"
+               title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within">Within</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+               title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+      <h3>Concept Scheme<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#ConceptScheme</p>
+      <div class="comment">
+         <span class="markdown">A set of concepts, optionally including statements about semantic relationships between those concepts.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core</a>
+         </dd>
+      </dl>
+      <dl>
+         <dt>Example</dt>
+         <dd>
+            <pre>Thesauri, classification schemes, subject heading lists, taxonomies, 'folksonomies', and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</pre>
+         </dd>
+      </dl>
+      <dl class="description">
+         <dt>has members</dt>
+         <dd>
+            <a href="#LandmarkList" title="https://w3id.org/PeGazUs#LandmarkList">Type of landmark</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#LandmarkRelationList" title="https://w3id.org/PeGazUs#LandmarkRelationList">Type of landmark relation</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#AttributeList" title="https://w3id.org/PeGazUs#AttributeList">type of attribute</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#ChangeList" title="https://w3id.org/PeGazUs#ChangeList">type of change</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1150,6 +1419,9 @@ This section provides details for each class and property defined by PeGazUs ont
       <div class="comment">
          <span class="markdown">An entity is a physical, digital, conceptual or other element, which has certain fixed aspects; it can be real or imaginary.</span>
       </div>
+      <div class="comment">
+         <span class="markdown">An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. </span>
+      </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
          <dd>
@@ -1159,12 +1431,16 @@ This section provides details for each class and property defined by PeGazUs ont
       <dl class="description">
          <dt>is in domain of</dt>
          <dd>
-            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <a href="#http://www.w3.org/ns/prov#alternateOf" title="http://www.w3.org/ns/prov#alternateOf">alternateOf</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
          <dt>is in range of</dt>
          <dd>
-            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <a href="#http://www.w3.org/ns/prov#alternateOf" title="http://www.w3.org/ns/prov#alternateOf">alternateOf</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -1310,6 +1586,35 @@ These relations are optional and may be used independently of one another depend
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#GeneralDurationDescription">
+      <h3>Generalized duration description<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#GeneralDurationDescription</p>
+      <div class="comment">
+         <span class="markdown">Description of temporal extent structured with separate values for the various elements of a calendar-clock system.</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">Description of temporal extent structured with separate values for the various elements of a calendar-clock system.</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd/>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup>, <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="Graph">
       <h3>Graph<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1412,6 +1717,70 @@ Such relations may take various forms, including:
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#ProperInterval">
+      <h3>Proper interval<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#ProperInterval</p>
+      <div class="comment">
+         <span class="markdown">A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#Interval" title="http://www.w3.org/2006/time#Interval">Time interval</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#intervalAfter" title="http://www.w3.org/2006/time#intervalAfter">interval after</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalBefore" title="http://www.w3.org/2006/time#intervalBefore">interval before</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalContains" title="http://www.w3.org/2006/time#intervalContains">interval contains</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalDisjoint" title="http://www.w3.org/2006/time#intervalDisjoint">interval disjoint</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalDuring" title="http://www.w3.org/2006/time#intervalDuring">interval during</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalEquals" title="http://www.w3.org/2006/time#intervalEquals">interval equals</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalFinishedBy" title="http://www.w3.org/2006/time#intervalFinishedBy">interval finished by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalFinishes" title="http://www.w3.org/2006/time#intervalFinishes">interval finishes</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalIn" title="http://www.w3.org/2006/time#intervalIn">interval in</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalMeets" title="http://www.w3.org/2006/time#intervalMeets">interval meets</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalMetBy" title="http://www.w3.org/2006/time#intervalMetBy">interval met by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalOverlappedBy" title="http://www.w3.org/2006/time#intervalOverlappedBy">interval overlapped by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalOverlaps" title="http://www.w3.org/2006/time#intervalOverlaps">interval overlaps</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalStartedBy" title="http://www.w3.org/2006/time#intervalStartedBy">interval started by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalStarts" title="http://www.w3.org/2006/time#intervalStarts">interval starts</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#intervalAfter" title="http://www.w3.org/2006/time#intervalAfter">interval after</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalBefore" title="http://www.w3.org/2006/time#intervalBefore">interval before</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalContains" title="http://www.w3.org/2006/time#intervalContains">interval contains</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalDisjoint" title="http://www.w3.org/2006/time#intervalDisjoint">interval disjoint</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalDuring" title="http://www.w3.org/2006/time#intervalDuring">interval during</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalEquals" title="http://www.w3.org/2006/time#intervalEquals">interval equals</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalFinishedBy" title="http://www.w3.org/2006/time#intervalFinishedBy">interval finished by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalFinishes" title="http://www.w3.org/2006/time#intervalFinishes">interval finishes</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalIn" title="http://www.w3.org/2006/time#intervalIn">interval in</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalMeets" title="http://www.w3.org/2006/time#intervalMeets">interval meets</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalMetBy" title="http://www.w3.org/2006/time#intervalMetBy">interval met by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalOverlappedBy" title="http://www.w3.org/2006/time#intervalOverlappedBy">interval overlapped by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalOverlaps" title="http://www.w3.org/2006/time#intervalOverlaps">interval overlaps</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalStartedBy" title="http://www.w3.org/2006/time#intervalStartedBy">interval started by</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#intervalStarts" title="http://www.w3.org/2006/time#intervalStarts">interval starts</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#Instant" title="http://www.w3.org/2006/time#Instant">Time instant</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="SourceGraph">
       <h3>Source graph<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1430,6 +1799,49 @@ Such relations may take various forms, including:
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#TemporalEntity">
+      <h3>Temporal entity<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#TemporalEntity</p>
+      <div class="comment">
+         <span class="markdown">A temporal interval or instant.</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A temporal interval or instant.</span>
+      </div>
+      <dl class="description">
+         <dt>is equivalent to</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#Instant" title="http://www.w3.org/2006/time#Instant">Time instant</a>
+            <sup class="type-c" title="class">c</sup> 
+            <span class="logic">or</span> 
+            <a href="#http://www.w3.org/2006/time#Interval" title="http://www.w3.org/2006/time#Interval">Time interval</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#TemporalEntity" title="https://w3id.org/PeGazUs#TemporalEntity">Temporal entity</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/2006/time#Instant" title="http://www.w3.org/2006/time#Instant">Time instant</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/2006/time#Interval" title="http://www.w3.org/2006/time#Interval">Time interval</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#after" title="http://www.w3.org/2006/time#after">after</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#before" title="http://www.w3.org/2006/time#before">before</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#after" title="http://www.w3.org/2006/time#after">after</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://www.w3.org/2006/time#before" title="http://www.w3.org/2006/time#before">before</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="TemporalEntity">
       <h3>Temporal entity<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -1443,7 +1855,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</span>
+            <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>has sub-classes</dt>
@@ -1458,6 +1870,117 @@ Such relations may take various forms, including:
          <dd>
             <a href="#hasTime" title="https://w3id.org/PeGazUs#hasTime">has time</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#TemporalPosition">
+      <h3>Temporal position<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#TemporalPosition</p>
+      <div class="comment">
+         <span class="markdown">A position on a time-line</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A position on a time-line</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd/>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#TRS">
+      <h3>Temporal Reference System<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#TRS</p>
+      <div class="comment">
+         <span class="markdown">A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems.</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems.</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hasTRS" title="http://www.w3.org/2006/time#hasTRS">Temporal reference system used</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#timeCalendar" title="https://w3id.org/PeGazUs#timeCalendar">has calendar</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#http://www.wikidata.org/entity/Q181974" title="http://www.wikidata.org/entity/Q181974">French Republican calendar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.wikidata.org/entity/Q1985727" title="http://www.wikidata.org/entity/Q1985727">proleptic Gregorian calendar</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.wikidata.org/entity/Q1985786" title="http://www.wikidata.org/entity/Q1985786">proleptic Julian calendar</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#TemporalUnit">
+      <h3>Temporal unit<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#TemporalUnit</p>
+      <div class="comment">
+         <span class="markdown">A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position.</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position.</span>
+      </div>
+      <dl class="description">
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#timePrecision" title="https://w3id.org/PeGazUs#timePrecision">has time precision</a>
+            <sup class="type-op" title="object property">op</sup>
+         </dd>
+         <dt>has members</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#unitCentury" title="http://www.w3.org/2006/time#unitCentury">Century</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitDay" title="http://www.w3.org/2006/time#unitDay">Day day</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitDecade" title="http://www.w3.org/2006/time#unitDecade">Decade</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitHour" title="http://www.w3.org/2006/time#unitHour">Hour (unit of temporal duration) hour</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitMinute" title="http://www.w3.org/2006/time#unitMinute">Minute (unit of temporal duration) minute</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitMonth" title="http://www.w3.org/2006/time#unitMonth">Month month</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitSecond" title="http://www.w3.org/2006/time#unitSecond">Second (unit of temporal duration) second</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitWeek" title="http://www.w3.org/2006/time#unitWeek">Week week</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#http://www.w3.org/2006/time#unitYear" title="http://www.w3.org/2006/time#unitYear">Year year</a>
+            <sup class="type-ni" title="named individual">ni</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#Instant">
+      <h3>Time instant<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#Instant</p>
+      <div class="comment">
+         <span class="markdown">A temporal entity with zero extent or duration</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A temporal entity with zero extent or duration</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is disjoint with</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1488,6 +2011,32 @@ Such relations may take various forms, including:
             <a href="#hasBeginning" title="https://w3id.org/PeGazUs#hasBeginning">has beginning</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#hasEnd" title="https://w3id.org/PeGazUs#hasEnd">has end</a>
             <sup class="type-op" title="object property">op</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#Interval">
+      <h3>Time interval<sup class="type-c" title="class">c</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#Interval</p>
+      <div class="comment">
+         <span class="markdown">A temporal entity with an extent or duration</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">A temporal entity with an extent or duration</span>
+      </div>
+      <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
+            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -1534,7 +2083,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1583,7 +2132,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in range of</dt>
@@ -1622,6 +2171,9 @@ Such relations may take various forms, including:
    <ul class="hlist">
       <li>
          <a href="#http://www.w3.org/2006/time#after" title="http://www.w3.org/2006/time#after">after</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/prov#alternateOf" title="http://www.w3.org/ns/prov#alternateOf">alternateOf</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2006/time#before" title="http://www.w3.org/2006/time#before">before</a>
@@ -1841,10 +2393,19 @@ Such relations may take various forms, including:
          <a href="#hasOverlappingVersion" title="https://w3id.org/PeGazUs#hasOverlappingVersion">overlaps version</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+      </li>
+      <li>
          <a href="#targets" title="https://w3id.org/PeGazUs#targets">targets</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#hasTRS" title="http://www.w3.org/2006/time#hasTRS">Temporal reference system used</a>
+      </li>
+      <li>
          <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
       </li>
    </ul>
    <div class="entity" id="http://www.w3.org/2006/time#after">
@@ -1869,18 +2430,54 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</span>
+               <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</span>
+               <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
             <dd>
                <a href="#http://www.w3.org/2006/time#before" title="http://www.w3.org/2006/time#before">before</a>
                <sup class="type-op" title="object property">op</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/ns/prov#alternateOf">
+      <h3>alternateOf<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov#alternateOf</p>
+      <div class="comment">
+         <span class="markdown">Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
+               <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
       </div>
@@ -1909,12 +2506,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</span>
+               <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TemporalEntity">temporal entity</span>
+               <a href="#http://www.w3.org/2006/time#TemporalEntity" title="http://www.w3.org/2006/time#TemporalEntity">Temporal entity</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2029,7 +2626,7 @@ Such relations may take various forms, including:
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TRS">t r s</span>
+               <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2555,7 +3152,7 @@ Such relations may take various forms, including:
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+               <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2634,12 +3231,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2673,12 +3270,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2706,12 +3303,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2745,12 +3342,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2778,12 +3375,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2811,12 +3408,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2839,12 +3436,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2877,12 +3474,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2917,12 +3514,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -2945,12 +3542,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -2978,12 +3575,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -3011,12 +3608,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -3044,12 +3641,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -3077,12 +3674,12 @@ Such relations may take various forms, including:
          <dl>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -3115,12 +3712,12 @@ Such relations may take various forms, including:
             </dd>
             <dt>has domain</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
-               <span class="dotted" title="http://www.w3.org/2006/time#ProperInterval">proper interval</span>
+               <a href="#http://www.w3.org/2006/time#ProperInterval" title="http://www.w3.org/2006/time#ProperInterval">Proper interval</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>is inverse of</dt>
@@ -3961,6 +4558,40 @@ Such relations may take various forms, including:
          </dl>
       </div>
    </div>
+   <div class="entity" id="http://www.w3.org/ns/prov#specializationOf">
+      <h3>specializationOf<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov#specializationOf</p>
+      <div class="comment">
+         <span class="markdown">An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+         </dd>
+         <dd>
+            <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#alternateOf" title="http://www.w3.org/ns/prov#alternateOf">alternateOf</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="targets">
       <h3>targets<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -3986,6 +4617,40 @@ Such relations may take various forms, including:
          </dl>
       </div>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#hasTRS">
+      <h3>Temporal reference system used<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#hasTRS</p>
+      <div class="comment">
+         <span class="markdown">The temporal reference system used by a temporal position or extent description. </span>
+      </div>
+      <div class="comment">
+         <span class="markdown">The temporal reference system used by a temporal position or extent description. </span>
+      </div>
+      <div class="description">
+         <p>
+            <strong>has characteristics:</strong> functional</p>
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup> 
+               <span class="logic">or</span> 
+               <a href="#http://www.w3.org/2006/time#TemporalPosition" title="http://www.w3.org/2006/time#TemporalPosition">Temporal position</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="http://www.w3.org/ns/prov#wasDerivedFrom">
       <h3>was derived from<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -3996,6 +4661,9 @@ Such relations may take various forms, including:
       <div class="comment">
          <span class="markdown">The more specific subproperties of prov:wasDerivedFrom (i.e., prov:wasQuotedFrom, prov:wasRevisionOf, prov:hadPrimarySource) should be used when applicable.</span>
       </div>
+      <div class="comment">
+         <span class="markdown">A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</span>
+      </div>
       <dl class="definedBy">
          <dt>Is defined by</dt>
          <dd>
@@ -4004,12 +4672,48 @@ Such relations may take various forms, including:
       </dl>
       <div class="description">
          <dl>
+            <dt>has sub-properties</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
             <dt>has domain</dt>
             <dd>
                <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/ns/prov#wasRevisionOf">
+      <h3>wasRevisionOf<sup class="type-op" title="object property">op</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov#wasRevisionOf</p>
+      <div class="comment">
+         <span class="markdown">A revision is a derivation that revises an entity into a revised version.</span>
+      </div>
+      <dl class="definedBy">
+         <dt>Is defined by</dt>
+         <dd>
+            <a href="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+         </dd>
+      </dl>
+      <div class="description">
+         <dl>
+            <dt>has super-properties</dt>
+            <dd>
+               <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+               <sup class="type-op" title="object property">op</sup>
+            </dd>
+            <dt>has domain</dt>
             <dd>
                <a href="#http://www.w3.org/ns/prov#Entity" title="http://www.w3.org/ns/prov#Entity">Entity</a>
                <sup class="type-c" title="class">c</sup>
@@ -4024,7 +4728,28 @@ Such relations may take various forms, including:
          <a href="#timeStamp" title="https://w3id.org/PeGazUs#timeStamp">a pour timestamp</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+      </li>
+      <li>
          <a href="#versionValue" title="https://w3id.org/PeGazUs#versionValue">has version value</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
       </li>
    </ul>
    <div class="entity" id="timeStamp">
@@ -4051,6 +4776,34 @@ Such relations may take various forms, including:
          </dl>
       </div>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#days">
+      <h3>days duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#days</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in days</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in days</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
    <div class="entity" id="versionValue">
       <h3>has version value<sup class="type-dp" title="data property">dp</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
@@ -4067,6 +4820,165 @@ Such relations may take various forms, including:
             <dd>
                <a href="#AttributeVersion" title="https://w3id.org/PeGazUs#AttributeVersion">Attribute version</a>
                <sup class="type-c" title="class">c</sup>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#hours">
+      <h3>hours duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#hours</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in hours</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in hours</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#minutes">
+      <h3>minutes<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#minutes</p>
+      <div class="comment">
+         <span class="markdown">length, or element of, a temporal extent expressed in minutes</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">length, or element of, a temporal extent expressed in minutes</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#months">
+      <h3>months duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#months</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in months</span>
+      </div>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in months</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#seconds">
+      <h3>seconds duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#seconds</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in seconds</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#weeks">
+      <h3>weeks duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#weeks</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in weeks</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </dd>
+         </dl>
+      </div>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#years">
+      <h3>years duration<sup class="type-dp" title="data property">dp</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#years</p>
+      <div class="comment">
+         <span class="markdown">length of, or element of the length of, a temporal extent expressed in years</span>
+      </div>
+      <div class="description">
+         <dl>
+            <dt>has domain</dt>
+            <dd>
+               <a href="#http://www.w3.org/2006/time#GeneralDurationDescription"
+                  title="http://www.w3.org/2006/time#GeneralDurationDescription">Generalized duration description</a>
+               <sup class="type-c" title="class">c</sup>
+            </dd>
+            <dt>has range</dt>
+            <dd>
+               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
             </dd>
          </dl>
       </div>
@@ -4119,7 +5031,7 @@ Such relations may take various forms, including:
             title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Country">Country</a>
       </li>
       <li>
-         <a href="#http://www.w3.org/2006/time#unitDay" title="http://www.w3.org/2006/time#unitDay">Day</a>
+         <a href="#http://www.w3.org/2006/time#unitDay" title="http://www.w3.org/2006/time#unitDay">Day day</a>
       </li>
       <li>
          <a href="#http://www.w3.org/2006/time#unitDecade" title="http://www.w3.org/2006/time#unitDecade">Decade</a>
@@ -4149,6 +5061,12 @@ Such relations may take various forms, including:
             title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/EndsAt">Ends at</a>
       </li>
       <li>
+         <a href="#file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#"
+            title="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#">
+            <span>file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#</span>
+         </a>
+      </li>
+      <li>
          <a href="#http://www.wikidata.org/entity/Q181974" title="http://www.wikidata.org/entity/Q181974">French Republican calendar</a>
       </li>
       <li>
@@ -4156,8 +5074,21 @@ Such relations may take various forms, including:
             title="https://w3id.org/PeGazUs/id/codes/AttributeType/Geometry">Geometry</a>
       </li>
       <li>
+         <a href="#http://www.w3.org/2006/time#unitHour" title="http://www.w3.org/2006/time#unitHour">Hour (unit of temporal duration) hour</a>
+      </li>
+      <li>
          <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber"
             title="https://w3id.org/PeGazUs/id/codes/LandmarkType/HouseNumber">House number</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/prov-links#" title="http://www.w3.org/ns/prov-links#">
+            <span>http://www.w3.org/ns/prov-links#</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/prov-o#" title="http://www.w3.org/ns/prov-o#">
+            <span>http://www.w3.org/ns/prov-o#</span>
+         </a>
       </li>
       <li>
          <a href="#https://w3id.org/PeGazUs/id/codes/AttributeType/InseeCode"
@@ -4172,7 +5103,10 @@ Such relations may take various forms, including:
             title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/IsSimilar">Is similar as</a>
       </li>
       <li>
-         <a href="#http://www.w3.org/2006/time#unitMonth" title="http://www.w3.org/2006/time#unitMonth">Month</a>
+         <a href="#http://www.w3.org/2006/time#unitMinute" title="http://www.w3.org/2006/time#unitMinute">Minute (unit of temporal duration) minute</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#unitMonth" title="http://www.w3.org/2006/time#unitMonth">Month month</a>
       </li>
       <li>
          <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkType/Municipality"
@@ -4191,6 +5125,14 @@ Such relations may take various forms, including:
       </li>
       <li>
          <a href="#http://www.wikidata.org/entity/Q1985786" title="http://www.wikidata.org/entity/Q1985786">proleptic Julian calendar</a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/ns/prov#" title="http://www.w3.org/ns/prov#">
+            <span>prov:</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://www.w3.org/2006/time#unitSecond" title="http://www.w3.org/2006/time#unitSecond">Second (unit of temporal duration) second</a>
       </li>
       <li>
          <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/StartsAt"
@@ -4233,14 +5175,14 @@ Such relations may take various forms, including:
             title="https://w3id.org/PeGazUs/id/codes/LandmarkType/Undefined">Undefined</a>
       </li>
       <li>
-         <a href="#http://www.w3.org/2006/time#unitWeek" title="http://www.w3.org/2006/time#unitWeek">Week</a>
+         <a href="#http://www.w3.org/2006/time#unitWeek" title="http://www.w3.org/2006/time#unitWeek">Week week</a>
       </li>
       <li>
          <a href="#https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within"
             title="https://w3id.org/PeGazUs/id/codes/LandmarkRelationType/Within">Within</a>
       </li>
       <li>
-         <a href="#http://www.w3.org/2006/time#unitYear" title="http://www.w3.org/2006/time#unitYear">Year</a>
+         <a href="#http://www.w3.org/2006/time#unitYear" title="http://www.w3.org/2006/time#unitYear">Year year</a>
       </li>
    </ul>
    <div class="entity" id="">
@@ -4271,7 +5213,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4293,7 +5235,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4315,7 +5257,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4337,7 +5279,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4359,7 +5301,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4381,7 +5323,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4403,7 +5345,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4425,7 +5367,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4443,7 +5385,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4465,7 +5407,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4479,6 +5421,10 @@ Such relations may take various forms, including:
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
+      <h3>day<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2006/time#unitDay</p>
       <div class="comment">
@@ -4487,8 +5433,51 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -4505,7 +5494,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4523,7 +5512,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4545,7 +5534,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4567,7 +5556,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4589,7 +5578,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4611,7 +5600,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4633,12 +5622,41 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
             <a href="#LandmarkRelationType" title="https://w3id.org/PeGazUs#LandmarkRelationType">type of landmark relation</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#">
+      <h3>file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#</p>
+      <dl class="description">
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted"
+                  title="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl">prov o.owl</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted"
+                  title="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430">prov o 20130430</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted"
+                  title="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312">prov o inverses 20120312</span>
          </dd>
       </dl>
    </div>
@@ -4655,7 +5673,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TRS">t r s</span>
+            <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4673,12 +5691,74 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
             <a href="#AttributeType" title="https://w3id.org/PeGazUs#AttributeType">attribute type</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#unitHour">
+      <h3>Hour (unit of temporal duration)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <h3>hour<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#unitHour</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -4695,12 +5775,49 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
             <a href="#LandmarkType" title="https://w3id.org/PeGazUs#LandmarkType">Type of landmark</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/ns/prov-links#">
+      <h3>http://www.w3.org/ns/prov-links#<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov-links#</p>
+      <dl class="description">
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-links">prov links</span>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/ns/prov-o#">
+      <h3>http://www.w3.org/ns/prov-o#<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov-o#</p>
+      <dl class="description">
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#specializationOf" title="http://www.w3.org/ns/prov#specializationOf">specializationOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-o">prov o</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-o-20120312">prov o 20120312</span>
          </dd>
       </dl>
    </div>
@@ -4717,7 +5834,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4739,7 +5856,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4761,7 +5878,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4770,8 +5887,74 @@ Such relations may take various forms, including:
          </dd>
       </dl>
    </div>
+   <div class="entity" id="http://www.w3.org/2006/time#unitMinute">
+      <h3>Minute (unit of temporal duration)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <h3>minute<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#unitMinute</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+      </dl>
+   </div>
    <div class="entity" id="http://www.w3.org/2006/time#unitMonth">
       <h3>Month<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <h3>month<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
@@ -4783,8 +5966,51 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -4801,7 +6027,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4823,7 +6049,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4845,7 +6071,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4867,7 +6093,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TRS">t r s</span>
+            <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -4885,8 +6111,116 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TRS">t r s</span>
+            <a href="#http://www.w3.org/2006/time#TRS" title="http://www.w3.org/2006/time#TRS">Temporal Reference System</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/ns/prov#">
+      <h3>prov:<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/ns/prov#</p>
+      <dl class="description">
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-aq#">http://www.w3.org/ns/prov-aq#</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-dc#">http://www.w3.org/ns/prov-dc#</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-dictionary#">http://www.w3.org/ns/prov-dictionary#</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="#http://www.w3.org/ns/prov-links#" title="http://www.w3.org/ns/prov-links#">http://www.w3.org/ns/prov-links#</a>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <a href="#http://www.w3.org/ns/prov-o#" title="http://www.w3.org/ns/prov-o#">http://www.w3.org/ns/prov-o#</a>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasDerivedFrom" title="http://www.w3.org/ns/prov#wasDerivedFrom">was derived from</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-o-inverses#">http://www.w3.org/ns/prov-o-inverses#</span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/ns/prov#wasRevisionOf" title="http://www.w3.org/ns/prov#wasRevisionOf">wasRevisionOf</a>
+            <sup class="type-op" title="object property">op</sup> 
+            <span class="dotted" title="http://www.w3.org/ns/prov-20130312">prov 20130312</span>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://www.w3.org/2006/time#unitSecond">
+      <h3>Second (unit of temporal duration)<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <h3>second<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://www.w3.org/2006/time#unitSecond</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -4903,7 +6237,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4925,7 +6259,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4947,7 +6281,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4969,7 +6303,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -4991,7 +6325,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -5013,7 +6347,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -5035,8 +6369,8 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted"
-                  title="http://www.w3.org/2004/02/skos/core#ConceptScheme">concept scheme</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+               title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5054,8 +6388,8 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted"
-                  title="http://www.w3.org/2004/02/skos/core#ConceptScheme">concept scheme</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+               title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5073,8 +6407,8 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted"
-                  title="http://www.w3.org/2004/02/skos/core#ConceptScheme">concept scheme</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+               title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5092,8 +6426,8 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted"
-                  title="http://www.w3.org/2004/02/skos/core#ConceptScheme">concept scheme</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#ConceptScheme"
+               title="http://www.w3.org/2004/02/skos/core#ConceptScheme">Concept Scheme</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -5111,7 +6445,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -5125,6 +6459,10 @@ Such relations may take various forms, including:
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
+      <h3>week<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2006/time#unitWeek</p>
       <div class="comment">
@@ -5133,8 +6471,51 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -5151,7 +6532,7 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2004/02/skos/core#Concept">concept</span>
+            <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dd>
@@ -5165,6 +6546,10 @@ Such relations may take various forms, including:
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
+      <h3>year<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
       <p>
          <strong>IRI:</strong> http://www.w3.org/2006/time#unitYear</p>
       <div class="comment">
@@ -5173,8 +6558,51 @@ Such relations may take various forms, including:
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
-            <span class="dotted" title="http://www.w3.org/2006/time#TemporalUnit">temporal unit</span>
+            <a href="#http://www.w3.org/2006/time#TemporalUnit" title="http://www.w3.org/2006/time#TemporalUnit">Temporal unit</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has facts</dt>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#days" title="http://www.w3.org/2006/time#days">days duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#hours" title="http://www.w3.org/2006/time#hours">hours duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#minutes" title="http://www.w3.org/2006/time#minutes">minutes</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#months" title="http://www.w3.org/2006/time#months">months duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#seconds" title="http://www.w3.org/2006/time#seconds">seconds duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#weeks" title="http://www.w3.org/2006/time#weeks">weeks duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"0.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
+         </dd>
+         <dd>
+            <a href="#http://www.w3.org/2006/time#years" title="http://www.w3.org/2006/time#years">years duration</a>
+            <sup class="type-dp" title="data property">dp</sup> 
+            <span class="literal">"1.0"^^<span class="dotted" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</span>
+            </span>
          </dd>
       </dl>
    </div>
@@ -5188,15 +6616,21 @@ Such relations may take various forms, including:
 </div>
 </div>
 </div>
-    
+ 
+
+<!--Changes SECTION-->
+  <div id="changes">
+<h2 id="ref" class="list">Changes since last version <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+For each class or property imported from an external ontology, a module has been generated and merged with <a href="https://robot.obolibrary.org/">Robot</a> to ensure consistent inferences.</span>
+
+</div>
 
 <!--REFERENCES SECTION-->
   <div id="references">
 <h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-Charly Bernard, Nathalie Abadie, Bertrand Duménieu, Julien Perret. Reconstructing the Temporal Evolution of Geographic Entities from Fragmentary Knowledge. International Knowledge Graph and Semantic Web Conference, Nov 2025, Leipzig, Germany. pp.192-207. <a href="https://dx.doi.org/10.1007/978-3-032-13109-6_14">DOI</a>
-<br>
-Charly Bernard, Solenn Tual, Nathalie Abadie, Bertrand Duménieu, Julien Perret, Joseph Chazalon. PeGazUs: A knowledge graph based approach to build urban perpetual gazetteers. International Conference on Knowledge Engineering and Knowledge Management (EKAW 2024), Nov 2024, Amsterdam, Netherlands. pp.364-381. <a href="https://dx.doi.org/10.1007/978-3-031-77792-9_22">DOI</a></span>
+Bernard Charly, Abadie Nathalie, Duménieu Bertrand and Perret Julien. PeGazUs: A knowledge graph to represent Paris addresses from the 18th century to nowadays. In proceedings of the 25th International Semantic Web Conference. Bari, Italy, 25-29 october 2026.</span>
 
 </div>
 <div id="acknowledgements">

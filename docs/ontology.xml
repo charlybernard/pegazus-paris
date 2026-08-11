@@ -8,6 +8,7 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:time="http://www.w3.org/2006/time#"
@@ -22,14 +23,14 @@
         <terms:description xml:lang="fr">Ontologie PeGazUs pour représenter l&apos;évolution des entités géographiques</terms:description>
         <terms:description xml:lang="en">PeGazUs ontology to represent the evolution of geographical entities</terms:description>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-10-30</terms:issued>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-09-13</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-01</terms:modified>
         <terms:publisher rdf:resource="http://fr.dbpedia.org/resource/Institut_national_de_l%27information_g%C3%A9ographique_et_foresti%C3%A8re"/>
         <terms:rights>Copyright 2025, IGN</terms:rights>
         <terms:title xml:lang="fr">Ontologie PeGazUs</terms:title>
         <terms:title xml:lang="en">PeGazUs ontology</terms:title>
         <vann:preferredNamespacePrefix>peg</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri rdf:resource="https://w3id.org/PeGazUs#"/>
-        <owl:versionInfo>Version 0.1 - 2025-03-04</owl:versionInfo>
+        <owl:versionInfo>Version 0.2 - 2026-08-01</owl:versionInfo>
     </owl:Ontology>
     <rdf:Description rdf:nodeID="genid1">
         <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
@@ -152,6 +153,17 @@
     
 
 
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#comment">
+        <rdfs:comment xml:lang="en"></rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://www.w3.org/2002/07/owl#maxQualifiedCardinality -->
 
 
@@ -173,10 +185,24 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#changeNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#changeNote"/>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#definition -->
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
     
 
 
@@ -198,6 +224,13 @@
 
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#scopeNote"/>
     
 
 
@@ -243,6 +276,62 @@
     
 
 
+    <!-- http://www.w3.org/ns/prov#category -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#category"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#component -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#component"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#constraints -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#constraints"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#definition -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#definition"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#dm -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#dm"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#inverse -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#inverse"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#n -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#n"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#qualifiedForm -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#qualifiedForm"/>
+    
+
+
     <!-- http://xmlns.com/foaf/0.1/family_name -->
 
 
@@ -281,6 +370,25 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -297,8 +405,11 @@
         <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#before"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="es">Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2.</rdfs:comment>
         <rdfs:comment xml:lang="en">Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.</rdfs:comment>
         <rdfs:label xml:lang="en">after</rdfs:label>
+        <rdfs:label xml:lang="es">después</rdfs:label>
+        <skos:definition xml:lang="es">Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2.</skos:definition>
         <skos:definition xml:lang="en">Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.</skos:definition>
     </owl:ObjectProperty>
     
@@ -311,9 +422,36 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="es">Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, &quot;antes&quot; se puede considerar básica para instantes y derivada para intervalos.</rdfs:comment>
         <rdfs:comment xml:lang="en">Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, &quot;before&quot; can be considered to be basic to instants and derived for intervals.</rdfs:comment>
+        <rdfs:label xml:lang="es">antes</rdfs:label>
         <rdfs:label xml:lang="en">before</rdfs:label>
+        <skos:definition xml:lang="es">Asume una dirección en el tiempo. Si una entidad temporal T1 está antes que otra entidad temporal T2, entonces el final de T1 está antes que el principio de T2. Así, &quot;antes&quot; se puede considerar básica para instantes y derivada para intervalos.</skos:definition>
         <skos:definition xml:lang="en">Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, &quot;before&quot; can be considered to be basic to instants and derived for intervals.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hasTRS -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#hasTRS">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalPosition"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2006/time#TRS"/>
+        <rdfs:comment xml:lang="es">El sistema de referencia temporal utilizado por una posición temporal o descripción de extensión.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The temporal reference system used by a temporal position or extent description. </rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal reference system used</rdfs:label>
+        <rdfs:label xml:lang="es">sistema de referencia temporal utilizado</rdfs:label>
+        <skos:definition xml:lang="es">El sistema de referencia temporal utilizado por una posición temporal o descripción de extensión.</skos:definition>
+        <skos:definition xml:lang="en">The temporal reference system used by a temporal position or extent description. </skos:definition>
     </owl:ObjectProperty>
     
 
@@ -328,8 +466,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.</rdfs:comment>
+        <rdfs:comment>Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval after</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo posterior</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalAfter another proper interval T2, then the beginning of T1 is after the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es posterior a otro intervalo propio T2, entonces el principio de T1 está después que el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -343,8 +484,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 está antes que otro intervalo propio T2, entonces el final de T1 está antes que el principio de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval before</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo anterior</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalBefore another proper interval T2, then the end of T1 is before the beginning of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 está antes que otro intervalo propio T2, entonces el final de T1 está antes que el principio de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -353,11 +497,15 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalContains">
+        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#intervalDuring"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 contiene otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 está después del final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval contains</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo contiene</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalContains another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is after the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 contiene otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 está después del final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -369,8 +517,13 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca.</rdfs:comment>
         <rdfs:label xml:lang="en">interval disjoint</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo disjunto</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca.</skos:definition>
+        <skos:note xml:lang="es">Esta relación entre intervalos no estaba incluida en las 13 relaciones básicas definidas por Allen (1984), pero está definida en T.3 como la unión de &apos;intervalo anterior&apos; con &apos;intervalo posterior&apos;. Sin embargo, esto está fuera de la expresividad de OWL2, por tanto, está implementado como una propiedad explícita, con &apos;intervalo anterior&apos; e &apos;intervalo posterior&apos; como sub-propiedades.</skos:note>
+        <skos:note xml:lang="en">This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of :intervalBefore v :intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with :intervalBefore , :intervalAfter as sub-properties</skos:note>
         <skos:note xml:lang="en">This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is defined in (T.3) as the union of time:intervalBefore v time:intervalAfter . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalBefore , time:intervalAfter as sub-properties</skos:note>
     </owl:ObjectProperty>
     
@@ -381,12 +534,14 @@
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalDuring">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2006/time#intervalIn"/>
-        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#intervalContains"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 está durante otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 está antes que el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval during</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo durante</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalDuring another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 está durante otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 está antes que el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -399,8 +554,11 @@
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <owl:propertyDisjointWith rdf:resource="http://www.w3.org/2006/time#intervalIn"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es igual a otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 coincide con el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval equals</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo igual</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalEquals another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is coincident with the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es igual a otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 coincide con el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -413,8 +571,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 está terminado por otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 coincide con el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval finished by</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo terminado por</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalFinishedBy another proper interval T2, then the beginning of T1 is before the beginning of T2, and the end of T1 is coincident with the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 está terminado por otro intervalo propio T2, entonces el principio de T1 está antes que el principio de T2, y el final de T1 coincide con el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -427,8 +588,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 termina otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 coincide con el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval finishes</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo termina</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalFinishes another proper interval T2, then the beginning of T1 is after the beginning of T2, and the end of T1 is coincident with the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 termina otro intervalo propio T2, entonces del principio de T1 está después del principio de T2, y el final de T1 coincide con el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -440,8 +604,13 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es un intervalo interior a otro intervalo propio T2, entonces el principio de T1 está después del principio de T2 o coincide con el principio de T2, y el final de T1 está antes que el final de T2, o coincide con el final de T2, excepto que el final de T1 puede no coincidir con el final de T2 si el principio de T1 coincide con el principio de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval in</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo interior</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalIn another proper interval T2, then the beginning of T1 is after the beginning of T2 or is coincident with the beginning of T2, and the end of T1 is before the end of T2, or is coincident with the end of T2, except that end of T1 may not be coincident with the end of T2 if the beginning of T1 is coincident with the beginning of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es un intervalo interior a otro intervalo propio T2, entonces el principio de T1 está después del principio de T2 o coincide con el principio de T2, y el final de T1 está antes que el final de T2, o coincide con el final de T2, excepto que el final de T1 puede no coincidir con el final de T2 si el principio de T1 coincide con el principio de T2.</skos:definition>
+        <skos:note xml:lang="es">Esta relación entre intervalos no estaba incluida en las 13 relaciones básicas definidas por Allen (1984), pero se hace referencia a ella como &quot;una relación importante&quot; en Allen y Ferguson (1997). Es la unión disjunta de &apos;intervalo empieza&apos;, &apos;intervalo durante&apos; y con &apos;intervalo termina&apos;. Sin embargo, esto está fuera de la expresividad de OWL2, por tanto, se implementa como una propiedad explícita, con &apos;intervalo empieza&apos;, &apos;intervalo durante&apos; e &apos;intervalo termina&apos; como sub-propiedades.</skos:note>
+        <skos:note xml:lang="en">This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as &apos;an important relationship&apos; in Allen and Ferguson (1997). It is the disjoint union of :intervalStarts v :intervalDuring v :intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with :intervalStarts , :intervalDuring , :intervalFinishes as sub-properties</skos:note>
         <skos:note xml:lang="en">This interval relation is not included in the 13 basic relationships defined in Allen (1984), but is referred to as &apos;an important relationship&apos; in Allen and Ferguson (1997). It is the disjoint union of time:intervalStarts v time:intervalDuring v time:intervalFinishes . However, that is outside OWL2 expressivity, so is implemented as an explicit property, with time:intervalStarts , time:intervalDuring , time:intervalFinishes as sub-properties</skos:note>
     </owl:ObjectProperty>
     
@@ -455,8 +624,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 se encuentra con otro intervalo propio T2, entonces el final de T1 coincide con el principio de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval meets</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo se encuentra</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalMeets another proper interval T2, then the end of T1 is coincident with the beginning of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 se encuentra con otro intervalo propio T2, entonces el final de T1 coincide con el principio de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -468,8 +640,11 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es &apos;intervalo encontrado por&apos; otro intervalo propio T2, entonces el principio de T1 coincide con el final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval met by</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo encontrado por</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalMetBy another proper interval T2, then the beginning of T1 is coincident with the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es &apos;intervalo encontrado por&apos; otro intervalo propio T2, entonces el principio de T1 coincide con el final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -478,11 +653,15 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalOverlappedBy">
+        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#intervalOverlaps"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es &apos;intervalo solapado por&apos; otro intervalo propio T2, entonces el principio de T1 es posterior al principio de T2, y el principio de T1 es anterior al final de T2, y el final de T1 es posterior al final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval overlapped by</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo solapado por</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalOverlappedBy another proper interval T2, then the beginning of T1 is after the beginning of T2, the beginning of T1 is before the end of T2, and the end of T1 is after the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es &apos;intervalo solapado por&apos; otro intervalo propio T2, entonces el principio de T1 es posterior al principio de T2, y el principio de T1 es anterior al final de T2, y el final de T1 es posterior al final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -491,12 +670,15 @@
 
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/2006/time#intervalOverlaps">
-        <owl:inverseOf rdf:resource="http://www.w3.org/2006/time#intervalOverlappedBy"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <rdfs:comment xml:lang="es">Asume una dirección en el tiempo. Si una entidad temporal T1 está después de otra entidad temporal T2, entonces el principio de T1 está después del final de T2.</rdfs:comment>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 se solapa con otro intervalo propio T2, entonces el principio de T1 es anterior al principio de T2, el final de T1 es posterior al principio de T2, y el final de T1 es anterior al final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval overlaps</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo se solapa</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalOverlaps another proper interval T2, then the beginning of T1 is before the beginning of T2, the end of T1 is after the beginning of T2, and the end of T1 is before the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 se solapa con otro intervalo propio T2, entonces el principio de T1 es anterior al principio de T2, el final de T1 es posterior al principio de T2, y el final de T1 es anterior al final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -509,8 +691,10 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 es empezado por otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 es posterior al final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval started by</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalStarted another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is after the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 es empezado por otro intervalo propio T2, entonces el principio de T1 coincide con el principio de T2, y el final de T1 es posterior al final de T2.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -523,8 +707,55 @@
         <rdfs:domain rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:range rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
         <rdfs:comment xml:lang="en">If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Si un intervalo propio T1 empieza otro intervalo propio T2, entonces del principio de T1 con el principio de T2, y el final de T1 es anterior al final de T2.</rdfs:comment>
         <rdfs:label xml:lang="en">interval starts</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo empieza</rdfs:label>
         <skos:definition xml:lang="en">If a proper interval T1 is intervalStarts another proper interval T2, then the beginning of T1 is coincident with the beginning of T2, and the end of T1 is before the end of T2.</skos:definition>
+        <skos:definition xml:lang="es">Si un intervalo propio T1 empieza otro intervalo propio T2, entonces del principio de T1 con el final de T2, y el final de T1 es anterior al final de T2.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#alternateOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#alternateOf">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>alternateOf</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#specializationOf"/>
+        <prov:category>expanded</prov:category>
+        <prov:component>alternate</prov:component>
+        <prov:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</prov:constraints>
+        <prov:definition xml:lang="en">Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time.</prov:definition>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate</prov:dm>
+        <prov:inverse>alternateOf</prov:inverse>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate</prov:n>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#specializationOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#specializationOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#alternateOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov#"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>specializationOf</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/prov#alternateOf"/>
+        <prov:category>expanded</prov:category>
+        <prov:component>alternate</prov:component>
+        <prov:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-constraints.html#prov-dm-constraints-fig</prov:constraints>
+        <prov:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</prov:constraints>
+        <prov:definition xml:lang="en">An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity.</prov:definition>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-dm.html#term-specialization</prov:dm>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization</prov:dm>
+        <prov:inverse>generalizationOf</prov:inverse>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2012/WD-prov-dm-20120703/prov-n.html#expression-specialization</prov:n>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization</prov:n>
     </owl:ObjectProperty>
     
 
@@ -539,7 +770,39 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
         <rdfs:label xml:lang="fr">est dérivé de</rdfs:label>
         <rdfs:label xml:lang="en">was derived from</rdfs:label>
+        <rdfs:label>wasDerivedFrom</rdfs:label>
+        <prov:category>starting-point</prov:category>
+        <prov:component>derivations</prov:component>
+        <prov:definition xml:lang="en">A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity.</prov:definition>
+        <prov:inverse>hadDerivation</prov:inverse>
+        <prov:qualifiedForm rdf:resource="http://www.w3.org/ns/prov#Derivation"/>
+        <prov:qualifiedForm rdf:resource="http://www.w3.org/ns/prov#qualifiedDerivation"/>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasRevisionOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasRevisionOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment xml:lang="en">A revision is a derivation that revises an entity into a revised version.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>wasRevisionOf</rdfs:label>
+        <prov:category>expanded</prov:category>
+        <prov:component>derivations</prov:component>
+        <prov:inverse>hadRevision</prov:inverse>
+        <prov:qualifiedForm rdf:resource="http://www.w3.org/ns/prov#Revision"/>
+        <prov:qualifiedForm rdf:resource="http://www.w3.org/ns/prov#qualifiedRevision"/>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.w3.org/ns/prov#wasRevisionOf"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subPropertyOf"/>
+        <owl:annotatedTarget rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <rdfs:comment>Revision is a derivation (see http://www.w3.org/TR/prov-dm/#term-Revision). Moreover, according to 
+http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 2012 &apos;wasRevisionOf is a strict sub-relation of wasDerivedFrom since two entities e2 and e1 may satisfy wasDerivedFrom(e2,e1) without being a variant of each other.&apos;</rdfs:comment>
+    </owl:Axiom>
     
 
 
@@ -685,6 +948,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasAttribute">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isAttributeOf"/>
         <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="https://w3id.org/PeGazUs#Attribute"/>
         <rdfs:comment xml:lang="en">Describes the attribute for an element</rdfs:comment>
@@ -826,6 +1090,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasNextVersion">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasPreviousVersion"/>
         <rdfs:comment xml:lang="en">Describes that one landmark version precedes another</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;une version de repère en précède une autre</rdfs:comment>
         <rdfs:label xml:lang="fr">a pour version suivante</rdfs:label>
@@ -838,6 +1103,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasOverlappingVersion">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isOverlappedByVersion"/>
         <rdfs:comment xml:lang="en">Describes that one landmark version overlaps another</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;une version de repère en chevauche une autre</rdfs:comment>
         <rdfs:label xml:lang="fr">chevauche la version</rdfs:label>
@@ -850,7 +1116,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasPreviousVersion">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasNextVersion"/>
         <rdfs:comment xml:lang="en">Describes that one landmark version follows another</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;une version de repère en succède à une autre</rdfs:comment>
         <rdfs:label xml:lang="fr">a pour version précédente</rdfs:label>
@@ -863,6 +1128,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasRoot">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isRootOf"/>
         <rdfs:comment xml:lang="en">Describes that an element has another element of reference as its root</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;un élément a pour racine un autre élement</rdfs:comment>
         <rdfs:label xml:lang="fr">a pour racine</rdfs:label>
@@ -952,6 +1218,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#hasTrace">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isTraceOf"/>
         <rdfs:comment xml:lang="en">Describes that an element has another element as its trace</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;un élément a pour trace un autre élément</rdfs:comment>
         <rdfs:label xml:lang="fr">a pour trace</rdfs:label>
@@ -1056,7 +1323,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isAttributeOf">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasAttribute"/>
         <rdfs:comment xml:lang="en">Defines the frame of reference for which the attribute exists</rdfs:comment>
         <rdfs:comment xml:lang="fr">Définit le repère pour lequel l&apos;attribut existe</rdfs:comment>
         <rdfs:label xml:lang="fr">est un attribut de</rdfs:label>
@@ -1139,6 +1405,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isMadeEffectiveBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#makesEffective"/>
         <rdfs:domain rdf:resource="https://w3id.org/PeGazUs#AttributeVersion"/>
         <rdfs:range rdf:resource="https://w3id.org/PeGazUs#AttributeChange"/>
         <rdfs:comment xml:lang="en">Describes the fact that a version of an attribute is made effective by a change</rdfs:comment>
@@ -1153,6 +1420,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isOutdatedBy">
+        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#outdates"/>
         <rdfs:domain rdf:resource="https://w3id.org/PeGazUs#AttributeVersion"/>
         <rdfs:range rdf:resource="https://w3id.org/PeGazUs#AttributeChange"/>
         <rdfs:comment xml:lang="en">Describes the fact that a version of an attribute is rendered obsolete by a change</rdfs:comment>
@@ -1167,7 +1435,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isOverlappedByVersion">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasOverlappingVersion"/>
         <rdfs:comment xml:lang="en">Describes that one landmark version is overlapped by another</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;une version de repère est chevauchée par une autre</rdfs:comment>
         <rdfs:label xml:lang="fr">est chevauché par</rdfs:label>
@@ -1193,7 +1460,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isRootOf">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasRoot"/>
         <rdfs:comment xml:lang="en">Describes that an element is the root of another</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;un élément est la racine d&apos;un autre</rdfs:comment>
         <rdfs:label xml:lang="fr">est racine de</rdfs:label>
@@ -1220,7 +1486,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#isTraceOf">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#hasTrace"/>
         <rdfs:comment xml:lang="en">Describes that an element is the trace of another element</rdfs:comment>
         <rdfs:comment xml:lang="fr">Décrit qu&apos;un élément est la trace d&apos;un autre élément</rdfs:comment>
         <rdfs:label xml:lang="fr">est une trace de</rdfs:label>
@@ -1247,7 +1512,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#makesEffective">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isMadeEffectiveBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/PeGazUs#AttributeChange"/>
         <rdfs:range rdf:resource="https://w3id.org/PeGazUs#AttributeVersion"/>
         <rdfs:comment xml:lang="en">Describes the fact that a change makes a version of an attribute effective</rdfs:comment>
@@ -1278,7 +1542,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://w3id.org/PeGazUs#outdates">
-        <owl:inverseOf rdf:resource="https://w3id.org/PeGazUs#isOutdatedBy"/>
         <rdfs:domain rdf:resource="https://w3id.org/PeGazUs#AttributeChange"/>
         <rdfs:range rdf:resource="https://w3id.org/PeGazUs#AttributeVersion"/>
         <rdfs:comment xml:lang="en">Describes the fact that a change invalidates a version of an attribute</rdfs:comment>
@@ -1386,6 +1649,113 @@
     
 
 
+    <!-- http://www.w3.org/2006/time#days -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#days">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en días.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in days</rdfs:comment>
+        <rdfs:label xml:lang="en">days duration</rdfs:label>
+        <rdfs:label xml:lang="es">duración en días</rdfs:label>
+        <skos:definition xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en días.</skos:definition>
+        <skos:definition xml:lang="en">length of, or element of the length of, a temporal extent expressed in days</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#hours -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#hours">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en horas.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in hours</rdfs:comment>
+        <rdfs:label xml:lang="es">duración en horas</rdfs:label>
+        <rdfs:label xml:lang="en">hours duration</rdfs:label>
+        <skos:definition xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en horas.</skos:definition>
+        <skos:definition xml:lang="en">length of, or element of the length of, a temporal extent expressed in hours</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#minutes -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#minutes">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en minutos.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length, or element of, a temporal extent expressed in minutes</rdfs:comment>
+        <rdfs:label xml:lang="en">minutes</rdfs:label>
+        <rdfs:label xml:lang="es">minutos</rdfs:label>
+        <skos:definition xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en minutos.</skos:definition>
+        <skos:definition xml:lang="en">length, or element of, a temporal extent expressed in minutes</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#months -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#months">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en meses.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in months</rdfs:comment>
+        <rdfs:label xml:lang="es">duración en meses</rdfs:label>
+        <rdfs:label xml:lang="en">months duration</rdfs:label>
+        <skos:definition xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en meses.</skos:definition>
+        <skos:definition xml:lang="en">length of, or element of the length of, a temporal extent expressed in months</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#seconds -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#seconds">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en segundos.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in seconds</rdfs:comment>
+        <rdfs:label xml:lang="es">duración en segundos</rdfs:label>
+        <rdfs:label xml:lang="en">seconds duration</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://www.bipm.org/en/publications/si-brochure/second.html"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#weeks -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#weeks">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en semanas.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in weeks</rdfs:comment>
+        <rdfs:label xml:lang="es">duración en semanas</rdfs:label>
+        <rdfs:label xml:lang="en">weeks duration</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2006/time#years -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2006/time#years">
+        <rdfs:domain rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="es">Longitud de, o elemento de la longitud de, una extensión temporal expresada en años.</rdfs:comment>
+        <rdfs:comment xml:lang="en">length of, or element of the length of, a temporal extent expressed in years</rdfs:comment>
+        <rdfs:label xml:lang="es">duración en años</rdfs:label>
+        <rdfs:label xml:lang="en">years duration</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- https://w3id.org/PeGazUs#timeStamp -->
 
 
@@ -1433,56 +1803,228 @@
     <!-- http://www.w3.org/2004/02/skos/core#Concept -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <owl:disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+        <skos:definition xml:lang="en">An idea or notion; a unit of thought.</skos:definition>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+        <skos:definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</skos:definition>
+        <skos:example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</skos:example>
+        <skos:scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</skos:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#GeneralDurationDescription -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#GeneralDurationDescription">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTRS"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#days"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hours"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#minutes"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#months"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#seconds"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#weeks"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#years"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="es">Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Description of temporal extent structured with separate values for the various elements of a calendar-clock system.</rdfs:comment>
+        <rdfs:label xml:lang="en">Generalized duration description</rdfs:label>
+        <rdfs:label xml:lang="es">descripción de duración generalizada</rdfs:label>
+        <skos:definition xml:lang="es">Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario.</skos:definition>
+        <skos:definition xml:lang="en">Description of temporal extent structured with separate values for the various elements of a calendar-clock system.</skos:definition>
+        <skos:note xml:lang="es">La extensión de una duración de tiempo expresada como una &apos;descripción de duración general&apos; depende del Sistema de Referencia Temporal. En algunos calendarios la longitud de la semana o del mes no es constante a lo largo del año. Por tanto, un valor como &quot;25 meses&quot; puede no ser necesariamente ser comparado con un duración similar expresada en términos de semanas o días. Cuando se consideran calendarios que no están basados en el movimiento de la Tierra, se deben tomar incluso más precauciones en la comparación de duraciones.</skos:note>
+        <skos:note xml:lang="en">The extent of a time duration expressed as a GeneralDurationDescription depends on the Temporal Reference System. In some calendars the length of the week or month is not constant within the year. Therefore, a value like &quot;2.5 months&quot; may not necessarily be exactly compared with a similar duration expressed in terms of weeks or days. When non-earth-based calendars are considered even more care must be taken in comparing durations.</skos:note>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#Instant -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Instant">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="http://www.w3.org/2006/time#ProperInterval"/>
+        <rdfs:comment xml:lang="en">A temporal entity with zero extent or duration</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una entidad temporal con una extensión o duración cero.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time instant</rdfs:label>
+        <rdfs:label xml:lang="es">instante de tiempo.</rdfs:label>
+        <skos:definition xml:lang="en">A temporal entity with zero extent or duration</skos:definition>
+        <skos:definition xml:lang="es">Una entidad temporal con una extensión o duración cero.</skos:definition>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#Interval -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#Interval"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#Interval">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#TemporalEntity"/>
+        <rdfs:comment xml:lang="en">A temporal entity with an extent or duration</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una entidad temporal con una extensión o duración.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time interval</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo de tiempo</rdfs:label>
+        <skos:definition xml:lang="en">A temporal entity with an extent or duration</skos:definition>
+        <skos:definition xml:lang="es">Una entidad temporal con una extensión o duración.</skos:definition>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#ProperInterval -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#ProperInterval"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#ProperInterval">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2006/time#Interval"/>
+        <rdfs:comment xml:lang="en">A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes.</rdfs:comment>
+        <rdfs:label xml:lang="en">Proper interval</rdfs:label>
+        <rdfs:label xml:lang="es">intervalo propio</rdfs:label>
+        <skos:definition xml:lang="en">A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different</skos:definition>
+        <skos:definition xml:lang="es">Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes.</skos:definition>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#TRS -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TRS"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TRS">
+        <rdfs:comment xml:lang="en">A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un sistema de referencia temporal, tal como un sistema de coordenadas temporales (con un origen, una dirección y una escala), una combinación calendario-reloj, o un sistema ordinal (posiblemente jerárquico).
+        Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal Reference System</rdfs:label>
+        <rdfs:label xml:lang="es">sistema de referencia temporal</rdfs:label>
+        <skos:definition xml:lang="en">A temporal reference system, such as a temporal coordinate system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system. 
+
+This is a stub class, representing the set of all temporal reference systems.</skos:definition>
+        <skos:definition xml:lang="es">Un sistema de referencia temporal, tal como un sistema de coordenadas temporales (con un origen, una dirección y una escala), una combinación calendario-reloj, o un sistema ordinal (posiblemente jerárquico).
+    Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal.</skos:definition>
+        <skos:note xml:lang="en">A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e. numeric offset from an epoch); (c) temporal ordinal reference systems (i.e. ordered sequence of named intervals, not necessarily of equal duration).</skos:note>
+        <skos:note xml:lang="es">En el ISO 19108:2002 [ISO19108] se proporciona una taxonomía de sistemas de referencia temporal, incluyendo (a) sistemas de calendario + reloj; (b) sistemas de coordenadas temporales (es decir, desplazamiento numérico a partir de una época); (c) sistemas de referencia ordinales temporales (es decir, secuencia ordenada de intervalos nombrados, no necesariamente de igual duración).</skos:note>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#TemporalEntity -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalEntity">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#Instant"/>
+                    <rdf:Description rdf:about="http://www.w3.org/2006/time#Interval"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A temporal interval or instant.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Un intervalo temporal o un instante.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal entity</rdfs:label>
+        <rdfs:label xml:lang="es">entidad temporal</rdfs:label>
+        <skos:definition xml:lang="en">A temporal interval or instant.</skos:definition>
+        <skos:definition xml:lang="es">Un intervalo temporal o un instante.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2006/time#TemporalPosition -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalPosition">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2006/time#hasTRS"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A position on a time-line</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una posición sobre una línea de tiempo.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal position</rdfs:label>
+        <rdfs:label xml:lang="es">posición temporal</rdfs:label>
+        <skos:definition xml:lang="en">A position on a time-line</skos:definition>
+        <skos:definition xml:lang="es">Una posición sobre una línea de tiempo.</skos:definition>
+    </owl:Class>
     
 
 
     <!-- http://www.w3.org/2006/time#TemporalUnit -->
 
 
-    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalUnit"/>
+    <owl:Class rdf:about="http://www.w3.org/2006/time#TemporalUnit">
+        <rdfs:comment xml:lang="en">A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Una duración estándar, que proporciona un factor de escala para una extensión de tiempo, o la granularidad o precisión para una posición de tiempo.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temporal unit</rdfs:label>
+        <rdfs:label xml:lang="es">unidad de tiempo</rdfs:label>
+        <skos:changeNote xml:lang="en">Remove enumeration from definition, in order to allow other units to be used when required in other coordinate systems. 
+NOTE: existing units are still present as members of the class, but the class membership is now open. 
+
+In the original OWL-Time the following constraint appeared: 
+  owl:oneOf (
+      time:unitSecond
+      time:unitMinute
+      time:unitHour
+      time:unitDay
+      time:unitWeek
+      time:unitMonth
+      time:unitYear
+    ) ;</skos:changeNote>
+        <skos:definition xml:lang="en">A standard duration, which provides a scale factor for a time extent, or the granularity or precision for a time position.</skos:definition>
+        <skos:definition xml:lang="es">Una duración estándar, que proporciona un factor de escala para una extensión de tiempo, o la granularidad o precisión para una posición de tiempo.</skos:definition>
+        <skos:note xml:lang="es">La pertenencia de la clase &apos;unidad de tiempo&apos; está abierta, para permitir otras unidades de tiempo utilizadas en algunas aplicaciones técnicas (por ejemplo, millones de años o el mes Baha&apos;i).</skos:note>
+        <skos:note xml:lang="en">Membership of the class TemporalUnit is open, to allow for other temporal units used in some technical applications (e.g. millions of years, Baha&apos;i month).</skos:note>
+    </owl:Class>
     
 
 
@@ -1509,6 +2051,13 @@
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
         <rdfs:label xml:lang="en">Entity</rdfs:label>
         <rdfs:label xml:lang="fr">entité</rdfs:label>
+        <rdfs:label>Entity</rdfs:label>
+        <prov:category>starting-point</prov:category>
+        <prov:component>entities-activities</prov:component>
+        <prov:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</prov:constraints>
+        <prov:definition xml:lang="en">An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. </prov:definition>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity</prov:dm>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity</prov:n>
     </owl:Class>
     
 
@@ -2041,6 +2590,38 @@ Such relations may take various forms, including:
     
 
 
+    <!-- file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430 -->
+
+
+    <owl:NamedIndividual rdf:about="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430"/>
+    
+
+
+    <!-- file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312 -->
+
+
+    <owl:NamedIndividual rdf:about="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312"/>
+    
+
+
+    <!-- file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl -->
+
+
+    <owl:NamedIndividual rdf:about="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl"/>
+    
+
+
+    <!-- file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl# -->
+
+
+    <owl:NamedIndividual rdf:about="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl#">
+        <prov:specializationOf rdf:resource="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o.owl"/>
+        <prov:wasDerivedFrom rdf:resource="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-20130430"/>
+        <prov:wasRevisionOf rdf:resource="file:/C:/Users/nfabadie/Documents/Dev/Robot/ontologies/prov-o-inverses-20120312"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.w3.org/2006/time#unitCentury -->
 
 
@@ -2059,10 +2640,30 @@ Such relations may take various forms, including:
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitDay">
         <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
         <rdfs:comment xml:lang="en">A period of 24 hours.</rdfs:comment>
         <rdfs:comment xml:lang="fr">Une période de 24 heures.</rdfs:comment>
         <rdfs:label xml:lang="en">Day</rdfs:label>
+        <rdfs:label xml:lang="en">Day (unit of temporal duration)</rdfs:label>
         <rdfs:label xml:lang="fr">Jour</rdfs:label>
+        <skos:prefLabel xml:lang="de">Tag</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">dag</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">day</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">dia</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">doba</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">día</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">giorno</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">jour</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">يوماً ما</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">ある日</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一天</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">언젠가</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2080,15 +2681,124 @@ Such relations may take various forms, including:
     
 
 
+    <!-- http://www.w3.org/2006/time#unitHour -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitHour">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
+        <rdfs:label xml:lang="en">Hour (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="de">Stunde</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">godzina</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">heure</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">hora</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">hora</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">hour</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">ora</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">uur</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">ساعة واحدة</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一小時</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">一時間</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">한 시간</skos:prefLabel>
+        <skos:prefLabel>один час&quot;@ru</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#unitMinute -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitMinute">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
+        <rdfs:label xml:lang="en">Minute (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="de">Minute</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">minuta</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">minute</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">minute</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">minuto</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">minuto</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">minuto</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">minuut</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">одна минута</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">دقيقة واحدة</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">一分</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">等一下</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">분</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.w3.org/2006/time#unitMonth -->
 
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitMonth">
         <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
         <rdfs:comment xml:lang="en">A period of approximately 30 days.</rdfs:comment>
         <rdfs:comment xml:lang="fr">Une période d&apos;environ 30 jours.</rdfs:comment>
         <rdfs:label xml:lang="fr">Mois</rdfs:label>
         <rdfs:label xml:lang="en">Month</rdfs:label>
+        <rdfs:label xml:lang="en">Month (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="de">Monat</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">maand</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">mes</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">mese</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">miesiąc</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">mois</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">month</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">один месяц</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">شهر واحد</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">一か月</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一個月</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">한달</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2006/time#unitSecond -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitSecond">
+        <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
+        <rdfs:label xml:lang="en">Second (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="de">Sekunde</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">Sekundę</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">second</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">seconde</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">seconde</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">secondo</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">segundo</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">segundo</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">ثانية واحدة</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">一秒</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一秒</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">일초</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2098,10 +2808,31 @@ Such relations may take various forms, including:
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitWeek">
         <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:years>
         <rdfs:comment xml:lang="en">A period of 7 days.</rdfs:comment>
         <rdfs:comment xml:lang="fr">Une période de 7 jours.</rdfs:comment>
         <rdfs:label xml:lang="fr">Semaine</rdfs:label>
         <rdfs:label xml:lang="en">Week</rdfs:label>
+        <rdfs:label xml:lang="en">Week (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="de">Woche</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">semaine</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">semana</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">semana</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">settimana</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">tydzień</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">week</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">week</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">одна неделя</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">سبوع واحد</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一周</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">一週間</skos:prefLabel>
+        <skos:prefLabel xml:lang="kr">일주일</skos:prefLabel>
     </owl:NamedIndividual>
     
 
@@ -2111,11 +2842,122 @@ Such relations may take various forms, including:
 
     <owl:NamedIndividual rdf:about="http://www.w3.org/2006/time#unitYear">
         <rdf:type rdf:resource="http://www.w3.org/2006/time#TemporalUnit"/>
+        <time:days rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:days>
+        <time:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:hours>
+        <time:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:minutes>
+        <time:months rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:months>
+        <time:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:seconds>
+        <time:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</time:weeks>
+        <time:years rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</time:years>
         <rdfs:comment xml:lang="en">A period of approximately 365 days.</rdfs:comment>
         <rdfs:comment xml:lang="fr">Une période d&apos;environ 365 jours.</rdfs:comment>
         <rdfs:label xml:lang="fr">Année</rdfs:label>
         <rdfs:label xml:lang="en">Year</rdfs:label>
+        <rdfs:label xml:lang="en">Year (unit of temporal duration)</rdfs:label>
+        <skos:prefLabel xml:lang="kr">1 년</skos:prefLabel>
+        <skos:prefLabel xml:lang="jp">1年</skos:prefLabel>
+        <skos:prefLabel xml:lang="de">Jahr</skos:prefLabel>
+        <skos:prefLabel xml:lang="fr">an</skos:prefLabel>
+        <skos:prefLabel xml:lang="it">anno</skos:prefLabel>
+        <skos:prefLabel xml:lang="pt">ano</skos:prefLabel>
+        <skos:prefLabel xml:lang="nl">jaar</skos:prefLabel>
+        <skos:prefLabel xml:lang="pl">rok</skos:prefLabel>
+        <skos:prefLabel xml:lang="es">un año</skos:prefLabel>
+        <skos:prefLabel xml:lang="en">year</skos:prefLabel>
+        <skos:prefLabel xml:lang="ru">один год</skos:prefLabel>
+        <skos:prefLabel xml:lang="ar">سنة واحدة</skos:prefLabel>
+        <skos:prefLabel xml:lang="zh">一年</skos:prefLabel>
     </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-20130312 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-20130312"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-links -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-links"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-o"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o-20120312 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-o-20120312"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov#">
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-aq#"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-dc#"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-dictionary#"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-links#"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.w3.org/ns/prov-o-inverses#"/>
+        <prov:wasRevisionOf rdf:resource="http://www.w3.org/ns/prov-20130312"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-aq# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-aq#"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-dc# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-dc#"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-dictionary# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-dictionary#"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-links# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-links#">
+        <prov:specializationOf rdf:resource="http://www.w3.org/ns/prov-links"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-o#">
+        <prov:specializationOf rdf:resource="http://www.w3.org/ns/prov-o"/>
+        <prov:wasRevisionOf rdf:resource="http://www.w3.org/ns/prov-o-20120312"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o-inverses# -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/prov-o-inverses#"/>
     
 
 
