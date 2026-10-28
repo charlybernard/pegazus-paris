@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="appTitle">Graph Data Visualization</title>
+
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="app-brand">
+      <h1 data-i18n="appTitle">Graph Data Visualization</h1>
+      <p id="app-subtitle" data-i18n="appSubtitle">Historical data explorer</p>
+    </div>
+
+    <div class="app-header-actions">
+      <div class="toolbar-wrapper">
+        <div id="toolbar-controls" class="toolbar-controls"></div>
+      </div>
+      <div id="app-header-links" class="app-header-links"></div>
+      <button id="btn-settings" class="header-link icon-only" type="button" title="Configuration" aria-label="Configuration">
+        <img src="/icons/settings.svg" width="20" height="20" alt="">
+      </button>
+      <div class="control-group header-lang-group">
+        <select id="lang-select">
+          <option value="en">🇬🇧 EN</option>
+          <option value="fr">🇫🇷 FR</option>
+          <option value="es">🇪🇸 ES</option>
+        </select>
+      </div>
+    </div>
+  </header>
+  <div id="app-status" class="app-status hidden" role="alert"></div>
+
+  <!-- BARRE DE CONTRÔLE SUPÉRIEURE -->
+  <div class="topbar">
+    
+    <!-- Choix du graphe (affiché dynamiquement si > 1) -->
+    <div id="graph-select-container" class="control-group hidden">
+      <label for="graph-select" data-i18n="graphLabel">Graph:</label>
+      <select id="graph-select"></select>
+    </div>
+
+    <!-- Mode de visualisation -->
+    <div class="control-group tool-selection">
+      <span data-i18n="modeLabel">Mode:</span>
+      <label>
+        <input type="radio" name="tool" value="snapshot" checked>
+        <span data-i18n="modeSnapshot">Snapshot</span>
+      </label>
+      <label>
+        <input type="radio" name="tool" value="landmark">
+        <span data-i18n="modeLandmark">Landmark Evolution</span>
+      </label>
+    </div>
+
+    <!-- CONTROLES MODE SNAPSHOT (Masqués par défaut, affichés seulement si Snapshot est actif) -->
+    <div id="snapshot-controls" class="control-group hidden">
+      <label for="snapshot-date" data-i18n="snapshotDateLabel">Date:</label>
+      <input type="date" id="snapshot-date">
+      <input type="range" id="snapshot-slider">
+      <button id="btn-load-snapshot" class="btn-primary" data-i18n="btnValidateSnapshot">Charger</button>
+      <button id="btn-clear-snapshot" class="btn-primary btn-snapshot-clear" type="button">
+        <img src="/icons/rotate-ccw.svg" width="16" height="16" alt="">
+        <span data-i18n="btnClearSnapshot">Tout effacer</span>
+      </button>
+    </div>
+
+    <!-- CONTROLES MODE LANDMARK -->
+    <div id="landmark-controls" class="control-group hidden">
+      <label for="type-select" data-i18n="typeLabel">Type:</label>
+      <select id="type-select">
+        <option value="" data-i18n="typePlaceholder">-- Select a type --</option>
+      </select>
+
+      <div class="autocomplete-wrapper">
+        <label for="landmark-input" data-i18n="entityLabel">Landmark:</label>
+        <div class="input-with-loader">
+          <input type="text" id="landmark-input" autocomplete="off" disabled>
+          <span id="landmark-loader" class="loader hidden" aria-hidden="true"></span>
+        </div>
+        <div id="landmark-dropdown" class="dropdown-list hidden"></div>
+      </div>
+
+      <button id="btn-load-landmark" class="btn-primary" disabled data-i18n="btnValidateLandmark">Show Evolution</button>
+    </div>
+
+  </div>
+
+  <!-- ZONE DE CONTENU PRINCIPALE -->
+  <main class="main-container">
+    <div id="snapshot-view" class="view">
+      <div id="map-snapshot" class="map-box"></div>
+    </div>
+
+    <div id="landmark-view" class="view hidden">
+      <div id="landmark-split-container">
+        <div id="pane-map">
+          <div id="map-landmark" class="map-box"></div>
+        </div>
+        <div id="pane-timeline">
+          <div id="landmark-validity" class="validity-banner hidden" aria-live="polite"></div>
+          <div id="timeline" style="width: 100%; height: 100%; min-height: 400px;">
+            <div class="timeline-placeholder">
+              <p data-i18n="chooseLandmark">Choose a landmark to display its evolution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
+    <form id="settings-form">
+      <div class="settings-heading">
+        <h2 id="settings-title" data-settings-i18n="title">Configuration</h2>
+        <button id="settings-close" class="settings-icon-button" type="button" aria-label="Fermer" title="Fermer"><img src="/icons/x.svg" width="20" height="20" alt=""></button>
+      </div>
+      <div class="settings-body">
+        <fieldset>
+          <legend data-settings-i18n="source">Source de donnees</legend>
+          <label for="setting-endpoint" data-settings-i18n="endpoint">Endpoint SPARQL</label>
+          <input id="setting-endpoint" type="url" required>
+          <label for="setting-graph" data-settings-i18n="graph">Graphe par defaut</label>
+          <input id="setting-graph" type="url" required>
+        </fieldset>
+        <fieldset>
+          <legend data-settings-i18n="map">Carte</legend>
+          <div class="settings-grid">
+            <label><span data-settings-i18n="latitude">Latitude</span><input id="setting-latitude" type="number" min="-90" max="90" step="any" required></label>
+            <label><span data-settings-i18n="longitude">Longitude</span><input id="setting-longitude" type="number" min="-180" max="180" step="any" required></label>
+            <label><span data-settings-i18n="zoom">Zoom</span><input id="setting-zoom" type="number" min="0" max="19" step="1" required></label>
+          </div>
+          <div class="settings-tiles">
+            <h3 data-settings-i18n="tiles">Couches</h3>
+            <ul id="settings-layer-list" class="settings-layer-list"></ul>
+            <div class="settings-layer-actions">
+              <button id="settings-add-xyz" type="button"><img src="/icons/plus.svg" width="16" height="16" alt=""><span data-settings-i18n="addXyzLayer">Ajouter une couche XYZ</span></button>
+              <button id="settings-add-wms" type="button"><img src="/icons/plus.svg" width="16" height="16" alt=""><span data-settings-i18n="addWmsLayer">Ajouter une couche WMS</span></button>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-settings-i18n="dates">Periode</legend>
+          <div class="settings-grid">
+            <label><span data-settings-i18n="minDate">Date minimale</span><input id="setting-date-min" type="date" required></label>
+            <label><span data-settings-i18n="maxDate">Date maximale</span><input id="setting-date-max" type="date" required></label>
+            <label><span data-settings-i18n="defaultDate">Date initiale</span><input id="setting-date-default" type="date"></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-settings-i18n="options">Options</legend>
+          <div class="settings-grid settings-grid-two">
+            <label><span data-settings-i18n="language">Langue de l'interface</span><select id="setting-language"><option value="fr">Francais</option><option value="en">English</option><option value="es">Espanol</option></select></label>
+            <label><span data-settings-i18n="queryLanguage">Langue des donnees</span><input id="setting-query-language" type="text" pattern="[a-z]{2,3}(-[a-zA-Z0-9]{2,8})*" required></label>
+            <label><span data-settings-i18n="limit">Resultats de recherche</span><input id="setting-limit" type="number" min="1" max="1000" required></label>
+            <label><span data-settings-i18n="delay">Marge temporelle (ans)</span><input id="setting-delay" type="number" min="0" max="1000" required></label>
+          </div>
+          <label for="setting-calendar" data-settings-i18n="calendar">URI du calendrier</label>
+          <input id="setting-calendar" type="url" required>
+        </fieldset>
+        <p id="settings-status" class="settings-status" role="status" aria-live="polite"></p>
+      </div>
+      <div class="settings-footer">
+        <button id="settings-reset" class="settings-secondary settings-reset" type="button"><img src="/icons/rotate-ccw.svg" width="16" height="16" alt=""><span data-settings-i18n="restore">Restaurer les valeurs par defaut</span></button>
+        <button id="settings-cancel" class="settings-secondary" type="button" data-settings-i18n="cancel">Annuler</button>
+        <button type="submit"><img src="/icons/save.svg" width="16" height="16" alt=""><span data-settings-i18n="save">Enregistrer</span></button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="layer-editor-dialog" class="settings-dialog layer-editor-dialog" aria-labelledby="layer-editor-title">
+    <form id="layer-editor-form">
+      <div class="settings-heading"><h2 id="layer-editor-title">Couche</h2></div>
+      <div class="settings-body">
+        <label for="layer-type" data-settings-i18n="layerType">Type</label>
+        <select id="layer-type"><option value="xyz">XYZ</option><option value="wms">WMS</option></select>
+        <label for="layer-name" data-settings-i18n="layerName">Nom</label>
+        <input id="layer-name" type="text" required autocomplete="off">
+        <label for="layer-url" data-settings-i18n="layerUrl">URL</label>
+        <input id="layer-url" type="text" inputmode="url" required autocomplete="off" spellcheck="false">
+        <label for="layer-attribution" data-settings-i18n="layerAttribution">Attribution</label>
+        <input id="layer-attribution" type="text">
+        <label for="layer-max-zoom" data-settings-i18n="layerMaxZoom">Zoom maximal</label>
+        <input id="layer-max-zoom" type="number" min="0" max="22" step="1" placeholder="19">
+        <fieldset id="layer-wms-fields" hidden disabled>
+          <label for="layer-wms-name" data-settings-i18n="wmsLayerName">Identifiant de couche WMS</label>
+          <input id="layer-wms-name" type="text" placeholder="workspace:layer">
+          <div class="settings-grid settings-grid-two">
+            <label><span data-settings-i18n="layerFormat">Format</span><select id="layer-format"><option value="image/png">PNG</option><option value="image/jpeg">JPEG</option></select></label>
+            <label><span data-settings-i18n="wmsVersion">Version WMS</span><select id="layer-version"><option value="1.1.1">1.1.1</option><option value="1.3.0">1.3.0</option></select></label>
+          </div>
+          <label class="settings-checkbox"><input id="layer-transparent" type="checkbox" checked><span data-settings-i18n="layerTransparent">Fond transparent</span></label>
+        </fieldset>
+      </div>
+      <div class="settings-footer">
+        <button id="layer-editor-cancel" class="settings-secondary" type="button" data-settings-i18n="cancel">Annuler</button>
+        <button type="submit"><img src="/icons/check.svg" width="16" height="16" alt=""><span data-settings-i18n="applyLayer">Valider la couche</span></button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="settings-confirm" class="settings-dialog settings-confirm" aria-labelledby="restore-title">
+    <h2 id="restore-title" data-settings-i18n="confirmTitle">Restaurer la configuration ?</h2>
+    <p data-settings-i18n="confirmText">Les parametres enregistres seront remplaces par les valeurs par defaut.</p>
+    <div class="settings-footer">
+      <button id="cancel-restore" class="settings-secondary" type="button" data-settings-i18n="cancel">Annuler</button>
+      <button id="confirm-restore" type="button" data-settings-i18n="confirm">Restaurer</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

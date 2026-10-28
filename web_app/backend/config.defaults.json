@@ -1,0 +1,22 @@
+{
+  "sparqlEndpoint": "http://localhost:7200/repositories/fbg_saint_antoine",
+  "defaultGraphUri": "https://w3id.org/PeGazUs/id/pegazus-paris",
+  "map": {
+    "center": [48.8566, 2.3522],
+    "zoom": 12,
+    "tileLayers": [
+      { "type": "xyz", "url": "https://tile.openstreetmap.de/{z}/{x}/{y}.png", "name": "OpenStreetMap", "attribution": "© OpenStreetMap" },
+      { "type": "wms", "url": "https://geohistoricaldata.org/geoserver/paris-rasters/wms", "layer": "paris-rasters:verniquet_1789", "name": "Atlas de Verniquet (1789)" },
+      { "type": "wms", "url": "https://geohistoricaldata.org/geoserver/paris-rasters/wms", "layer": "paris-rasters:jacoubet_1836", "name": "Plan de Jacoubet (1836)" },
+      { "type": "wms", "url": "https://geohistoricaldata.org/geoserver/paris-rasters/wms", "layer": "paris-rasters:andriveau_1849", "name": "Plan d'Andriveau (1849)" },
+      { "type": "wms", "url": "https://geohistoricaldata.org/geoserver/paris-rasters/wms", "layer": "paris-rasters:poubelle_1888", "name": "Plan Poubelle (1888)" },
+      { "type": "xyz", "url": "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", "name": "OpenStreetMap Hot", "attribution": "© OpenStreetMap" }
+    ]
+  },
+  "dates": { "min": "1800-01-01", "max": "2026-12-31", "default": null },
+  "language": "fr",
+  "queryLanguage": "fr",
+  "landmarkSearchLimit": 20,
+  "timeCalendarUri": "https://www.wikidata.org/entity/Q1985727",
+  "timeDelayYears": 20
+}

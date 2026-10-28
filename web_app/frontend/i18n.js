@@ -1,0 +1,211 @@
+export const i18nConfig = {
+  fr: {
+    appTitle: "Visualisation de Données Graphe",
+    appSubtitle: "Explorateur de données historiques",
+    defaultGraphName: "Graphe par défaut",
+    graphLabel: "Graphe :",
+    modeLabel: "Mode :",
+    modeSnapshot: "Snapshot",
+    modeLandmark: "Évolution des entités",
+    
+    // Snapshot
+    snapshotDateLabel: "Date du snapshot :",
+    btnValidateSnapshot: "Charger le snapshot",
+    btnClearSnapshot: "Tout effacer",
+    snapshotLegendTitle: "Existence",
+    snapshotLegendCertain: "Certaine",
+    snapshotLegendUncertain: "Incertaine",
+    settings: {
+      title: "Configuration", close: "Fermer", source: "Source de données", endpoint: "Endpoint SPARQL",
+      graph: "Graphe par défaut", map: "Carte", latitude: "Latitude", longitude: "Longitude", zoom: "Zoom",
+      dates: "Période", minDate: "Date minimale", maxDate: "Date maximale", defaultDate: "Date initiale",
+      options: "Options", language: "Langue de l'interface", queryLanguage: "Langue des données", limit: "Résultats de recherche",
+      calendar: "URI du calendrier", delay: "Marge temporelle (ans)", restore: "Restaurer les valeurs par défaut",
+      cancel: "Annuler", save: "Enregistrer", confirmTitle: "Restaurer la configuration ?",
+      confirmText: "Les paramètres enregistrés seront remplacés par les valeurs par défaut.", confirm: "Restaurer",
+      loading: "Chargement...", saving: "Enregistrement...", unavailable: "Configuration indisponible.",
+      tiles: "Couches", addXyzLayer: "Ajouter une couche XYZ", addWmsLayer: "Ajouter une couche WMS",
+      editLayer: "Modifier la couche", deleteLayer: "Supprimer la couche", applyLayer: "Valider la couche",
+      layerType: "Type", layerName: "Nom", layerUrl: "URL", layerAttribution: "Attribution",
+      layerMaxZoom: "Zoom maximal", wmsLayerName: "Identifiant de couche WMS", layerFormat: "Format",
+      wmsVersion: "Version WMS", layerTransparent: "Fond transparent",
+      layerNameRequired: "Saisissez un nom.", duplicateLayerName: "Ce nom de couche est déjà utilisé.",
+      invalidLayerUrl: "Saisissez une URL HTTP ou HTTPS valide.", keepOneLayer: "Conservez au moins une couche.",
+      invalidLayers: "La configuration doit contenir entre 1 et 30 couches.",
+      apiUnavailable: "API indisponible. Démarrer le serveur avec npm start."
+    },
+    
+    // Landmark
+    typeLabel: "Type :",
+    typePlaceholder: "-- Choisir un type --",
+    entityLabel: "Entité :",
+    entityPlaceholder: "Rechercher une entité...",
+    btnValidateLandmark: "Afficher l'évolution",
+    validityLabel: "Validité",
+    validityUnknown: "Intervalle de validité non renseigné.",
+    validityCreated: "Date de création",
+    validityDisappeared: "Date de disparition",
+    
+    // États
+    loading: "Chargement en cours...",
+    errorFetch: "Erreur lors du chargement des données.",
+    noResults: "Aucun résultat trouvé.",
+    chooseLandmark: "Choisissez un landmark pour afficher son évolution.",
+    loadingHistory: "Chargement de l'historique...",
+    noHistory: "Aucune évolution disponible pour ce landmark.",
+    historyError: "Impossible de charger l'historique pour ce landmark.",
+
+    resizeTooltip: "Glisser pour redimensionner (Carte / Chronologie)",
+
+    beforeTime: "avant",
+    afterTime: "après",
+    betweenTime: "entre",
+    andTime: "et",
+
+    timelineHeadline : "Chronologie de l'évolution du landmark",
+    timelineNoHistory: "Aucune évolution disponible pour ce landmark.",
+  },
+  en: {
+    appTitle: "Graph Data Visualization",
+    appSubtitle: "Historical data explorer",
+    defaultGraphName: "Default Graph",
+    graphLabel: "Graph:",
+    modeLabel: "Mode:",
+    modeSnapshot: "Snapshot",
+    modeLandmark: "Landmark Evolution",
+    
+    // Snapshot
+    snapshotDateLabel: "Snapshot Date:",
+    btnValidateSnapshot: "Load Snapshot",
+    btnClearSnapshot: "Clear all",
+    snapshotLegendTitle: "Existence",
+    snapshotLegendCertain: "Certain",
+    snapshotLegendUncertain: "Uncertain",
+    settings: {
+      title: "Settings", close: "Close", source: "Data source", endpoint: "SPARQL endpoint",
+      graph: "Default graph", map: "Map", latitude: "Latitude", longitude: "Longitude", zoom: "Zoom",
+      dates: "Period", minDate: "Minimum date", maxDate: "Maximum date", defaultDate: "Initial date",
+      options: "Options", language: "Interface language", queryLanguage: "Data language", limit: "Search results",
+      calendar: "Calendar URI", delay: "Time margin (years)", restore: "Restore default settings",
+      cancel: "Cancel", save: "Save", confirmTitle: "Restore settings?",
+      confirmText: "Saved settings will be replaced by the default values.", confirm: "Restore",
+      loading: "Loading...", saving: "Saving...", unavailable: "Settings unavailable.",
+      tiles: "Layers", addXyzLayer: "Add XYZ layer", addWmsLayer: "Add WMS layer",
+      editLayer: "Edit layer", deleteLayer: "Delete layer", applyLayer: "Apply layer",
+      layerType: "Type", layerName: "Name", layerUrl: "URL", layerAttribution: "Attribution",
+      layerMaxZoom: "Maximum zoom", wmsLayerName: "WMS layer identifier", layerFormat: "Format",
+      wmsVersion: "WMS version", layerTransparent: "Transparent background",
+      layerNameRequired: "Enter a name.", duplicateLayerName: "This layer name is already in use.",
+      invalidLayerUrl: "Enter a valid HTTP or HTTPS URL.", keepOneLayer: "Keep at least one layer.",
+      invalidLayers: "The configuration must contain between 1 and 30 layers.",
+      apiUnavailable: "API unavailable. Start the server with npm start."
+    },
+    
+    // Landmark
+    typeLabel: "Type:",
+    typePlaceholder: "-- Select a type --",
+    entityLabel: "Landmark:",
+    entityPlaceholder: "Search landmark...",
+    btnValidateLandmark: "Show Evolution",
+    validityLabel: "Validity",
+    validityUnknown: "Validity interval not available.",
+    validityCreated: "Creation date",
+    validityDisappeared: "Disappearance date",
+    
+    // States
+    loading: "Loading...",
+    errorFetch: "Error loading data.",
+    noResults: "No results found.",
+    chooseLandmark: "Choose a landmark to display its evolution.",
+    loadingHistory: "Loading history...",
+    noHistory: "No evolution available for this landmark.",
+    historyError: "Unable to load the history for this landmark.",
+
+    resizeTooltip: "Drag to resize (Map / Timeline)",
+
+    beforeTime: "before",
+    afterTime: "after",
+    betweenTime: "between",
+    andTime: "and",
+
+    // Timeline
+    timelineHeadline: "Timeline of the landmark evolution",
+    timelineNoHistory: "No evolution available for this landmark.",
+    timelineLabelValue: "Valeur",
+    timelineLabelValues: "Valeurs",
+    timelineNoValue: "Aucune valeur définie",
+    timelineSince: "Depuis",
+    timelineBefore: "Jusqu'à",
+    timelineFuzzyStartNote: "Début estimé (plage floue)",
+    timelineFuzzyEndNote: "Fin estimée (plage floue)",
+    timelineInfiniteStartNote: "Début inconnu (-∞)",
+    timelineInfiniteEndNote: "Fin inconnue (+∞)",
+    
+  },
+  es: {
+    appTitle: "Visualización de Datos de Grafos",
+    appSubtitle: "Explorador de datos históricos",
+    defaultGraphName: "Grafo Predeterminado",
+    graphLabel: "Grafo:",
+    modeLabel: "Modo:",
+    modeSnapshot: "Instantánea",
+    modeLandmark: "Evolución de Entidades",
+    
+    // Snapshot
+    snapshotDateLabel: "Fecha de la Instantánea:",
+    btnValidateSnapshot: "Cargar Instantánea",
+    btnClearSnapshot: "Borrar todo",
+    snapshotLegendTitle: "Existencia",
+    snapshotLegendCertain: "Cierta",
+    snapshotLegendUncertain: "Incierta",
+    settings: {
+      title: "Configuración", close: "Cerrar", source: "Fuente de datos", endpoint: "Endpoint SPARQL",
+      graph: "Grafo predeterminado", map: "Mapa", latitude: "Latitud", longitude: "Longitud", zoom: "Zoom",
+      dates: "Periodo", minDate: "Fecha mínima", maxDate: "Fecha máxima", defaultDate: "Fecha inicial",
+      options: "Opciones", language: "Idioma de la interfaz", queryLanguage: "Idioma de los datos", limit: "Resultados de búsqueda",
+      calendar: "URI del calendario", delay: "Margen temporal (años)", restore: "Restaurar valores predeterminados",
+      cancel: "Cancelar", save: "Guardar", confirmTitle: "¿Restaurar configuración?",
+      confirmText: "Los parámetros guardados se sustituirán por los valores predeterminados.", confirm: "Restaurar",
+      loading: "Cargando...", saving: "Guardando...", unavailable: "Configuración no disponible.",
+      tiles: "Capas", addXyzLayer: "Añadir capa XYZ", addWmsLayer: "Añadir capa WMS",
+      editLayer: "Editar capa", deleteLayer: "Eliminar capa", applyLayer: "Validar capa",
+      layerType: "Tipo", layerName: "Nombre", layerUrl: "URL", layerAttribution: "Atribución",
+      layerMaxZoom: "Zoom máximo", wmsLayerName: "Identificador de capa WMS", layerFormat: "Formato",
+      wmsVersion: "Versión WMS", layerTransparent: "Fondo transparente",
+      layerNameRequired: "Introduzca un nombre.", duplicateLayerName: "Este nombre de capa ya está en uso.",
+      invalidLayerUrl: "Introduzca una URL HTTP o HTTPS válida.", keepOneLayer: "Conserve al menos una capa.",
+      invalidLayers: "La configuración debe contener entre 1 y 30 capas.",
+      apiUnavailable: "API no disponible. Inicie el servidor con npm start."
+    },
+    
+    // Landmark
+    typeLabel: "Tipo:",
+    typePlaceholder: "-- Seleccionar un tipo --",
+    entityLabel: "Entidad:",
+    entityPlaceholder: "Buscar entidad...",
+    btnValidateLandmark: "Mostrar Evolución",
+    validityLabel: "Validez",
+    validityUnknown: "Intervalo de validez no disponible.",
+    validityCreated: "Fecha de creación",
+    validityDisappeared: "Fecha de desaparición",
+    
+    // States
+    loading: "Cargando...",
+    errorFetch: "Error al cargar los datos.",
+    noResults: "No se encontraron resultados.",
+    chooseLandmark: "Elija un landmark para mostrar su evolución.",
+    loadingHistory: "Cargando historial...",
+    noHistory: "No hay evolución disponible para este landmark.",
+    historyError: "No se puede cargar el historial de este landmark.",
+
+    resizeTooltip: "Arrastrar para redimensionar (Mapa / Cronología)",
+
+    beforeTime: "antes",
+    afterTime: "después",
+    betweenTime: "entre",
+    andTime: "y",
+
+    timelineHeadline: "Cronología de la evolución del landmark",
+    timelineNoHistory: "No hay evolución disponible para este landmark.",
+  }
+};

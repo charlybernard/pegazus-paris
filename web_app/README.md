@@ -1,108 +1,55 @@
-# Web visualisation for timeline
+# PeGazUs webapp
 
-This repository contains the documentation of the PeGazUs (PErpetual GAZeteer of approach-address UtteranceS) ontology and knowledge graph construction method.
-
-## Structure of the repository
-
-📂 web-app  
-├── 📄 [`README.md`](./README.md)  
-├── 📄 [`index.html`](./index.html)  
-├── 📂 [`scripts`](./scripts/)  
-│   ├── 📄 [`func-evolution.js`](./scripts/func-evolution.js)  
-│   ├── 📄 [`func-snapshot.js`](./scripts/func-snapshot.js)  
-│   ├── 📄 [`geometry.js`](./scripts/geometry.js)  
-│   ├── 📄 [`html-creator.js`](./scripts/html-creator.js)  
-│   ├── 📄 [`html-utils.js`](./scripts/html-utils.js)  
-│   ├── 📄 [`queries.js`](./scripts/queries.js)  
-│   ├── 📄 [`script.js`](./scripts/script.js)  
-│   └── 📄 [`time-slider.js`](./scripts/time-slider.js)  
-├── 📂 [`libs`](./scripts/libs/)    
-│   ├── 📂 [`leaflet`](./libs/leaflet/)   
-│   ├── 📂 [`timelineJS`](./libs/timelineJS/)  
-│   ├── 📄 [`jquery.js`](./libs/jquery.js)  
-│   ├── 📄 [`proj4.js`](./libs/proj4.js)  
-│   ├── 📄 [`terraformer.js`](./libs/terraformer.js)  
-│   └── 📄 [`terraformer-wkt-parser.js`](./libs/terraformer-wkt-parser.js)  
-├── 📂 [`styles`](./styles/)   
-│   ├── 📄 [`style.css`](./styles/style.css)  
-├── 📂 [`symbols`](./symbols/)  
-└── 📄 [`settings.js`](./settings.js)  
-
-### `styles` - CSS files for styling the webpage
-This folder contains the CSS styles for the visual presentation of the application.
-- **`style.css`**: The main CSS file that defines the general style of the web application. It controls the overall look and feel of the user interface, such as layout, colors, fonts, etc.
-
-### `libs`: This subfolder contains the third-party JavaScript libraries used in the project.
-- **`leaflet`**: Folder to use the [Leaflet](https://leafletjs.com/) library (version [1.9.4](https://unpkg.com/leaflet@1.9.4/dist/leaflet.js)), which is used to display interactive maps, it contains **`leaflet.js`** and **`leaflet.css`**.
-- **`leaflet-draw`**: Folder to use the [Leaflet.draw](https://leaflet.github.io/Leaflet.draw/) plugin (version [1.0.4](https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js)), which provides drawing and editing tools for Leaflet maps, it contains **`leaflet.draw.js`** and **`leaflet.draw.css`**.
-- **`timelineJS`**: Folder to use [Timeline.js](https://timeline.knightlab.com/), a JavaScript library for creating interactive timelines. it contains **`timeline.js`** and **`timeline.css`**.
-- **`jquery.js`**: File to use the [jQuery](https://jquery.com/) library (version 3.6.1), which simplifies DOM manipulation and event handling.
-- **`proj4.js`**: [Proj4js](https://github.com/proj4js/proj4js) library (version [2.9.0](https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js)), a JavaScript library to transform point coordinates from one coordinate system to another.
-- **`terraformer-wkt-parser.js`**: [Terraformer Well-Known Text Parser](https://github.com/Esri/terraformer-wkt-parser) library (version [1.1.2](https://unpkg.com/terraformer-wkt-parser@1.1.2/terraformer-wkt-parser.js)), a JavaScript library to parse Well-Known Text (WKT) into geo-objects.
-- **`terraformer.js`**: [Terraformer](https://github.com/terraformer-js/terraformer) library (version [1.0.9](https://unpkg.com/terraformer@1.0.8/terraformer.js)), a geographic toolkit for working with geometry, geography, formats, and building geodatabases.
-
-### `scripts` - JavaScript files for the functionality of the application
-This folder contains the JavaScript files necessary for managing user interactions and the core functionality of the site.
-
-- **`func-evolution.js`**: Functions to handle landmark evolutions in the application.
-- **`func-snapshot.js`**: Functions to manage snapshot selection and handling.
-- **`geometry.js`**: Functions to work with geometries, such as geometric transformations.
-- **`html-creator.js`**: Functions to initialize HTML page
-- **`html-utils.js`**: Functions to create HTML elements
-- **`leaflet-objects.js`**: provides predefined marker icons and polygon styles for use in Leaflet maps, facilitating consistent visual customization.
-- **`local-settings.js`**: Local settings for the application, such as default values and configurations.
-- **`queries.js`**: Functions to build and handle SPARQL queries for querying a graph database.
-- **`script.js`**: Main script to be executed when the webpage is loaded.
-- **`time.js`**: Functions to manage time-related features in the application.
-- **`time-slider.js`**: Functions for controlling and managing the time slider.
-- **`utils.js`**: Utility functions that support the app’s general operations.
-
-### `symbols` - Folder containing symbols used to be displayed on the page
-This symbols contains icons or graphical symbols intended for display on the page.
-
-### `settings.js` - Configuration file for the GraphDB repository
-This file contains the settings for connecting and interacting with the GraphDB repository, including the URL, language, and repository name.
-
-### `index.html` - Main webpage
-This is the HTML file that loads the web application, containing the structure and layout of the webpage.
+PeGazUs web application lets you explore historical data from an RDF graph on a map and timeline.
 
 ## Requirements
 
-Before launching the web app, make sure `settings.js` is filled in according to the way you connect to your data source.
+- Node.js 22.12 or later and npm.
+- A SPARQL endpoint accessible from the machine running the application.
+- To use GraphDB locally, a running instance with a repository containing the PeGazUs data.
 
-In all cases, the following values must be defined:
-* `graphLang`: language of the graph, used to retrieve labels in the right language;
-* `systemLang`: language of the system, used to display labels in the right language if it differs from `graphLang`;
-* `gregorianCalendarURI`: URI of the Gregorian calendar.
-* `defaultFinalGraphURI`: the URI of the graph used by default for the final construction;
+## Install and Run
 
-`defaultFinalGraphURI` is optional. If the graph does not contain any explicit final graph declaration, that URI is used as the default final graph. If at least one graph `?g` is explicitly declared as a final graph, with a statement such as `?g a peg:FinalGraph`, then the application displays a dropdown menu listing all the final graphs found and lets you choose among them.
+From the project root, install the dependencies and start the application:
 
+```sh
+npm ci
+npm start
+```
 
-There are two possible configurations:
+Then open <http://localhost:3000>. `npm start` builds the frontend and starts the application server. Do not open `frontend/index.html` directly or use Live Server: the application requires its API.
 
-1. **You use a generic SPARQL endpoint**
-    In this case, fill in:
-    * `endpointURI`: the URL of the SPARQL endpoint to query;
+If port 3000 is already in use, choose another port:
 
-2. **You use a local GraphDB instance**
-    In this case, the endpoint is built from:
-    * `graphDBURI`: the URL of the local GraphDB instance;
-    * `graphName`: the name of the GraphDB repository.
+```sh
+PORT=3001 npm start
+```
 
-    When using GraphDB locally, `endpointURI` should be undefined since it is automatically constructed : `${graphDBURI}/repositories/${graphName}`. You still need to define `defaultFinalGraphURI`, `lang`, and `namedGraphName` as above. You also need to configure GraphDB to avoid CORS errors.
+## Connect to a SPARQL Endpoint
 
-To allow the web app to interact with a local GraphDB repository, open `Settings...` in the GraphDB Desktop window.
+Use the settings button (gear icon) to change the SPARQL endpoint and default graph. Save the settings after entering the values; the application reloads with the updated configuration.
 
-![image](./images/graphdb_desktop.png)
+For a local GraphDB instance, the repository endpoint follows this format:
 
-Then add the following properties:
+```text
+{graphdb_uri}/repositories/{repository_name}
+```
 
-![image](./images/graphdb_settings.png)
+For example, for GraphDB running locally with a repository named `fbg_saint_antoine`:
 
-Properties are the following ones:
-* `graphdb.workbench.cors.enable`:`true` 
-* `graphdb.workbench.cors.origin`:`*`
+```text
+SPARQL endpoint: http://localhost:7200/repositories/fbg_saint_antoine
+Default graph: https://w3id.org/PeGazUs/id/Graph/facts
+```
 
-Now you can launch the web app.
+The endpoint identifies the GraphDB repository; the default graph is the URI of the RDF graph queried within that repository. Make sure the repository is running, the data has been loaded, and the PeGazUs server can reach the endpoint.
 
+The server uses the saved configuration for every browser connected to it. Settings are stored in `backend/config.json`; restoring the defaults replaces this saved configuration.
+
+## Explore the Data
+
+- **Snapshot** mode displays entities on the map for a selected date. Draw an area to limit the spatial search.
+- **Landmark Evolution** mode lets you choose a type and then an entity to view its validity and history on the timeline.
+- The language menu changes the interface language. The language of queried data is configured separately in settings.
+
+For details about the architecture, development, API, and tests, see [README.development.md](README.development.md).
