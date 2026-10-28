@@ -1,5 +1,5 @@
 import { L, Split, Timeline, timelineLanguages } from "./vendor.js";
-import { i18nConfig } from "./i18n.js";
+import { i18nConfig, languageFlags } from "./i18n.js";
 import { LeafletObjects } from "./leaflet-objects.js";
 import { setLayerStyle } from "./map-styles.js";
 import { appLinks } from "./config.js";
@@ -65,6 +65,14 @@ if (document.readyState === "loading") {
 // ==========================================
 function initI18n() {
   const langSelect = document.getElementById("lang-select");
+  const languages = Object.keys(i18nConfig);
+  langSelect.replaceChildren(...languages.map(language => {
+    const option = document.createElement("option");
+    option.value = language;
+    option.textContent = `${languageFlags[language] || ""} ${language.toUpperCase()}`.trim();
+    return option;
+  }));
+  if (!i18nConfig[currentLang]) currentLang = languages[0] || "fr";
   langSelect.value = currentLang;
 
   langSelect.addEventListener("change", (e) => {

@@ -254,3 +254,9 @@ export const i18nConfig = {
     timelineNoHistory: "No hay evolución disponible para este landmark.",
   }
 };
+
+export const languageFlags = {
+  en: "🇬🇧",
+  fr: "🇫🇷",
+  es: "🇪🇸"
+};
