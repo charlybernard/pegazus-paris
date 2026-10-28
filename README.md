@@ -2,6 +2,20 @@
 
 This repository contains the documentation of the PeGazUs (PErpetual GAZeteer of approach-address UtteranceS) ontology and knowledge graph construction method.
 
+---
+
+## Important Resources
+
+- **Ontology:** [`w3id.org/PeGazUs/`](https://w3id.org/PeGazUs/)
+- **Population:** [Population folder](./population)
+- **Knowledge Graph:**
+  - Dump: [`nakala.fr/10.34847/nkl.9817vumd`](https://nakala.fr/10.34847/nkl.9817vumd)
+  - SPARQL endpoint: [`data.geohistoricaldata.org/query`](http://data.geohistoricaldata.org/query)
+  - SPARQL endpoint interface: [`data.geohistoricaldata.org/sparql`](http://data.geohistoricaldata.org/sparql)
+- **Visualisation Tool:** [Web App folder](./web_app)
+
+---
+
 ## Structure of the repository
 📂  
 ├── 📄 [`README.md`](./README.md)   
@@ -28,7 +42,7 @@ This folder stores files used to build knowledge graph. It contains csv and geoj
 ### `evaluation` folder
 
 This folder contains Jupyter notebook to populate knowledge graph from data in `data` folder and gets a evaluation a the population method:
-* `create_graph_evaluation.ipynb` – creates a knowledge graph and runs evaluation procedures.
+- `create_graph_evaluation.ipynb` – creates a knowledge graph and runs evaluation procedures.
 
 ⚠️ To get more information about their content, please read their [readme](evaluation/README.md).
 
@@ -36,20 +50,20 @@ This folder contains Jupyter notebook to populate knowledge graph from data in `
 `ontology.ttl` describes the ontology: it is the core part of the ontology and describe landmarks and addresses.
 
 [Ontology documentation](ontology/documentation) is divided into as many parts as there are modelets:
-* [`addresses`](ontology/documentation/addresses) ;
-* [`sources`](ontology/documentation/sources) ;
-* [`temporal_evolution`](ontology/documentation/temporal_evolution).
+- [`addresses`](ontology/documentation/addresses) ;
+- [`sources`](ontology/documentation/sources) ;
+- [`temporal_evolution`](ontology/documentation/temporal_evolution).
 
 Each modelet documentation has 3 or 4 files:
-* `{modelet_name}_scenario.md`: the natural-language argument describing the sub-problem to be addressed ;
-* `{modelet_name}_glossary.md`: glossary which defines the main terms involved ;
-* `{modelet_name}_competency_questions.md`: set of informal competence questions (in natural language) which represent the questions to be answered by the knowledge base ;
-* `{modelet_name}_sparql_queries.md`: it translates informal competence questions into SPARQL queries.
+- `{modelet_name}_scenario.md`: the natural-language argument describing the sub-problem to be addressed ;
+- `{modelet_name}_glossary.md`: glossary which defines the main terms involved ;
+- `{modelet_name}_competency_questions.md`: set of informal competence questions (in natural language) which represent the questions to be answered by the knowledge base ;
+- `{modelet_name}_sparql_queries.md`: it translates informal competence questions into SPARQL queries.
 
 ### `population` folder
 
 This folder contains Jupyter notebook to populate knowledge graph from data in `data` folder :
-* `create_graph.ipynb` – creates the knowledge graph from data sources.
+- `create_graph.ipynb` – creates the knowledge graph from data sources.
 
 ⚠️ To get more information about their content, please read their [readme](population/README.md).
 
@@ -61,7 +75,7 @@ This folder contains code to build knowledge graphs.
 ### `statistics` folder
 
 This folder contains Jupyter notebook to get statistics about the graph built after population
-* `stats_about_graph.ipynb` – create statistics files about the graph.
+- `stats_about_graph.ipynb` – create statistics files about the graph.
 
 ⚠️ To get more information about their content, please read their [readme](statistics/README.md).
 
@@ -70,11 +84,31 @@ This folder contains code for the web application to see the evolution of the la
 
 ⚠️ To get more information about their content, please read their [readme](web_app/README.md).
 
+---
+
 ## Contacts
 
 You will find the contact details of the authors and contributors on their respective web pages:
 
-* [Charly Bernard](https://www.umr-lastig.fr/charly-bernard/)
-* [Nathalie Abadie](https://www.umr-lastig.fr/nathalie-abadie/)
-* [Bertrand Duménieu](https://crh.ehess.fr/index.php?5206)
-* [Julien Perret](https://www.umr-lastig.fr/julien-perret/)
+- [Charly Bernard](https://www.umr-lastig.fr/charly-bernard/)
+- [Nathalie Abadie](https://www.umr-lastig.fr/nathalie-abadie/)
+- [Bertrand Duménieu](https://crh.ehess.fr/index.php?5206)
+- [Julien Perret](https://www.umr-lastig.fr/julien-perret/)
+
+---
+
+## To cite this work
+
+```bibtex
+@inproceedings{bernard:iswc2026,
+  TITLE = {{PeGazUs: A Knowledge Graph to Represent Paris Addresses from the 18th Century to Nowadays}},
+  AUTHOR = {Bernard, Charly and Abadie, Nathalie and Dum{\'e}nieu, Bertrand and Perret, Julien},
+  BOOKTITLE = {{The Semantic Web – ISWC 2026 (International Semantic Web Conference)}},
+  PUBLISHER = {{Springer Nature Switzerland}},
+  SERIES = {Lecture Notes in Computer Science},
+  VOLUME = {17127},
+  PAGES = {588--607},
+  YEAR = {2026},
+  MONTH = Oct,
+  DOI = {10.1007/978-3-032-42026-8_28}
+}
