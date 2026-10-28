@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/icons/pegazus_icon.svg">
   <title data-i18n="appTitle">Graph Data Visualization</title>
 
 </head>
@@ -19,6 +20,9 @@
         <div id="toolbar-controls" class="toolbar-controls"></div>
       </div>
       <div id="app-header-links" class="app-header-links"></div>
+      <button id="btn-source-info" class="header-link icon-only" type="button" aria-controls="source-info-dialog" title="Source des sélections" aria-label="Source des sélections">
+        <img src="/icons/info.svg" width="18" height="18" alt="">
+      </button>
       <button id="btn-settings" class="header-link icon-only" type="button" title="Configuration" aria-label="Configuration">
         <img src="/icons/settings.svg" width="20" height="20" alt="">
       </button>
@@ -88,6 +92,14 @@
 
   </div>
 
+  <div id="snapshot-mask-control" class="snapshot-mask-control hidden">
+    <h3 class="snapshot-map-section-title"><label for="snapshot-mask-opacity" data-i18n="snapshotMaskOpacity">Opacité hors zone</label></h3>
+    <div class="snapshot-mask-slider">
+      <input type="range" id="snapshot-mask-opacity" min="0" max="100" step="1" value="45">
+      <output id="snapshot-mask-opacity-value" for="snapshot-mask-opacity">45 %</output>
+    </div>
+  </div>
+
   <!-- ZONE DE CONTENU PRINCIPALE -->
   <main class="main-container">
     <div id="snapshot-view" class="view">
@@ -110,6 +122,26 @@
       </div>
     </div>
   </main>
+
+  <dialog id="source-info-dialog" class="settings-dialog source-info-dialog" aria-labelledby="source-info-title">
+    <div class="settings-heading">
+      <h2 id="source-info-title" data-i18n="sourceInfoTitle">Source des sélections</h2>
+      <form method="dialog">
+        <button id="source-info-close" class="settings-icon-button" autofocus><img src="/icons/x.svg" width="20" height="20" alt=""></button>
+      </form>
+    </div>
+    <div class="settings-body">
+      <dl>
+        <dt data-i18n="sourceEndpoint">Endpoint SPARQL</dt>
+        <dd id="source-info-endpoint"></dd>
+        <dt data-i18n="sourceNamedGraph">Graphe nommé des sélections</dt>
+        <dd id="source-info-graph"></dd>
+        <dt data-i18n="sourceLastResult">Graphe du dernier résultat affiché</dt>
+        <dd id="source-info-result"></dd>
+      </dl>
+      <p data-i18n="sourceScope"></p>
+    </div>
+  </dialog>
 
   <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
     <form id="settings-form">

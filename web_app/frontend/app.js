@@ -17,6 +17,7 @@ let currentLang = "fr";
 let currentGraphId = null;
 let selectedLandmarkUri = null;
 let currentLandmarkValidity = null;
+const resultSources = { snapshot: null, landmark: null };
 
 // Cartes et composants JS
 let mapSnapshot = null;
@@ -25,6 +26,8 @@ let currentLandmarkGeometriesGroup = null; // Variable globale pour stocker les 
 let timelineInstance = null;
 let splitInstance = null;
 let snapshotMarkerGroup = null;
+let snapshotMask = null;
+let snapshotMaskOpacity = 0.45;
 
 // ==========================================
 // INITIALISATION
@@ -179,6 +182,23 @@ function updateLanguageTexts() {
   refreshTimelineLanguage();
   translateSettings();
   updateSnapshotLegend();
+  updateSnapshotMapMenu();
+  updateSourceInfo();
+  renderInfoPanel();
+}
+
+function updateSourceInfo() {
+  const dict = i18nConfig[currentLang];
+  const button = document.getElementById("btn-source-info");
+  button.title = dict.sourceInfoTitle;
+  button.setAttribute("aria-label", dict.sourceInfoTitle);
+  const close = document.getElementById("source-info-close");
+  close.title = dict.settings.close;
+  close.setAttribute("aria-label", dict.settings.close);
+  document.getElementById("source-info-endpoint").textContent = appConfig.sparqlEndpoint;
+  document.getElementById("source-info-graph").textContent = currentGraphId || DEFAULT_GRAPH_URI;
+  const mode = document.querySelector('input[name="tool"]:checked')?.value;
+  document.getElementById("source-info-result").textContent = resultSources[mode]?.namedGraph || dict.sourceNoResult;
 }
 
 // ==========================================
@@ -243,8 +263,12 @@ async function loadGraphs() {
     status.textContent = err.message;
     status.classList.remove("hidden");
   }
+  updateSourceInfo();
 }
 function onGraphChanged() {
+  resultSources.snapshot = null;
+  resultSources.landmark = null;
+  updateSourceInfo();
   // 1. Vider le cache des landmarks car le graphe a changé
   landmarksByType = {};
   currentVersionsData = null;
@@ -318,6 +342,15 @@ function initDateControls(minDate, maxDate, defaultDate = null) {
 // 4. ÉCOUTEURS D'ÉVÉNEMENTS ET NAVIGATION
 // ==========================================
 function initEventListeners() {
+  document.getElementById("snapshot-mask-opacity").addEventListener("input", (event) => {
+    snapshotMaskOpacity = Number(event.target.value) / 100;
+    document.getElementById("snapshot-mask-opacity-value").textContent = `${event.target.value} %`;
+    snapshotMask?.setStyle({ fillOpacity: snapshotMaskOpacity });
+  });
+  document.getElementById("btn-source-info").addEventListener("click", () => {
+    updateSourceInfo();
+    document.getElementById("source-info-dialog").showModal();
+  });
   // Changement de mode (Radio)
   document.querySelectorAll('input[name="tool"]').forEach(radio => {
     radio.addEventListener("change", (e) => {
@@ -353,6 +386,7 @@ function initEventListeners() {
 
 // --- GESTION DE L'AFFICHAGE CONDITIONNEL SNAPSHOT / LANDMARK ---
 function switchMode(mode) {
+  updateSourceInfo();
   const snapshotView = document.getElementById("snapshot-view");
   const landmarkView = document.getElementById("landmark-view");
   const snapshotControls = document.getElementById("snapshot-controls");
@@ -480,6 +514,27 @@ let snapshotDrawControl;
 let snapshotRequestId = 0;
 let snapshotLegendControl = null;
 
+function updateSnapshotMapMenu() {
+  const label = i18nConfig[currentLang].snapshotMapSettings;
+  document.querySelectorAll(".snapshot-map-menu .leaflet-control-layers-toggle").forEach(toggle => {
+    toggle.title = label;
+    toggle.setAttribute("aria-label", label);
+  });
+}
+
+function initMapOptionsMenu(layerControl) {
+  const menu = layerControl.getContainer();
+  menu.classList.add("snapshot-map-menu");
+  const menuList = menu.querySelector(".leaflet-control-layers-list");
+  const basemapTitle = document.createElement("h3");
+  basemapTitle.className = "snapshot-map-section-title";
+  basemapTitle.dataset.i18n = "snapshotBasemaps";
+  basemapTitle.textContent = i18nConfig[currentLang].snapshotBasemaps;
+  menuList.prepend(basemapTitle);
+  updateSnapshotMapMenu();
+  return menuList;
+}
+
 function updateSnapshotLegend() {
   const container = snapshotLegendControl?.getContainer();
   if (!container) return;
@@ -521,6 +576,13 @@ function initSnapshotMap() {
       snapshotLayerControl,
       snapshotTileLayers
     );
+    const menuList = initMapOptionsMenu(snapshotLayerControl);
+    const maskControl = document.getElementById("snapshot-mask-control");
+    menuList.appendChild(maskControl);
+    maskControl.classList.remove("hidden");
+    L.DomEvent.disableClickPropagation(maskControl);
+    L.DomEvent.disableScrollPropagation(maskControl);
+    L.DomEvent.on(maskControl, "keydown keyup", L.DomEvent.stopPropagation);
 
     // Couche contenant les marqueurs
     snapshotMarkerGroup = L.layerGroup().addTo(mapSnapshot);
@@ -616,6 +678,7 @@ function initLandmarkView() {
       landmarkLayerControl,
       landmarkTileLayers
     );
+    initMapOptionsMenu(landmarkLayerControl);
   }
 
   disableLandmarkSearch();
@@ -954,6 +1017,8 @@ function disableLandmarkSearch() {
 }
 
 async function fetchLandmarkEvolution(graphId, landmarkUri) {
+  resultSources.landmark = null;
+  updateSourceInfo();
   timelineInstance = null;
   currentTimelineData = null;
   currentVersionsData = null;
@@ -965,6 +1030,8 @@ async function fetchLandmarkEvolution(graphId, landmarkUri) {
   try {
     const data = await apiRequest(`/api/evolution?${new URLSearchParams({ graph: graphId, landmark: landmarkUri })}`);
     if (graphId !== currentGraphId || landmarkUri !== selectedLandmarkUri) return;
+    resultSources.landmark = data.source;
+    updateSourceInfo();
     renderLandmarkValidity(data.validity);
     if (data.timeline.events.length === 0) {
       showTimelineState(i18nConfig[currentLang].timelineNoHistory);
@@ -996,6 +1063,7 @@ function renderEvolutionTimeline(data, headline, startAt = 1) {
 let selectedFeatureId = null;
 let selectedLayer = null;
 let infoPanelControl = null;
+let infoPanelData = null;
 
 
 // ===================================================================
@@ -1057,18 +1125,17 @@ function initInfoPanelControl(map) {
       padding: '12px 16px',
       borderRadius: '8px',
       boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-      maxWidth: '320px',
-      minWidth: '240px',
       fontFamily: 'sans-serif',
       fontSize: '13px',
       lineHeight: '1.4',
       color: '#1e293b'
     });
-    div.innerHTML = '<em>Survolez ou cliquez sur une entité pour voir ses détails.</em>';
     return div;
   };
 
   infoPanelControl.addTo(map);
+  infoPanelData = null;
+  renderInfoPanel();
 }
 
 /**
@@ -1076,16 +1143,23 @@ function initInfoPanelControl(map) {
  * et un titre cliquable (URI).
  */
 function updateInfoPanel(properties, id, graphId) {
+  infoPanelData = properties ? { properties, id } : null;
+  renderInfoPanel();
+}
+
+function renderInfoPanel() {
   if (!infoPanelControl) return;
 
   const div = infoPanelControl.getContainer();
+  const dict = i18nConfig[currentLang];
 
-  if (!properties) {
-    div.innerHTML = '<em>Survolez ou cliquez sur une entité pour voir ses détails.</em>';
+  if (!infoPanelData) {
+    div.innerHTML = `<em>${escapeHtml(dict.infoPanelHint)}</em>`;
     return;
   }
 
-  const name = escapeHtml(properties.name || "Entité sans nom");
+  const { properties, id } = infoPanelData;
+  const name = escapeHtml(properties.name || dict.infoPanelUnnamed);
   const uri = /^https?:\/\//.test(id || "") ? escapeHtml(id) : "#";
   const attributes = properties.attributes || [];
   const isPinned = selectedFeatureId === id;
@@ -1095,12 +1169,12 @@ function updateInfoPanel(properties, id, graphId) {
   if (attributes.length > 0) {
     attrHtml = `
       <div style="margin-top: 10px; border-top: 1px solid #e2e8f0; padding-top: 8px;">
-        <strong style="display: block; margin-bottom: 6px; color: #475569;">Attributs :</strong>
+        <strong style="display: block; margin-bottom: 6px; color: #475569;">${escapeHtml(dict.infoPanelAttributes)}</strong>
         <table style="width: 100%; border-collapse: collapse; font-size: 12px; text-align: left;">
           <thead>
             <tr style="background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
-              <th style="padding: 4px 6px; color: #64748b; font-weight: 600;">Type</th>
-              <th style="padding: 4px 6px; color: #64748b; font-weight: 600;">Valeurs</th>
+              <th style="padding: 4px 6px; color: #64748b; font-weight: 600;">${escapeHtml(dict.infoPanelType)}</th>
+              <th style="padding: 4px 6px; color: #64748b; font-weight: 600;">${escapeHtml(dict.infoPanelValues)}</th>
             </tr>
           </thead>
           <tbody>
@@ -1118,9 +1192,9 @@ function updateInfoPanel(properties, id, graphId) {
 
   // Le Nom est désormais la balise <a> cliquable qui redirige vers l'URI
   div.innerHTML = `
-    <div style="word-break: break-word;">
+    <div>
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
-        <h4 style="margin: 0; font-size: 15px; line-height: 1.3;">
+        <h4 style="margin: 0; min-width: 0; overflow-wrap: anywhere; font-size: 15px; line-height: 1.3;">
           <a href="${uri}" target="_blank" 
              title="${uri}" 
              style="color: #2563eb; text-decoration: none; font-weight: 600;"
@@ -1129,7 +1203,7 @@ function updateInfoPanel(properties, id, graphId) {
             ${name}
           </a>
         </h4>
-        ${isPinned ? '<span style="font-size: 10px; background: #10b981; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; white-space: nowrap;">Sélectionné</span>' : ''}
+        ${isPinned ? `<span style="font-size: 10px; background: #10b981; color: white; padding: 2px 6px; border-radius: 4px; font-weight: bold; white-space: nowrap;">${escapeHtml(dict.infoPanelSelected)}</span>` : ''}
       </div>
       
       ${attrHtml}
@@ -1147,6 +1221,10 @@ function updateInfoPanel(properties, id, graphId) {
  * Accepte une FeatureCollection, une Feature ou directement une Geometry.
  */
 function applySelectedAreaMask(map, selectedArea) {
+  if (snapshotMask) {
+    map.removeLayer(snapshotMask);
+    snapshotMask = null;
+  }
   if (!selectedArea) return;
 
   // 1. Détection et extraction des features (gère FeatureCollection, Feature seule ou Geometry)
@@ -1194,14 +1272,14 @@ function applySelectedAreaMask(map, selectedArea) {
 
   // 4. Ajouter le masque à la carte
   if (holes.length > 0) {
-    const maskPolygon = L.polygon([outerWorld, ...holes], {
+    snapshotMask = L.polygon([outerWorld, ...holes], {
       color: 'transparent',
       fillColor: '#000000',
-      fillOpacity: 0.45,
+      fillOpacity: snapshotMaskOpacity,
       interactive: false // Laisse passer les événements de clic
     });
 
-    maskPolygon.addTo(map);
+    snapshotMask.addTo(map);
   }
 }
 
@@ -1285,6 +1363,8 @@ function createGeoJsonLayer(featureCollection, graphId, map) {
 // ===================================================================
 
 function clearSnapshot() {
+  resultSources.snapshot = null;
+  updateSourceInfo();
   snapshotRequestId++;
   if (snapshotDrawControl) {
     Object.values(snapshotDrawControl._toolbars).forEach(toolbar => toolbar.disable());
@@ -1302,6 +1382,8 @@ function clearSnapshot() {
 }
 
 async function fetchSnapshotData(graphId, selectedDate, selectedArea) {
+  resultSources.snapshot = null;
+  updateSourceInfo();
   const requestId = ++snapshotRequestId;
   showMapLoadingState(true);
 
@@ -1327,6 +1409,8 @@ async function fetchSnapshotData(graphId, selectedDate, selectedArea) {
       body: JSON.stringify({ graph: graphId, date: selectedDate, area: selectedArea })
     });
     if (requestId !== snapshotRequestId || graphId !== currentGraphId) return;
+    resultSources.snapshot = featureCollection.source;
+    updateSourceInfo();
 
     if (featureCollection.features.length === 0) {
       showMapNotification(i18nConfig[currentLang]?.noDataForDate || "Aucune donnée à cette date.");
@@ -1362,6 +1446,7 @@ async function fetchSnapshotData(graphId, selectedDate, selectedArea) {
  */
 function clearMapLayers(targetMap) {
   if (!targetMap) return;
+  if (targetMap === mapSnapshot) snapshotMask = null;
 
   targetMap.eachLayer((layer) => {
     // Conserve le fond de carte (TileLayer)

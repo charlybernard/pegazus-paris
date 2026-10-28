@@ -26,6 +26,9 @@ test("snapshot joins landmarks, attributes and geometries and sends drawn areas 
   });
   const result = await service.snapshot({ date: "1850-01-01", area: { type: "FeatureCollection", features: [{ type: "Feature", geometry: polygon }] } });
   assert.equal(result.type, "FeatureCollection");
+  assert.deepEqual(result.source, {
+    namedGraph: config.defaultGraphUri, sparqlEndpoint: config.sparqlEndpoint, supportingDataScope: "default-dataset"
+  });
   assert.equal(result.features.length, 1);
   assert.deepEqual(result.features[0].geometry, { type: "Point", coordinates: [2.35, 48.85] });
   assert.equal(result.features[0].properties.existsForSure, false);
@@ -71,6 +74,7 @@ test("evolution returns ready timeline, fuzzy validity and projected geometries"
     return [];
   });
   const result = await service.evolution(null, "https://example.org/entity");
+  assert.equal(result.source.namedGraph, config.defaultGraphUri);
   assert.equal(result.validity.start.kind, "fuzzy");
   assert.equal(result.timeline.events.length, 1);
   assert.equal(result.timeline.events[0].start_date.year, "1850");
@@ -80,6 +84,17 @@ test("evolution returns ready timeline, fuzzy validity and projected geometries"
   const projected = geometryFromWkt("<http://www.opengis.net/def/crs/EPSG/0/2154> POINT (651278.600083 6862856.041463)");
   assert(Math.abs(projected.coordinates[0] - 2.337) < 0.01);
   assert(Math.abs(projected.coordinates[1] - 48.864) < 0.01);
+});
+
+test("snapshot and evolution report the requested graph rather than the configured default", async () => {
+  const config = await createConfigStore().defaults();
+  const graph = "https://example.org/selected-graph";
+  const calls = [];
+  const service = createDataService(config, async (endpoint, query) => { calls.push(query); return []; });
+  for (const result of [await service.snapshot({ graph, date: "1850-01-01" }), await service.evolution(graph, "https://example.org/entity")]) {
+    assert.deepEqual(result.source, { namedGraph: graph, sparqlEndpoint: config.sparqlEndpoint, supportingDataScope: "default-dataset" });
+  }
+  assert.equal(calls.filter(query => query.includes(`<${graph}> AS ?g`)).length, 4);
 });
 
 test("multiple polygons, invalid areas and SPARQL injection", async () => {

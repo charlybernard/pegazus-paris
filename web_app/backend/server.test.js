@@ -61,10 +61,14 @@ test("HTTP API: config lifecycle, SPARQL transport, JSON contracts and private f
     assert.equal(evolution.status, 200);
     assert.equal(evolution.body.timeline.events[0].unique_id, version);
     assert.equal(evolution.body.validity.start.kind, "crisp");
+    assert.equal(evolution.body.source.namedGraph, graph);
     const snapshot = await json("/api/snapshot", { method: "POST", body: JSON.stringify({ graph, date: "1850-01-01" }) });
     assert.equal(snapshot.status, 200);
     assert.equal(snapshot.body.features[0].geometry.type, "Point");
     assert.equal(snapshot.body.features[0].properties.existsForSure, true);
+    assert.equal(snapshot.body.source.namedGraph, graph);
+    assert.equal(snapshot.body.source.sparqlEndpoint, modified.sparqlEndpoint);
+    assert.equal(snapshot.body.source.supportingDataScope, "default-dataset");
     assert(requests.length >= 10);
     const crossOrigin = await fetch(base + "/api/config/reset", { method: "POST", headers: { Origin: "https://elsewhere.test", "Content-Type": "application/json" }, body: "{}" });
     assert.equal(crossOrigin.status, 403);
@@ -75,6 +79,7 @@ test("HTTP API: config lifecycle, SPARQL transport, JSON contracts and private f
     const home = await fetch(base + "/");
     assert.equal(home.status, 200);
     const html = await home.text();
+    assert.match(html, /rel="icon"[^>]+href="\/icon\/pegazus_icon\.svg"/);
     const module = html.match(/<script[^>]+src="([^"]+)"/);
     assert(module, "production HTML must reference a bundled module");
     assert(module[1].startsWith("/assets/"));
@@ -90,8 +95,12 @@ test("HTTP API: config lifecycle, SPARQL transport, JSON contracts and private f
       }
     }
     assert.equal((await fetch(base + "/icons/settings.svg")).status, 200);
+    assert.equal((await fetch(base + "/icons/info.svg")).status, 200);
     assert.equal((await fetch(base + "/symbols/green_dot.svg")).status, 200);
     assert.equal((await fetch(base + "/icon/github_icon.svg")).status, 200);
+    const favicon = await fetch(base + "/icon/pegazus_icon.svg");
+    assert.equal(favicon.status, 200);
+    assert.match(favicon.headers.get("content-type"), /image\/svg\+xml/);
     upstreamFailure = true;
     assert.equal((await json("/api/graphs")).status, 502);
     assert.deepEqual((await json("/api/config/reset", { method: "POST", body: "{}" })).body, defaults);

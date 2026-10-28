@@ -96,6 +96,7 @@ async function runSparql(endpoint, query) {
 function createDataService(config, execute = runSparql) {
   const run = query => execute(config.sparqlEndpoint, query);
   const graphUri = graph => uri(graph || config.defaultGraphUri, "Graphe");
+  const source = graph => ({ namedGraph: graph, sparqlEndpoint: config.sparqlEndpoint, supportingDataScope: "default-dataset" });
   const labels = async graph => new Map((await run(queries.getQueryForAttributeTypes(graph, config.queryLanguage)))
     .map(binding => [binding.attrType.value, { label: binding.attrTypeLabel?.value || binding.attrType.value }]));
 
@@ -140,6 +141,7 @@ function createDataService(config, execute = runSparql) {
       }
       const first = validityBindings[0];
       return {
+        source: source(graph),
         validity: first ? { start: boundary(first, "App"), end: boundary(first, "Dis") } : null,
         timeline: { events },
         versions: displayVersions
@@ -184,6 +186,7 @@ function createDataService(config, execute = runSparql) {
       }
       return {
         type: "FeatureCollection",
+        source: source(graph),
         features: [...items.values()].filter(item => item.geometries.length).map(item => ({
           type: "Feature", id: item.id, geometry: combinedGeometry(item.geometries),
           properties: { ...item.properties, attributes: [...item.attributes.values()] }

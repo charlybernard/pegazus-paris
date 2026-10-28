@@ -42,7 +42,7 @@ npm test       # build the frontend, then run the Node tests
 Tests use a mock SPARQL endpoint. An optional test can also verify the SPARQL certainty expressions against a live endpoint without modifying the repository:
 
 ```sh
-SPARQL_TEST_ENDPOINT=http://localhost:7200/repositories/fbg_saint_antoine npm test
+SPARQL_TEST_ENDPOINT=https://data.geohistoricaldata.org/query npm test
 ```
 
 ## Application Structure
@@ -101,6 +101,10 @@ The application is restricted to the local machine (`127.0.0.1`) and rejects oth
 | POST | `/api/snapshot` | GeoJSON FeatureCollection |
 
 URL parameters must be encoded. Write and snapshot requests require `Content-Type: application/json`. The server does not accept arbitrary SPARQL queries.
+
+Snapshot and evolution responses include `source: { namedGraph, sparqlEndpoint, supportingDataScope: "default-dataset" }`. `namedGraph` is the validated graph actually passed to the selection queries (the requested graph, or the configured fallback). This metadata does not claim that all reads are graph-scoped: temporal details, type dictionaries and evolution version values are read outside `GRAPH`, using the endpoint's default dataset semantics. The frontend information dialog distinguishes the currently selected graph from the graph returned by the last result in each mode.
+
+Snapshot calendar filters accept both `http` and `https` forms of a Wikidata entity URI within each temporal optional pattern, without creating an extra unmatched calendar solution. This preserves existing saved HTTPS configurations while matching the HTTP identifiers emitted by graph construction. Other calendar namespaces are not rewritten.
 
 Errors use JSON objects `{ "error": "..." }`. The API uses status 400 for invalid input, 403 for a forbidden origin, 415 for an unsupported content type, 502 for an unavailable endpoint or invalid response, and 504 after waiting 30 seconds for the endpoint.
 

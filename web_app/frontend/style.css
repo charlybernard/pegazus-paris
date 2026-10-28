@@ -60,6 +60,12 @@
 button:disabled { opacity: 0.6; cursor: wait; }
 :focus-visible { outline: 2px solid #2563eb; outline-offset: 3px; }
 
+#btn-source-info img { filter: invert(1); }
+.source-info-dialog { width: min(560px, calc(100vw - 24px)); }
+.source-info-dialog dt { margin-top: 12px; font-size: 13px; font-weight: 650; }
+.source-info-dialog dd { margin-top: 4px; font-size: 13px; overflow-wrap: anywhere; }
+.source-info-dialog p { margin-top: 18px; font-size: 13px; line-height: 1.6; }
+
 .snapshot-legend {
   max-width: min(200px, calc(100vw - 40px));
   padding: 8px 10px;
@@ -76,6 +82,46 @@ button:disabled { opacity: 0.6; cursor: wait; }
 .snapshot-legend strong { display: block; margin-bottom: 3px; }
 .snapshot-legend-row { display: flex; align-items: center; gap: 7px; }
 .snapshot-legend-swatch { flex: 0 0 10px; width: 10px; height: 10px; border: 1px solid #0003; border-radius: 2px; }
+
+.landmark-info-panel {
+  width: max-content;
+  min-width: min(240px, calc(100vw - 40px));
+  max-width: min(560px, calc(100vw - 40px));
+  overflow-x: auto;
+}
+.landmark-info-panel th,
+.landmark-info-panel td:first-child { white-space: nowrap; }
+.landmark-info-panel td:last-child { overflow-wrap: anywhere; }
+
+.snapshot-map-menu.leaflet-control-layers {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px #0f172a26;
+  color: #334155;
+}
+.snapshot-map-menu .leaflet-control-layers-toggle {
+  width: 36px;
+  height: 36px;
+  background-image: url("/icons/sliders-horizontal.svg");
+  background-size: 20px 20px;
+  border-radius: 8px;
+}
+.snapshot-map-menu .leaflet-control-layers-toggle:hover { background-color: #f1f5f9; }
+.snapshot-map-menu.leaflet-control-layers-expanded { padding: 14px 16px; }
+.snapshot-map-menu .leaflet-control-layers-list { min-width: 190px; max-width: min(280px, calc(100vw - 64px)); }
+.snapshot-map-menu .snapshot-map-section-title {
+  margin: 0 0 8px;
+  font-size: inherit;
+  font-weight: 700;
+  color: #64748b;
+}
+.snapshot-map-menu .leaflet-control-layers-base > label { padding: 3px 0; cursor: pointer; }
+.snapshot-map-menu input { accent-color: #2563eb; }
+.snapshot-mask-control { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e2e8f0; }
+.snapshot-map-menu .snapshot-mask-control label { font-size: inherit; }
+.snapshot-mask-slider { display: flex; align-items: center; gap: 8px; }
+#snapshot-mask-opacity { flex: 1; width: 90px; min-width: 60px; }
+#snapshot-mask-opacity-value { min-width: 4ch; padding: 2px 6px; border-radius: 4px; background: #eff6ff; color: #1d4ed8; white-space: nowrap; font-variant-numeric: tabular-nums; }
 
 @media (max-width: 540px) {
   .settings-grid, .settings-grid-two { grid-template-columns: 1fr; gap: 4px; }

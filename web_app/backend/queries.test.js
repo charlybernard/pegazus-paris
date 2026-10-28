@@ -1,11 +1,44 @@
 const { test } = require("node:test");
 const assert = require("node:assert/strict");
-const { getQueryValidLandmarksFromTime } = require("./queries");
+const { getQueryValidLandmarksFromTime, getQueryValidAttributeVersionsFromTime } = require("./queries");
 const { runSparql } = require("./data");
 
 const timestamp = "1850-01-01T00:00:00Z";
 const calendar = "http://www.wikidata.org/entity/Q1985727";
 const graph = "https://example.org/graph";
+
+test("snapshot calendar filters accept Wikidata HTTP/HTTPS aliases without duplicating outer solutions", () => {
+  for (const build of [getQueryValidLandmarksFromTime, getQueryValidAttributeVersionsFromTime]) {
+    const http = build(timestamp, calendar, graph);
+    assert.equal(build(timestamp, calendar.replace("http:", "https:"), graph), http);
+    const filters = [...http.matchAll(/FILTER\(\?\w+Calendar IN \(([^)]+)\)\)/g)];
+    assert.equal(filters.length, 6);
+    assert(filters.every(([, identifiers]) => identifiers === `<${calendar}>, <${calendar.replace("http:", "https:")}>`));
+    assert(!http.includes("VALUES ?timeCalendar"));
+    const custom = build(timestamp, "https://example.org/calendar", graph);
+    assert(!custom.includes("wikidata.org/entity/Q1985727"));
+    assert(custom.includes("IN (<https://example.org/calendar>)"));
+  }
+});
+
+test("SPARQL calendar filters match both Wikidata schemes and reject other calendars", {
+  skip: !process.env.SPARQL_TEST_ENDPOINT
+}, async () => {
+  for (const build of [getQueryValidLandmarksFromTime, getQueryValidAttributeVersionsFromTime]) {
+    const query = build(timestamp, calendar.replace("http:", "https:"), graph);
+    for (const [filter, variable] of query.matchAll(/FILTER\(\?(\w+Calendar) IN \([^)]+\)\)/g)) {
+      const fixture = `SELECT ?${variable} WHERE {
+        VALUES ?${variable} {
+          <${calendar}> <${calendar.replace("http:", "https:")}>
+          <http://www.wikidata.org/entity/Q1985786> <https://example.org/calendar>
+        }
+        ${filter}
+      }`;
+      const results = await runSparql(process.env.SPARQL_TEST_ENDPOINT, fixture);
+      assert.deepEqual(results.map(row => row[variable].value).sort(), [calendar, calendar.replace("http:", "https:")].sort());
+    }
+  }
+});
 
 test("landmark certainty consumes low and high bounds instead of assuming missing dates are certain", () => {
   const query = getQueryValidLandmarksFromTime(timestamp, calendar, graph, "1830-01-01T00:00:00Z", "1870-01-01T00:00:00Z");

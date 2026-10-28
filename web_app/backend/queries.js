@@ -35,6 +35,14 @@ function getValuesForQuery(variable, values){
     return strValues ;
   }
 
+function getCalendarForQuery(timeCalendarURI, variable) {
+    const wikidata = timeCalendarURI.match(/^https?:\/\/www\.wikidata\.org\/entity\/(Q\d+)$/);
+    const calendars = wikidata
+        ? [`http://www.wikidata.org/entity/${wikidata[1]}`, `https://www.wikidata.org/entity/${wikidata[1]}`]
+        : [timeCalendarURI];
+    return `FILTER(?${variable} IN (${calendars.map(calendar => `<${calendar}>`).join(", ")}))`;
+}
+
 function getQueryForGraphs(lang = "fr"){
     var query = getPrefixesForQuery(prefixes) + `
         SELECT ?graph ?label WHERE {
@@ -267,7 +275,6 @@ function getQueryValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphUR
     SELECT DISTINCT ?lm ?lmLabel ?relatumLabel ?existsForSure WHERE {
         BIND(<${namedGraphURI}> AS ?g)
         BIND("${timeStamp}"^^xsd:dateTimeStamp AS ?timeStamp)
-        BIND(<${timeCalendarURI}> AS ?timeCalendar)
   
         GRAPH ?g {
             ?lm a peg:Landmark ; rdfs:label ?lmLabel .
@@ -283,18 +290,21 @@ function getQueryValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphUR
         ?appEv peg:hasTime ?appTime .
         # Cas 1 : Temps net (Crisp)
         OPTIONAL {
-            ?appTime a peg:CrispTimeInstant ; peg:timeStamp ?appCrispStamp ; peg:timeCalendar ?timeCalendar .
+            ?appTime a peg:CrispTimeInstant ; peg:timeStamp ?appCrispStamp ; peg:timeCalendar ?appCrispCalendar .
+            ${getCalendarForQuery(timeCalendarURI, "appCrispCalendar")}
             BIND(?appCrispStamp <= ?timeStamp AS ?appCrispExists)
         }
         # Cas 2 : Temps flou (Fuzzy)
         OPTIONAL {
             ?appTime a peg:FuzzyTimeInstant .
             OPTIONAL { 
-                ?appTime peg:hasFuzzyBeginning [peg:timeStamp ?appFuzzyBegStamp ; peg:timeCalendar ?timeCalendar] 
+                ?appTime peg:hasFuzzyBeginning [peg:timeStamp ?appFuzzyBegStamp ; peg:timeCalendar ?appFuzzyBegCalendar]
+                ${getCalendarForQuery(timeCalendarURI, "appFuzzyBegCalendar")}
                 BIND(?appFuzzyBegStamp <= ?timeStamp AS ?appFuzzyBegExists) # "Peut exister" car le flou a commencé
             }
             OPTIONAL { 
-                ?appTime peg:hasFuzzyEnd [peg:timeStamp ?appFuzzyEndStamp ; peg:timeCalendar ?timeCalendar] 
+                ?appTime peg:hasFuzzyEnd [peg:timeStamp ?appFuzzyEndStamp ; peg:timeCalendar ?appFuzzyEndCalendar]
+                ${getCalendarForQuery(timeCalendarURI, "appFuzzyEndCalendar")}
                 BIND(?appFuzzyEndStamp <= ?timeStamp AS ?appFuzzyEndExists) # "Existe pour sûr" car le flou est fini
                 ` + highTimeStampFilter + `
             }
@@ -302,18 +312,21 @@ function getQueryValidLandmarksFromTime(timeStamp, timeCalendarURI, namedGraphUR
 
         ?disEv peg:hasTime ?disTime .
         OPTIONAL {
-            ?disTime a peg:CrispTimeInstant ; peg:timeStamp ?disCrispStamp ; peg:timeCalendar ?timeCalendar .
+            ?disTime a peg:CrispTimeInstant ; peg:timeStamp ?disCrispStamp ; peg:timeCalendar ?disCrispCalendar .
+            ${getCalendarForQuery(timeCalendarURI, "disCrispCalendar")}
             BIND(?disCrispStamp > ?timeStamp AS ?disCrispExists)
         }
         OPTIONAL {
             ?disTime a peg:FuzzyTimeInstant .
             OPTIONAL { 
-                ?disTime peg:hasFuzzyBeginning [peg:timeStamp ?disFuzzyBegStamp ; peg:timeCalendar ?timeCalendar] 
+                ?disTime peg:hasFuzzyBeginning [peg:timeStamp ?disFuzzyBegStamp ; peg:timeCalendar ?disFuzzyBegCalendar]
+                ${getCalendarForQuery(timeCalendarURI, "disFuzzyBegCalendar")}
                 BIND(?disFuzzyBegStamp > ?timeStamp AS ?disFuzzyBegExists) # "Existe pour sûr" car le flou n'a pas commencé
                 ` + lowTimeStampFilter + `
             }
             OPTIONAL { 
-                ?disTime peg:hasFuzzyEnd [peg:timeStamp ?disFuzzyEndStamp ; peg:timeCalendar ?timeCalendar] 
+                ?disTime peg:hasFuzzyEnd [peg:timeStamp ?disFuzzyEndStamp ; peg:timeCalendar ?disFuzzyEndCalendar]
+                ${getCalendarForQuery(timeCalendarURI, "disFuzzyEndCalendar")}
                 BIND(?disFuzzyEndStamp > ?timeStamp AS ?disFuzzyEndExists) # "Peut encore exister" car le flou n'est pas fini
             }
         }
@@ -341,7 +354,6 @@ function getQueryValidAttributeVersionsFromTime(timeStamp, timeCalendarURI, name
 SELECT DISTINCT ?lm ?vers ?versValue ?existsForSure ?attrType WHERE {
     BIND(<${namedGraphURI}> AS ?g)
     BIND("${timeStamp}"^^xsd:dateTimeStamp AS ?timeStamp)
-    BIND(<${timeCalendarURI}> AS ?timeCalendar)
     
     ${wktGeom ? `BIND(${wktGeom} AS ?searchArea)` : ""}
 
@@ -360,34 +372,40 @@ SELECT DISTINCT ?lm ?vers ?versValue ?existsForSure ?attrType WHERE {
     ?meEv peg:hasTime ?meTime .
 
     OPTIONAL {
-        ?meTime a peg:CrispTimeInstant ; peg:timeStamp ?meCrispStamp ; peg:timeCalendar ?timeCalendar .
+        ?meTime a peg:CrispTimeInstant ; peg:timeStamp ?meCrispStamp ; peg:timeCalendar ?meCrispCalendar .
+        ${getCalendarForQuery(timeCalendarURI, "meCrispCalendar")}
         BIND(?meCrispStamp <= ?timeStamp AS ?meCrispExists)
     }
     OPTIONAL {
         ?meTime a peg:FuzzyTimeInstant .
         OPTIONAL { 
-            ?meTime peg:hasFuzzyBeginning [peg:timeStamp ?meFuzzyBegStamp ; peg:timeCalendar ?timeCalendar] 
+            ?meTime peg:hasFuzzyBeginning [peg:timeStamp ?meFuzzyBegStamp ; peg:timeCalendar ?meFuzzyBegCalendar]
+            ${getCalendarForQuery(timeCalendarURI, "meFuzzyBegCalendar")}
             BIND(?meFuzzyBegStamp <= ?timeStamp AS ?meFuzzyBegExists) 
         }
         OPTIONAL { 
-            ?meTime peg:hasFuzzyEnd [peg:timeStamp ?meFuzzyEndStamp ; peg:timeCalendar ?timeCalendar] 
+            ?meTime peg:hasFuzzyEnd [peg:timeStamp ?meFuzzyEndStamp ; peg:timeCalendar ?meFuzzyEndCalendar]
+            ${getCalendarForQuery(timeCalendarURI, "meFuzzyEndCalendar")}
             BIND(?meFuzzyEndStamp <= ?timeStamp AS ?meFuzzyEndExists) 
         }
     }
 
     ?oEv peg:hasTime ?oTime .
     OPTIONAL {
-        ?oTime a peg:CrispTimeInstant ; peg:timeStamp ?oCrispStamp ; peg:timeCalendar ?timeCalendar .
+        ?oTime a peg:CrispTimeInstant ; peg:timeStamp ?oCrispStamp ; peg:timeCalendar ?oCrispCalendar .
+        ${getCalendarForQuery(timeCalendarURI, "oCrispCalendar")}
         BIND(?oCrispStamp > ?timeStamp AS ?oCrispExists)
     }
     OPTIONAL {
         ?oTime a peg:FuzzyTimeInstant .
         OPTIONAL { 
-            ?oTime peg:hasFuzzyBeginning [peg:timeStamp ?oFuzzyBegStamp ; peg:timeCalendar ?timeCalendar] 
+            ?oTime peg:hasFuzzyBeginning [peg:timeStamp ?oFuzzyBegStamp ; peg:timeCalendar ?oFuzzyBegCalendar]
+            ${getCalendarForQuery(timeCalendarURI, "oFuzzyBegCalendar")}
             BIND(?oFuzzyBegStamp > ?timeStamp AS ?oFuzzyBegExists) 
         }
         OPTIONAL { 
-            ?oTime peg:hasFuzzyEnd [peg:timeStamp ?oFuzzyEndStamp ; peg:timeCalendar ?timeCalendar] 
+            ?oTime peg:hasFuzzyEnd [peg:timeStamp ?oFuzzyEndStamp ; peg:timeCalendar ?oFuzzyEndCalendar]
+            ${getCalendarForQuery(timeCalendarURI, "oFuzzyEndCalendar")}
             BIND(?oFuzzyEndStamp > ?timeStamp AS ?oFuzzyEndExists) 
         }
     }

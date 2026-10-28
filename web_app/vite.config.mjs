@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const apiTarget = process.env.API_TARGET || "http://127.0.0.1:3000";
 
-const icons = new Map(["settings", "x", "rotate-ccw", "save", "plus", "pencil", "trash-2", "check"].map(name => [
+const icons = new Map(["sliders-horizontal", "info", "settings", "x", "rotate-ccw", "save", "plus", "pencil", "trash-2", "check"].map(name => [
   `/${name}.svg`, readFileSync(new URL(`./node_modules/lucide-static/icons/${name}.svg`, import.meta.url))
 ]));
 

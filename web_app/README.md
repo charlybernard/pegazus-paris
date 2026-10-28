@@ -49,7 +49,13 @@ The server uses the saved configuration for every browser connected to it. Setti
 ## Explore the Data
 
 - **Snapshot** mode displays entities on the map for a selected date. Draw an area to limit the spatial search.
+  The map options menu (sliders icon, top right) groups basemaps and outside-area opacity under separate headings. The opacity slider adjusts the dark mask immediately from 0% (transparent) to 100% (opaque), starting at 45%. Its value is kept for subsequent snapshots until the page is reloaded.
 - **Landmark Evolution** mode lets you choose a type and then an entity to view its validity and history on the timeline.
+  Its map uses the same styled map options menu for basemap selection, with section headings matching the body text size. Outside-area opacity is specific to Snapshot mode.
 - The language menu changes the interface language. The language of queried data is configured separately in settings.
+  The map entity details panel updates immediately, including when an entity is selected; attribute labels and values from RDF keep the configured data language.
+  The panel expands to fit its content up to 560 pixels (or the available viewport width), keeping attribute types on one line and wrapping long values when necessary.
+- The discreet information button next to settings shows the selected named graph URI, the SPARQL endpoint, and the graph reported by the last result in the current mode, even when only one graph is available. Entity, attribute and change selection uses that named graph; supporting dates, calendars, type labels and some values use the endpoint's default dataset, which may span other graphs.
+- Snapshot certainty accepts both HTTP and HTTPS Wikidata identifiers for the configured calendar. Other calendar identifiers remain exact matches. The default Gregorian calendar identifier is `http://www.wikidata.org/entity/Q1985727`, matching the generated RDF. Missing temporal bounds remain uncertain; the configured time margin is unchanged.
 
 For details about the architecture, development, API, and tests, see [README.development.md](README.development.md).
